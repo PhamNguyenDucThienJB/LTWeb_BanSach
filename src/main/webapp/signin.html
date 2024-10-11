@@ -37,18 +37,35 @@
 
     <div class="container-fluid position-relative d-flex p-0">
         <!-- Spinner Start -->
-        <div id="spinner" class="show bg-pink position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div id="spinner"  class="show bg-pink position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Đang tải...</span>
             </div>
         </div>
         <!-- Spinner End -->
-
+         
+            <section class="breadcrumb-section set-bg" data-setbg="./img/banner/title.jpg" style="background-image: url(&quot;./img/banner/breadcrumb.jpg&quot;);">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <div class="breadcrumb__text">
+                            <h2>Trang Đăng Nhập</h2>
+                            <div class="breadcrumb__option">
+                                <a href="./index.html"> <span>Trang Chủ</span></a>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <!-- Sign In Start -->
         <div class="container-fluid bg_signin_signup">
             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
                 <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
-                    <form action="/BanBanhKemSinhNhatWebProject/doSignin" method="post" class="bg-pink rounded p-4 p-sm-5 my-4 mx-3">
+                    <form action="/BanBanhKemSinhNhatWebProject/doSignin" style="border: solid;
+    color: orange;" method="post" class="bg-pink rounded p-4 p-sm-5 my-4 mx-3">
                         <div>
                             <h2 class="title-sg">Đăng nhập</h2>
                         </div>
@@ -61,10 +78,10 @@
                             <label for="floatingPassword">Mật khẩu</label>
                         </div>
                         <span id="insertTextHere"></span>
-                        <div class="d-flex align-items-center justify-content-between mb-4 mt-4">
+                        <div class="d-flex align-items-center justify-content-between mb-4 mt-4" style="flex-direction: row;">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input toggle" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Lưu đăng nhập</label>
+                                <label class="form-check-label" for="exampleCheck1">Hiển Thị Mật Khẩu</label>
                             </div>
                             
                             <script>
@@ -80,11 +97,22 @@
                                       })
                             </script>
                         
-                            <a style="cursor: pointer" onclick="forgotPassword()" >Quên mật khẩu?</a>
+                            <a style="cursor: pointer;"  onclick="forgotPassword()" >Quên mật khẩu?</a>
                         </div>
                         <button type="submit" id="login-button" class="btn btn-primary py-3 w-100 mb-4">Đăng nhập</button>
-                        <p class="text-center mb-0">Bạn chưa có tài khoản? <a href="signup.jsp">Đăng ký ngay</a></p>
+                        <p class="text-center mb-0">Bạn chưa có tài khoản? <a href="signup.html">Đăng ký ngay</a></p>
+                        <div class="block social-login--facebooks">
+                            <p class="title-sg" style="    margin-left: 80px;
+                            margin-right: 80px;
+                        ">
+                                <span style="font-size: medium;">Hoặc đăng nhập bằng</span>
+                            </p>
+                            <script>function loginFacebook(){var a={client_id:"947410958642584",redirect_uri:"https://store.mysapo.net/account/facebook_account_callback",state:JSON.stringify({redirect_url:window.location.href}),scope:"email",response_type:"code"},b="https://www.facebook.com/v3.2/dialog/oauth"+encodeURIParams(a,!0);window.location.href=b}function loginGoogle(){var a={client_id:"997675985899-pu3vhvc2rngfcuqgh5ddgt7mpibgrasr.apps.googleusercontent.com",redirect_uri:"https://store.mysapo.net/account/google_account_callback",scope:"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile",access_type:"online",state:JSON.stringify({redirect_url:window.location.href}),response_type:"code"},b="https://accounts.google.com/o/oauth2/v2/auth"+encodeURIParams(a,!0);window.location.href=b}function encodeURIParams(a,b){var c=[];for(var d in a)if(a.hasOwnProperty(d)){var e=a[d];null!=e&&c.push(encodeURIComponent(d)+"="+encodeURIComponent(e))}return 0==c.length?"":(b?"?":"")+c.join("&")}</script>
+                            <a href="javascript:void(0)" class="social-login--facebook" onclick="loginFacebook()"><img width="129px" height="37px" alt="facebook-login-button" src="//bizweb.dktcdn.net/assets/admin/images/login/fb-btn.svg"></a>
+                            <a href="javascript:void(0)" class="social-login--google" onclick="loginGoogle()"><img width="129px" height="37px" alt="google-login-button" src="//bizweb.dktcdn.net/assets/admin/images/login/gp-btn.svg"></a>
+                        </div>
                     </form>
+                    
                 </div>
             </div>
         </div>

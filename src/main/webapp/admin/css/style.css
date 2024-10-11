@@ -1,8 +1,8 @@
 /********** Template CSS **********/
 :root {
-    --primary: #ff96b7;
-    --secondary: #f4abb4;
-    --light: #ff96b7;
+    --primary: #ff4d4d;
+    --secondary: #ff4d4d;
+    --light: #ff4d4d;
     --white: #ffffff;
 }
 
@@ -15,8 +15,8 @@
 }
 .back-to-top:hover {
 background-color: #ffffff;
-color: #ff96b7;
-border: 3px solid #ff96b7;
+color: #ff4d4d;
+border: 3px solid #ff4d4d;
 }
 
 
@@ -35,14 +35,14 @@ border: 3px solid #ff96b7;
 }
 /* change background color */
 .bg-pink{
-    background-color: #fdf3f4;
+    background-color: white;
 }
 .bg_signin_signup{
-    background-color: #ffffff;
+    background-color: whitesmoke;
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-    color: #f4abb4;
+    color: #ff4d4d;
 }
 
 /*** Button ***/
@@ -222,7 +222,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 .content .navbar .dropdown-item:hover,
 .content .navbar .dropdown-item.active {
     background: var(--white);
-    color: #ff96b7;
+    color: #ff4d4d;
 }
 
 .content .navbar .dropdown-toggle::after {
@@ -316,25 +316,25 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 
 .form-control{
     background-color: #ffffff;
-    border: 2px solid #ff96b7;
+    border: 2px solid #ff4d4d;
 }
 .form-control:focus{
     background-color: #fdf3f4;
 }
 .form-check-input{
-background-color: #ff96b7;
+background-color: #ff4d4d;
 }
 
 .icon__user{
     font-size: 48px;
-    color: #ff96b7;
+    color: #ff4d4d;
 }
 .icon__user__small{
-    color: #ff96b7;
+    color: #ff4d4d;
 }
 .icon__user__mid{
     font-size: 40px;
-    color: #ff96b7;
+    color: #ff4d4d;
 }
 /* check password signin */
 #insertTextHere{
