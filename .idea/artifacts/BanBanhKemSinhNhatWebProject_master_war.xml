@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" external-system-id="Maven" name="BanBanhKemSinhNhatWebProject-master:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>BanBanhKemSinhNhatWebProject-master</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="BanBanhKem.war">
+      <element id="artifact" artifact-name="BanBanhKemSinhNhatWebProject-master:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1103,7 +1103,7 @@ ol {
 }
 
 .latest-product__item__pic img {
-	height: 110px;
+	height: 160px;
 	width: 110px;
 }
 
@@ -1371,10 +1371,10 @@ ol {
 	visibility: hidden;
 }
 
-.text__loaibanh a:hover{
+.text__loaisach a:hover{
  color: #f47920;
 }
-.text__loaibanh__active{
+.text__loaisach__active{
 	color: #f47920 !important;
 	font-weight: 600;
 }
@@ -1415,7 +1415,7 @@ ol {
 }
 
 .product__discount__item__pic {
-	height: 270px;
+	height: 400px;
 	position: relative;
 	overflow: hidden;
 }
@@ -1678,7 +1678,7 @@ ol {
 }
 
 .product__item__pic {
-	height: 270px;
+	height: 400px;
 	position: relative;
 	overflow: hidden;
 }
