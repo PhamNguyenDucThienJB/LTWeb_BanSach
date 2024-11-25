@@ -128,10 +128,10 @@
                                 <!-- <a href="https://www.instagram.com/maizecorn1542/" target="blank"><i class="fa fa-instagram"></i></a> -->
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="./signin.html"><i class="fa fa-user"></i>Đăng nhập</a>
+                                <a href="./signin.jsp"><i class="fa fa-user"></i>Đăng nhập</a>
                                 <div class="header__top__right__auth__dropdown">
                                     <a href="#" class="dropdown-item">Vào trang quản lí</a>
-                                    <a href="./signin.html" class="dropdown-item">Đăng xuất</a>
+                                    <a href="./signin.jsp" class="dropdown-item">Đăng xuất</a>
                                 </div>
                             </div>
                         </div>
@@ -244,7 +244,7 @@
                             <a style="cursor: pointer;"  onclick="forgotPassword()" >Quên mật khẩu?</a>
                         </div>
                         <button type="submit" id="login-button" class="btn btn-primary py-3 w-100 mb-4">Đăng nhập</button>
-                        <p class="text-center mb-0">Bạn chưa có tài khoản? <a href="signup.html">Đăng ký ngay</a></p>
+                        <p class="text-center mb-0">Bạn chưa có tài khoản? <a href="signup.jsp">Đăng ký ngay</a></p>
                         <div class="block social-login--facebooks">
                             <p class="title-sg" style="    margin-left: 80px;
                             margin-right: 80px;
