@@ -8,7 +8,7 @@
           <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="footer__about">
                   <div class="footer__about__logo">
-                      <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                      <a href="index.jsp"><img src="img/logo.png" alt=""></a>
                   </div>
                  <p style="color: #FFF8F2;">"Chúng tôi không bán sách, chúng tôi bán kiến thức quản trị vượt trội của các tập đoàn hàng đầu."
                   Công ty Cổ phần Sách Alpha
