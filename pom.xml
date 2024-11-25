@@ -49,6 +49,12 @@
       <artifactId>jdbi3-core</artifactId>
       <version>3.24.1</version>
     </dependency>
+<!--   Libraries  jstl-->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
   </dependencies>
 
   <build>

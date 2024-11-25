@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html lang="zxx">
@@ -37,159 +40,8 @@
     <div id="preloder">
         <div class="loader"></div>
     </div>
-    <img src="https://pos.nvncdn.com/fd5775-40602/bn/20240321_J5bpFnuw.gif" alt="Banner header">
-    <!-- Humberger Begin -->
-    <div class="humberger__menu__overlay"></div>
-    <div class="humberger__menu__wrapper">
-        <div class="humberger__menu__logo">
-            <a href="#"><img src="img/logo_web.jpg" alt=""></a>
-        </div>
-        <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="./favorites.html"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="./shoping-cart.html"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-        </div>
-        <div class="humberger__menu__widget">
-            <div class="header__top__right__auth">
-                <a href="./admin/signin.html"><i class="fa fa-user"></i> Đăng nhập</a>
-            </div>
-        </div>
-        <nav class="humberger__menu__nav mobile-menu">
-            <ul>
-                <li class="active"><a href="./index.html">Trang chủ</a></li>
-                <li><a href="./about.html">Giới thiệu</a></li>
-                <li><a href="./shop-product.html">Sản phẩm</a>
-                   
-                </li>
-                <li><a href="./blog.html">Tin tức</a></li>
-                <li><a href="./contact.html">Liên hệ</a></li>
-            </ul>
-        </nav>
-        <div id="mobile-menu-wrap"></div>
-        <div class="header__top__right__social">
-            <a  target="blank"><i class="fa fa-facebook"></i></a>
-            <a href="#" target="blank"><i class="fa fa-comment"></i></a>
-            <a href="#" target="blank"><i class="fa fa-instagram"></i></a>
-        </div> 
-        <div class="humberger__menu__contact">
-            <ul>
-                <li><i class="fa fa-envelope"></i>ho </li>
-                <li></li>
-            </ul>
-        </div>
-    </div>
-    <!-- Humberger End -->
-
-    
     <!-- Header Section Begin -->
-    <header class="header">
-        <!-- rang cua -->
-       
-      
-      
-       <!-- rang cua -->
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6" style="display: inline-flex;">
-                        <div class="header__top__left">
-                            <div class="hero__search__phone">
-                                <div class="hero__search__phone__icon">
-                                    <a href="tel:0987654321" class="fa fa-phone cursor"></a>
-                                </div>
-                                <div class="hero__search__phone__text">
-                                    <h5>+84 987654321</h5>
-                                    <span>Mở cửa từ 8h - 22h</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__right" style="margin-top: 12px;">
-                            
-                            <div class="header__top__right__social">
-                                <a href="./favorites.html"><i class="fa fa-heart"></i> <span style="color: white;">1</span></a>
-                                <a href="./shoping-cart.html"><i class="fa fa-shopping-bag"></i> <span style="color: white;">3</span></a>
-                                <!-- <a href="https://www.instagram.com/maizecorn1542/" target="blank"><i class="fa fa-instagram"></i></a> -->
-                            </div>
-                            <div class="header__top__right__auth">
-                                <a href="signin.jsp"><i class="fa fa-user"></i>Đăng nhập</a>
-                                <div class="header__top__right__auth__dropdown">
-                                    <a href="#" class="dropdown-item">Vào trang quản lí</a>
-                                    <a href="signin.jsp" class="dropdown-item">Đăng xuất</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-       
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="./index.html"><img src="./img/logo.png" alt="" class="header__logo_img"></a>
-                    </div>
-                </div>
-                <div class="col-lg-7 ">
-                    <nav class="header__menu">
-                        <ul>
-                            <li class="active"><a href="./index.html">Trang chủ</a></li>
-                            <li><a href="./about.html">Giới thiệu</a></li>
-                            <li><a href="./shop-product.html">Sản phẩm</a>
-                             
-                            </li>
-                            <li><a href="./blog.html">Tin tức</a></li>
-                            <li><a href="./contact.html">Liên hệ</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                
-                <!-- <div class="col-lg-2">
-                    <div class="header__cart">
-                        <ul>
-                            <li><a href="./favorites.html"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="./shoping-cart.html"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                        </ul>
-                    </div>
-                </div> -->
-
-                
-            </div>
-            <!-- <div style="color:#f47920 ;" class="rang_cua"></div> -->
-            <div class="humberger__open">
-                <i class="fa fa-bars"></i>
-            </div>
-            <div class="row">
-                <div class="col-lg-3"></div>
-                <div class="col-lg-9">
-                    <div class="hero__search">
-                        <div class="hero__search__form ">
-                            <form action="#" >
-                              
-                                <input type="text" placeholder="Tìm kiếm sản phẩm?">
-                                <button type="submit" class="site-btn"><i class="fa fa-search"></i> <span class="text_search">TÌM KIẾM</span></button>
-                            </form>
-                        </div>
-
-                        <!-- <div class="hero__search__phone">
-                            <div class="hero__search__phone__icon">
-                                <a href="tel:0987654321" class="fa fa-phone cursor"></a>
-                            </div>
-                            <div class="hero__search__phone__text">
-                                <h5>+84 987654321</h5>
-                                <span>Mở cửa từ 8h - 22h</span>
-                            </div>
-                        </div> -->
-                    </div>
-                </div>
-            </div>
-          
-        </div>
-        
-    </header>
+       <jsp:include page="header.jsp"></jsp:include>
     <!-- Header Section End -->
 
     <!-- Hero Section Begin -->
@@ -525,65 +377,10 @@
     </section>
     <!-- Blog Section End -->
 
-    <!-- Footer Section Begin -->
-    <footer class="footer spad" style="background-color: orange;">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="footer__about">
-                        <div class="footer__about__logo">
-                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
-                        </div>
-                       <p style="color: #FFF8F2;">"Chúng tôi không bán sách, chúng tôi bán kiến thức quản trị vượt trội của các tập đoàn hàng đầu."
-                        Công ty Cổ phần Sách Alpha
-                        MST: 0101602138
-                        Ngày cấp: 27/01/2005
-                        Nơi cấp: Phòng ĐKKD - Sở Kế Hoạch & Đầu Tư Thành Phố Hà Nội</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-                    <div class="footer__widget">
-                        <h6>Thông Tin</h6>
-                        <ul style="color: #FFF8F2;">
-                            <li style="color: #FFF8F2;"><a href="#">Tầng 3, Dream Home Center, 11a ngõ 282 Nguyễn Huy Tưởng, Thanh Xuân, Hà Nội</a></li>
-                            <li><a href="#">mkt.alphabooks@gmail.com</a></li>
-                            <li><a href="#">0932 329 959</a></li>
-                        </ul>
-                        <br>
-                        <!-- <p class="cake-footer"><h5 class="freecake text-animation">Thưởng thức bánh miễn phí</h5><a class ="fontsize-14">Thứ sáu hàng tuần tại cửa hàng vào lúc 14h00-14h30</a></p> -->
-                        <!-- <img src = "img/footer/img-footer.jpeg">     -->
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12">
-                    <div class="footer__widget">
-                        <h6>Theo dõi bảng tin của chúng tôi</h6>
-                        <p>Nhận thông tin cập nhật e-mail về sản phẩm mới nhất và các ưu đãi đặc biệt của chúng tôi.</p>
-                        <form action="#">
-                            <input type="text" placeholder="Địa chỉ email của bạn...">
-                            <button type="submit" class="site-btn">Đăng ký</button>
-                        </form>
-                        <div class="footer__widget__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-comment"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer__copyright">
-                        <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Bản quyền &copy;<script>document.write(new Date().getFullYear());</script>  </i> Khoa CNTT - ĐH Nông Lâm TP HCM</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
-                        <div class="footer__copyright__payment"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+
 </body>
     <!-- Footer Section End -->
+<jsp:include page="footer.jsp"></jsp:include>
     <!-- back to top btn -->
     <a href="#" class="btn-to-top back-to-top"><i class="fa fa-angle-double-up"></i></a>
     <!-- Js Plugins -->
