@@ -101,7 +101,7 @@
         <div class="container-fluid bg_signin_signup">
             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
                 <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4" style="    display: contents;">
-                    <form action="/BanBanhKemSinhNhatWebProject/doSignin" style="border: solid;
+                    <form action="/SignInServlet" style="border: solid;
     color: orange;" method="post" class="bg-pink rounded p-4 p-sm-5 my-4 mx-3">
                         <div>
                             <h2 class="title-sg">Đăng nhập</h2>
