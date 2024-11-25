@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 
@@ -103,9 +104,15 @@
                 <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4" style="    display: contents;">
                     <form action="/SignInServlet" style="border: solid;
     color: orange;" method="post" class="bg-pink rounded p-4 p-sm-5 my-4 mx-3">
+
                         <div>
                             <h2 class="title-sg">Đăng nhập</h2>
                         </div>
+                        <c:if test="${not empty error}">
+                            <div class="alert alert-danger text-center" role="alert">
+                                    ${error}
+                            </div>
+                        </c:if>
                         <div class="form-floating mb-3">
                             <input type="email" class="form-control" name="email" id="floatingInput" value="" placeholder="name@example.com">
                             <label for="floatingInput">Địa chỉ email</label>
@@ -120,6 +127,7 @@
                                 <input type="checkbox" class="form-check-input toggle" id="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1">Hiển Thị Mật Khẩu</label>
                             </div>
+
                             
                             <script>
                                     const toggle = document.querySelector(".toggle"),

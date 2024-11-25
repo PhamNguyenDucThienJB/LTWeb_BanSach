@@ -12,30 +12,39 @@ import java.io.IOException;
 
 @WebServlet(name = "SignInServlet", value = "/SignInServlet")
 public class SignInServlet extends HttpServlet {
+    private static final String ACCOUNT_NOT_FOUND = "Tài khoản của bạn đã bị khóa";
+    private static final String INVALID_CREDENTIALS = "Tên đăng nhập hoặc mật khẩu không đúng";
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request, response);
+        doPost(request, response); // Chuyển sang xử lý POST
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("application/json");
         String email = request.getParameter("email");
         String passwd = request.getParameter("pass");
 
+        // Kiểm tra thông tin đăng nhập
         User user = UserService.getInstance().checkLogin(email, passwd);
-        if (user == null) {
-            request.setAttribute("Error", "Tên đăng nhập hoặc mật khẩu không đúng!!!");
-            request.getRequestDispatcher("/signin.jsp").forward(request, response);
-        } else {
+
+        if (user != null) {
+            // Kiểm tra nếu user bị khóa hoặc không hợp lệ
             if (user.checkRole(-1)) {
-                request.setAttribute("Error", "Tài Khoản Của Bạn Đã Bị Khóa! Không Thể Đăng Nhập!!");
+                request.setAttribute("error", ACCOUNT_NOT_FOUND);
                 request.getRequestDispatcher("/signin.jsp").forward(request, response);
+                return;
             }
-            HttpSession session = request.getSession(true);
+
+            // Đăng nhập thành công
+            HttpSession session = request.getSession();
             session.setAttribute("auth", user);
-            Customer customer = CustomerService.getCusByIdAcc(user.getId());
-            session.setAttribute("cust", customer);
-            response.sendRedirect(request.getContextPath() + "/IndexServlet");
+            response.sendRedirect("/IndexServlet");
+        } else {
+            // Sai thông tin đăng nhập
+            request.setAttribute("error", INVALID_CREDENTIALS);
+            request.getRequestDispatcher("/signin.jsp").forward(request, response);
         }
     }
 }
