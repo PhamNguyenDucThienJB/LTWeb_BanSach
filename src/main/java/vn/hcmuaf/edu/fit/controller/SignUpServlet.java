@@ -1,12 +1,12 @@
-package vn.hcmuaf.edu.fit.service;
+package vn.hcmuaf.edu.fit.controller;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "UserServlet", value = "/UserServlet")
-public class UserServlet extends HttpServlet {
+@WebServlet(name = "SignUpServlet", value = "/SignUpServlet")
+public class SignUpServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
