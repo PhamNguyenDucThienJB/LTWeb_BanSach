@@ -39,22 +39,22 @@
                 <span class="sr-only">Loading...</span>
             </div>
         </div>
-        <!-- Spinner End -->
-        <section class="breadcrumb-section set-bg" data-setbg="./img/banner/title.jpg" style="background-image: url(&quot;./img/banner/breadcrumb.jpg&quot;);">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <div class="breadcrumb__text">
-                            <h2  style="color: black;">Trang Đăng Ký</h2>
-                            <div class="breadcrumb__option">
-                                <a href="./index.html"><span>Trang Chủ</span></a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<%--        <!-- Spinner End -->--%>
+<%--        <section class="breadcrumb-section set-bg" data-setbg="./img/banner/title.jpg" style="background-image: url(&quot;./img/banner/breadcrumb.jpg&quot;);">--%>
+<%--            <div class="container">--%>
+<%--                <div class="row">--%>
+<%--                    <div class="col-lg-12 text-center">--%>
+<%--                        <div class="breadcrumb__text">--%>
+<%--                            <h2  style="color: black;">Trang Đăng Ký</h2>--%>
+<%--                            <div class="breadcrumb__option">--%>
+<%--                                <a href="./index.html"><span>Trang Chủ</span></a>--%>
+<%--                                --%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </section>--%>
 
         <!-- Sign Up Start -->
         <div class="container-fluid bg_signin_signup">
@@ -75,7 +75,7 @@
                             <label for="floatingPassword">Tạo mật khẩu</label>
                         </div>
                         <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <input type="password" class="form-control" id="floatingPassword1" placeholder="Password">
                             <label for="floatingPassword">Nhập lại mật khẩu</label>
                         </div>
                         <div class="d-flex align-items-center justify-content-between mb-4">
@@ -86,7 +86,7 @@
                            
                         </div>
                         <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Đăng ký</button>
-                        <p class="text-center mb-0">Bạn đã có tài khoản? <a href="./signin.html">Đăng nhập</a></p>
+                        <p class="text-center mb-0">Bạn đã có tài khoản? <a href="signin.jsp">Đăng nhập</a></p>
                     </div>
                 </div>
             </div>
