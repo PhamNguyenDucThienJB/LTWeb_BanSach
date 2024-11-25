@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: John Pham
@@ -21,7 +22,18 @@
     </div>
     <div class="humberger__menu__widget">
         <div class="header__top__right__auth">
-            <a href="./admin/signin.html"><i class="fa fa-user"></i> Đăng nhập</a>
+            <c:if test="${auth != null}">
+                <div class="header__top__right__auth__dropdown">
+                    <a href="/" class="dropdown-item">Đơn hàng của tôi</a>
+                    <a href="/" class="dropdown-item">Hồ sơ của tôi</a>
+                    <a class="dropdown-item">Đặt lại mật khẩu</a>
+                    <c:if test="${auth.checkRole(1)}">
+                        <a href="/" class="dropdown-item">Vào trang quản lí</a>
+                    </c:if>
+                    <a href="/" class="dropdown-item">Đăng xuất</a>
+                </div>
+            </c:if>
+
         </div>
     </div>
     <nav class="humberger__menu__nav mobile-menu">
@@ -83,12 +95,38 @@
                             <!-- <a href="https://www.instagram.com/maizecorn1542/" target="blank"><i class="fa fa-instagram"></i></a> -->
                         </div>
                         <div class="header__top__right__auth">
-                            <a href="signin.jsp"><i class="fa fa-user"></i>Đăng nhập</a>
-                            <div class="header__top__right__auth__dropdown">
-                                <a href="#" class="dropdown-item">Vào trang quản lí</a>
-                                <a href="signin.jsp" class="dropdown-item">Đăng xuất</a>
-                            </div>
+
+                            <c:choose>
+
+                                <c:when test="${auth != null}">
+                                    <span>Chào mừng ${auth.tentk} quay lại</span>
+                                    <div class="header__top__right__auth__dropdown">
+                                        <a href="/" class="dropdown-item">Đơn hàng của tôi</a>
+                                        <a href="/" class="dropdown-item">Hồ sơ của tôi</a>
+                                        <a class="dropdown-item">Đặt lại mật khẩu</a>
+
+                                        <c:if test="${auth.checkRole(1)}">
+                                            <a href="/admin" class="dropdown-item">Vào trang quản lí</a>
+                                        </c:if>
+
+                                        <a href="/logout" class="dropdown-item">Đăng xuất</a>
+                                    </div>
+                                </c:when>
+
+
+                                <c:otherwise>
+
+                                    <a href="/signin.jsp" class="dropdown-item"><i class="fa fa-user"></i> Đăng nhập</a>
+
+
+                                </c:otherwise>
+                            </c:choose>
                         </div>
+
+
+
+
+                    </div>
                     </div>
                 </div>
             </div>

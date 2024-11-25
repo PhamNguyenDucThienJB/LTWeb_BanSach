@@ -99,7 +99,7 @@
 			</div>
 			<div class="col-md-6">
 				<div class="title"><img class="lazyload loaded" src="//bizweb.dktcdn.net/100/197/269/themes/890698/assets/about_title.png?1726331743433" data-src="//bizweb.dktcdn.net/100/197/269/themes/890698/assets/about_title.png?1726331743433" alt="" data-was-processed="true"></div>
-				<div class="title-2">Công ty Cổ phần Sách Alpha (Alpha Books)</div>
+				<div class="title-2">Công ty Cổ phần Sách Alpha (Alpha Books) </div>
 				<div class="content">Alpha Books được biết đến là một trong những thương hiệu hàng đầu về dòng sách quản trị kinh doanh, phát triển kỹ năng, tài chính, đầu tư… với các cuốn sách hướng dẫn khởi nghiệp, các bài học, phương pháp và kinh nghiệm quản trị của các chuyên gia, và các tập đoàn nổi tiếng trên thế giới. Sau 18 năm hình thành và phát triển, Alpha Books đã từng bước khẳng định tên tuổi của mình, đặc biệt đối với các thế hệ doanh nhân, nhà quản lý và những người trẻ luôn khát khao xây dựng sự nghiệp thành công.</div>
 				<a href="https://alphabooks.vn/gioi-thieu" class="more">XEM THÊM</a>
 			</div>

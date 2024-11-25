@@ -107,7 +107,7 @@
                             <h2 class="title-sg">Đăng nhập</h2>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" name="username" id="floatingInput" value="" placeholder="name@example.com">
+                            <input type="email" class="form-control" name="email" id="floatingInput" value="" placeholder="name@example.com">
                             <label for="floatingInput">Địa chỉ email</label>
                         </div>
                         <div class="form-floating mb-4">

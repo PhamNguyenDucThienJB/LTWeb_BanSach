@@ -1,8 +1,6 @@
 package vn.hcmuaf.edu.fit.dto;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DBConnection {
     // Thay đổi driverClass, URL, username và password để phù hợp với MySQL
@@ -10,7 +8,8 @@ public class DBConnection {
     private static String url = "jdbc:mysql://localhost:3306/bansach"; // Thay 'your_database_name' bằng tên DB
     private static String username = "root"; // Thay bằng tài khoản MySQL của bạn
     private static String password = ""; // Thay bằng mật khẩu MySQL của bạn
-
+    static DBConnection install;
+    Connection conn;
     // Nạp driver MySQL
     static {
         try {
@@ -18,6 +17,21 @@ public class DBConnection {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+    public static DBConnection getInstall(){
+        if(install==null)
+            install= new DBConnection();
+        return install;
+    }
+    public Statement get() {
+        if (conn == null) return null;
+
+        try {
+            return conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        } catch (SQLException e) {
+            return null;
+        }
+
     }
 
     // Kết nối đến cơ sở dữ liệu
