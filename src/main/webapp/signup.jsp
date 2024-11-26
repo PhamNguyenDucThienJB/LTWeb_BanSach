@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
@@ -101,24 +102,31 @@
             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
                 <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                     <div class="bg-pink rounded p-4 p-sm-5 my-4 mx-3">
-                        <form action="/SignUpServlet" method="">
+                        <form action="/SignUpServlet" method="post">
                         <h2 class="title-sg">Đăng ký</h2>
+
+                            <c:if test="${not empty error}">
+                                <div class="alert alert-danger text-center" role="alert">
+                                        ${error}
+                                </div>
+                            </c:if>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingText" placeholder="jhondoe">
+                            <input name="name" type="text" class="form-control" id="floatingText" placeholder="jhondoe">
                             <label for="floatingText">Tạo tên đăng nhập</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput">Địa chỉ email</label>
                         </div>
                         <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <input name="pass" type="password" class="form-control" id="floatingPassword" placeholder="Password">
                             <label for="floatingPassword">Tạo mật khẩu</label>
                         </div>
                         <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="floatingPassword1" placeholder="Password">
+                            <input name="repass" type="password" class="form-control" id="floatingPassword1" placeholder="Password">
                             <label for="floatingPassword">Nhập lại mật khẩu</label>
                         </div>
+                            <button name="save-login" type="submit" class="btn btn-primary py-3 w-100 mb-4">Đăng ký</button>
                         </form>
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <!-- <div class="form-check">
@@ -127,7 +135,7 @@
                             </div> -->
                            
                         </div>
-                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Đăng ký</button>
+
                         <p class="text-center mb-0">Bạn đã có tài khoản? <a href="signin.jsp">Đăng nhập</a></p>
                     </div>
                 </div>
