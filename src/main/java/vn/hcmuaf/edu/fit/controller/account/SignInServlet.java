@@ -22,7 +22,10 @@ public class SignInServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("application/json");
+        response.setContentType("text/html; charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+
+
         String email = request.getParameter("email");
         String passwd = request.getParameter("pass");
 

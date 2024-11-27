@@ -38,6 +38,17 @@ public class DBConnection {
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url, username, password);
     }
+    public Connection getConnectionInstance() {
+        if (conn == null) {
+            try {
+                conn = DriverManager.getConnection(url, username, password);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return conn;
+    }
+
 
     public static void main(String[] args) {
         try (Connection conn = DBConnection.getConnection()) {

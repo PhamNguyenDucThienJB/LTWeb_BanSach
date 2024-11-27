@@ -106,10 +106,10 @@
                                         <a class="dropdown-item">Đặt lại mật khẩu</a>
 
                                         <c:if test="${auth.checkRole(1)}">
-                                            <a href="/admin" class="dropdown-item">Vào trang quản lí</a>
+                                            <a href="/AdminIndexSL" class="dropdown-item">Vào trang quản lí</a>
                                         </c:if>
 
-                                        <a href="/logout" class="dropdown-item">Đăng xuất</a>
+                                        <a href="/LogoutServlet" class="dropdown-item">Đăng xuất</a>
                                     </div>
                                 </c:when>
 
