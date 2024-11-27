@@ -153,8 +153,6 @@
                     <button type="button" id="login-button" class="btn btn-primary py-3 w-100 mb-4">Đăng nhập</button>
 
 
-
-
                     <p class="text-center mb-0">Bạn chưa có tài khoản? <a href="signup.jsp">Đăng ký ngay</a></p>
                     <div class="block social-login--facebooks">
                         <p class="title-sg" style="    margin-left: 80px;
@@ -260,6 +258,10 @@ function encodeURIParams(a, b) {
             </div>
             <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
         `;
+            newToast.querySelector('.fa-xmark').onclick = function () {
+                clearTimeout(newToast.timeOut);
+                newToast.remove();
+            };
             document.querySelector('.custom-notifications').appendChild(newToast);
             setTimeout(() => newToast.remove(), 5000);
             return;
@@ -377,6 +379,12 @@ function encodeURIParams(a, b) {
     .custom-toast .custom-title {
         font-size: x-large;
         font-weight: bold;
+    }
+
+    .custom-toast .fa-xmark {
+        cursor: pointer;
+        font-size: 18px;
+        /*background-color: lightblue;*/
     }
 
     .custom-toast span, .custom-toast i:nth-child(3) {

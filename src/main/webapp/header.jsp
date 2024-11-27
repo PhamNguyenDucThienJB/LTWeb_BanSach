@@ -7,6 +7,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<!-- Google Font -->
+
+
 <img src="https://pos.nvncdn.com/fd5775-40602/bn/20240321_J5bpFnuw.gif" alt="Banner header">
 <!-- Humberger Begin -->
 <div class="humberger__menu__overlay"></div>
@@ -25,7 +28,7 @@
             <c:if test="${auth != null}">
                 <div class="header__top__right__auth__dropdown">
                     <a href="/" class="dropdown-item">Đơn hàng của tôi</a>
-                    <a href="/" class="dropdown-item">Hồ sơ của tôi</a>
+                    <a href="/page_profile.jsp" class="dropdown-item">Hồ sơ của tôi</a>
                     <a class="dropdown-item">Đặt lại mật khẩu</a>
                     <c:if test="${auth.checkRole(1)}">
                         <a href="/" class="dropdown-item">Vào trang quản lí</a>
