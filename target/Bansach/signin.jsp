@@ -13,7 +13,7 @@
     <meta content="" name="description">
 
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -50,17 +50,15 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="admin/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="admin/css/bootstrap.min.css" rel="stylesheet">
+
 
     <!-- Template Stylesheet -->
-    <link href="admin/css/style.css" rel="stylesheet">
+    <link href="./admin/css/style.css" rel="stylesheet">
     <!-- Template Stylesheet -->
-    <link href="admin/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+
 </head>
-<style>
 
-</style>
 <body>
 <!-- Page Preloder -->
 <div id="preloder">
@@ -107,7 +105,7 @@
 
         <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
             <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4" style="    display: contents;">
-                <form action="/SignInServlet" style="border: solid;
+                <form id="login-form" action="/SignInServlet" style="border: solid;
     color: orange;" method="post" class="bg-pink rounded p-4 p-sm-5 my-4 mx-3">
 
                     <div>
@@ -154,30 +152,7 @@
                     </div>
                     <button type="button" id="login-button" class="btn btn-primary py-3 w-100 mb-4">Đăng nhập</button>
 
-                    <script>
-                        document.getElementById('login-button').addEventListener('click', function () {
-                            const email = document.getElementById('floatingInput').value.trim();
-                            const password = document.getElementById('floatingPassword').value.trim();
 
-                            if (!email || !password) {
-                                alert('Vui lòng nhập đầy đủ email và mật khẩu!');
-                                return;
-                            }
-
-                            if (!email.includes('@')) {
-                                alert('Email không hợp lệ!');
-                                return;
-                            }
-
-                            if (password.length < 6) {
-                                alert('Mật khẩu phải có ít nhất 6 ký tự!');
-                                return;
-                            }
-
-                            // Nếu tất cả đều hợp lệ, gửi form
-                            document.querySelector('form').submit();
-                        });
-                    </script>
 
 
                     <p class="text-center mb-0">Bạn chưa có tài khoản? <a href="signup.jsp">Đăng ký ngay</a></p>
@@ -187,37 +162,7 @@
                         ">
                             <span style="font-size: medium;">Hoặc đăng nhập bằng</span>
                         </p>
-                        <script>function loginFacebook() {
-                            var a = {
-                                client_id: "947410958642584",
-                                redirect_uri: "https://store.mysapo.net/account/facebook_account_callback",
-                                state: JSON.stringify({redirect_url: window.location.href}),
-                                scope: "email",
-                                response_type: "code"
-                            }, b = "https://www.facebook.com/v3.2/dialog/oauth" + encodeURIParams(a, !0);
-                            window.location.href = b
-                        }
 
-                        function loginGoogle() {
-                            var a = {
-                                client_id: "997675985899-pu3vhvc2rngfcuqgh5ddgt7mpibgrasr.apps.googleusercontent.com",
-                                redirect_uri: "https://store.mysapo.net/account/google_account_callback",
-                                scope: "email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile",
-                                access_type: "online",
-                                state: JSON.stringify({redirect_url: window.location.href}),
-                                response_type: "code"
-                            }, b = "https://accounts.google.com/o/oauth2/v2/auth" + encodeURIParams(a, !0);
-                            window.location.href = b
-                        }
-
-                        function encodeURIParams(a, b) {
-                            var c = [];
-                            for (var d in a) if (a.hasOwnProperty(d)) {
-                                var e = a[d];
-                                null != e && c.push(encodeURIComponent(d) + "=" + encodeURIComponent(e))
-                            }
-                            return 0 == c.length ? "" : (b ? "?" : "") + c.join("&")
-                        }</script>
                         <a href="javascript:void(0)" class="social-login--facebook" onclick="loginFacebook()"><img
                                 width="129px" height="37px" alt="facebook-login-button"
                                 src="//bizweb.dktcdn.net/assets/admin/images/login/fb-btn.svg"></a>
@@ -227,10 +172,24 @@
                     </div>
 
                 </form>
+                <div class="custom-notifications" style="z-index: 999;"></div>
 
+                <div class="custom-buttons">
+                    <button id="custom-success">Success</button>
+                    <button id="custom-error">Error</button>
+                    <button id="custom-warning">Warning</button>
+                    <button id="custom-info">Info</button>
+                </div>
 
-                  
+                <script>
+                    document.getElementById('custom-success').style.display = 'none';
+                    document.getElementById('custom-error').style.display = 'none';
+                    document.getElementById('custom-warning').style.display = 'none';
+                    document.getElementById('custom-info').style.display = 'none';
 
+                    let notifications = document.querySelector('.custom-notifications');
+
+                </script>
 
                 <div class="right-col">
                     <h4>
@@ -253,8 +212,98 @@
     <!-- Footer Section Begin -->
     <jsp:include page="footer.jsp"></jsp:include>
 </div>
+<script>function loginFacebook() {
+    var a = {
+        client_id: "947410958642584",
+        redirect_uri: "https://store.mysapo.net/account/facebook_account_callback",
+        state: JSON.stringify({redirect_url: window.location.href}),
+        scope: "email",
+        response_type: "code"
+    }, b = "https://www.facebook.com/v3.2/dialog/oauth" + encodeURIParams(a, !0);
+    window.location.href = b
+}
 
+function loginGoogle() {
+    var a = {
+        client_id: "997675985899-pu3vhvc2rngfcuqgh5ddgt7mpibgrasr.apps.googleusercontent.com",
+        redirect_uri: "https://store.mysapo.net/account/google_account_callback",
+        scope: "email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile",
+        access_type: "online",
+        state: JSON.stringify({redirect_url: window.location.href}),
+        response_type: "code"
+    }, b = "https://accounts.google.com/o/oauth2/v2/auth" + encodeURIParams(a, !0);
+    window.location.href = b
+}
 
+function encodeURIParams(a, b) {
+    var c = [];
+    for (var d in a) if (a.hasOwnProperty(d)) {
+        var e = a[d];
+        null != e && c.push(encodeURIComponent(d) + "=" + encodeURIComponent(e))
+    }
+    return 0 == c.length ? "" : (b ? "?" : "") + c.join("&")
+}</script>
+<script>
+    document.getElementById('login-button').addEventListener('click', function () {
+        const email = document.getElementById('floatingInput').value.trim();
+        const password = document.getElementById('floatingPassword').value.trim();
+
+        // Kiểm tra nếu email hoặc mật khẩu trống
+        if (!email || !password) {
+            let newToast = document.createElement('div');
+            newToast.classList.add('custom-toast', 'custom-warning');
+            newToast.innerHTML = `
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <div class="custom-content">
+                <div class="custom-title">Cảnh Báo</div>
+                <span>Vui lòng nhập đầy đủ email và mật khẩu!</span>
+            </div>
+            <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
+        `;
+            document.querySelector('.custom-notifications').appendChild(newToast);
+            setTimeout(() => newToast.remove(), 5000);
+            return;
+        }
+
+        // Kiểm tra email hợp lệ
+        if (!email.includes('@')) {
+            let newToast = document.createElement('div');
+            newToast.classList.add('custom-toast', 'custom-error');
+            newToast.innerHTML = `
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <div class="custom-content">
+                <div class="custom-title">Lỗi</div>
+                <span>Email không hợp lệ!</span>
+            </div>
+            <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
+        `;
+            document.querySelector('.custom-notifications').appendChild(newToast);
+            setTimeout(() => newToast.remove(), 5000);
+            return;
+        }
+
+        // Kiểm tra mật khẩu có ít nhất 6 ký tự
+        if (password.length < 6) {
+            let newToast = document.createElement('div');
+            newToast.classList.add('custom-toast', 'custom-error');
+            newToast.innerHTML = `
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <div class="custom-content">
+                <div class="custom-title">Cảnh Báo</div>
+                <span>Mật khẩu phải có ít nhất 6 ký tự!</span>
+            </div>
+            <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
+        `;
+            document.querySelector('.custom-notifications').appendChild(newToast);
+            setTimeout(() => newToast.remove(), 5000);
+            return;
+        }
+
+        // Nếu tất cả đều hợp lệ, gửi form
+        document.getElementById('login-form').submit();
+    });
+
+</script>
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -272,17 +321,195 @@
 <script src="admin/js/main.js"></script>
 <script src="js/main.js"></script>
 
-<!-- LOGIN ADMIN -->
 
 </body>
 
 </html>
 
 
+<style>
+    /* CSS */
+
+    .custom-buttons {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #1C1D22;
+    }
+
+    .custom-buttons button {
+        padding: 10px;
+    }
+
+    .custom-notifications {
+        position: fixed;
+        top: 30px;
+        right: 20px;
+    }
+
+    .custom-toast {
+        position: relative;
+        padding: 10px;
+        color: #fff;
+        margin-bottom: 10px;
+        width: 400px;
+        display: grid;
+        grid-template-columns: 70px 1fr 70px;
+        border-radius: 5px;
+        --color: #0abf30;
+        background-image: linear-gradient(
+                to right, #0abf3055, #22242f 30%
+        );
+        animation: show 0.3s ease 1 forwards;
+    }
+
+    .custom-toast i {
+        color: var(--color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: x-large;
+    }
+
+    .custom-toast .custom-title {
+        font-size: x-large;
+        font-weight: bold;
+    }
+
+    .custom-toast span, .custom-toast i:nth-child(3) {
+        color: #fff;
+        opacity: 0.6;
+    }
+
+    @keyframes show {
+        0% {
+            transform: translateX(100%);
+        }
+        40% {
+            transform: translateX(-5%);
+        }
+        80% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(-10%);
+        }
+    }
+
+    .custom-toast::before {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: var(--color);
+        width: 100%;
+        height: 3px;
+        content: '';
+        box-shadow: 0 0 10px var(--color);
+        animation: timeOut 5s linear 1 forwards;
+    }
+
+    @keyframes timeOut {
+        to {
+            width: 0;
+        }
+    }
+
+    .custom-toast.custom-error {
+        --color: #f24d4c;
+        background-image: linear-gradient(
+                to right, #f24d4c55, #22242F 30%
+        );
+    }
+
+    .custom-toast.custom-warning {
+        --color: #e9bd0c;
+        background-image: linear-gradient(
+                to right, #e9bd0c55, #22242F 30%
+        );
+    }
+
+    .custom-toast.custom-info {
+        --color: #3498db;
+        background-image: linear-gradient(
+                to right, #3498db55, #22242F 30%
+        );
+    }
+</style>
 
 
+<script>
+    // Success toast
+    document.getElementById('custom-success').onclick = function () {
+        let newToast = document.createElement('div');
+        newToast.classList.add('custom-toast', 'custom-success');
+        newToast.innerHTML = `
+            <i class="fa-solid fa-check-circle"></i>
+            <div class="custom-content">
+                <div class="custom-title">Thành công</div>
+                <span>Đây là thông báo thành công.</span>
+            </div>
+            <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
+        `;
+        notifications.appendChild(newToast);
 
+        // Remove after 5 seconds
+        setTimeout(() => newToast.remove(), 5000);
+    };
 
+    // Error toast
+    document.getElementById('custom-error').onclick = function () {
+        let newToast = document.createElement('div');
+        newToast.classList.add('custom-toast', 'custom-error');
+        newToast.innerHTML = `
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <div class="custom-content">
+                <div class="custom-title">Lỗi</div>
+                <span>Đây là thông báo lỗi.</span>
+            </div>
+            <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
+        `;
+        notifications.appendChild(newToast);
 
+        // Remove after 5 seconds
+        setTimeout(() => newToast.remove(), 5000);
+    };
 
+    // Warning toast
+    document.getElementById('custom-warning').onclick = function () {
+        let newToast = document.createElement('div');
+        newToast.classList.add('custom-toast', 'custom-warning');
+        newToast.innerHTML = `
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <div class="custom-content">
+                <div class="custom-title">Cảnh báo</div>
+                <span>Đây là thông báo cảnh báo.</span>
+            </div>
+            <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
+        `;
+        notifications.appendChild(newToast);
 
+        // Remove after 5 seconds
+        setTimeout(() => newToast.remove(), 5000);
+    };
+
+    // Info toast
+    document.getElementById('custom-info').onclick = function () {
+        let newToast = document.createElement('div');
+        newToast.classList.add('custom-toast', 'custom-info');
+        newToast.innerHTML = `
+            <i class="fa-solid fa-circle-info"></i>
+            <div class="custom-content">
+                <div class="custom-title">Thông tin</div>
+                <span>Đây là thông báo thông tin.</span>
+            </div>
+            <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
+        `;
+        notifications.appendChild(newToast);
+
+        // Remove after 5 seconds
+        setTimeout(() => newToast.remove(), 5000);
+    };
+</script>
