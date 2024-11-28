@@ -23,6 +23,8 @@
             rel="stylesheet">
     <!-- ==================== -->
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -55,7 +57,7 @@
                 let newToast = document.createElement('div');
                 newToast.classList.add('custom-toast', 'custom-success');
                 newToast.innerHTML = `
-                    <i  class="fa-solid fa-check-circle"></i>
+                  <i class="bi bi-check-circle"></i>
                     <div class="custom-content">
                         <div class="custom-title">Thành công</div>
                         <span>${success}</span> <!-- Hiển thị thông báo từ biến success -->

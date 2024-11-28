@@ -21,7 +21,7 @@
             rel="stylesheet">
     <!-- ==================== -->
 
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -51,7 +51,7 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="admin/css/bootstrap.min.css" rel="stylesheet">
 
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Template Stylesheet -->
     <link href="./admin/css/style.css" rel="stylesheet">
     <!-- Template Stylesheet -->
@@ -454,7 +454,7 @@ function encodeURIParams(a, b) {
         let newToast = document.createElement('div');
         newToast.classList.add('custom-toast', 'custom-success');
         newToast.innerHTML = `
-            <i class="fa-solid fa-check-circle"></i>
+           <i class="bi bi-check-circle-fill"></i>
             <div class="custom-content">
                 <div class="custom-title">Thành công</div>
                 <span>Đây là thông báo thành công.</span>
@@ -490,7 +490,7 @@ function encodeURIParams(a, b) {
         let newToast = document.createElement('div');
         newToast.classList.add('custom-toast', 'custom-warning');
         newToast.innerHTML = `
-            <i class="fa-solid fa-triangle-exclamation"></i>
+        <i class="bi bi-exclamation-circle-fill"></i>
             <div class="custom-content">
                 <div class="custom-title">Cảnh báo</div>
                 <span>Đây là thông báo cảnh báo.</span>
@@ -508,7 +508,7 @@ function encodeURIParams(a, b) {
         let newToast = document.createElement('div');
         newToast.classList.add('custom-toast', 'custom-info');
         newToast.innerHTML = `
-            <i class="fa-solid fa-circle-info"></i>
+          <i class="bi bi-info-circle-fill"></i>
             <div class="custom-content">
                 <div class="custom-title">Thông tin</div>
                 <span>Đây là thông báo thông tin.</span>
