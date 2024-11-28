@@ -51,7 +51,7 @@ public class SignUpServlet extends HttpServlet {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("auth", newUser);
                 session.setAttribute("success", SUCCESS_LOGIN);
-                url = "/IndexServlet"; // Đảm bảo đây là mapping servlet chính xác
+                url = "/IndexServlet";
             } else {
                 url = "signin.jsp";
             }

@@ -16,7 +16,7 @@ public class SignInServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request, response); // Chuyển sang xử lý POST
+        doPost(request, response);
     }
 
     @Override
