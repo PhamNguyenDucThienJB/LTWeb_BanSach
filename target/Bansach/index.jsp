@@ -53,7 +53,7 @@
             // Kiểm tra nếu thông báo đã được hiển thị trong phiên này
             if (!sessionStorage.getItem('successToastShown')) {
                 let newToast = document.createElement('div');
-                newToast.classList.add('custom-toast', 'custom-success'); // Lớp cho thông báo thành công
+                newToast.classList.add('custom-toast', 'custom-success');
                 newToast.innerHTML = `
                     <i  class="fa-solid fa-check-circle"></i>
                     <div class="custom-content">
