@@ -1,8 +1,6 @@
 package vn.hcmuaf.edu.fit.controller.account;
 
 import vn.hcmuaf.edu.fit.bean.User;
-import vn.hcmuaf.edu.fit.model.Customer;
-import vn.hcmuaf.edu.fit.service.CustomerService;
 import vn.hcmuaf.edu.fit.service.UserService;
 
 import javax.servlet.*;
@@ -14,17 +12,17 @@ import java.io.IOException;
 public class SignInServlet extends HttpServlet {
     private static final String ACCOUNT_NOT_FOUND = "Tài khoản của bạn đã bị khóa";
     private static final String INVALID_CREDENTIALS = "Tên đăng nhập hoặc mật khẩu không đúng";
+    private static final String SUCCESS_LOGIN = "Đã đăng nhập thành công";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request, response); // Chuyển sang xử lý POST
+        doPost(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html; charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-
 
         String email = request.getParameter("email");
         String passwd = request.getParameter("pass");
@@ -43,7 +41,8 @@ public class SignInServlet extends HttpServlet {
             // Đăng nhập thành công
             HttpSession session = request.getSession();
             session.setAttribute("auth", user);
-            response.sendRedirect("/IndexServlet");
+            session.setAttribute("success", SUCCESS_LOGIN);
+            response.sendRedirect("IndexServlet");
         } else {
             // Sai thông tin đăng nhập
             request.setAttribute("error", INVALID_CREDENTIALS);
