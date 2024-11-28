@@ -14,7 +14,7 @@ import java.io.IOException;
 public class SignUpServlet extends HttpServlet {
     private String VALIDATION_ERROR_PASS = "Mặt khẩu không trùng khớp";
     private String VALIDATION_ERROR_EMAIL = "Email đã tồn tại";
-
+    private static final String SUCCESS_LOGIN = "Đã đăng ký và đăng nhập thành công";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -50,6 +50,7 @@ public class SignUpServlet extends HttpServlet {
             if (request.getParameter("save-login") != null) {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("auth", newUser);
+                session.setAttribute("success", SUCCESS_LOGIN);
                 url = "/IndexServlet"; // Đảm bảo đây là mapping servlet chính xác
             } else {
                 url = "signin.jsp";

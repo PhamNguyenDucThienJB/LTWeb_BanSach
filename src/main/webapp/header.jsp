@@ -105,7 +105,7 @@
                                     <span>Chào mừng ${auth.tentk} quay lại</span>
                                     <div class="header__top__right__auth__dropdown">
                                         <a href="/" class="dropdown-item">Đơn hàng của tôi</a>
-                                        <a href="/" class="dropdown-item">Hồ sơ của tôi</a>
+                                        <a href="/page_profile.jsp" class="dropdown-item">Hồ sơ của tôi</a>
                                         <a class="dropdown-item">Đặt lại mật khẩu</a>
 
                                         <c:if test="${auth.checkRole(1)}">
