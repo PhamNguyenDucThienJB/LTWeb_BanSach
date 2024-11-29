@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Admin | Shop Bánh Sách</title>
+    <title>Admin | Shop Bán Sách</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -34,6 +34,8 @@
 </head>
 
 <body>
+
+<jsp:include page="admin_filter.jsp"></jsp:include>
 <div class="container-fluid position-relative d-flex p-0">
     <!-- Spinner Start -->
     <div id="spinner"
