@@ -41,8 +41,8 @@ public class SignInServlet extends HttpServlet {
             // Đăng nhập thành công
             HttpSession session = request.getSession();
             session.setAttribute("auth", user);
-            session.setAttribute("success", SUCCESS_LOGIN);
-            response.sendRedirect("IndexServlet");
+            session.setAttribute("success", SUCCESS_LOGIN);  // Lưu thông báo vào session
+            response.sendRedirect("/IndexServlet");  // Chuyển hướng sau khi đăng nhập thành công
         } else {
             // Sai thông tin đăng nhập
             request.setAttribute("error", INVALID_CREDENTIALS);

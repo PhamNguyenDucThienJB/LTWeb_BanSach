@@ -454,7 +454,7 @@ function encodeURIParams(a, b) {
         let newToast = document.createElement('div');
         newToast.classList.add('custom-toast', 'custom-success');
         newToast.innerHTML = `
-           <i class="bi bi-check-circle-fill"></i>
+            <i class="fa-solid fa-check-circle"></i>
             <div class="custom-content">
                 <div class="custom-title">Thành công</div>
                 <span>Đây là thông báo thành công.</span>
@@ -490,7 +490,7 @@ function encodeURIParams(a, b) {
         let newToast = document.createElement('div');
         newToast.classList.add('custom-toast', 'custom-warning');
         newToast.innerHTML = `
-        <i class="bi bi-exclamation-circle-fill"></i>
+            <i class="fa-solid fa-triangle-exclamation"></i>
             <div class="custom-content">
                 <div class="custom-title">Cảnh báo</div>
                 <span>Đây là thông báo cảnh báo.</span>
@@ -508,7 +508,7 @@ function encodeURIParams(a, b) {
         let newToast = document.createElement('div');
         newToast.classList.add('custom-toast', 'custom-info');
         newToast.innerHTML = `
-          <i class="bi bi-info-circle-fill"></i>
+            <i class="fa-solid fa-circle-info"></i>
             <div class="custom-content">
                 <div class="custom-title">Thông tin</div>
                 <span>Đây là thông báo thông tin.</span>

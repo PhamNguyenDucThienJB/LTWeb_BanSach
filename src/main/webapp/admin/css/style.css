@@ -346,3 +346,119 @@ background-color: #ff4d4d;
 
 
 /*CSS Alert Login*/
+
+/* CSS */
+
+.custom-buttons {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1C1D22;
+}
+
+.custom-buttons button {
+    padding: 10px;
+}
+
+.custom-notifications {
+    position: fixed;
+    top: 30px;
+    right: 20px;
+}
+
+.custom-toast {
+    position: relative;
+    padding: 10px;
+    color: #fff;
+    margin-bottom: 10px;
+    width: 400px;
+    display: grid;
+    grid-template-columns: 70px 1fr 70px;
+    border-radius: 5px;
+    --color: #0abf30;
+    background-image: linear-gradient(
+            to right, #0abf3055, #22242f 30%
+    );
+    animation: show 0.3s ease 1 forwards;
+}
+
+.custom-toast i {
+    color: var(--color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+}
+
+.custom-toast .custom-title {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.custom-toast .fa-xmark {
+    cursor: pointer;
+    font-size: 18px;
+    /*background-color: lightblue;*/
+}
+
+.custom-toast span, .custom-toast i:nth-child(3) {
+    color: #fff;
+    opacity: 0.6;
+}
+
+@keyframes show {
+    0% {
+        transform: translateX(100%);
+    }
+    40% {
+        transform: translateX(-5%);
+    }
+    80% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-10%);
+    }
+}
+
+.custom-toast::before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color);
+    width: 100%;
+    height: 3px;
+    content: '';
+    box-shadow: 0 0 10px var(--color);
+    animation: timeOut 5s linear 1 forwards;
+}
+
+@keyframes timeOut {
+    to {
+        width: 0;
+    }
+}
+
+.custom-toast.custom-error {
+    --color: #f24d4c;
+    background-image: linear-gradient(
+            to right, #f24d4c55, #22242F 30%
+    );
+}
+
+.custom-toast.custom-warning {
+    --color: #e9bd0c;
+    background-image: linear-gradient(
+            to right, #e9bd0c55, #22242F 30%
+    );
+}
+
+.custom-toast.custom-info {
+    --color: #3498db;
+    background-image: linear-gradient(
+            to right, #3498db55, #22242F 30%
+    );
+}

@@ -4,6 +4,7 @@ import vn.hcmuaf.edu.fit.bean.User;
 import vn.hcmuaf.edu.fit.dto.DBConnection;
 import vn.hcmuaf.edu.fit.model.Customer;
 
+import java.nio.charset.StandardCharsets;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -105,7 +106,7 @@ public class CustomerService {
             pstmt.setString(4, acc.getDIACHI());
             pstmt.setString(5, acc.getSDT());
             pstmt.executeUpdate();
-            System.out.println("Đăng ký khách hàng thành công với mã: " + acc.getMAKH());
+            System.out.println(new String("Đăng ký khách hàng thành công với mã: ".getBytes(), StandardCharsets.UTF_8) + acc.getMAKH());
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Lỗi khi đăng ký khách hàng");
