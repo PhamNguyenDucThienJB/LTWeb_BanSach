@@ -21,7 +21,7 @@
             rel="stylesheet">
     <!-- ==================== -->
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -51,7 +51,7 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="admin/css/bootstrap.min.css" rel="stylesheet">
 
-<%--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">--%>
+
     <!-- Template Stylesheet -->
     <link href="./admin/css/style.css" rel="stylesheet">
     <!-- Template Stylesheet -->
