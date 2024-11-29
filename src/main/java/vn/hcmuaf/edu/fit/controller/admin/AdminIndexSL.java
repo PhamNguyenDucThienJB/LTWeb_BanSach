@@ -15,10 +15,11 @@ public class AdminIndexSL extends HttpServlet {
         User user = (User) session.getAttribute("auth");
 
         // Kiểm tra nếu user không tồn tại hoặc không có quyền, redirect ngay lập tức
-        if (user == null || !user.checkRole(1)) {
-            response.sendRedirect("./error/page-error-500.html");
-            return;  // Dừng lại ở đây để tránh gọi forward sau khi đã redirect
-        }
+// Thừa không cần thiết
+//        if (user == null || !user.checkRole(1)) {
+//            response.sendRedirect("./error/page-error-500.html");
+//            return;  // Dừng lại ở đây để tránh gọi forward sau khi đã redirect
+//        }
 
         // Nếu điều kiện trên không đúng, tiếp tục forward tới trang admin
         request.getRequestDispatcher("/admin/admin-web.jsp").forward(request, response);
