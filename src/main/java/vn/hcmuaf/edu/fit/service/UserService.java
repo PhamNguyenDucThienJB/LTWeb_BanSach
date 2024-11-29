@@ -43,51 +43,97 @@ public class UserService {
         ) return null;
         return user;
     }
-//    public static String hashPassword(String password) {
-//        try {
-//            MessageDigest sha256 = null;
-//            sha256 = MessageDigest.getInstance("SHA-256");
-//            byte[] hash = sha256.digest(password.getBytes());
-//            BigInteger number = new BigInteger(1, hash);
-//            return number.toString(16);
-//        } catch (NoSuchAlgorithmException e) {
-//            return null;
-//        }
-//    }
-
-    // Tạo salt ngẫu nhiên
-    private static String getSalt() {
-        SecureRandom secureRandom = new SecureRandom();
-        byte[] salt = new byte[16];
-        secureRandom.nextBytes(salt);
-        return new BigInteger(1, salt).toString(16);  // chuyển salt thành chuỗi hex
-    }
-
-    // Hàm băm mật khẩu với salt
     public static String hashPassword(String password) {
         try {
-            // Lấy salt ngẫu nhiên
-            String salt = getSalt();
-
-            // Kết hợp mật khẩu với salt
-            String passwordWithSalt = password + salt;
-
-            // Băm mật khẩu đã kết hợp với salt
-            MessageDigest sha256 = MessageDigest.getInstance("SHA-256");
-            byte[] hash = sha256.digest(passwordWithSalt.getBytes());
-
-            // Chuyển kết quả băm thành chuỗi hex
+            MessageDigest sha256 = null;
+            sha256 = MessageDigest.getInstance("SHA-256");
+            byte[] hash = sha256.digest(password.getBytes());
             BigInteger number = new BigInteger(1, hash);
-            String hashedPassword = number.toString(16);
-
-            // Trả về giá trị băm cộng với salt (để lưu lại salt)
-            return hashedPassword + ":" + salt;
-
+            return number.toString(16);
         } catch (NoSuchAlgorithmException e) {
             return null;
         }
     }
 
+//    public User checkLogin(String email, String password) {
+//        List<User> users = JDBIConnector.get().withHandle(h ->
+//                h.createQuery("SELECT taikhoan.ID, taikhoan.email, taikhoan.PASS, taikhoan.tentk, taikhoan.ROLE FROM taikhoan WHERE email = ?")
+//                        .bind(0, email)
+//                        .mapToBean(User.class)
+//                        .stream()
+//                        .collect(Collectors.toList())
+//        );
+//
+//        if (users.size() != 1) return null;
+//        User user = users.get(0);
+//
+//        // Tách mật khẩu đã băm và salt từ cơ sở dữ liệu
+//        String[] passwordParts = user.getPass().split(":");
+//        String storedHashedPassword = passwordParts[0];
+//        String storedSalt = passwordParts[1];
+//
+//        // Băm lại mật khẩu người dùng nhập vào với salt đã lưu
+//        String hashedInputPassword = hashPasswordWithSalt(password, storedSalt);
+//
+//        // So sánh mật khẩu đã băm
+//        if (!storedHashedPassword.equals(hashedInputPassword) || !user.getEmail().equals(email)) {
+//            return null;
+//        }
+//
+//        return user;
+//    }
+//
+//
+//    // Tạo salt ngẫu nhiên
+//    private static String getSalt() {
+//        SecureRandom secureRandom = new SecureRandom();
+//        byte[] salt = new byte[16];
+//        secureRandom.nextBytes(salt);
+//        return new BigInteger(1, salt).toString(16);  // chuyển salt thành chuỗi hex
+//    }
+//
+//    // Hàm băm mật khẩu với salt
+//    public static String hashPassword(String password) {
+//        try {
+//            // Lấy salt ngẫu nhiên
+//            String salt = getSalt();
+//
+//            // Kết hợp mật khẩu với salt
+//            String passwordWithSalt = password + salt;
+//
+//            // Băm mật khẩu đã kết hợp với salt
+//            MessageDigest sha256 = MessageDigest.getInstance("SHA-256");
+//            byte[] hash = sha256.digest(passwordWithSalt.getBytes());
+//
+//            // Chuyển kết quả băm thành chuỗi hex
+//            BigInteger number = new BigInteger(1, hash);
+//            String hashedPassword = number.toString(16);
+//
+//            // Trả về giá trị băm cộng với salt (để lưu lại salt)
+//            return hashedPassword + ":" + salt;
+//
+//        } catch (NoSuchAlgorithmException e) {
+//            return null;
+//        }
+//    }
+//
+//    private String hashPasswordWithSalt(String password, String salt) {
+//        try {
+//            // Kết hợp mật khẩu và salt
+//            String passwordWithSalt = password + salt;
+//
+//            // Băm mật khẩu đã kết hợp với salt
+//            MessageDigest sha256 = MessageDigest.getInstance("SHA-256");
+//            byte[] hash = sha256.digest(passwordWithSalt.getBytes());
+//
+//            // Chuyển kết quả băm thành chuỗi hex
+//            BigInteger number = new BigInteger(1, hash);
+//            return number.toString(16);
+//
+//        } catch (NoSuchAlgorithmException e) {
+//            return null;
+//        }
+//    }
     public static List<User> getListUser() {
         List<User> list = new ArrayList<>();
         Statement statement = DBConnection.getInstall().get();
