@@ -8,6 +8,7 @@ import vn.hcmuaf.edu.fit.model.Customer;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,14 +43,46 @@ public class UserService {
         ) return null;
         return user;
     }
+//    public static String hashPassword(String password) {
+//        try {
+//            MessageDigest sha256 = null;
+//            sha256 = MessageDigest.getInstance("SHA-256");
+//            byte[] hash = sha256.digest(password.getBytes());
+//            BigInteger number = new BigInteger(1, hash);
+//            return number.toString(16);
+//        } catch (NoSuchAlgorithmException e) {
+//            return null;
+//        }
+//    }
 
+    // Tạo salt ngẫu nhiên
+    private static String getSalt() {
+        SecureRandom secureRandom = new SecureRandom();
+        byte[] salt = new byte[16];
+        secureRandom.nextBytes(salt);
+        return new BigInteger(1, salt).toString(16);  // chuyển salt thành chuỗi hex
+    }
+
+    // Hàm băm mật khẩu với salt
     public static String hashPassword(String password) {
         try {
-            MessageDigest sha256 = null;
-            sha256 = MessageDigest.getInstance("SHA-256");
-            byte[] hash = sha256.digest(password.getBytes());
+            // Lấy salt ngẫu nhiên
+            String salt = getSalt();
+
+            // Kết hợp mật khẩu với salt
+            String passwordWithSalt = password + salt;
+
+            // Băm mật khẩu đã kết hợp với salt
+            MessageDigest sha256 = MessageDigest.getInstance("SHA-256");
+            byte[] hash = sha256.digest(passwordWithSalt.getBytes());
+
+            // Chuyển kết quả băm thành chuỗi hex
             BigInteger number = new BigInteger(1, hash);
-            return number.toString(16);
+            String hashedPassword = number.toString(16);
+
+            // Trả về giá trị băm cộng với salt (để lưu lại salt)
+            return hashedPassword + ":" + salt;
+
         } catch (NoSuchAlgorithmException e) {
             return null;
         }
@@ -152,5 +185,6 @@ public class UserService {
         }
         return result;
     }
+
 
 }
