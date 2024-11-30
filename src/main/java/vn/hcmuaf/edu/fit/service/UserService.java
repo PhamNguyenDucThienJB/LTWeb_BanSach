@@ -54,7 +54,7 @@ public class UserService {
             return null;
         }
     }
-
+// Kết Hợp Với Salt để Bảo Mật Hơn
 //    public User checkLogin(String email, String password) {
 //        List<User> users = JDBIConnector.get().withHandle(h ->
 //                h.createQuery("SELECT taikhoan.ID, taikhoan.email, taikhoan.PASS, taikhoan.tentk, taikhoan.ROLE FROM taikhoan WHERE email = ?")
