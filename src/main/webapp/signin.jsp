@@ -313,6 +313,7 @@ function encodeURIParams(a, b) {
 <script src="admin/lib/tempusdominus/js/moment-timezone.min.js"></script>
 <script src="admin/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <!-- Template Javascript -->
 <script src="admin/js/main.js"></script>

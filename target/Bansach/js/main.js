@@ -247,4 +247,62 @@ $('.back-to-top').click(function () {
     return false;
 });
 
-   
+
+function checkCode(c1, c2) {
+    if (isNaN(c1) || isNaN(c2)) {
+        Swal.fire({
+            text: 'Mã xác minh không hợp lệ!',
+            icon: 'error',
+            confirmButtonColor: '#ff4d4d'
+        });
+        return false;
+    }
+
+    if (c1 === c2) {
+        Swal.fire({
+            text: 'Xác minh thành công!',
+            icon: 'success',
+            confirmButtonColor: '#ff4d4d'
+        });
+        return true;
+    } else {
+        Swal.fire({
+            text: 'Mã xác nhận không đúng!',
+            icon: 'error',
+            confirmButtonColor: '#ff4d4d'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                location.reload();
+            }
+        });
+        return false;
+    }
+}
+function check(email) {
+    var url = "SignUpServlet?email=" + email;
+
+    $.ajax({
+        url: url,
+        type: "GET", // Chuyển sang GET để phù hợp với logic Servlet
+        success: async function (response) {
+            const {value: code} = await Swal.fire({
+                title: 'Xác minh tài khoản',
+                input: 'text',
+                inputLabel: 'Mã xác nhận',
+                inputPlaceholder: 'Nhập mã xác nhận...',
+                confirmButtonColor: '#ff4d4d',
+                confirmButtonText: 'Xác nhận',
+            });
+
+            checkCode(parseInt(code), parseInt(response));
+        },
+        error: function (xhr, status, error) {
+            Swal.fire({
+                text: xhr.responseText || "Có lỗi xảy ra khi gửi yêu cầu!",
+                icon: 'error',
+                confirmButtonColor: '#ff4d4d'
+            });
+        }
+    });
+}
+
