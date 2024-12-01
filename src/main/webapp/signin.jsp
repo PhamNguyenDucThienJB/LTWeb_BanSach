@@ -2,7 +2,7 @@
 <%@page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 
-<html lang="xzz">
+<html lang="en">
 <meta http-equiv="Content-Type" charset="UTF-8">
 
 <head>
@@ -53,9 +53,9 @@
 
 
     <!-- Template Stylesheet -->
-    <link href="./admin/css/style.css" rel="stylesheet">
-    <!-- Template Stylesheet -->
     <link rel="stylesheet" href="./css/style.css" type="text/css">
+    <!-- Template Stylesheet -->
+    <link href="./admin/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -76,12 +76,7 @@
 <!-- Header Section End -->
 <div class="container-fluid position-relative d-flex p-0">
     <!-- Spinner Start -->
-    <div id="spinner"
-         class="show bg-pink position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Đang tải...</span>
-        </div>
-    </div>
+
     <!-- Spinner End -->
     <!--
                 <section class="breadcrumb-section set-bg" data-setbg="./img/banner/title.jpg" style="background-image: url(&quot;./img/banner/breadcrumb.jpg&quot;);">
@@ -328,7 +323,10 @@ function encodeURIParams(a, b) {
 
 </html>
 
-
+<header>
+    <link href="./admin/css/style.css" rel="stylesheet">
+    <link href="./admin/css/style.css" rel="stylesheet">
+</header>
 <style>
     /* CSS */
 

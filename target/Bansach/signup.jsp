@@ -52,9 +52,9 @@
     <link href="admin/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="admin/css/style.css" rel="stylesheet">
+    <link href="./admin/css/style.css" rel="stylesheet">
     <!-- Template Stylesheet -->
-    <link href="admin/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
 </head>
 
 <body>
@@ -75,11 +75,7 @@
 <!-- Header Section End -->
 <div class="container-fluid position-relative d-flex p-0">
     <!-- Spinner Start -->
-    <div id="spinner"  class="show bg-pink position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Đang tải...</span>
-        </div>
-    </div>
+
     <!-- Spinner End -->
     <!--
                 <section class="breadcrumb-section set-bg" data-setbg="./img/banner/title.jpg" style="background-image: url(&quot;./img/banner/breadcrumb.jpg&quot;);">
@@ -102,7 +98,7 @@
         <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
             <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                 <div class="bg-pink rounded p-4 p-sm-5 my-4 mx-3">
-                    <form action="/SignUpServlet" method="post">
+                    <form id="login-form" action="/SignUpServlet" method="post">
                         <h2 class="title-sg">Đăng ký</h2>
 
                         <c:if test="${not empty error}">
@@ -111,12 +107,12 @@
                             </div>
                         </c:if>
                         <div class="form-floating mb-3">
-                            <input name="name" type="text" class="form-control" id="floatingText" placeholder="jhondoe">
-                            <label for="floatingText">Tạo tên đăng nhập</label>
+                            <input name="name" type="text" class="form-control" id="name_user" placeholder="jhondoe">
+                            <label for="name_user">Tạo tên đăng nhập</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Địa chỉ email</label>
+                            <input name="email" type="email" class="form-control" id="email_user" placeholder="name@example.com">
+                            <label for="email_user">Địa chỉ email</label>
                         </div>
                         <div class="form-floating mb-4">
                             <input name="pass" type="password" class="form-control" id="floatingPassword" placeholder="Password">
@@ -126,7 +122,9 @@
                             <input name="repass" type="password" class="form-control" id="floatingPassword1" placeholder="Password">
                             <label for="floatingPassword">Nhập lại mật khẩu</label>
                         </div>
-                        <button name="save-login" type="submit" class="btn btn-primary py-3 w-100 mb-4">Đăng ký</button>
+                        <input type="hidden" name="save-login" value="true">
+                        <button name="save-login" id="login-button" type="submit" class="btn btn-primary py-3 w-100 mb-4">Đăng ký</button>
+
                     </form>
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <!-- <div class="form-check">
@@ -141,6 +139,8 @@
             </div>
         </div>
     </div>
+    <div class="custom-notifications"></div>
+
     <!-- Sign Up End -->
 </div>
 <jsp:include page="footer.jsp"></jsp:include>
@@ -160,7 +160,9 @@
 <!-- Template Javascript -->
 <script src="admin/js/main.js"></script>
 <script src="js/main.js"></script>
-
+<header>
+    <link href="./admin/css/style.css" rel="stylesheet">
+</header>
 <script>
 
     document.getElementById('login-form').addEventListener('submit', function (event) {
@@ -259,7 +261,8 @@
 
 </body>
 
-</html><style>
+</html>
+<style>
 
     /* CSS */
 
