@@ -109,8 +109,8 @@
                             <input name="name" type="text" class="form-control" id="name_user" placeholder="jhondoe">
                             <label for="name_user">Tạo tên đăng nhập</label>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input onchange=check(this.value) name="email" type="email" class="form-control" id="email_user" placeholder="name@example.com">
+                        <div  onchange="check(this.value)" class="form-floating mb-3">
+                            <input name="email" type="email" class="form-control" id="email_user" placeholder="name@example.com">
                             <label for="email_user">Địa chỉ email</label>
                         </div>
                         <div class="form-floating mb-4">

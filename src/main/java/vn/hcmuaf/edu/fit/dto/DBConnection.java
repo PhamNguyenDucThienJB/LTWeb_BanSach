@@ -1,18 +1,24 @@
 package vn.hcmuaf.edu.fit.dto;
 
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
-
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
 import java.util.Properties;
 
 public class DBConnection {
-    private static HikariDataSource dataSource;
+    private static String driverClass = "com.mysql.cj.jdbc.Driver";
+    private static String url;
+    private static String username;
+    private static String password;
     static DBConnection install;
+    Connection conn;
 
     static {
         try {
+            // Nạp driver MySQL
+            Class.forName(driverClass);
+
             // Đọc file cấu hình từ classpath
             Properties properties = new Properties();
             try (InputStream input = DBConnection.class.getClassLoader().getResourceAsStream("db.properties")) {
@@ -22,67 +28,54 @@ public class DBConnection {
                 properties.load(input);
             }
 
-            // Cấu hình HikariCP
-            HikariConfig config = new HikariConfig();
+            // Lấy thông tin từ file properties
+            String dbName = properties.getProperty("db.name");
             String dbHost = properties.getProperty("db.host");
             String dbPort = properties.getProperty("db.port");
-            String dbName = properties.getProperty("db.name");
-            String username = properties.getProperty("db.user");
-            String password = properties.getProperty("db.pass");
+            username = properties.getProperty("db.user");
+            password = properties.getProperty("db.pass");
 
-            // Cấu hình URL kết nối
-            String url = "jdbc:mysql://" + dbHost + ":" + dbPort + "/" + dbName;
-            config.setJdbcUrl(url);
-            config.setUsername(username);
-            config.setPassword(password);
+            // Tạo URL kết nối
+            url = "jdbc:mysql://" + dbHost + ":" + dbPort + "/" + dbName;
 
-            // Cấu hình thêm nếu cần
-            config.setMaximumPoolSize(10);  // Số lượng kết nối tối đa trong pool
-            config.setConnectionTimeout(30000); // Thời gian chờ kết nối (ms)
-            config.setIdleTimeout(600000); // Thời gian tối đa một kết nối không được sử dụng (ms)
-
-            // Tạo HikariDataSource
-            dataSource = new HikariDataSource(config);
-        } catch (Exception e) {
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    // Lấy đối tượng DBConnection singleton
     public static DBConnection getInstall() {
         if (install == null)
             install = new DBConnection();
         return install;
     }
 
-    // Lấy Statement từ connection
     public Statement get() {
-        try (Connection conn = getConnectionInstance()) {
-            if (conn != null) {
-                return conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+        if (conn == null) return null;
 
-    // Lấy kết nối từ HikariCP DataSource
-    public static Connection getConnection() throws SQLException {
-        return dataSource.getConnection();
-    }
-
-    // Lấy kết nối instance
-    public Connection getConnectionInstance() {
         try {
-            return getConnection();
+            return conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         } catch (SQLException e) {
-            e.printStackTrace();
+            return null;
         }
-        return null;
     }
 
-    // Kiểm tra kết nối trong main method
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(url, username, password);
+    }
+
+    public Connection getConnectionInstance() {
+        if (conn == null) {
+            try {
+                conn = DriverManager.getConnection(url, username, password);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return conn;
+    }
+
     public static void main(String[] args) {
         try (Connection conn = DBConnection.getConnection()) {
             if (conn != null) {
