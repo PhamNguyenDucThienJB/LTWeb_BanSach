@@ -5,6 +5,7 @@ import vn.hcmuaf.edu.fit.bean.User;
 import vn.hcmuaf.edu.fit.dto.DBConnection;
 import vn.hcmuaf.edu.fit.dto.JDBIConnector;
 import vn.hcmuaf.edu.fit.model.Customer;
+
 import javax.mail.*;
 import javax.mail.Message;
 import javax.mail.PasswordAuthentication;
@@ -12,7 +13,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.*;
 
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -24,16 +25,20 @@ import java.util.Properties;
 import java.util.stream.Collectors;
 
 
-
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.io.UnsupportedEncodingException;
+
 public class UserService {
     private static final Long serialVersionUID = 1l;
     private static UserService instance;
 
+    private String name_mail = null;
+    private String passwd_mail = null;
+
     private UserService() {
+        loadProperties();
     }
 
     public static UserService getInstance() {
@@ -42,6 +47,7 @@ public class UserService {
         }
         return instance;
     }
+
 
     public User checkLogin(String email, String password) {
         List<User> users = JDBIConnector.get().withHandle(h ->
@@ -58,6 +64,7 @@ public class UserService {
         ) return null;
         return user;
     }
+
     public static String hashPassword(String password) {
         try {
             MessageDigest sha256 = null;
@@ -69,7 +76,8 @@ public class UserService {
             return null;
         }
     }
-// Kết Hợp Với Salt để Bảo Mật Hơn
+
+    // Kết Hợp Với Salt để Bảo Mật Hơn
 //    public User checkLogin(String email, String password) {
 //        List<User> users = JDBIConnector.get().withHandle(h ->
 //                h.createQuery("SELECT taikhoan.ID, taikhoan.email, taikhoan.PASS, taikhoan.tentk, taikhoan.ROLE FROM taikhoan WHERE email = ?")
@@ -247,12 +255,35 @@ public class UserService {
         return result;
     }
 
-    public static int randomCode(){
-        return  (int) Math.floor(((Math.random() * 899999) + 100000));
+    private void loadProperties() {
+        try (InputStream input = UserService.class.getClassLoader().getResourceAsStream("api.properties")) {
+            if (input == null) {
+                System.out.println("Không thể tìm thấy file api.properties");
+                return;
+            }
+            Properties properties = new Properties();
+            properties.load(input);  // Đọc nội dung từ file vào properties
+
+            // Lấy thông tin từ file properties
+            name_mail = properties.getProperty("api.name_mail");
+            passwd_mail = properties.getProperty("api.passwd_mail");
+
+            if (name_mail == null || passwd_mail == null) {
+                throw new IllegalArgumentException("Chưa cấu hình thông tin email trong api.properties");
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-    public  static void sendMail(String toEmail, int code) throws MessagingException, UnsupportedEncodingException {
-        String fromEmail= "thienpham0712@gmail.com";
-        String pass =  "neoa yxdj dsme xzbf";
+
+    public static int randomCode() {
+        return (int) Math.floor(((Math.random() * 899999) + 100000));
+    }
+
+    public static void sendMail(String toEmail, int code) throws MessagingException, UnsupportedEncodingException {
+        String fromEmail = getInstance().name_mail;
+        String pass = getInstance().passwd_mail;
         Properties props = new Properties();
 
         props.put("mail.smtp.host", "smtp.gmail.com"); //SMTP Host
@@ -289,23 +320,23 @@ public class UserService {
     }
 
     public static void main(String[] args) {
-                try {
-                    // Email người nhận
-                    String toEmail = "20130410@st.hcmuaf.edu.vn"; // Thay bằng email thực của bạn để kiểm tra
+        try {
+            // Email người nhận
+            String toEmail = "20130410@st.hcmuaf.edu.vn"; // Thay bằng email thực của bạn để kiểm tra
 
-                    // Sinh mã xác nhận ngẫu nhiên
-                    int code = UserService.randomCode();
+            // Sinh mã xác nhận ngẫu nhiên
+            int code = UserService.randomCode();
 
-                    // Gửi email
-                    System.out.println("Đang gửi email...");
-                    UserService.sendMail(toEmail, code);
+            // Gửi email
+            System.out.println("Đang gửi email...");
+            UserService.sendMail(toEmail, code);
 
-                    System.out.println("Email đã được gửi thành công với mã xác nhận: " + code);
+            System.out.println("Email đã được gửi thành công với mã xác nhận: " + code);
 
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    System.out.println("Đã xảy ra lỗi khi gửi email: " + e.getMessage());
-                }
-            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Đã xảy ra lỗi khi gửi email: " + e.getMessage());
         }
+    }
+}
 
