@@ -2,7 +2,7 @@
 <%@page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 
-<html lang="xzz">
+<html lang="en">
 <meta http-equiv="Content-Type" charset="UTF-8">
 
 <head>
