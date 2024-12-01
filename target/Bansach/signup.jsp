@@ -48,8 +48,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="admin/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="admin/css/bootstrap.min.css" rel="stylesheet">
+
 
     <!-- Template Stylesheet -->
     <link href="./admin/css/style.css" rel="stylesheet">
@@ -111,7 +110,7 @@
                             <label for="name_user">Tạo tên đăng nhập</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input name="email" type="email" class="form-control" id="email_user" placeholder="name@example.com">
+                            <input onchange=check(this.value) name="email" type="email" class="form-control" id="email_user" placeholder="name@example.com">
                             <label for="email_user">Địa chỉ email</label>
                         </div>
                         <div class="form-floating mb-4">
@@ -160,9 +159,7 @@
 <!-- Template Javascript -->
 <script src="admin/js/main.js"></script>
 <script src="js/main.js"></script>
-<header>
-    <link href="./admin/css/style.css" rel="stylesheet">
-</header>
+
 <script>
 
     document.getElementById('login-form').addEventListener('submit', function (event) {

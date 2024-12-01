@@ -1,6 +1,7 @@
 package vn.hcmuaf.edu.fit.controller.account;
 
 import vn.hcmuaf.edu.fit.bean.User;
+import vn.hcmuaf.edu.fit.dto.DBProperties;
 import vn.hcmuaf.edu.fit.model.Customer;
 import vn.hcmuaf.edu.fit.service.CustomerService;
 import vn.hcmuaf.edu.fit.service.UserService;
@@ -9,15 +10,29 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.Properties;
 
 @WebServlet(name = "SignUpServlet", value = "/SignUpServlet")
 public class SignUpServlet extends HttpServlet {
+
     private String VALIDATION_ERROR_PASS = "Mặt khẩu không trùng khớp";
     private String VALIDATION_ERROR_EMAIL = "Email đã tồn tại";
     private static final String SUCCESS_LOGIN = "Đã đăng ký và đăng nhập thành công";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String email = request.getParameter("email");
 
+        // Kiểm tra nếu email không tồn tại trong hệ thống (giả lập)
+        if (UserService.checkEmail(email)) {
+            // Sinh mã xác minh (giả sử là 123456)
+            int verificationCode = 123456;
+
+            // Trả mã xác minh về phía client
+            response.getWriter().write(String.valueOf(verificationCode));
+        } else {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST); // Email không hợp lệ
+            response.getWriter().write("Email đã tồn tại hoặc không hợp lệ.");
+        }
     }
 
     @Override
