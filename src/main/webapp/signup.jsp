@@ -48,13 +48,12 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="admin/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="admin/css/bootstrap.min.css" rel="stylesheet">
+
 
     <!-- Template Stylesheet -->
-    <link href="admin/css/style.css" rel="stylesheet">
+    <link href="./admin/css/style.css" rel="stylesheet">
     <!-- Template Stylesheet -->
-    <link href="admin/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
 </head>
 
 <body>
@@ -75,11 +74,7 @@
 <!-- Header Section End -->
 <div class="container-fluid position-relative d-flex p-0">
     <!-- Spinner Start -->
-    <div id="spinner"  class="show bg-pink position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Đang tải...</span>
-        </div>
-    </div>
+
     <!-- Spinner End -->
     <!--
                 <section class="breadcrumb-section set-bg" data-setbg="./img/banner/title.jpg" style="background-image: url(&quot;./img/banner/breadcrumb.jpg&quot;);">
@@ -263,7 +258,8 @@
 
 </body>
 
-</html><style>
+</html>
+<style>
 
     /* CSS */
 

@@ -1,10 +1,18 @@
 package vn.hcmuaf.edu.fit.service;
 
+import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
 import vn.hcmuaf.edu.fit.bean.User;
 import vn.hcmuaf.edu.fit.dto.DBConnection;
 import vn.hcmuaf.edu.fit.dto.JDBIConnector;
 import vn.hcmuaf.edu.fit.model.Customer;
+import javax.mail.*;
+import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.*;
 
+import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -12,8 +20,15 @@ import java.security.SecureRandom;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.stream.Collectors;
 
+
+
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.io.UnsupportedEncodingException;
 public class UserService {
     private static final Long serialVersionUID = 1l;
     private static UserService instance;
@@ -232,5 +247,65 @@ public class UserService {
         return result;
     }
 
+    public static int randomCode(){
+        return  (int) Math.floor(((Math.random() * 899999) + 100000));
+    }
+    public  static void sendMail(String toEmail, int code) throws MessagingException, UnsupportedEncodingException {
+        String fromEmail= "thienpham0712@gmail.com";
+        String pass =  "neoa yxdj dsme xzbf";
+        Properties props = new Properties();
 
-}
+        props.put("mail.smtp.host", "smtp.gmail.com"); //SMTP Host
+        props.put("mail.smtp.port", "587"); //TLS Port
+        props.put("mail.smtp.auth", "true"); //enable authentication
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.ssl.protocols", "TLSv1.2");
+
+        // get Session
+        Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(fromEmail, pass);
+            }
+        });
+
+        // compose message
+        try {
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(fromEmail));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
+            message.setSubject("Xác minh tài khoản");
+            message.setText("Mã xác nhận của bạn là: " + code);
+
+            // send message
+            Transport.send(message);
+
+        } catch (AddressException e) {
+            e.printStackTrace();
+
+        } catch (javax.mail.MessagingException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void main(String[] args) {
+                try {
+                    // Email người nhận
+                    String toEmail = "20130410@st.hcmuaf.edu.vn"; // Thay bằng email thực của bạn để kiểm tra
+
+                    // Sinh mã xác nhận ngẫu nhiên
+                    int code = UserService.randomCode();
+
+                    // Gửi email
+                    System.out.println("Đang gửi email...");
+                    UserService.sendMail(toEmail, code);
+
+                    System.out.println("Email đã được gửi thành công với mã xác nhận: " + code);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    System.out.println("Đã xảy ra lỗi khi gửi email: " + e.getMessage());
+                }
+            }
+        }
+

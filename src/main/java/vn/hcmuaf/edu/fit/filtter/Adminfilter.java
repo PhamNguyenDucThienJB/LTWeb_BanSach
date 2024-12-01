@@ -12,6 +12,7 @@ import java.io.IOException;
 @WebFilter("/admin/*") // Filter áp dụng cho mọi đường dẫn bắt đầu với /admin/
 public class Adminfilter implements Filter {
 
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         // Có thể khởi tạo một số tài nguyên tại đây nếu cần
@@ -21,7 +22,11 @@ public class Adminfilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
-
+        String path = httpRequest.getRequestURI();
+        if (path.endsWith("/admin/css/style.css") || path.startsWith(httpRequest.getContextPath() + "/admin/css/")) {
+            chain.doFilter(request, response); // Bỏ qua filter
+            return;
+        }
         HttpSession session = httpRequest.getSession(false);
         User user = (session != null) ? (User) session.getAttribute("auth") : null;
 
