@@ -253,7 +253,7 @@ function checkCode(c1, c2) {
         Swal.fire({
             text: 'Mã xác minh không hợp lệ!',
             icon: 'error',
-            confirmButtonColor: '#ff96b7'
+            confirmButtonColor: '#ff4d4d'
         });
         return false;
     }
@@ -262,14 +262,14 @@ function checkCode(c1, c2) {
         Swal.fire({
             text: 'Xác minh thành công!',
             icon: 'success',
-            confirmButtonColor: '#ff96b7'
+            confirmButtonColor: '#ff4d4d'
         });
         return true;
     } else {
         Swal.fire({
             text: 'Mã xác nhận không đúng!',
             icon: 'error',
-            confirmButtonColor: '#ff96b7'
+            confirmButtonColor: '#ff4d4d'
         }).then((result) => {
             if (result.isConfirmed) {
                 location.reload();
@@ -290,7 +290,7 @@ function check(email) {
                 input: 'text',
                 inputLabel: 'Mã xác nhận',
                 inputPlaceholder: 'Nhập mã xác nhận...',
-                confirmButtonColor: '#ff96b7',
+                confirmButtonColor: '#ff4d4d',
                 confirmButtonText: 'Xác nhận',
             });
 
@@ -300,7 +300,7 @@ function check(email) {
             Swal.fire({
                 text: xhr.responseText || "Có lỗi xảy ra khi gửi yêu cầu!",
                 icon: 'error',
-                confirmButtonColor: '#ff96b7'
+                confirmButtonColor: '#ff4d4d'
             });
         }
     });
