@@ -247,4 +247,49 @@ $('.back-to-top').click(function () {
     return false;
 });
 
-   
+
+
+function checkCode(c1, c2) {
+    if (c1 === c2) {
+        return true;
+
+    }else {
+        Swal.fire({
+            text: 'Mã xác nhận không đúng!',
+            icon: 'error',
+            confirmButtonColor: '#ff96b7'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                location.reload();
+
+            }
+        });
+        return false;
+    }
+}
+
+
+function check(email) {
+
+    var url = "Signup?email=" + email;
+
+
+    $.ajax({
+        url: url,
+        type: "POST",
+        success: async function (response) {
+            const {value: code} = await Swal.fire({
+                title: 'Xác minh tài khoản',
+                input: 'text',
+                inputLabel: 'Mã xác nhận',
+                inputPlaceholder: 'Nhập mã xác nhận...',
+                confirmButtonColor: '#ff96b7',
+                confirmButtonText: 'Xác nhận',
+            })
+
+            checkCode(parseInt(code), parseInt(response));
+
+        }
+    });
+}
+
