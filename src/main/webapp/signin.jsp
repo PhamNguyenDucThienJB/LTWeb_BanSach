@@ -143,7 +143,7 @@
                             })
                         </script>
 
-                        <a style="cursor: pointer;" onclick="forgotPassword()">Quên mật khẩu?</a>
+                        <a style="cursor: pointer;" href="page_ForgetPasswd.jsp" > Quên mật khẩu?</a>
                     </div>
                     <button type="button" id="login-button" class="btn btn-primary py-3 w-100 mb-4">Đăng nhập</button>
 
