@@ -18,13 +18,17 @@ public class ForgetPassWorkServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         String mail = request.getParameter("email");
 
-        if (UserService.checkEmail(mail)) {
-                response.sendRedirect("/page_New_ForgetPasswd.jsp");
-        }else {
+        if (mail == null || mail.isEmpty() || !UserService.checkEmail(mail)) {
+
+            response.sendRedirect("/vertify.jsp");
+
+        } else {
             request.setAttribute("error", Validation_Error_Email);
-            request.getRequestDispatcher("/page_ForgetPasswd.jsp").forward(request,response);
+            request.getRequestDispatcher("/page_ForgetPasswd.jsp").forward(request, response);
 
         }
     }

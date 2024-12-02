@@ -95,6 +95,8 @@
                         <input type="email" class="form-control" name="email" id="floatingInput" value=""
                                placeholder="name@example.com">
                         <label for="floatingInput">Địa chỉ email</label>
+
+
                     </div>
 
 
