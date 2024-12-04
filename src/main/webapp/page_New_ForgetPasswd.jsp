@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <!-- Favicon -->
     <link href="./img/favicon.ico" rel="icon">
-
+    <link rel="icon" href="//bizweb.dktcdn.net/100/197/269/themes/890698/assets/favicon.png?1730705463447" type="image/x-icon">
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

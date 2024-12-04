@@ -12,7 +12,7 @@
 <!-- Google Font -->
 
 
-<fmt:setLocale value="vi_VN" />
+<fmt:setLocale value="ja_JP" />
 
 <fmt:setBundle basename="lang.lang"></fmt:setBundle>
 <%--<fmt:setLocale value="vi_VN"></fmt:setLocale>--%>
@@ -214,5 +214,5 @@
         </div>
 
     </div>
-
+    <link rel="icon" href="//bizweb.dktcdn.net/100/197/269/themes/890698/assets/favicon.png?1730705463447" type="image/x-icon">
 </header>

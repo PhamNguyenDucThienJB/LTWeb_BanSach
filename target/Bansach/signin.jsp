@@ -1,10 +1,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 
 <html lang="en">
 <meta http-equiv="Content-Type" charset="UTF-8">
+<fmt:setLocale value="ja_JP"/>
 
+<fmt:setBundle basename="lang.lang"></fmt:setBundle>
 <head>
     <meta charset="utf-8">
     <title>Đăng Nhập | Sách</title>
@@ -21,7 +24,7 @@
             rel="stylesheet">
     <!-- ==================== -->
 
-
+    <link rel="icon" href="//bizweb.dktcdn.net/100/197/269/themes/890698/assets/favicon.png?1730705463447" type="image/x-icon">
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -104,25 +107,26 @@
     color: orange;" method="post" class="bg-pink rounded p-4 p-sm-5 my-4 mx-3">
 
                     <div>
-                        <h2 class="title-sg">Đăng nhập</h2>
+                        <h2 class="title-sg"><fmt:message key="login.title"/></h2>
                     </div>
-                   <jsp:include page="validation.jsp"></jsp:include>
+                    <jsp:include page="validation.jsp"></jsp:include>
                     <div class="form-floating mb-3">
                         <input type="email" class="form-control" name="email" id="floatingInput" value=""
                                placeholder="name@example.com">
-                        <label for="floatingInput">Địa chỉ email</label>
+                        <label for="floatingInput"><fmt:message key="login.email"/></label>
                     </div>
                     <div class="form-floating mb-4">
                         <input type="password" class="form-control pass" name="pass" id="floatingPassword"
                                placeholder="Password">
-                        <label for="floatingPassword">Mật khẩu</label>
+                        <label for="floatingPassword"><fmt:message key="login.password"/></label>
                     </div>
                     <span id="insertTextHere"></span>
                     <div class="d-flex align-items-center justify-content-between mb-4 mt-4"
                          style="flex-direction: row;">
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input toggle" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Hiển Thị Mật Khẩu</label>
+                            <label class="form-check-label" for="exampleCheck1"><fmt:message
+                                    key="login.show-password"/></label>
                         </div>
 
 
@@ -139,25 +143,29 @@
                             })
                         </script>
 
-                        <a style="cursor: pointer;" href="page_ForgetPasswd.jsp" > Quên mật khẩu?</a>
+                        <a style="cursor: pointer;" href="page_ForgetPasswd.jsp"> <fmt:message
+                                key="login.forgot-password"/>?</a>
                     </div>
-                    <button type="button" id="login-button" class="btn btn-primary py-3 w-100 mb-4">Đăng nhập</button>
+                    <button type="button" id="login-button" class="btn btn-primary py-3 w-100 mb-4"><fmt:message
+                            key="login.button"/></button>
 
 
-                    <p class="text-center mb-0">Bạn chưa có tài khoản? <a href="signup.jsp">Đăng ký ngay</a></p>
+                    <p class="text-center mb-0"><fmt:message key="login.forgot-password"/> <a
+                            href="signup.jsp"><fmt:message key="login.now"/></a></p>
                     <div class="block social-login--facebooks">
                         <p class="title-sg" style="    margin-left: 80px;
                             margin-right: 80px;
                         ">
-                            <span style="font-size: medium;">Hoặc đăng nhập bằng</span>
+                            <span style="font-size: medium;"><fmt:message key="login.or"/></span>
                         </p>
-
-                        <a href="javascript:void(0)" class="social-login--facebook" onclick="loginFacebook()"><img
-                                width="129px" height="37px" alt="facebook-login-button"
-                                src="//bizweb.dktcdn.net/assets/admin/images/login/fb-btn.svg"></a>
-                        <a href="javascript:void(0)" class="social-login--google" onclick="loginGoogle()"><img
-                                width="129px" height="37px" alt="google-login-button"
-                                src="//bizweb.dktcdn.net/assets/admin/images/login/gp-btn.svg"></a>
+                        <div style="display:flex;justify-content: center">
+                            <a href="javascript:void(0)" class="social-login--facebook" onclick="loginFacebook()"><img
+                                    width="129px" height="37px" alt="facebook-login-button"
+                                    src="//bizweb.dktcdn.net/assets/admin/images/login/fb-btn.svg"></a>
+                            <a href="javascript:void(0)" class="social-login--google" onclick="loginGoogle()"><img
+                                    width="129px" height="37px" alt="google-login-button"
+                                    src="//bizweb.dktcdn.net/assets/admin/images/login/gp-btn.svg"></a>
+                        </div>
                     </div>
 
                 </form>
@@ -182,17 +190,17 @@
 
                 <div class="right-col">
                     <h4>
-                        Quyền lợi với thành viên
+                        <fmt:message key="right-col.benefits"/>
                     </h4>
                     <div>
-                        <p>Vận chuyển siêu tốc</p>
-                        <p>Sản phẩm đa dạng </p>
-                        <p>Đổi trả dễ dàng</p>
-                        <p>Tích điểm đổi quà</p>
-                        <p>Được giảm giá cho lần mua tiếp theo lên đến 10% </p>
+                        <p><fmt:message key="right-col.shipping"/></p>
+                        <p><fmt:message key="right-col.variety"/></p>
+                        <p><fmt:message key="right-col.easy-return"/></p>
+                        <p><fmt:message key="right-col.reward"/></p>
+                        <p><fmt:message key="right-col.register"/></p>
 
                     </div>
-                    <a href="./signup.jsp" class="btn-register-default">Đăng ký</a>
+                    <a href="./signup.jsp" class="btn-register-default"><fmt:message key="right-col.register"/></a>
                 </div>
             </div>
         </div>
