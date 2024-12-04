@@ -106,11 +106,7 @@
                     <div>
                         <h2 class="title-sg">Đăng nhập</h2>
                     </div>
-                    <c:if test="${not empty error}">
-                        <div class="alert alert-danger text-center" role="alert">
-                                ${error}
-                        </div>
-                    </c:if>
+                   <jsp:include page="validation.jsp"></jsp:include>
                     <div class="form-floating mb-3">
                         <input type="email" class="form-control" name="email" id="floatingInput" value=""
                                placeholder="name@example.com">
@@ -143,7 +139,7 @@
                             })
                         </script>
 
-                        <a style="cursor: pointer;" onclick="forgotPassword()">Quên mật khẩu?</a>
+                        <a style="cursor: pointer;" href="page_ForgetPasswd.jsp" > Quên mật khẩu?</a>
                     </div>
                     <button type="button" id="login-button" class="btn btn-primary py-3 w-100 mb-4">Đăng nhập</button>
 
