@@ -86,11 +86,7 @@
                     <div>
                         <h2 class="title-sg">Trang Quên Mât Khẩu</h2>
                     </div>
-                    <c:if test="${not empty error}">
-                        <div class="alert alert-danger text-center" role="alert">
-                                ${error}
-                        </div>
-                    </c:if>
+                    <jsp:include page="validation.jsp"></jsp:include>
                     <div class="form-floating mb-3">
                         <input type="email" class="form-control" name="email" id="floatingInput" value=""
                                placeholder="name@example.com">
@@ -134,19 +130,19 @@
     <jsp:include page="footer.jsp"></jsp:include>
 </div>
 <script>
-    document.getElementById('login-button').addEventListener('click', function () {
+    document.getElementById('login-form').addEventListener('submit', function (event) {
+        event.preventDefault(); // Ngăn form gửi đi ngay lập tức.
         const email = document.getElementById('floatingInput').value.trim();
-        const password = document.getElementById('floatingPassword').value.trim();
 
         // Kiểm tra nếu email hoặc mật khẩu trống
-        if (!email || !password) {
+        if (!email) {
             let newToast = document.createElement('div');
             newToast.classList.add('custom-toast', 'custom-warning');
             newToast.innerHTML = `
             <i class="fa-solid fa-circle-exclamation"></i>
             <div class="custom-content">
                 <div class="custom-title">Cảnh Báo</div>
-                <span>Vui lòng nhập đầy đủ email và mật khẩu!</span>
+                <span>Vui lòng nhập đầy đủ email!</span>
             </div>
             <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
         `;
@@ -176,22 +172,6 @@
             return;
         }
 
-        // Kiểm tra mật khẩu có ít nhất 6 ký tự
-        if (password.length < 6) {
-            let newToast = document.createElement('div');
-            newToast.classList.add('custom-toast', 'custom-error');
-            newToast.innerHTML = `
-            <i class="fa-solid fa-circle-exclamation"></i>
-            <div class="custom-content">
-                <div class="custom-title">Cảnh Báo</div>
-                <span>Mật khẩu phải có ít nhất 6 ký tự!</span>
-            </div>
-            <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
-        `;
-            document.querySelector('.custom-notifications').appendChild(newToast);
-            setTimeout(() => newToast.remove(), 5000);
-            return;
-        }
 
         // Nếu tất cả đều hợp lệ, gửi form
         document.getElementById('login-form').submit();

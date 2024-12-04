@@ -80,25 +80,27 @@
 
         <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
             <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4" style="    display: contents;">
-                <form id="login-form" action="/ForgetPassWorkServlet" style="border: solid;
+                <form id="login-form" action="/UpdatePasswordServlet" style="border: solid;
     color: orange;" method="post" class="bg-pink rounded p-4 p-sm-5 my-4 mx-3">
 
                     <div>
                         <h2 class="title-sg">Mật khẩu mới</h2>
                     </div>
-                    <c:if test="${not empty error}">
-                        <div class="alert alert-danger text-center" role="alert">
-                                ${error}
-                        </div>
-                    </c:if>
+                    <jsp:include page="validation.jsp"></jsp:include>
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" name="email" id="oldpass" value=""
-                               placeholder="name@example.com">
+                        <input type="email" class="form-control" name="email" id="email" value="${mail_vertify}"
+                               placeholder="name@example.com" readonly>
+                        <label for="${mail_vertify}">Gmail đổi mật khẩu</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" name="pass" id="oldpass" value=""
+                               placeholder="">
                         <label for="oldpass">Mật khẩu mới</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" name="pass" id="newpass" value=""
-                               placeholder="name@example.com">
+                        <input type="password" class="form-control" name="repass" id="newpass" value=""
+                               placeholder="">
                         <label for="newpass">Nhập lại mật khẩu mới</label>
                     </div>
 
@@ -136,19 +138,19 @@
     <jsp:include page="footer.jsp"></jsp:include>
 </div>
 <script>
-    document.getElementById('login-button').addEventListener('click', function () {
-        const email = document.getElementById('floatingInput').value.trim();
-        const password = document.getElementById('floatingPassword').value.trim();
-
+    document.getElementById('login-form').addEventListener('submit', function (event) {
+        event.preventDefault(); // Ngăn form gửi đi ngay lập tức.
+        const password = document.getElementById('oldpass').value.trim();
+        const password2 = document.getElementById('newpass').value.trim();
         // Kiểm tra nếu email hoặc mật khẩu trống
-        if (!email || !password) {
+        if (!newpass || !password) {
             let newToast = document.createElement('div');
             newToast.classList.add('custom-toast', 'custom-warning');
             newToast.innerHTML = `
             <i class="fa-solid fa-circle-exclamation"></i>
             <div class="custom-content">
                 <div class="custom-title">Cảnh Báo</div>
-                <span>Vui lòng nhập đầy đủ email và mật khẩu!</span>
+                <span>Vui lòng nhập đầy đủ mật khẩu cũ và mật khẩu mới!</span>
             </div>
             <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
         `;
@@ -161,25 +163,9 @@
             return;
         }
 
-        // Kiểm tra email hợp lệ
-        if (!email.includes('@')) {
-            let newToast = document.createElement('div');
-            newToast.classList.add('custom-toast', 'custom-error');
-            newToast.innerHTML = `
-            <i class="fa-solid fa-circle-exclamation"></i>
-            <div class="custom-content">
-                <div class="custom-title">Lỗi</div>
-                <span>Email không hợp lệ!</span>
-            </div>
-            <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
-        `;
-            document.querySelector('.custom-notifications').appendChild(newToast);
-            setTimeout(() => newToast.remove(), 5000);
-            return;
-        }
 
         // Kiểm tra mật khẩu có ít nhất 6 ký tự
-        if (password.length < 6) {
+        if (password.length < 6 || password2.length < 6) {
             let newToast = document.createElement('div');
             newToast.classList.add('custom-toast', 'custom-error');
             newToast.innerHTML = `
@@ -195,6 +181,22 @@
             return;
         }
 
+        // Kiểm tra mật khẩu có ít nhất 6 ký tự
+        if (!password.length == password2.length) {
+            let newToast = document.createElement('div');
+            newToast.classList.add('custom-toast', 'custom-error');
+            newToast.innerHTML = `
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <div class="custom-content">
+                <div class="custom-title">Cảnh Báo</div>
+                <span>Mật khẩu phải có ít nhất 6 ký tự!</span>
+            </div>
+            <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
+        `;
+            document.querySelector('.custom-notifications').appendChild(newToast);
+            setTimeout(() => newToast.remove(), 5000);
+            return;
+        }
         // Nếu tất cả đều hợp lệ, gửi form
         document.getElementById('login-form').submit();
     });

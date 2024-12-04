@@ -48,7 +48,33 @@ public class UserService {
         return instance;
     }
 
+// Cấu hình
+    private void loadProperties() {
+        try (InputStream input = UserService.class.getClassLoader().getResourceAsStream("api.properties")) {
+            if (input == null) {
+                System.out.println("Không thể tìm thấy file api.properties");
+                return;
+            }
+            Properties properties = new Properties();
+            properties.load(input);  // Đọc nội dung từ file vào properties
 
+            // Lấy thông tin từ file properties
+            name_mail = properties.getProperty("api.name_mail");
+            passwd_mail = properties.getProperty("api.passwd_mail");
+
+            if (name_mail == null || passwd_mail == null) {
+                throw new IllegalArgumentException("Chưa cấu hình thông tin email trong api.properties");
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+//    Method
     public User checkLogin(String email, String password) {
         List<User> users = JDBIConnector.get().withHandle(h ->
                 h.createQuery("SELECT taikhoan.ID, taikhoan.email, taikhoan.PASS, taikhoan.tentk, taikhoan.ROLE FROM taikhoan WHERE email = ?")
@@ -172,7 +198,7 @@ public class UserService {
             }
 
         } else {
-            System.out.println("Không có tai khoan");
+            System.out.println("Not Found");
         }
         return list;
     }
@@ -208,9 +234,9 @@ public class UserService {
 
             int affectedRows = preparedStatement.executeUpdate();
             if (affectedRows > 0) {
-                System.out.println("Tài khoản đã được đăng ký thành công với ID: " + generatedId);
+                System.out.println("Register Success With ID: " + generatedId);
             } else {
-                System.out.println("Không thể chèn dữ liệu vào bảng 'taikhoan'");
+                System.out.println("Can not insert into 'taikhoan'");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -255,27 +281,7 @@ public class UserService {
         return result;
     }
 
-    private void loadProperties() {
-        try (InputStream input = UserService.class.getClassLoader().getResourceAsStream("api.properties")) {
-            if (input == null) {
-                System.out.println("Không thể tìm thấy file api.properties");
-                return;
-            }
-            Properties properties = new Properties();
-            properties.load(input);  // Đọc nội dung từ file vào properties
 
-            // Lấy thông tin từ file properties
-            name_mail = properties.getProperty("api.name_mail");
-            passwd_mail = properties.getProperty("api.passwd_mail");
-
-            if (name_mail == null || passwd_mail == null) {
-                throw new IllegalArgumentException("Chưa cấu hình thông tin email trong api.properties");
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public static int randomCode() {
         return (int) Math.floor(((Math.random() * 899999) + 100000));
@@ -304,8 +310,27 @@ public class UserService {
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(fromEmail));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
-            message.setSubject("Xác minh tài khoản");
-            message.setText("Mã xác nhận của bạn là: " + code);
+            message.setSubject("Verify Gmail");
+
+            String htmlContent =
+                    "<div style=\"font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f9f9f9;\">" +
+                            "<div style=\"max-width: 600px; margin: auto; background: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);\">" +
+                            "<h2 style=\"color: #333; text-align: center;\">Xác nhận tài khoản của bạn</h2>" +
+                            "<p style=\"color: #555; line-height: 1.5;\">Xin chào,</p>" +
+                            "<p style=\"color: #555; line-height: 1.5;\">Cảm ơn bạn đã sử dụng dịch vụ  CHĂM SÓC của chúng tôi. Đây là mã xác nhận của bạn:</p>" +
+                            "<div style=\"text-align: center; margin: 20px 0;\">" +
+                            "<span style=\"font-size: 24px; font-weight: bold; color: #007BFF;\">" + code + "</span>" +
+                            "</div>" +
+                            "<p style=\"color: #555; line-height: 1.5;\">Vui lòng nhập mã này trên trang xác nhận để hoàn tất quá trình đăng ký.</p>" +
+                            "<p style=\"color: #555; line-height: 1.5;\">Nếu bạn không yêu cầu mã này, hãy bỏ qua email này.</p>" +
+                            "<div style=\"margin-top: 20px; text-align: center;\">" +
+                            "<a href=\"https://yourwebsite.com\" style=\"background: #007BFF; color: #ffffff; text-decoration: none; padding: 10px 20px; border-radius: 4px;\">Trang chủ</a>" +
+                            "</div>" +
+                            "</div>" +
+                            "<p style=\"text-align: center; color: #aaa; font-size: 12px; margin-top: 20px;\">&copy; 2024 Your Company. All rights reserved.</p>" +
+                            "</div>";
+            // set content with HTML
+            message.setContent(htmlContent, "text/html; charset=UTF-8");
 
             // send message
             Transport.send(message);
@@ -314,6 +339,29 @@ public class UserService {
             e.printStackTrace();
 
         } catch (javax.mail.MessagingException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+//    Update Information Account
+//    Update Password
+    public static void updatePasswWord(String email,String pass){
+        String query="UPDATE taikhoan SET PASS=? WHERE EMAIL=? ";
+        try (Connection connection =DBConnection.getInstall().getConnectionInstance();
+             PreparedStatement pre =connection.prepareStatement(query)   ){
+
+            pre.setString(1,pass);
+
+            pre.setString(2,email);
+
+          int  intcount= pre.executeUpdate();
+            if (intcount > 0) {
+                System.out.println("Update Password Success!");
+            } else {
+                System.out.println("Not Found email: " + email);
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
