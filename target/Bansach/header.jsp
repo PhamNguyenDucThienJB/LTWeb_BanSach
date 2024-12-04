@@ -11,10 +11,19 @@
 <%--<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>--%>
 <!-- Google Font -->
 
+<c:choose>
+    <c:when test="${empty param.lang}">
+        <!-- Nếu không có ngôn ngữ nào được chọn, mặc định là Tiếng Anh -->
+        <fmt:setLocale value="en_US" scope="session" />
+    </c:when>
+    <c:otherwise>
+        <!-- Nếu có ngôn ngữ trong URL, sử dụng giá trị đó -->
+        <fmt:setLocale value="${param.lang}" scope="session" />
+        <c:set var="lang" value="${param.lang}" scope="session" />
+    </c:otherwise>
+</c:choose>
+<fmt:setBundle basename="lang.lang" var="bundle" scope="session" />
 
-<fmt:setLocale value="ja_JP" />
-
-<fmt:setBundle basename="lang.lang"></fmt:setBundle>
 <%--<fmt:setLocale value="vi_VN"></fmt:setLocale>--%>
 <%--<fmt:setLocale value="vi_VN"></fmt:setLocale>--%>
 
@@ -91,7 +100,7 @@
                             </div>
                             <div class="hero__search__phone__text">
                                 <h5>+84 987654321</h5>
-                                <span><fmt:message key="menu.search.time"/>8h - 22h</span>
+                                <span><fmt:message bundle="${bundle}"  key="menu.search.time"/>8h - 22h</span>
                             </div>
                         </div>
                     </div>
@@ -102,9 +111,9 @@
                                                     align-items: center;">
                     <div class="header__top__center">
                         <div style="display: flex">
-                            <span><a style="margin-left: 5px;color: black" href=""> <fmt:message key="menu.language.vi" /> | </a></span>
-                            <span><a style="margin-left: 5px;color: black" href=""> <fmt:message key="menu.language.en" /> | </a></span>
-                            <span><a style="margin-left: 5px;color: black" href=""> <fmt:message key="menu.language.ja" /> </a></span>
+                            <span><a style="margin-left: 5px;color: black" href="?lang=vi_VN"><fmt:message bundle="${bundle}" key="menu.language.vi" /> | </a></span>
+                            <span><a style="margin-left: 5px;color: black" href="?lang=en_US"><fmt:message  bundle="${bundle}" key="menu.language.en" /> | </a></span>
+                            <span><a style="margin-left: 5px;color: black" href="?lang=ja_JP"><fmt:message bundle="${bundle}" key="menu.language.ja" /></a></span>
                         </div>
                     </div>
 
@@ -125,24 +134,24 @@
                             <c:choose>
 
                                 <c:when test="${auth != null}">
-                                    <span><fmt:message key="menu.welcomeMessage"/> ${auth.tentk} <fmt:message key="menu.welcomeMessage_san"/></span>
+                                    <span><fmt:message bundle="${bundle}" key="menu.welcomeMessage"/> ${auth.tentk} <fmt:message bundle="${bundle}"  key="menu.welcomeMessage_san"/></span>
                                     <div class="header__top__right__auth__dropdown">
-                                        <a href="/" class="dropdown-item"><fmt:message key="menu.myOrders"/></a>
-                                        <a href="/page_profile.jsp" class="dropdown-item"><fmt:message key="menu.myProfile"/></a>
-                                        <a class="dropdown-item"><fmt:message key="menu.resetPassword"/></a>
+                                        <a href="/" class="dropdown-item"><fmt:message  bundle="${bundle}"  key="menu.myOrders"/></a>
+                                        <a href="/page_profile.jsp" class="dropdown-item"><fmt:message  bundle="${bundle}" key="menu.myProfile"/></a>
+                                        <a class="dropdown-item"><fmt:message  bundle="${bundle}" key="menu.resetPassword"/></a>
 
                                         <c:if test="${auth.checkRole(1)}">
-                                            <a href="/AdminIndexSL" class="dropdown-item"><fmt:message key="menu.managePage"/></a>
+                                            <a href="/AdminIndexSL" class="dropdown-item"><fmt:message bundle="${bundle}"  key="menu.managePage"/></a>
                                         </c:if>
 
-                                        <a href="/LogoutServlet" class="dropdown-item"><fmt:message key="menu.logout"/></a>
+                                        <a href="/LogoutServlet" class="dropdown-item"><fmt:message bundle="${bundle}"  key="menu.logout"/></a>
                                     </div>
                                 </c:when>
 
 
                                 <c:otherwise>
 
-                                    <a href="/signin.jsp" class="dropdown-item"><i class="fa fa-user"></i><fmt:message key="menu.login"/></a>
+                                    <a href="/signin.jsp" class="dropdown-item"><i class="fa fa-user"></i><fmt:message bundle="${bundle}"  key="menu.login"/></a>
 
 
                                 </c:otherwise>
@@ -168,19 +177,19 @@
                 <nav class="header__menu">
                     <ul>
                         <li class="active">
-                            <a href="./index.jsp"><fmt:message key="menu.home" /></a>
+                            <a href="./index.jsp"><fmt:message bundle="${bundle}"  key="menu.home" /></a>
                         </li>
                         <li>
-                            <a href="about.jsp"><fmt:message key="menu.about" /></a>
+                            <a href="about.jsp"><fmt:message bundle="${bundle}"  key="menu.about" /></a>
                         </li>
                         <li>
-                            <a href="./shop-product.html"><fmt:message key="menu.products" /></a>
+                            <a href="./shop-product.html"><fmt:message bundle="${bundle}"  key="menu.products" /></a>
                         </li>
                         <li>
-                            <a href="./blog.html"><fmt:message key="menu.news" /></a>
+                            <a href="./blog.html"><fmt:message bundle="${bundle}"  key="menu.news" /></a>
                         </li>
                         <li>
-                            <a href="./contact.html"><fmt:message key="menu.contact" /></a>
+                            <a href="./contact.html"><fmt:message bundle="${bundle}"  key="menu.contact" /></a>
                         </li>
 
                     </ul>
@@ -202,9 +211,9 @@
                     <div class="hero__search__form ">
                         <form action="#">
 
-                            <input type="text" placeholder="<fmt:message key='menu.search.placeholder'/>">
+                            <input type="text" placeholder="<fmt:message bundle="${bundle}"  key='menu.search.placeholder'/>">
                             <button type="submit" class="site-btn"><i class="fa fa-search"></i> <span
-                                    class="text_search"><fmt:message key="menu.search.button"/></span></button>
+                                    class="text_search"><fmt:message bundle="${bundle}"  key="menu.search.button"/></span></button>
                         </form>
                     </div>
 

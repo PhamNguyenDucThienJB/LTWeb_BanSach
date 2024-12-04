@@ -4,9 +4,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- Footer Section Begin -->
  <!-- Footer Section Begin -->
-<fmt:setLocale value="ja_JP" />
 
-<fmt:setBundle basename="lang.lang"></fmt:setBundle>
  <footer class="footer spad" style="background-color: orange;">
   <div class="container">
       <div class="row">
@@ -16,26 +14,26 @@
                       <a href="index.jsp"><img src="img/logo.png" alt=""></a>
                   </div>
                   <p style="color: #FFF8F2;">
-                      <fmt:message key="footer.about.title" />
+                      <fmt:message bundle="${bundle}"  key="footer.about.title" />
                       <br>
-                      <fmt:message key="footer.about.company" />
+                      <fmt:message bundle="${bundle}"  key="footer.about.company" />
                       <br>
-                      <fmt:message key="footer.about.mst" />
+                      <fmt:message bundle="${bundle}"  key="footer.about.mst" />
                       <br>
-                      <fmt:message key="footer.about.date" />
+                      <fmt:message bundle="${bundle}"  key="footer.about.date" />
                       <br>
-                      <fmt:message key="footer.about.place" />
+                      <fmt:message bundle="${bundle}"  key="footer.about.place" />
                   </p>
 
               </div>
           </div>
           <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
               <div class="footer__widget">
-                  <h6><fmt:message key="footer.info.title" /></h6>
+                  <h6><fmt:message bundle="${bundle}"  key="footer.info.title" /></h6>
                   <ul style="color: #FFF8F2;">
-                      <li><a href="#"><fmt:message key="footer.info.address" /></a></li>
-                      <li><a href="#"><fmt:message key="footer.info.email" /></a></li>
-                      <li><a href="#"><fmt:message key="footer.info.phone" /></a></li>
+                      <li><a href="#"><fmt:message bundle="${bundle}"  key="footer.info.address" /></a></li>
+                      <li><a href="#"><fmt:message bundle="${bundle}"  key="footer.info.email" /></a></li>
+                      <li><a href="#"><fmt:message bundle="${bundle}"  key="footer.info.phone" /></a></li>
                   </ul>
 
                   <br>
@@ -44,11 +42,11 @@
           </div>
           <div class="col-lg-4 col-md-12">
               <div class="footer__widget">
-                  <h6><fmt:message key="footer.subscribe.title" /></h6>
-                  <p><fmt:message key="footer.subscribe.description" /></p>
+                  <h6><fmt:message bundle="${bundle}"  key="footer.subscribe.title" /></h6>
+                  <p><fmt:message bundle="${bundle}"  key="footer.subscribe.description" /></p>
                   <form action="#">
-                      <input type="text" placeholder="<fmt:message key='footer.subscribe.placeholder' />">
-                      <button type="submit" class="site-btn"><fmt:message key="footer.subscribe.button" /></button>
+                      <input type="text" placeholder="<fmt:message bundle="${bundle}"  key='footer.subscribe.placeholder' />">
+                      <button type="submit" class="site-btn"><fmt:message bundle="${bundle}"  key="footer.subscribe.button" /></button>
                   </form>
 
                   <div class="footer__widget__social">
@@ -63,7 +61,7 @@
           <div class="col-lg-12">
               <div class="footer__copyright">
                   <div class="footer__copyright__text">
-                      <p><fmt:message key="footer.copyright.text" /> <script>document.write(new Date().getFullYear());</script></p>
+                      <p><fmt:message bundle="${bundle}"  key="footer.copyright.text" /> <script>document.write(new Date().getFullYear());</script></p>
                   </div>
 
                   <div class="footer__copyright__payment"></div>
