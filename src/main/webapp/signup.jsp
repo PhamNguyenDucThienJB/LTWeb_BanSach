@@ -134,7 +134,7 @@
                         </button>
                     </form>
                     <p class="text-center mb-0">
-                        <fmt:message key="signup.login-link"/>
+                        <fmt:message bundle="${bundle}" key="signup.login-link"/>
                         <a href="signin.jsp"><fmt:message bundle="${bundle}"  key="signup.login"/></a>
                     </p>
                 </div>

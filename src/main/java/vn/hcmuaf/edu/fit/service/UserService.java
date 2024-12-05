@@ -317,11 +317,11 @@ public class UserService {
                             "<div style=\"max-width: 600px; margin: auto; background: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);\">" +
                             "<h2 style=\"color: #333; text-align: center;\">Xác nhận tài khoản của bạn</h2>" +
                             "<p style=\"color: #555; line-height: 1.5;\">Xin chào,</p>" +
-                            "<p style=\"color: #555; line-height: 1.5;\">Cảm ơn bạn đã sử dụng dịch vụ  CHĂM SÓC của chúng tôi. Đây là mã xác nhận của bạn:</p>" +
+                            "<p style=\"color: #555; line-height: 1.5;\">Cảm ơn bạn đã sử dụng dịch vụ mua bán sách của chúng tôi. Đây là mã xác nhận của bạn:</p>" +
                             "<div style=\"text-align: center; margin: 20px 0;\">" +
                             "<span style=\"font-size: 24px; font-weight: bold; color: #007BFF;\">" + code + "</span>" +
                             "</div>" +
-                            "<p style=\"color: #555; line-height: 1.5;\">Vui lòng nhập mã này trên trang xác nhận để hoàn tất quá trình đăng ký.</p>" +
+                            "<p style=\"color: #555; line-height: 1.5;\">Vui lòng nhập mã này trên trang xác nhận mật khẩu để hoàn tất quá trình đăng ký.</p>" +
                             "<p style=\"color: #555; line-height: 1.5;\">Nếu bạn không yêu cầu mã này, hãy bỏ qua email này.</p>" +
                             "<div style=\"margin-top: 20px; text-align: center;\">" +
                             "<a href=\"https://yourwebsite.com\" style=\"background: #007BFF; color: #ffffff; text-decoration: none; padding: 10px 20px; border-radius: 4px;\">Trang chủ</a>" +

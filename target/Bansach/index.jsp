@@ -383,11 +383,11 @@
                             <li><i class="fa fa-calendar-o"></i> 22-10-2022</li>
 
                         </ul>
-                        <h5><a href="blog-details-1.html">Giải mã sức hút của bánh kem hiện đại</a></h5>
+                        <h5><a href="blog-details-1.jsp">Giải mã sức hút của bánh kem hiện đại</a></h5>
                         <p class="text-justify">Trong những bữa tiệc quan trọng bánh kem góp phần mang đến cho không
                             khí thêm phần hoàn hảo. Sự xuất hiện của bánh kem hiện đại như một bước ngoặt mới...
                         </p>
-                        <a href="contact.html" class="blog__btn" style="">Xem thêm <span class="arrow_right"></span>
+                        <a href="contact.jsp" class="blog__btn" style="">Xem thêm <span class="arrow_right"></span>
                         </a>
                     </div>
                 </div>
