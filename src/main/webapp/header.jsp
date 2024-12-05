@@ -9,7 +9,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <!-- Google Font -->
 
-
 <img src="https://pos.nvncdn.com/fd5775-40602/bn/20240321_J5bpFnuw.gif" alt="Banner header">
 <!-- Humberger Begin -->
 <div class="humberger__menu__overlay"></div>
@@ -52,13 +51,13 @@
     </nav>
     <div id="mobile-menu-wrap"></div>
     <div class="header__top__right__social">
-        <a  target="blank"><i class="fa fa-facebook"></i></a>
+        <a target="blank"><i class="fa fa-facebook"></i></a>
         <a href="#" target="blank"><i class="fa fa-comment"></i></a>
         <a href="#" target="blank"><i class="fa fa-instagram"></i></a>
     </div>
     <div class="humberger__menu__contact">
         <ul>
-            <li><i class="fa fa-envelope"></i>ho </li>
+            <li><i class="fa fa-envelope"></i>ho</li>
             <li></li>
         </ul>
     </div>
@@ -71,12 +70,11 @@
     <!-- rang cua -->
 
 
-
     <!-- rang cua -->
     <div class="header__top">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-6" style="display: inline-flex;">
+                <div class="col-lg-4 col-md-6" style="display: inline-flex;">
                     <div class="header__top__left">
                         <div class="hero__search__phone">
                             <div class="hero__search__phone__icon">
@@ -88,13 +86,28 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="header__top__right" style="margin-top: 12px;">
+                <div class="col-lg-4 col-md-6" style="display: inline-flex;
+                                                    justify-content: center;
+                                                    align-items: center;">
+                    <div class="header__top__center">
+                        <div style="display: flex">
+                            <span><a style="margin-left: 5px;color: black" href="">Tiếng Việt | </a></span>
+                            <span><a  style="margin-left: 5px;color: black" href="">Tiếng Anh | </a></span>
+                            <span><a style="margin-left: 5px;color: black" href="">Tiếng Nhật </a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="header__top__right" style="margin-top: 12px;    display: flex;
+                                                                margin-top: 12px;
+                                                                justify-content: flex-end;">
 
                         <div class="header__top__right__social">
                             <a href="./favorites.html"><i class="fa fa-heart"></i> <span style="color: white;">1</span></a>
-                            <a href="./shoping-cart.html"><i class="fa fa-shopping-bag"></i> <span style="color: white;">3</span></a>
+                            <a href="./shoping-cart.html"><i class="fa fa-shopping-bag"></i> <span
+                                    style="color: white;">3</span></a>
                             <!-- <a href="https://www.instagram.com/maizecorn1542/" target="blank"><i class="fa fa-instagram"></i></a> -->
                         </div>
                         <div class="header__top__right__auth">
@@ -127,8 +140,6 @@
                         </div>
 
 
-
-
                     </div>
                 </div>
             </div>
@@ -146,29 +157,22 @@
             <div class="col-lg-7 ">
                 <nav class="header__menu">
                     <ul>
-                        <li class="active"><a href="./index.jsp">Trang chủ</a></li>
-                        <li><a href="about.jsp">Giới thiệu</a></li>
-                        <li><a href="./shop-product.html">Sản phẩm</a>
+                        <li class="active"><a href="./index.jsp"><fmt:message>menu.home</fmt:message></a></li>
+                        <li><a href="about.jsp"><fmt:message>menu.about</fmt:message></a></li>
+                        <li><a href="./shop-product.html"><fmt:message>menu.products</fmt:message></a>
 
                         </li>
-                        <li><a href="./blog.html">Tin tức</a></li>
-                        <li><a href="./contact.html">Liên hệ</a></li>
+                        <li><a href="./blog.html"><fmt:message>menu.news</fmt:message></a></li>
+                        <li><a href="./contact.html"><fmt:message>menu.contact</fmt:message></a></li>
                     </ul>
                 </nav>
             </div>
 
-            <!-- <div class="col-lg-2">
-                <div class="header__cart">
-                    <ul>
-                        <li><a href="./favorites.html"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                        <li><a href="./shoping-cart.html"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                    </ul>
-                </div>
-            </div> -->
+
 
 
         </div>
-        <!-- <div style="color:#f47920 ;" class="rang_cua"></div> -->
+
         <div class="humberger__open">
             <i class="fa fa-bars"></i>
         </div>
@@ -177,26 +181,19 @@
             <div class="col-lg-9">
                 <div class="hero__search">
                     <div class="hero__search__form ">
-                        <form action="#" >
+                        <form action="#">
 
                             <input type="text" placeholder="Tìm kiếm sản phẩm?">
-                            <button type="submit" class="site-btn"><i class="fa fa-search"></i> <span class="text_search">TÌM KIẾM</span></button>
+                            <button type="submit" class="site-btn"><i class="fa fa-search"></i> <span
+                                    class="text_search">TÌM KIẾM</span></button>
                         </form>
                     </div>
 
-                    <!-- <div class="hero__search__phone">
-                        <div class="hero__search__phone__icon">
-                            <a href="tel:0987654321" class="fa fa-phone cursor"></a>
-                        </div>
-                        <div class="hero__search__phone__text">
-                            <h5>+84 987654321</h5>
-                            <span>Mở cửa từ 8h - 22h</span>
-                        </div>
-                    </div> -->
+
                 </div>
             </div>
         </div>
 
     </div>
 
-</header>
+</header></header>
