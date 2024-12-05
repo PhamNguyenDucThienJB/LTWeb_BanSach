@@ -119,19 +119,19 @@
                     <div class="header__top__center">
                         <div style="display: flex">
                                 <span>
-                                    <a class="language" style="margin-left: 5px;" href="?lang=vi_VN">
+                                    <a class="language" style="margin-left: 7px;margin-right: 7px;" href="?lang=vi_VN">
                                         <fmt:message bundle="${bundle}" key="menu.language.vi"/>
                                     </a>
                                 </span>
                             <span> | </span>
                                                 <span>
-                                    <a class="language" style="margin-left: 5px;" href="?lang=en_US">
+                                    <a class="language" style="margin-left: 5px;margin-right: 7px;" href="?lang=en_US">
                                         <fmt:message bundle="${bundle}" key="menu.language.en"/>
                                     </a>
                                 </span>
                             <span> | </span>
                                                 <span>
-                                    <a class="language" style="margin-left: 5px;" href="?lang=ja_JP">
+                                    <a class="language" style="margin-left: 5px;margin-right: 7px;" href="?lang=ja_JP">
                                         <fmt:message bundle="${bundle}" key="menu.language.ja"/>
                                     </a>
                                 </span>
@@ -148,7 +148,7 @@
                         <div class="header__top__right__social">
                             <a href="./favorites.html"><i class="fa fa-heart"></i> <span style="color: white;">1</span></a>
 
-                            <a href="shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span
+                            <a href="./shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span
 
                                     style="color: white;">3</span></a>
                             <!-- <a href="https://www.instagram.com/maizecorn1542/" target="blank"><i class="fa fa-instagram"></i></a> -->
@@ -170,7 +170,7 @@
                                                                               key="menu.resetPassword"/></a>
 
                                         <c:if test="${auth.checkRole(1)}">
-                                            <a href="/AdminIndexSL" class="dropdown-item"><fmt:message
+                                            <a href="/admin/AdminIndexSL" class="dropdown-item"><fmt:message
                                                     bundle="${bundle}" key="menu.managePage"/></a>
                                         </c:if>
 
@@ -264,58 +264,80 @@
 </header>
 
 <style>
-    /*.header {*/
-    /*    position: sticky;*/
-    /*    top: 0; !* Cố định header tại đỉnh *!*/
-    /*    z-index: 1000; !* Đảm bảo header nằm trên các thành phần khác *!*/
-    /*    background-color: white; !* Đặt màu nền nếu cần *!*/
-    /*    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); !* Tạo hiệu ứng đổ bóng *!*/
+    /*.header__menu {*/
+    /*    position: sticky; !* Giữ menu ở vị trí hiện tại khi cuộn *!*/
+    /*    top: 0;           !* Khoảng cách từ menu đến đỉnh của viewport *!*/
+    /*    z-index: 1000;    !* Đảm bảo menu luôn nằm trên các phần tử khác *!*/
+    /*    background-color: white; !* Màu nền menu *!*/
+    /*    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); !* Tùy chọn: thêm bóng cho menu *!*/
+    /*    padding: 10px 0;  !* Điều chỉnh khoảng cách *!*/
     /*}*/
-    /* CSS cho liên kết được chọn */
+
+
+
     .selected {
         color: #fd7e14; /* Màu sắc bạn muốn hiển thị */
         font-weight: bold; /* Nếu cần làm nổi bật */
+
     }
+    .row {
+        position: relative; /* Đảm bảo cha không ảnh hưởng đến sticky */
+    }
+
 
 </style>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // Kiểm tra nếu có giá trị ngôn ngữ đã lưu trong localStorage
-        const storedLang = localStorage.getItem('selectedLang');
-
-        // Lấy tham số lang từ URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const lang = urlParams.get('lang');
-
-        // Nếu có tham số lang trong URL, lưu nó vào localStorage
-        if (lang) {
-            localStorage.setItem('selectedLang', lang);
-        }
-
-        // Nếu không có tham số lang trong URL, sử dụng ngôn ngữ đã lưu trong localStorage (nếu có)
-        const currentLang = storedLang || lang || 'en_US'; // Mặc định là vi_VN nếu không có gì
-
         // Lấy tất cả các liên kết ngôn ngữ
         const languageLinks = document.querySelectorAll('.language');
 
-        // Lặp qua tất cả các liên kết và kiểm tra nếu nó khớp với ngôn ngữ hiện tại
-        languageLinks.forEach(link => {
-            const linkLang = link.getAttribute('href').split('=')[1];  // Lấy giá trị lang từ URL
+        // Lấy ngôn ngữ hiện tại từ localStorage hoặc mặc định
+        const storedLang = localStorage.getItem('selectedLang') || 'en_US';
 
-            // Nếu ngôn ngữ trong liên kết khớp với ngôn ngữ hiện tại, thay đổi màu
-            if (linkLang === currentLang) {
-                link.style.color = 'white';  // Màu của ngôn ngữ đang được chọn
-            } else {
-                link.style.color = 'black'; // Màu của các ngôn ngữ còn lại
-            }
+        // Cập nhật màu sắc ban đầu
+        updateLanguageColors(storedLang);
+
+        // Lắng nghe sự kiện click để thay đổi ngay màu sắc và lưu ngôn ngữ
+        languageLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); // Ngăn tải lại trang ngay lập tức
+                const selectedLang = this.getAttribute('href').split('=')[1];
+
+                // Lưu ngôn ngữ đã chọn vào localStorage
+                localStorage.setItem('selectedLang', selectedLang);
+
+                // Cập nhật màu sắc cho các liên kết
+                updateLanguageColors(selectedLang);
+
+                // Thay đổi URL (tải lại với tham số mới)
+                window.location.href = this.href;
+            });
         });
+
+        // Hàm cập nhật màu sắc cho liên kết
+        function updateLanguageColors(currentLang) {
+            languageLinks.forEach(link => {
+                const linkLang = link.getAttribute('href').split('=')[1];
+                link.style.color = linkLang === currentLang ? 'white' : 'black';
+            });
+        }
     });
 
+    // window.addEventListener('scroll', function () {
+    //     const headerMenu = document.querySelector('.header__menu');
+    //     if (window.scrollY > 50) {
+    //         headerMenu.style.padding = '10px 0'; // Thu nhỏ menu
+    //         headerMenu.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.2)'; // Thêm bóng
+    //     } else {
+    //         headerMenu.style.padding = '20px 0'; // Kích thước ban đầu
+    //         headerMenu.style.boxShadow = 'none'; // Bỏ bóng
+    //     }
+    // });
 
 
 </script>
 
 
 
-</header></header>
+</header>
 

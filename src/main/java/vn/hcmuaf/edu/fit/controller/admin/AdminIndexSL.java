@@ -7,7 +7,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "AdminIndexSL", value = "/AdminIndexSL")
+@WebServlet(name = "AdminIndexSL", value = "/admin/AdminIndexSL")
 public class AdminIndexSL extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
