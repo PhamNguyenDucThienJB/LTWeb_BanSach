@@ -34,7 +34,6 @@
 
 <fmt:setBundle basename="lang.lang" var="bundle" scope="session"/>
 
-
 <img src="https://pos.nvncdn.com/fd5775-40602/bn/20240321_J5bpFnuw.gif" alt="Banner header">
 <!-- Humberger Begin -->
 <div class="humberger__menu__overlay"></div>
@@ -114,6 +113,7 @@
                     </div>
 
                 </div>
+
                 <div class="col-lg-4 col-md-6"
                      style="display: inline-flex; justify-content: center; align-items: center;">
                     <div class="header__top__center">
@@ -139,6 +139,7 @@
                     </div>
                 </div>
 
+
                 <div class="col-lg-4 col-md-6">
                     <div class="header__top__right" style="margin-top: 12px;    display: flex;
                                                                 margin-top: 12px;
@@ -146,7 +147,9 @@
 
                         <div class="header__top__right__social">
                             <a href="./favorites.html"><i class="fa fa-heart"></i> <span style="color: white;">1</span></a>
+
                             <a href="shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span
+
                                     style="color: white;">3</span></a>
                             <!-- <a href="https://www.instagram.com/maizecorn1542/" target="blank"><i class="fa fa-instagram"></i></a> -->
                         </div>
@@ -205,6 +208,7 @@
             <div class="col-lg-7">
                 <nav class="header__menu">
                     <ul>
+<<<<<<< HEAD
                         <li class="menu-item">
                             <a href="./IndexServlet" ><fmt:message bundle="${bundle}" key="menu.home"/></a>
                         </li>
@@ -220,9 +224,11 @@
                         <li class="menu-item">
                             <a href="contact.jsp" ><fmt:message bundle="${bundle}" key="menu.contact"/></a>
                         </li>
+
                     </ul>
                 </nav>
             </div>
+
 
 
 
@@ -238,11 +244,13 @@
                     <div class="hero__search__form ">
                         <form action="#">
 
+<<<<<<< HEAD
                             <input type="text"
                                    placeholder="<fmt:message bundle="${bundle}"  key='menu.search.placeholder'/>">
                             <button type="submit" class="site-btn"><i class="fa fa-search"></i> <span
                                     class="text_search"><fmt:message bundle="${bundle}"
                                                                      key="menu.search.button"/></span></button>
+
                         </form>
                     </div>
 
@@ -308,3 +316,7 @@
 
 </script>
 
+<<<<<<< HEAD
+=======
+</header></header>
+>>>>>>> 51bb96c71d798f2e04e768e404792bb60c8c6b8c
