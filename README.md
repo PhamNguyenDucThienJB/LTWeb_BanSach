@@ -4,13 +4,13 @@
   + 21130481 Phạm Vĩnh Phúc
 
 ## ProJect Website Book Store: 
-    Model: MCV
+    Model USE: MCV, Singleton
 
-    Front-End: HTML5, CSS, Bootstrap, SWap.
+    Front-End: HTML5, CSS, Bootstrap, SWal.
 
     Back-End: Servlet 3.0
 
-    Database: MySql, JDBC, JDBI
+    Database: MySql, JDBC, JDBI, Connection Pooling DBCP
 # Tool Use:
   + IntelliJ 
   + Tomcat 9.0
