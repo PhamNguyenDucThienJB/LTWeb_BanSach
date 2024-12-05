@@ -162,7 +162,7 @@
                                                        key="menu.welcomeMessage"/> ${auth.tentk} <fmt:message
                                             bundle="${bundle}" key="menu.welcomeMessage_san"/></span>
                                     <div class="header__top__right__auth__dropdown">
-                                        <a href="/" class="dropdown-item"><fmt:message bundle="${bundle}"
+                                        <a href="/shoping-cart.jsp" class="dropdown-item"><fmt:message bundle="${bundle}"
                                                                                        key="menu.myOrders"/></a>
                                         <a href="/page_profile.jsp" class="dropdown-item"><fmt:message
                                                 bundle="${bundle}" key="menu.myProfile"/></a>
@@ -208,7 +208,7 @@
             <div class="col-lg-7">
                 <nav class="header__menu">
                     <ul>
-<<<<<<< HEAD
+
                         <li class="menu-item">
                             <a href="./IndexServlet" ><fmt:message bundle="${bundle}" key="menu.home"/></a>
                         </li>
@@ -244,7 +244,6 @@
                     <div class="hero__search__form ">
                         <form action="#">
 
-<<<<<<< HEAD
                             <input type="text"
                                    placeholder="<fmt:message bundle="${bundle}"  key='menu.search.placeholder'/>">
                             <button type="submit" class="site-btn"><i class="fa fa-search"></i> <span
@@ -316,7 +315,7 @@
 
 </script>
 
-<<<<<<< HEAD
-=======
+
+
 </header></header>
->>>>>>> 51bb96c71d798f2e04e768e404792bb60c8c6b8c
+

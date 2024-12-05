@@ -104,7 +104,7 @@
                     <button type="submit" id="login-button" class="btn btn-primary py-3 w-100 mb-4"><fmt:message bundle="${bundle}"  key="button.submit"/></button>
 
 
-                    <p class="text-center mb-0"><fmt:message bundle="${bundle}"  key="noAccount.message"/> <a href="signup.jsp"><fmt:message key="signup.now"/></a></p>
+                    <p class="text-center mb-0"><fmt:message bundle="${bundle}"  key="noAccount.message"/> <a href="signup.jsp"><fmt:message bundle="${bundle}" key="signup.now"/></a></p>
 
                 </form>
                 <div class="custom-notifications" style="z-index: 999;"></div>

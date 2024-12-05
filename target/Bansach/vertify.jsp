@@ -87,7 +87,7 @@
                     <jsp:include page="validation.jsp"></jsp:include>
 
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control" name="number" id="floatingInput" value="" placeholder="<fmt:message key='verifyPage.codePlaceholder' />">
+                        <input type="number" class="form-control" name="number" maxlength="6" pattern="\d{6}" id="floatingInput" value="" placeholder="<fmt:message key='verifyPage.codePlaceholder' />">
                         <label for="floatingInput"><fmt:message bundle="${bundle}"  key="verifyPage.codeLabel" /></label>
                     </div>
 

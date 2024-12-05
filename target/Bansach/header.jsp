@@ -113,7 +113,7 @@
                     </div>
 
                 </div>
-<<<<<<< HEAD
+
                 <div class="col-lg-4 col-md-6"
                      style="display: inline-flex; justify-content: center; align-items: center;">
                     <div class="header__top__center">
@@ -139,19 +139,7 @@
                     </div>
                 </div>
 
-=======
-                <div class="col-lg-4 col-md-6" style="display: inline-flex;
-                                                    justify-content: center;
-                                                    align-items: center;">
-                    <div class="header__top__center">
-                        <div style="display: flex">
-                            <span><a style="margin-left: 5px;color: black" href="">Tiếng Việt | </a></span>
-                            <span><a  style="margin-left: 5px;color: black" href="">Tiếng Anh | </a></span>
-                            <span><a style="margin-left: 5px;color: black" href="">Tiếng Nhật </a></span>
-                        </div>
-                    </div>
-                </div>
->>>>>>> 51bb96c71d798f2e04e768e404792bb60c8c6b8c
+
                 <div class="col-lg-4 col-md-6">
                     <div class="header__top__right" style="margin-top: 12px;    display: flex;
                                                                 margin-top: 12px;
@@ -159,11 +147,9 @@
 
                         <div class="header__top__right__social">
                             <a href="./favorites.html"><i class="fa fa-heart"></i> <span style="color: white;">1</span></a>
-<<<<<<< HEAD
+
                             <a href="shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span
-=======
-                            <a href="./shoping-cart.html"><i class="fa fa-shopping-bag"></i> <span
->>>>>>> 51bb96c71d798f2e04e768e404792bb60c8c6b8c
+
                                     style="color: white;">3</span></a>
                             <!-- <a href="https://www.instagram.com/maizecorn1542/" target="blank"><i class="fa fa-instagram"></i></a> -->
                         </div>
@@ -176,7 +162,7 @@
                                                        key="menu.welcomeMessage"/> ${auth.tentk} <fmt:message
                                             bundle="${bundle}" key="menu.welcomeMessage_san"/></span>
                                     <div class="header__top__right__auth__dropdown">
-                                        <a href="/" class="dropdown-item"><fmt:message bundle="${bundle}"
+                                        <a href="/shoping-cart.jsp" class="dropdown-item"><fmt:message bundle="${bundle}"
                                                                                        key="menu.myOrders"/></a>
                                         <a href="/page_profile.jsp" class="dropdown-item"><fmt:message
                                                 bundle="${bundle}" key="menu.myProfile"/></a>
@@ -222,7 +208,7 @@
             <div class="col-lg-7">
                 <nav class="header__menu">
                     <ul>
-<<<<<<< HEAD
+
                         <li class="menu-item">
                             <a href="./IndexServlet" ><fmt:message bundle="${bundle}" key="menu.home"/></a>
                         </li>
@@ -238,23 +224,12 @@
                         <li class="menu-item">
                             <a href="contact.jsp" ><fmt:message bundle="${bundle}" key="menu.contact"/></a>
                         </li>
-=======
-                        <li class="active"><a href="./index.jsp"><fmt:message>menu.home</fmt:message></a></li>
-                        <li><a href="about.jsp"><fmt:message>menu.about</fmt:message></a></li>
-                        <li><a href="./shop-product.html"><fmt:message>menu.products</fmt:message></a>
 
-                        </li>
-                        <li><a href="./blog.html"><fmt:message>menu.news</fmt:message></a></li>
-                        <li><a href="./contact.html"><fmt:message>menu.contact</fmt:message></a></li>
->>>>>>> 51bb96c71d798f2e04e768e404792bb60c8c6b8c
                     </ul>
                 </nav>
             </div>
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 51bb96c71d798f2e04e768e404792bb60c8c6b8c
 
 
         </div>
@@ -269,17 +244,12 @@
                     <div class="hero__search__form ">
                         <form action="#">
 
-<<<<<<< HEAD
                             <input type="text"
                                    placeholder="<fmt:message bundle="${bundle}"  key='menu.search.placeholder'/>">
                             <button type="submit" class="site-btn"><i class="fa fa-search"></i> <span
                                     class="text_search"><fmt:message bundle="${bundle}"
                                                                      key="menu.search.button"/></span></button>
-=======
-                            <input type="text" placeholder="Tìm kiếm sản phẩm?">
-                            <button type="submit" class="site-btn"><i class="fa fa-search"></i> <span
-                                    class="text_search">TÌM KIẾM</span></button>
->>>>>>> 51bb96c71d798f2e04e768e404792bb60c8c6b8c
+
                         </form>
                     </div>
 
@@ -344,4 +314,8 @@
 
 
 </script>
+
+
+
+</header></header>
 
