@@ -11,9 +11,15 @@
     Back-End: Servlet 3.0
 
     Database: MySql, JDBC, JDBI, Connection Pooling DBCP
+    
 # Tool Use:
   + IntelliJ 
   + Tomcat 9.0
 
 # Technical was used in Project:
+  + SendMail
+  + i18N
+  + Phân Trang
+  + Cookie
+  + Phân Quyền
  
