@@ -1,9 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<html lang="zxx">
+<html >
 
 <head>
     <meta charset="UTF-8">
@@ -25,7 +26,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
+    <link rel="icon" href="//bizweb.dktcdn.net/100/197/269/themes/890698/assets/favicon.png?1730705463447" type="image/x-icon">
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -38,6 +39,7 @@
 </head>
 
 <body>
+
 <!-- Page Preloder -->
 <div id="preloder">
     <div class="loader"></div>
@@ -381,11 +383,11 @@
                             <li><i class="fa fa-calendar-o"></i> 22-10-2022</li>
 
                         </ul>
-                        <h5><a href="blog-details-1.html">Giải mã sức hút của bánh kem hiện đại</a></h5>
+                        <h5><a href="blog-details-1.jsp">Giải mã sức hút của bánh kem hiện đại</a></h5>
                         <p class="text-justify">Trong những bữa tiệc quan trọng bánh kem góp phần mang đến cho không
                             khí thêm phần hoàn hảo. Sự xuất hiện của bánh kem hiện đại như một bước ngoặt mới...
                         </p>
-                        <a href="contact.html" class="blog__btn" style="">Xem thêm <span class="arrow_right"></span>
+                        <a href="contact.jsp" class="blog__btn" style="">Xem thêm <span class="arrow_right"></span>
                         </a>
                     </div>
                 </div>

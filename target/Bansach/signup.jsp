@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
@@ -20,7 +21,8 @@
             rel="stylesheet">
     <!-- ==================== -->
 
-
+    <link rel="icon" href="//bizweb.dktcdn.net/100/197/269/themes/890698/assets/favicon.png?1730705463447"
+          type="image/x-icon">
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -36,7 +38,8 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap"
+          rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -44,7 +47,7 @@
 
     <!-- Libraries Stylesheet -->
     <link href="admin/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="admin/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="admin/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet"/>
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="admin/css/bootstrap.min.css" rel="stylesheet">
@@ -98,7 +101,7 @@
             <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                 <div class="bg-pink rounded p-4 p-sm-5 my-4 mx-3">
                     <form id="login-form" action="/SignUpServlet" method="post">
-                        <h2 class="title-sg">Đăng ký</h2>
+                        <h2 class="title-sg"><fmt:message  bundle="${bundle}"  key="signup.title"/></h2>
 
                         <c:if test="${not empty error}">
                             <div class="alert alert-danger text-center" role="alert">
@@ -107,38 +110,39 @@
                         </c:if>
                         <div class="form-floating mb-3">
                             <input name="name" type="text" class="form-control" id="name_user" placeholder="jhondoe">
-                            <label for="name_user">Tạo tên đăng nhập</label>
+                            <label for="name_user"><fmt:message  bundle="${bundle}"  key="signup.create-username"/></label>
                         </div>
-                        <div  onchange="check(this.value)" class="form-floating mb-3">
-                            <input name="email" type="email" class="form-control" id="email_user" placeholder="name@example.com">
-                            <label for="email_user">Địa chỉ email</label>
-                        </div>
-                        <div class="form-floating mb-4">
-                            <input name="pass" type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Tạo mật khẩu</label>
+                        <div onchange="check(this.value)" class="form-floating mb-3">
+                            <input name="email" type="email" class="form-control" id="email_user"
+                                   placeholder="name@example.com">
+                            <label for="email_user"><fmt:message bundle="${bundle}"  key="signup.email-address"/></label>
                         </div>
                         <div class="form-floating mb-4">
-                            <input name="repass" type="password" class="form-control" id="floatingPassword1" placeholder="Password">
-                            <label for="floatingPassword">Nhập lại mật khẩu</label>
+                            <input name="pass" type="password" class="form-control" id="floatingPassword"
+                                   placeholder="Password">
+                            <label for="floatingPassword"><fmt:message bundle="${bundle}"  key="signup.create-password"/></label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input name="repass" type="password" class="form-control" id="floatingPassword1"
+                                   placeholder="Password">
+                            <label for="floatingPassword"><fmt:message  bundle="${bundle}" key="signup.confirm-password"/></label>
                         </div>
                         <input type="hidden" name="save-login" value="true">
-                        <button name="save-login" id="login-button" type="submit" class="btn btn-primary py-3 w-100 mb-4">Đăng ký</button>
-
+                        <button name="save-login" id="login-button" type="submit"
+                                class="btn btn-primary py-3 w-100 mb-4">
+                            <fmt:message bundle="${bundle}"  key="signup.button"/>
+                        </button>
                     </form>
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <!-- <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Lưu đăng nhập</label>
-                        </div> -->
-
-                    </div>
-
-                    <p class="text-center mb-0">Bạn đã có tài khoản? <a href="signin.jsp">Đăng nhập</a></p>
+                    <p class="text-center mb-0">
+                        <fmt:message bundle="${bundle}" key="signup.login-link"/>
+                        <a href="signin.jsp"><fmt:message bundle="${bundle}"  key="signup.login"/></a>
+                    </p>
                 </div>
             </div>
         </div>
     </div>
     <div class="custom-notifications"></div>
+
 
     <!-- Sign Up End -->
 </div>
@@ -170,7 +174,7 @@
         const repassword = document.getElementById('floatingPassword1').value.trim();
 
         // Kiểm tra tên đăng nhập
-        if (!name || name ==null) {
+        if (!name || name == null) {
             const toast = document.createElement('div');
             toast.classList.add('custom-toast', 'custom-warning');
             toast.innerHTML = `

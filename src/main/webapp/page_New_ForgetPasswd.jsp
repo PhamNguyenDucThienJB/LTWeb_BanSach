@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 
@@ -21,7 +22,6 @@
             rel="stylesheet">
     <!-- ==================== -->
 
-
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <!-- Favicon -->
     <link href="./img/favicon.ico" rel="icon">
-
+    <link rel="icon" href="//bizweb.dktcdn.net/100/197/269/themes/890698/assets/favicon.png?1730705463447" type="image/x-icon">
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,30 +84,27 @@
     color: orange;" method="post" class="bg-pink rounded p-4 p-sm-5 my-4 mx-3">
 
                     <div>
-                        <h2 class="title-sg">Mật khẩu mới</h2>
+                        <h2 class="title-sg"><fmt:message bundle="${bundle}"  key="updatePasswordPage.title" /></h2>
                     </div>
                     <jsp:include page="validation.jsp"></jsp:include>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" name="email" id="email" value="${mail_vertify}"
-                               placeholder="name@example.com" readonly>
-                        <label for="${mail_vertify}">Gmail đổi mật khẩu</label>
+                        <input type="email" class="form-control" name="email" id="email" value="${mail_vertify}" placeholder="name@example.com" readonly>
+                        <label for="email"><fmt:message bundle="${bundle}"  key="updatePasswordPage.emailLabel" /></label>
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" name="pass" id="oldpass" value=""
-                               placeholder="">
-                        <label for="oldpass">Mật khẩu mới</label>
+                        <input type="password" class="form-control" name="pass" id="oldpass" value="" placeholder="">
+                        <label for="oldpass"><fmt:message bundle="${bundle}"  key="updatePasswordPage.newPasswordLabel" /></label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" name="repass" id="newpass" value=""
-                               placeholder="">
-                        <label for="newpass">Nhập lại mật khẩu mới</label>
+                        <input type="password" class="form-control" name="repass" id="newpass" value="" placeholder="">
+                        <label for="newpass"><fmt:message bundle="${bundle}"  key="updatePasswordPage.confirmNewPasswordLabel" /></label>
                     </div>
 
-                    <button type="submit" id="login-button" class="btn btn-primary py-3 w-100 mb-4">Đăng nhập</button>
+                    <button type="submit" id="login-button" class="btn btn-primary py-3 w-100 mb-4"><fmt:message bundle="${bundle}"  key="button.submit"/></button>
 
 
-                    <p class="text-center mb-0">Bạn chưa có tài khoản? <a href="signup.jsp">Đăng ký ngay</a></p>
+                    <p class="text-center mb-0"><fmt:message bundle="${bundle}"  key="noAccount.message"/> <a href="signup.jsp"><fmt:message bundle="${bundle}" key="signup.now"/></a></p>
 
                 </form>
                 <div class="custom-notifications" style="z-index: 999;"></div>

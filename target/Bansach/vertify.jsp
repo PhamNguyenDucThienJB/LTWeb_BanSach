@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 
@@ -20,7 +21,7 @@
             href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Roboto:wght@100;300;400;500;700&display=swap"
             rel="stylesheet">
     <!-- ==================== -->
-
+    <link rel="icon" href="//bizweb.dktcdn.net/100/197/269/themes/890698/assets/favicon.png?1730705463447" type="image/x-icon">
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -75,34 +76,36 @@
 
 <!-- Header Section End -->
 <div class="container-fluid position-relative d-flex p-0">
-
     <div class="container-fluid bg_signin_signup">
-
         <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
-            <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4" style="    display: contents;">
-                <form id="login-form" action="/ForgetPassWorkServlet" style="border: solid;
-    color: orange;" method="get" class="bg-pink rounded p-4 p-sm-5 my-4 mx-3">
+            <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4" style="display: contents;">
+                <form id="login-form" action="/ForgetPassWorkServlet" style="border: solid; color: orange;" method="get" class="bg-pink rounded p-4 p-sm-5 my-4 mx-3">
 
                     <div>
-                        <h2 class="title-sg">Trang xác nhận</h2>
+                        <h2 class="title-sg"><fmt:message bundle="${bundle}"  key="verifyPage.title" /></h2>
                     </div>
                     <jsp:include page="validation.jsp"></jsp:include>
+
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control" name="number" id="floatingInput" value=""
-                               placeholder="XXXXXXX">
-                        <label for="floatingInput">Nhập mã code đã được gửi</label>
-
-
+                        <input type="number" class="form-control" name="number" id="floatingInput" value="" placeholder="<fmt:message key='verifyPage.codePlaceholder' />">
+                        <label for="floatingInput"><fmt:message bundle="${bundle}"  key="verifyPage.codeLabel" /></label>
                     </div>
 
+                    <button type="submit" id="login-button" class="btn btn-primary py-3 w-100 mb-4">
+                        <fmt:message bundle="${bundle}"  key="button.submit" />
+                    </button>
 
-                    <button type="submit" id="login-button" class="btn btn-primary py-3 w-100 mb-4">Đăng nhập</button>
-
-
-                    <p class="text-center mb-0">Bạn chưa có tài khoản? <a href="signup.jsp">Đăng ký ngay</a></p>
-
+                    <p class="text-center mb-0">
+                        <fmt:message key="noAccount.message" />
+                        <a href="signup.jsp"><fmt:message bundle="${bundle}"  key="signup.now" /></a>
+                    </p>
                 </form>
                 <div class="custom-notifications" style="z-index: 999;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
                 <div class="custom-buttons">
                     <button id="custom-success">Success</button>
