@@ -7,6 +7,8 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 @WebServlet(name = "ForgetPassWorkServlet", value = "/ForgetPassWorkServlet")
 public class ForgetPassWorkServlet extends HttpServlet {
@@ -46,30 +48,48 @@ public class ForgetPassWorkServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
+
+        // Lấy ngôn ngữ từ session
+        String lang = (String) request.getSession().getAttribute("lang");
+        if (lang == null) {
+            lang = "en"; // Mặc định là tiếng Anh
+        }
+        Locale locale;
+        switch (lang) {
+            case "vi_VN":
+                locale = new Locale("vi", "VN");
+                break;
+            case "ja_JP":
+                locale = new Locale("ja", "JP");
+                break;
+            default:
+                locale = new Locale("en", "US");
+                break;
+        }
+
+        // Chọn Locale và tải tệp ngôn ngữ
+        ResourceBundle messages = ResourceBundle.getBundle("lang.lang", locale);
+
         String mail = request.getParameter("email");
 
         if (!UserService.checkEmail(mail)) {
-
             try {
-                request.setCharacterEncoding("UTF-8");
-                response.setCharacterEncoding("UTF-8");
                 UserService.sendMail(mail, ramdom_code);
                 System.out.println("Code was sent to: " + mail);
-                request.setCharacterEncoding("UTF-8");
-                response.setCharacterEncoding("UTF-8");
+
+                // Lưu thông báo thành công
+                HttpSession session = request.getSession();
+                request.setAttribute("success", messages.getString("VALIDATION_SUCCESS"));
+                session.setAttribute("mail_verify", mail);
+                request.getRequestDispatcher("/vertify.jsp").forward(request, response);
             } catch (MessagingException e) {
                 e.printStackTrace();
                 System.out.println("Error In Process");
             }
-            HttpSession session = request.getSession();
-            request.setAttribute("success",Validation_SUCCESS);
-            session.setAttribute("mail_vertify", mail);
-            request.getRequestDispatcher("/vertify.jsp").forward(request,response);
-
         } else {
-            request.setAttribute("error", Validation_Error_Email);
+            // Lưu thông báo lỗi
+            request.setAttribute("error", messages.getString("VALIDATION_ERROR_EMAIL"));
             request.getRequestDispatcher("/page_ForgetPasswd.jsp").forward(request, response);
-
         }
     }
 }

@@ -96,7 +96,7 @@
                     </button>
 
                     <p class="text-center mb-0">
-                        <fmt:message key="noAccount.message" />
+                        <fmt:message  bundle="${bundle}" key="noAccount.message" />
                         <a href="signup.jsp"><fmt:message bundle="${bundle}"  key="signup.now" /></a>
                     </p>
                 </form>

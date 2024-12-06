@@ -88,7 +88,7 @@
                     </div>
                     <jsp:include page="validation.jsp"></jsp:include>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" name="email" id="email" value="${mail_vertify}" placeholder="name@example.com" readonly>
+                        <input type="email" class="form-control" name="email" id="email" value="${mail_verify}" placeholder="name@example.com" readonly>
                         <label for="email"><fmt:message bundle="${bundle}"  key="updatePasswordPage.emailLabel" /></label>
                     </div>
 
@@ -109,7 +109,7 @@
                 </form>
                 <div class="custom-notifications" style="z-index: 999;"></div>
 
-                <div class="custom-buttons">
+                <div class="custom-buttons" style="display: none">
                     <button id="custom-success">Success</button>
                     <button id="custom-error">Error</button>
                     <button id="custom-warning">Warning</button>

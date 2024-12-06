@@ -7,6 +7,9 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.Locale;
+import java.util.MissingResourceException;
+import java.util.ResourceBundle;
 
 @WebServlet(name = "SignInServlet", value = "/SignInServlet")
 public class SignInServlet extends HttpServlet {
@@ -24,6 +27,36 @@ public class SignInServlet extends HttpServlet {
         response.setContentType("text/html; charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
 
+        // Lấy ngôn ngữ từ tham số hoặc session (mặc định là "en")
+        String lang = request.getParameter("lang");
+        if (lang == null) {
+            lang = (String) request.getSession().getAttribute("lang");
+        }
+        if (lang == null) {
+            lang = "en"; // Mặc định tiếng Anh
+        }
+
+        // Lưu ngôn ngữ vào session
+        request.getSession().setAttribute("lang", lang);
+
+        // Chọn Locale dựa trên tham số
+        Locale locale;
+        switch (lang) {
+            case "vi_VN":
+                locale = new Locale("vi", "VN");
+                break;
+            case "ja_JP":
+                locale = new Locale("ja", "JP");
+                break;
+            default:
+                locale = new Locale("en", "US");
+                break;
+        }
+
+        // Đọc tài nguyên từ tệp
+        ResourceBundle messages = ResourceBundle.getBundle("lang.lang", locale);
+
+
         String email = request.getParameter("email");
         String passwd = request.getParameter("pass");
 
@@ -31,22 +64,21 @@ public class SignInServlet extends HttpServlet {
         User user = UserService.getInstance().checkLogin(email, passwd);
 
         if (user != null) {
-            // Kiểm tra nếu user bị khóa hoặc không hợp lệ
             if (user.checkRole(-1)) {
-                request.setAttribute("error", ACCOUNT_NOT_FOUND);
+                request.setAttribute("error", messages.getString("ACCOUNT_NOT_FOUND"));
                 request.getRequestDispatcher("/signin.jsp").forward(request, response);
                 return;
             }
 
-            // Đăng nhập thành công
             HttpSession session = request.getSession();
             session.setAttribute("auth", user);
-            session.setAttribute("success", SUCCESS_LOGIN);  // Lưu thông báo vào session
-            response.sendRedirect("/IndexServlet");  // Chuyển hướng sau khi đăng nhập thành công
+            session.setAttribute("success", messages.getString("SUCCESS_LOGIN"));
+            response.sendRedirect("/IndexServlet");
         } else {
-            // Sai thông tin đăng nhập
-            request.setAttribute("error", INVALID_CREDENTIALS);
+            request.setAttribute("error", messages.getString("INVALID_CREDENTIALS"));
             request.getRequestDispatcher("/signin.jsp").forward(request, response);
         }
     }
+
+
 }
