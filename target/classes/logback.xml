@@ -1,0 +1,18 @@
+<configuration>
+
+    <!-- Cấu hình appender để ghi log vào console -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Cấu hình root logger để hiển thị các log -->
+    <root level="debug">
+        <appender-ref ref="console"/>
+    </root>
+
+    <!-- Cấu hình log riêng cho Apache DBCP2 -->
+    <logger name="org.apache.commons.dbcp2" level="debug"/>
+
+</configuration>

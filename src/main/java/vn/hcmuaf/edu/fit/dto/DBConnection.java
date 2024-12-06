@@ -105,9 +105,15 @@ public class DBConnection {
                 System.out.println("Phiên bản cơ sở dữ liệu: " + metaData.getDatabaseProductVersion());
                 System.out.println("URL kết nối: " + metaData.getURL());
                 System.out.println("Tên người dùng: " + metaData.getUserName());
+                Connection connection = dataSource.getConnection();
+                System.out.println("Connection class: " + connection.getClass().getName());
+
+
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("Có lỗi khi kết nối đến cơ sở dữ liệu: " + e.getMessage());
         }
     }
 }
