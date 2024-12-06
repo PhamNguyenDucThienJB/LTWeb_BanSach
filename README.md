@@ -19,7 +19,8 @@
 # Technical was used in Project:
   + SendMail
   + i18N
-  + Phân Trang
+  + Pagination 
   + Cookie
-  + Phân Quyền
+  + Permissions 
+  + Authentication
  
