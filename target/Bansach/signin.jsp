@@ -250,8 +250,8 @@ function encodeURIParams(a, b) {
             newToast.innerHTML = `
             <i class="fa-solid fa-circle-exclamation"></i>
             <div class="custom-content">
-                <div class="custom-title">Cảnh Báo</div>
-                <span>Vui lòng nhập đầy đủ email và mật khẩu!</span>
+                <div class="custom-title"><fmt:message bundle="${bundle}" key="popup.warming"/></div>
+                <span><fmt:message bundle="${bundle}" key="popup.failwrongcondition"/></span>
             </div>
             <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
         `;
@@ -271,8 +271,8 @@ function encodeURIParams(a, b) {
             newToast.innerHTML = `
             <i class="fa-solid fa-circle-exclamation"></i>
             <div class="custom-content">
-                <div class="custom-title">Lỗi</div>
-                <span>Email không hợp lệ!</span>
+                <div class="custom-title"><fmt:message  bundle="${bundle}" key="popup.fail"/></div>
+                <span><fmt:message bundle="${bundle}"  key="popup.failEmail"/></span>
             </div>
             <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
         `;
@@ -288,8 +288,8 @@ function encodeURIParams(a, b) {
             newToast.innerHTML = `
             <i class="fa-solid fa-circle-exclamation"></i>
             <div class="custom-content">
-                <div class="custom-title">Cảnh Báo</div>
-                <span>Mật khẩu phải có ít nhất 6 ký tự!</span>
+                <div class="custom-title"><fmt:message bundle="${bundle}" key="popup.warming"/></div>
+                <span><fmt:message bundle="${bundle}"  key="popup.failengouh"/></span>
             </div>
             <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
         `;
