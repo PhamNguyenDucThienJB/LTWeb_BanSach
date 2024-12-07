@@ -1,5 +1,7 @@
 package vn.hcmuaf.edu.fit.dto;
 
+import org.apache.commons.dbcp2.BasicDataSource;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,6 +15,7 @@ public class DBConnection {
     private static String password;
     static DBConnection install;
     Connection conn;
+    private static BasicDataSource dataSource; // Connection Pool
 
     static {
         try {
@@ -38,9 +41,19 @@ public class DBConnection {
             // Tạo URL kết nối
             url = "jdbc:mysql://" + dbHost + ":" + dbPort + "/" + dbName;
 
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+            // Cấu hình DBCP
+            dataSource = new BasicDataSource();
+            dataSource.setDriverClassName(driverClass);
+            dataSource.setUrl(url);
+            dataSource.setUsername(username);
+            dataSource.setPassword(password);
+
+            // Tùy chỉnh connection pool
+            dataSource.setInitialSize(5); // Số kết nối tạo sẵn
+            dataSource.setMaxTotal(20);   // Số kết nối tối đa
+            dataSource.setMaxIdle(10);   // Số kết nối nhàn rỗi tối đa
+            dataSource.setMinIdle(2);    // Số kết nối nhàn rỗi tối thiểu
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -61,19 +74,26 @@ public class DBConnection {
         }
     }
 
-    public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(url, username, password);
-    }
-
+    // Phương thức cũ: `getConnectionInstance()`
     public Connection getConnectionInstance() {
-        if (conn == null) {
-            try {
-                conn = DriverManager.getConnection(url, username, password);
-            } catch (SQLException e) {
-                e.printStackTrace();
+        try {
+            if (conn == null) {
+                conn = dataSource.getConnection(); // Lấy từ connection pool
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return conn;
+    }
+
+    // Phương thức mới sử dụng connection pool đúng cách
+    public static Connection getConnection() {
+        try {
+            return dataSource.getConnection(); // Lấy từ connection pool
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Không thể lấy kết nối từ connection pool", e);
+        }
     }
 
     public static void main(String[] args) {
@@ -85,9 +105,15 @@ public class DBConnection {
                 System.out.println("Phiên bản cơ sở dữ liệu: " + metaData.getDatabaseProductVersion());
                 System.out.println("URL kết nối: " + metaData.getURL());
                 System.out.println("Tên người dùng: " + metaData.getUserName());
+                Connection connection = dataSource.getConnection();
+                System.out.println("Connection class: " + connection.getClass().getName());
+
+
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("Có lỗi khi kết nối đến cơ sở dữ liệu: " + e.getMessage());
         }
     }
 }
