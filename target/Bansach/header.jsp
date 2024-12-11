@@ -124,13 +124,13 @@
                                     </a>
                                 </span>
                             <span> | </span>
-                                                <span>
+                            <span>
                                     <a class="language" style="margin-left: 5px;margin-right: 7px;" href="?lang=en_US">
                                         <fmt:message bundle="${bundle}" key="menu.language.en"/>
                                     </a>
                                 </span>
                             <span> | </span>
-                                                <span>
+                            <span>
                                     <a class="language" style="margin-left: 5px;margin-right: 7px;" href="?lang=ja_JP">
                                         <fmt:message bundle="${bundle}" key="menu.language.ja"/>
                                     </a>
@@ -162,8 +162,9 @@
                                                        key="menu.welcomeMessage"/> ${auth.tentk} <fmt:message
                                             bundle="${bundle}" key="menu.welcomeMessage_san"/></span>
                                     <div class="header__top__right__auth__dropdown">
-                                        <a href="/shoping-cart.jsp" class="dropdown-item"><fmt:message bundle="${bundle}"
-                                                                                       key="menu.myOrders"/></a>
+                                        <a href="/shoping-cart.jsp" class="dropdown-item"><fmt:message
+                                                bundle="${bundle}"
+                                                key="menu.myOrders"/></a>
                                         <a href="/page_profile.jsp" class="dropdown-item"><fmt:message
                                                 bundle="${bundle}" key="menu.myProfile"/></a>
                                         <a class="dropdown-item"><fmt:message bundle="${bundle}"
@@ -210,26 +211,24 @@
                     <ul>
 
                         <li class="menu-item">
-                            <a href="./IndexServlet" ><fmt:message bundle="${bundle}" key="menu.home"/></a>
+                            <a href="./IndexServlet"><fmt:message bundle="${bundle}" key="menu.home"/></a>
                         </li>
                         <li class="menu-item">
-                            <a href="about.jsp" ><fmt:message bundle="${bundle}" key="menu.about"/></a>
+                            <a href="about.jsp"><fmt:message bundle="${bundle}" key="menu.about"/></a>
                         </li>
                         <li class="menu-item">
-                            <a href="./shop-product.html" ><fmt:message bundle="${bundle}" key="menu.products"/></a>
+                            <a href="./shop-product.html"><fmt:message bundle="${bundle}" key="menu.products"/></a>
                         </li>
                         <li class="menu-item">
-                            <a href="blog.jsp" ><fmt:message bundle="${bundle}" key="menu.news"/></a>
+                            <a href="./ListBlog"><fmt:message bundle="${bundle}" key="menu.news"/></a>
                         </li>
                         <li class="menu-item">
-                            <a href="contact.jsp" ><fmt:message bundle="${bundle}" key="menu.contact"/></a>
+                            <a href="contact.jsp"><fmt:message bundle="${bundle}" key="menu.contact"/></a>
                         </li>
 
                     </ul>
                 </nav>
             </div>
-
-
 
 
         </div>
@@ -274,12 +273,12 @@
     /*}*/
 
 
-
     .selected {
         color: #fd7e14; /* Màu sắc bạn muốn hiển thị */
         font-weight: bold; /* Nếu cần làm nổi bật */
 
     }
+
     .row {
         position: relative; /* Đảm bảo cha không ảnh hưởng đến sticky */
     }
@@ -287,7 +286,7 @@
 
 </style>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
         // Lấy tất cả các liên kết ngôn ngữ
         const languageLinks = document.querySelectorAll('.language');
 
@@ -299,7 +298,7 @@
 
         // Lắng nghe sự kiện click để thay đổi ngay màu sắc và lưu ngôn ngữ
         languageLinks.forEach(link => {
-            link.addEventListener('click', function(event) {
+            link.addEventListener('click', function (event) {
                 event.preventDefault(); // Ngăn tải lại trang ngay lập tức
                 const selectedLang = this.getAttribute('href').split('=')[1];
 
@@ -336,7 +335,6 @@
 
 
 </script>
-
 
 
 </header>
