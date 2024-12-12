@@ -89,7 +89,7 @@
                     <div class="blog__sidebar__item">
                         <h4>Tin mới nhất</h4>
                         <div class="blog__sidebar__recent">
-                            <a href="blog-details-1.jsp" class="blog__sidebar__recent__item">
+                            <a href="blog-details.jsp" class="blog__sidebar__recent__item">
                                 <div class="blog__sidebar__recent__item__pic">
                                     <img src="img/blog/sidebar/blog1.png" alt="">
                                 </div>
@@ -122,7 +122,7 @@
                         <h4>Chủ đề</h4>
                         <div class="blog__sidebar__item__tags">
                             <a href="./blog.jsp">Bánh kem</a>
-                            <a href="blog-details-1.jsp">Hiện đại</a>
+                            <a href="blog-details.jsp">Hiện đại</a>
                             <a href="./blog-details-2.html">Bảo quản bánh</a>
                             <a href="./blog-details-3.html">Chọn bánh</a>
                             <a href="./blog-details-4.html">Ý nghĩa bánh</a>
@@ -136,16 +136,16 @@
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="blog__item">
                             <div class="blog__item__pic">
-                                <img src="img/blog/blog1.jpg" alt="">
+                                <img src="${list.img}" alt="">
                             </div>
                             <div class="blog__item__text">
                                 <ul>
                                     <li><i class="fa fa-calendar-o"></i>${list.date}</li>
 
                                 </ul>
-                                <h5><a href="/DetailServlet?blogId=${list.id}">${list.title}</a></h5>
+                                <h5><a href="/DetailBlogServlet?blogId=${list.id}">${list.title}</a></h5>
                                 <p class="text-justify">${list.content}...</p>
-                                <a href="/DetailServlet?blogId=${list.id}" class="blog__btn">Xem thêm <span
+                                <a href="/DetailBlogServlet?blogId=${list.id}" class="blog__btn">Xem thêm <span
                                         class="arrow_right"></span></a>
                             </div>
                         </div>

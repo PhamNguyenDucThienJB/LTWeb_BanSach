@@ -22,7 +22,7 @@ public class AdminIndexSL extends HttpServlet {
 //        }
 
         // Nếu điều kiện trên không đúng, tiếp tục forward tới trang admin
-        request.getRequestDispatcher("/admin/admin-web.jsp").forward(request, response);
+        request.getRequestDispatcher("/admin/adminIndex.jsp").forward(request, response);
     }
 
     @Override

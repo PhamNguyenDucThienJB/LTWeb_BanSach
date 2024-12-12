@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class BLogService {
@@ -58,5 +59,15 @@ public class BLogService {
         } else {
             System.out.println("Không có blog nào.");
         }
+    }
+
+    public static Blog findById(String id) {
+        Collection<Blog> blog = getData();
+        for (Blog blogs : blog) {
+            if (blogs.getId().equals(id)) {
+                return blogs;
+            }
+        }
+        return null;
     }
 }
