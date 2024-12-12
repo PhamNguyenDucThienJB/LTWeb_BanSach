@@ -43,19 +43,7 @@
     <!--**********************************
         Nav header start
     ***********************************-->
-    <div class="nav-header">
-        <a href="index.html" class="brand-logo">
-            <img class="logo-abbr" src="../img/logo.png" alt="">
-            <img class="logo-compact" src="./images/logo-text.png" alt="">
-            <img class="brand-title" src="./images/logo-text.png" alt="">
-        </a>
 
-        <div class="nav-control">
-            <div class="hamburger">
-                <span class="line"></span><span class="line"></span><span class="line"></span>
-            </div>
-        </div>
-    </div>
     <!--**********************************
         Nav header end
     ***********************************-->
@@ -67,7 +55,7 @@
     <!--**********************************
         Sidebar start
     ***********************************-->
-   <jsp:include page="admin_footer.jsp"></jsp:include>
+   <jsp:include page="admin_sidebar.jsp"></jsp:include>
 
     <!--**********************************
         Sidebar end
@@ -283,14 +271,14 @@
                         <div class="card-body revenue-chart px-3">
                             <div class="d-flex align-items-end pr-3 pull-right revenue-chart-bar">
                                 <div class="d-flex align-items-end mr-4">
-                                    <img src="images/svg/ic_stat2.svg" height="22" width="22" class="mr-2 mb-1" alt=""/>
+                                    <img src="" height="22" width="22" class="mr-2 mb-1" alt=""/>
                                     <div>
                                         <small class="text-dark fs-14">Income</small>
                                         <h3 class="font-w600 mb-0">$<span class="counter">41,512</span>k</h3>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-end">
-                                    <img src="images/svg/ic_stat1.svg" height="22" width="22" class="mr-2 mb-1" alt=""/>
+                                    <img src="" height="22" width="22" class="mr-2 mb-1" alt=""/>
                                     <div>
                                         <small class="text-dark fs-14">Expense</small>
                                         <h3 class="font-w600 mb-0">$<span class="counter">41,512</span>k</h3>
@@ -338,7 +326,7 @@
                     </div>
                 </div>
                 <div class="col-xl-3 col-xxl-3 col-lg-4 col-md-12">
-                    <div class="card bg-secondary" style="background-image:url(images/bg-icon.png); background-repeat:no-repeat; background-position:top right;">
+                    <div class="card bg-secondary" >
                         <div class="card-body p-5 mt-3">
                             <svg width="44" height="44" viewBox="0 0 44 44" class="mb-3" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.9531 20.625H5.67188C2.54435 20.625 0 18.0806 0 14.9531V5.67188C0 2.54435 2.54435 0 5.67188 0H14.9531C18.0806 0 20.625 2.54435 20.625 5.67188V14.9531C20.625 18.0806 18.0806 20.625 14.9531 20.625ZM5.67188 2.75C4.06072 2.75 2.75 4.06072 2.75 5.67188V14.9531C2.75 16.5643 4.06072 17.875 5.67188 17.875H14.9531C16.5643 17.875 17.875 16.5643 17.875 14.9531V5.67188C17.875 4.06072 16.5643 2.75 14.9531 2.75H5.67188Z" fill="#fff"/><path d="M38.3281 20.625H29.0469C25.9194 20.625 23.375 18.0806 23.375 14.9531V5.67188C23.375 2.54435 25.9194 0 29.0469 0H38.3281C41.4556 0 44 2.54435 44 5.67188V14.9531C44 18.0806 41.4556 20.625 38.3281 20.625ZM29.0469 2.75C27.4357 2.75 26.125 4.06072 26.125 5.67188V14.9531C26.125 16.5643 27.4357 17.875 29.0469 17.875H38.3281C39.9393 17.875 41.25 16.5643 41.25 14.9531V5.67188C41.25 4.06072 39.9393 2.75 38.3281 2.75H29.0469Z" fill="#fff"/><path d="M33.6875 44C28.0012 44 23.375 39.3738 23.375 33.6875C23.375 28.0012 28.0012 23.375 33.6875 23.375C39.3738 23.375 44 28.0012 44 33.6875C44 39.3738 39.3738 44 33.6875 44ZM33.6875 26.125C29.5176 26.125 26.125 29.5176 26.125 33.6875C26.125 37.8574 29.5176 41.25 33.6875 41.25C37.8574 41.25 41.25 37.8574 41.25 33.6875C41.25 29.5176 37.8574 26.125 33.6875 26.125Z" fill="#fff"/><path d="M14.9531 44H5.67188C2.54435 44 0 41.4556 0 38.3281V29.0469C0 25.9194 2.54435 23.375 5.67188 23.375H14.9531C18.0806 23.375 20.625 25.9194 20.625 29.0469V38.3281C20.625 41.4556 18.0806 44 14.9531 44ZM5.67188 26.125C4.06072 26.125 2.75 27.4357 2.75 29.0469V38.3281C2.75 39.9393 4.06072 41.25 5.67188 41.25H14.9531C16.5643 41.25 17.875 39.9393 17.875 38.3281V29.0469C17.875 27.4357 16.5643 26.125 14.9531 26.125H5.67188Z" fill="#fff"/></svg>
 

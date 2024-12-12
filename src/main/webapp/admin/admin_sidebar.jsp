@@ -10,7 +10,7 @@
     <div class="deznav-scroll">
         <ul class="metismenu" id="menu">
             <li>
-                <a href="dashboard.html">
+                <a href="/admin/AdminIndexSL">
                     <i class="bi bi-house-door"></i>
                     <span class="nav-text">DashBroad Admin</span>
                 </a>
@@ -24,13 +24,13 @@
             <li>
                 <a href="staff.html">
                     <i class="bi bi-people"></i>
-                    <span class="nav-text">List Staff</span>
+                    <span class="nav-text">List Costumer</span>
                 </a>
             </li>
             <li>
                 <a href="customers.html">
                     <i class="bi bi-person"></i>
-                    <span class="nav-text">List Costumer</span>
+                    <span class="nav-text">List Staff</span>
                 </a>
             </li>
             <li>
@@ -70,9 +70,23 @@
         color: white; /* Màu chữ */
         font-weight: bold;
     }
+
     .metismenu li.active > a i {
         color: white; /* Màu icon */
     }
+
+    .deznav {
+        position: relative; /* Hoặc absolute/fixed nếu cần */
+        /*width: 250px; !* Đảm bảo kích thước không vượt quá khung chứa *!*/
+        height: auto; /* Đảm bảo chiều cao đầy đủ */
+    }
+
+    .deznav-scroll {
+        max-height: 100vh; /* Giới hạn chiều cao */
+        overflow-y: auto; /* Kích hoạt cuộn dọc */
+        -webkit-overflow-scrolling: touch; /* Hỗ trợ cuộn mượt trên di động */
+    }
+
 
 </style>
 <script>
@@ -86,4 +100,16 @@
             link.parentElement.classList.add('active'); // Thêm class 'active'
         }
     });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/metismenu@3.0.7/dist/metismenu.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const activeItem = document.querySelector('.metismenu li.active');
+        const scrollContainer = document.querySelector('.deznav-scroll');
+
+        if (activeItem && scrollContainer) {
+            scrollContainer.scrollTop = activeItem.offsetTop - scrollContainer.offsetHeight / 2;
+        }
+    });
+
 </script>
