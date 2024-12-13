@@ -35,7 +35,7 @@
                 </a>
             </li>
             <li>
-                <a href="categories.html">
+                <a href="/admin/categary_list_Admin.jsp">
                     <i class="bi bi-tags"></i>
                     <span class="nav-text">List Categary</span>
                 </a>

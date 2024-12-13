@@ -25,7 +25,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Datatable -->
-
+    <link rel="stylesheet" href="/admin/css/admin/css/style.css">
     <link href="./vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -80,6 +80,10 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">List Product</h4>
+                    <button type="button" class="btn btn-rounded btn-info"><span
+                            class="btn-icon-left text-info"><i class="fa fa-plus color-info"></i>
+								</span>Add Product
+                    </button>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -107,8 +111,10 @@
                                     <td>${lists.name}</td>
                                     <td>${lists.kind}</td>
                                     <td>${lists.sizeBook}</td>
-                                    <td><a href="#" data-toggle="tooltip" title="${lists.descrip}">${fn:substring(lists.descrip, 0, 60)}...</a></td>
-                                    <td><a href="#" data-toggle="tooltip" title="${lists.content}">${fn:substring(lists.content, 0, 60)}...</a></td>
+                                    <td><a href="#" data-toggle="tooltip"
+                                           title="${lists.descrip}">${fn:substring(lists.descrip, 0, 60)}...</a></td>
+                                    <td><a href="#" data-toggle="tooltip"
+                                           title="${lists.content}">${fn:substring(lists.content, 0, 60)}...</a></td>
                                     <td>${lists.weight}</td>
                                     <td>${lists.price}</td>
                                     <td>
