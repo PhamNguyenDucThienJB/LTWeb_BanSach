@@ -106,7 +106,7 @@
                                 <a href="tel:0987654321" class="fa fa-phone cursor"></a>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+84 987654321</h5>
+                                <h5>+84 0795035755</h5>
                                 <span><fmt:message bundle="${bundle}" key="menu.search.time"/>8h - 22h</span>
                             </div>
                         </div>

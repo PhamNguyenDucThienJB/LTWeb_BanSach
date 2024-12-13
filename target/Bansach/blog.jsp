@@ -4,7 +4,7 @@
 
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<html >
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -26,7 +26,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="icon" href="//bizweb.dktcdn.net/100/197/269/themes/890698/assets/favicon.png?1730705463447" type="image/x-icon">
+    <link rel="icon" href="//bizweb.dktcdn.net/100/197/269/themes/890698/assets/favicon.png?1730705463447"
+          type="image/x-icon">
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -133,23 +134,23 @@
             <div class="col-lg-8 col-md-7">
                 <div class="row">
                     <c:forEach var="list" items="${listBlogs}">
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="blog__item">
-                            <div class="blog__item__pic">
-                                <img src="${list.img}" alt="">
-                            </div>
-                            <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i>${list.date}</li>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="blog__item">
+                                <div class="blog__item__pic">
+                                    <a href="/DetailBlogServlet?blogId=${list.id}"> <img src="${list.img}" alt=""></a>
+                                </div>
+                                <div class="blog__item__text">
+                                    <ul>
+                                        <li><i class="fa fa-calendar-o"></i>${list.date}</li>
 
-                                </ul>
-                                <h5><a href="/DetailBlogServlet?blogId=${list.id}">${list.title}</a></h5>
-                                <p class="text-justify">${list.content}...</p>
-                                <a href="/DetailBlogServlet?blogId=${list.id}" class="blog__btn">Xem thêm <span
-                                        class="arrow_right"></span></a>
+                                    </ul>
+                                    <h5><a href="/DetailBlogServlet?blogId=${list.id}">${list.title}</a></h5>
+                                    <p class="text-justify">${list.content}...</p>
+                                    <a href="/DetailBlogServlet?blogId=${list.id}" class="blog__btn">Xem thêm <span
+                                            class="arrow_right"></span></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </c:forEach>
                 </div>
             </div>

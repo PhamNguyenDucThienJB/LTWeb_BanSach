@@ -74,9 +74,12 @@ public class SignInServlet extends HttpServlet {
             session.setAttribute("auth", user);
             session.setAttribute("success", messages.getString("SUCCESS_LOGIN"));
             response.sendRedirect("/IndexServlet");
+            System.out.println("Success");
+            System.out.println("Email: "+email);
         } else {
             request.setAttribute("error", messages.getString("INVALID_CREDENTIALS"));
             request.getRequestDispatcher("/signin.jsp").forward(request, response);
+            System.out.println("Fail");
         }
     }
 

@@ -25,8 +25,9 @@ public class BLogService {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
-                        new ArrayList<>(),
-                        new ArrayList<>()
+                        rs.getString(6),
+                        rs.getString(7)
+
                 );
                 blogs.add(blog);
             }

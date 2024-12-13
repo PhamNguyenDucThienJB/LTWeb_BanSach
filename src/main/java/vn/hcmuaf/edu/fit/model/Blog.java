@@ -10,21 +10,53 @@ public class Blog implements Serializable {
     String content;
     String img;
     String date;
-    List<String> listdanhmuc;
-    List<String> listchude;
-    List<String> listdemuc;
-    List<String> listchitiet;
+    String danhmuc;
+    String chude;
+    String listdemuc;
+    String listchitiet;
 
-    public Blog(String id, String title, String content, String img, String date, List<String> listdanhmuc, List<String> listdemuc) {
+    public Blog(String id, String title, String content, String img, String date, String danhmuc, String chude) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.img = img;
         this.date = date;
-        this.listdanhmuc = listdanhmuc;
+        this.danhmuc = danhmuc;
+        this.chude = chude;
+
+    }
+
+    public String getDanhmuc() {
+        return danhmuc;
+    }
+
+    public void setDanhmuc(String danhmuc) {
+        this.danhmuc = danhmuc;
+    }
+
+    public String getChude() {
+        return chude;
+    }
+
+    public void setChude(String chude) {
+        this.chude = chude;
+    }
+
+    public String getListdemuc() {
+        return listdemuc;
+    }
+
+    public void setListdemuc(String listdemuc) {
         this.listdemuc = listdemuc;
     }
 
+    public String getListchitiet() {
+        return listchitiet;
+    }
+
+    public void setListchitiet(String listchitiet) {
+        this.listchitiet = listchitiet;
+    }
 
     public String getId() {
         return id;
@@ -67,51 +99,20 @@ public class Blog implements Serializable {
         this.date = date;
     }
 
-    public List<String> getListdanhmuc() {
-        return listdanhmuc;
-    }
-
-    public void setListdanhmuc(List<String> listdanhmuc) {
-        this.listdanhmuc = listdanhmuc;
-    }
-
-    public List<String> getListchude() {
-        return listchude;
-    }
-
-    public void setListchude(List<String> listchude) {
-        this.listchude = listchude;
-    }
-
-    public List<String> getListdemuc() {
-        return listdemuc;
-    }
-
-    public void setListdemuc(List<String> listBlog) {
-        this.listdemuc = listdemuc;
-    }
-
-    public List<String> getListchitiet() {
-        return listchitiet;
-    }
-
-    public void setListchitiet(List<String> listchitiet) {
-        this.listchitiet = listchitiet;
-    }
-
     @Override
     public String toString() {
         return "Blog{" +
                 "id='" + id + '\'' +
-                ", category='" + title + '\'' +
-                ", cont='" + content + '\'' +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
                 ", img='" + img + '\'' +
                 ", date='" + date + '\'' +
-                ", listdanhmuc=" + listdanhmuc +
-                ", listchude=" + listchude +
-                ", listdemuc=" + listdemuc +
-                ", listchitiet=" + listchitiet +
+                ", danhmuc='" + danhmuc + '\'' +
+                ", chude='" + chude + '\'' +
+                ", listdemuc='" + listdemuc + '\'' +
+                ", listchitiet='" + listchitiet + '\'' +
                 '}';
     }
 }
+
 

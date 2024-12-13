@@ -8,7 +8,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Books | Admin</title>
+    <title>Index | Admin</title>
     <!-- Favicon icon -->
     <link rel="icon" href="//bizweb.dktcdn.net/100/197/269/themes/890698/assets/favicon.png?1730705463447" type="image/x-icon">
     <link href="./vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
@@ -271,14 +271,14 @@
                         <div class="card-body revenue-chart px-3">
                             <div class="d-flex align-items-end pr-3 pull-right revenue-chart-bar">
                                 <div class="d-flex align-items-end mr-4">
-                                    <img src="" height="22" width="22" class="mr-2 mb-1" alt=""/>
+<%--                                    <img src="" height="22" width="22" class="mr-2 mb-1" alt=""/>--%>
                                     <div>
                                         <small class="text-dark fs-14">Income</small>
                                         <h3 class="font-w600 mb-0">$<span class="counter">41,512</span>k</h3>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-end">
-                                    <img src="" height="22" width="22" class="mr-2 mb-1" alt=""/>
+<%--                                    <img src="" height="22" width="22" class="mr-2 mb-1" alt=""/>--%>
                                     <div>
                                         <small class="text-dark fs-14">Expense</small>
                                         <h3 class="font-w600 mb-0">$<span class="counter">41,512</span>k</h3>

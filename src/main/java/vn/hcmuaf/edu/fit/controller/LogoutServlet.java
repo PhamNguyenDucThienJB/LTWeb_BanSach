@@ -1,4 +1,4 @@
-package vn.hcmuaf.edu.fit.controller.account;
+package vn.hcmuaf.edu.fit.controller;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

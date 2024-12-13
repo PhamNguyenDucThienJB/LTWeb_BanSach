@@ -1,4 +1,4 @@
-package vn.hcmuaf.edu.fit.controller;
+package vn.hcmuaf.edu.fit.controller.Blog;
 
 import vn.hcmuaf.edu.fit.model.Blog;
 import vn.hcmuaf.edu.fit.service.BLogService;
@@ -7,6 +7,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.Collection;
 
 @WebServlet(name = "DetailBlogServlet", value = "/DetailBlogServlet")
 public class DetailBlogServlet extends HttpServlet {
@@ -18,6 +19,9 @@ public class DetailBlogServlet extends HttpServlet {
                 Blog blog = BLogService.findById(pramIdBlog);
                 if (blog != null) {
                     request.setAttribute("blog", blog);
+//                    Create Data For Other Blog
+                    Collection<Blog> blogs = BLogService.getData();
+                    request.setAttribute("listBOther",blogs);
                     request.getRequestDispatcher("blog-details.jsp").forward(request, response);
                     return;
                 }

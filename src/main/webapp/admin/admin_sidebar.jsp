@@ -24,17 +24,12 @@
             <li>
                 <a href="staff.html">
                     <i class="bi bi-people"></i>
-                    <span class="nav-text">List Costumer</span>
+                    <span class="nav-text">List User and Admin</span>
                 </a>
             </li>
+
             <li>
-                <a href="customers.html">
-                    <i class="bi bi-person"></i>
-                    <span class="nav-text">List Staff</span>
-                </a>
-            </li>
-            <li>
-                <a href="products.html">
+                <a href="/admin/ListProductServlet">
                     <i class="bi bi-box-seam"></i>
                     <span class="nav-text">List Product</span>
                 </a>
