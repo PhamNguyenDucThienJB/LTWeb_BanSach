@@ -35,9 +35,9 @@
                 </a>
             </li>
             <li>
-                <a href="categories.html">
+                <a href="/admin/CategoryList">
                     <i class="bi bi-tags"></i>
-                    <span class="nav-text">List Categary</span>
+                    <span class="nav-text">List Category</span>
                 </a>
             </li>
             <li>
