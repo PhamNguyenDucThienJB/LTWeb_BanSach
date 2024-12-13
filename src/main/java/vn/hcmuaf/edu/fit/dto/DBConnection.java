@@ -49,10 +49,14 @@ public class DBConnection {
             dataSource.setPassword(password);
 
             // Tùy chỉnh connection pool
+            dataSource.setMaxWaitMillis(10000); // Thời gian chờ lấy kết nối (ms)
+            dataSource.setMinEvictableIdleTimeMillis(15000); // Thời gian kết nối nhàn rỗi trước khi bị xóa (ms)
+            dataSource.setTimeBetweenEvictionRunsMillis(15000); // Tần suất kiểm tra kết nối nhàn rỗi (ms)
+
             dataSource.setInitialSize(5); // Số kết nối tạo sẵn
             dataSource.setMaxTotal(20);   // Số kết nối tối đa
             dataSource.setMaxIdle(10);   // Số kết nối nhàn rỗi tối đa
-            dataSource.setMinIdle(2);    // Số kết nối nhàn rỗi tối thiểu
+            dataSource.setMinIdle(3);    // Số kết nối nhàn rỗi tối thiểu
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -77,19 +81,26 @@ public class DBConnection {
     // Phương thức cũ: `getConnectionInstance()`
     public Connection getConnectionInstance() {
         try {
-            if (conn == null) {
+            if (conn == null || conn.isClosed()) {
+                System.out.println("Kết nối vẫn đang mở.");
+
                 conn = dataSource.getConnection(); // Lấy từ connection pool
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println("Kết nối đã bị đóng.");
+
         return conn;
     }
 
     // Phương thức mới sử dụng connection pool đúng cách
     public static Connection getConnection() {
         try {
-            return dataSource.getConnection(); // Lấy từ connection pool
+            if (dataSource == null) {
+                throw new RuntimeException("Connection Pool chưa được khởi tạo.");
+            }
+            return dataSource.getConnection(); // Lấy kết nối từ pool
         } catch (SQLException e) {
             e.printStackTrace();
             throw new RuntimeException("Không thể lấy kết nối từ connection pool", e);
@@ -107,7 +118,6 @@ public class DBConnection {
                 System.out.println("Tên người dùng: " + metaData.getUserName());
                 Connection connection = dataSource.getConnection();
                 System.out.println("Connection class: " + connection.getClass().getName());
-
 
 
             }

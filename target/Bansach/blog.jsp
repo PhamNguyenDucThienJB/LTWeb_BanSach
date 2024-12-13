@@ -1,10 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-
+<%--Use fn to resolve problem inside Jave Code Or Epression Language--%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<html >
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -26,7 +27,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="icon" href="//bizweb.dktcdn.net/100/197/269/themes/890698/assets/favicon.png?1730705463447" type="image/x-icon">
+    <link rel="icon" href="//bizweb.dktcdn.net/100/197/269/themes/890698/assets/favicon.png?1730705463447"
+          type="image/x-icon">
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -89,7 +91,7 @@
                     <div class="blog__sidebar__item">
                         <h4>Tin mới nhất</h4>
                         <div class="blog__sidebar__recent">
-                            <a href="blog-details-1.jsp" class="blog__sidebar__recent__item">
+                            <a href="blog-details.jsp" class="blog__sidebar__recent__item">
                                 <div class="blog__sidebar__recent__item__pic">
                                     <img src="img/blog/sidebar/blog1.png" alt="">
                                 </div>
@@ -122,7 +124,7 @@
                         <h4>Chủ đề</h4>
                         <div class="blog__sidebar__item__tags">
                             <a href="./blog.jsp">Bánh kem</a>
-                            <a href="blog-details-1.jsp">Hiện đại</a>
+                            <a href="blog-details.jsp">Hiện đại</a>
                             <a href="./blog-details-2.html">Bảo quản bánh</a>
                             <a href="./blog-details-3.html">Chọn bánh</a>
                             <a href="./blog-details-4.html">Ý nghĩa bánh</a>
@@ -132,82 +134,25 @@
             </div>
             <div class="col-lg-8 col-md-7">
                 <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="blog__item">
-                            <div class="blog__item__pic">
-                                <img src="img/blog/blog1.jpg" alt="">
-                            </div>
-                            <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> 22-10-2022</li>
+                    <c:forEach var="list" items="${listBlogs}">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="blog__item">
+                                <div class="blog__item__pic">
+                                    <a href="/DetailBlogServlet?blogId=${list.id}"> <img src="${list.img}" alt=""></a>
+                                </div>
+                                <div class="blog__item__text">
+                                    <ul>
+                                        <li><i class="fa fa-calendar-o"></i>${list.date}</li>
 
-                                </ul>
-                                <h5><a href="blog-details-1.jsp">Giải mã sức hút của bánh kem hiện đại</a></h5>
-                                <p class="text-justify">Trong những bữa tiệc quan trọng bánh kem góp phần mang đến cho
-                                    không khí thêm phần hoàn hảo. Sự xuất hiện của bánh kem hiện đại như một bước ngoặt
-                                    mới... </p>
-                                <a href="blog-details-1.jsp" class="blog__btn">Xem thêm <span
-                                        class="arrow_right"></span></a>
+                                    </ul>
+                                    <h5><a href="/DetailBlogServlet?blogId=${list.id}">${list.title}</a></h5>
+                                    <p class="text-justify">${fn:substring(list.content, 0, 150)}...</p>
+                                    <a href="/DetailBlogServlet?blogId=${list.id}" class="blog__btn">Xem thêm <span
+                                            class="arrow_right"></span></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="blog__item">
-                            <div class="blog__item__pic">
-                                <img src="img/blog/blog2.jpg" alt="">
-                            </div>
-                            <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> 22-10-2022</li>
-
-                                </ul>
-                                <h5><a href="blog-details-2.html">Tổng hợp cách bảo quản bánh kem cực đơn giản</a></h5>
-                                <p class="text-justify">Các loại bánh kem khi không dùng hết hoặc chưa dùng đến bạn đều
-                                    phải bảo quản đúng cách, để giúp bánh giữ nguyên hương vị. Cùng tìm hiểu cách bảo
-                                    quản bánh kem cực đơn giản... </p>
-                                <a href="blog-details-2.html" class="blog__btn">Xem thêm <span
-                                        class="arrow_right"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="blog__item">
-                            <div class="blog__item__pic">
-                                <img src="img/blog/blog3.jpg" alt="">
-                            </div>
-                            <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> 22-10-2022</li>
-
-                                </ul>
-                                <h5><a href="blog-details-3.html">Chọn bánh kem cho những ngày kỷ niệm ý nghĩa</a></h5>
-                                <p class="text-justify">Ngày nay, bánh kem không chỉ xuất hiện vào duy nhất sinh nhật mà
-                                    bất cứ dịp kỷ niệm nào cũng có thể sử dụng. Cùng tìm hiểu các dịp kỷ niệm ý nghĩa
-                                    nên sử dụng bánh kem và cách chọn sao cho phù hợp nhất...</p>
-                                <a href="blog-details-3.html" class="blog__btn">Xem thêm <span
-                                        class="arrow_right"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="blog__item">
-                            <div class="blog__item__pic">
-                                <img src="img/blog/blog4.jpg" alt="">
-                            </div>
-                            <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> 22-10-2022</li>
-
-                                </ul>
-                                <h5><a href="blog-details-4.html">Tại sao sinh nhật lại quan trọng đến thế?</a></h5>
-                                <p class="text-justify">Ai cũng biết rằng sinh nhật là một ngày đặc biệt đối với tất cả
-                                    mọi người. Là sự kiện đánh dấu ngày ra đời, đó như là một điều mặc định khi nói về ý
-                                    nghĩa của ngày sinh...</p>
-                                <a href="blog-details-4.html" class="blog__btn">Xem thêm <span
-                                        class="arrow_right"></span></a>
-                            </div>
-                        </div>
-                    </div>
+                    </c:forEach>
                 </div>
             </div>
         </div>
