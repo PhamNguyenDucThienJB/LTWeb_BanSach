@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -100,13 +102,13 @@
                             <c:forEach var="lists" items="${listProduct}">
                                 <tr>
                                     <td><img class="rounded-circle" width="35" src=""
-                                             alt="Profile"></td>
+                                             alt=""></td>
                                     <td>${lists.id}</td>
                                     <td>${lists.name}</td>
                                     <td>${lists.kind}</td>
                                     <td>${lists.sizeBook}</td>
-                                    <td><a href="javascript:void(0);"><strong>${lists.descrip}</strong></a></td>
-                                    <td><a href="javascript:void(0);"><strong>${lists.content}</strong></a></td>
+                                    <td><a href="#" data-toggle="tooltip" title="${lists.descrip}">${fn:substring(lists.descrip, 0, 60)}...</a></td>
+                                    <td><a href="#" data-toggle="tooltip" title="${lists.content}">${fn:substring(lists.content, 0, 60)}...</a></td>
                                     <td>${lists.weight}</td>
                                     <td>${lists.price}</td>
                                     <td>

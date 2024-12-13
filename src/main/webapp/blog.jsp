@@ -1,7 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-
+<%--Use fn to resolve problem inside Jave Code Or Epression Language--%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html>
@@ -145,7 +146,7 @@
 
                                     </ul>
                                     <h5><a href="/DetailBlogServlet?blogId=${list.id}">${list.title}</a></h5>
-                                    <p class="text-justify">${list.content}...</p>
+                                    <p class="text-justify">${fn:substring(list.content, 0, 150)}...</p>
                                     <a href="/DetailBlogServlet?blogId=${list.id}" class="blog__btn">Xem thêm <span
                                             class="arrow_right"></span></a>
                                 </div>
