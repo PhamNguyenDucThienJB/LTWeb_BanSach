@@ -48,7 +48,7 @@ public class UserService {
         return instance;
     }
 
-// Cấu hình
+    // Cấu hình
     private void loadProperties() {
         try (InputStream input = UserService.class.getClassLoader().getResourceAsStream("api.properties")) {
             if (input == null) {
@@ -72,9 +72,7 @@ public class UserService {
     }
 
 
-
-
-//    Method
+    //    Method
     public User checkLogin(String email, String password) {
         List<User> users = JDBIConnector.get().withHandle(h ->
                 h.createQuery("SELECT taikhoan.ID, taikhoan.email, taikhoan.PASS, taikhoan.tentk, taikhoan.ROLE FROM taikhoan WHERE email = ?")
@@ -282,7 +280,6 @@ public class UserService {
     }
 
 
-
     public static int randomCode() {
         return (int) Math.floor(((Math.random() * 899999) + 100000));
     }
@@ -344,18 +341,18 @@ public class UserService {
 
     }
 
-//    Update Information Account
+    //    Update Information Account
 //    Update Password
-    public static void updatePasswWord(String email,String pass){
-        String query="UPDATE taikhoan SET PASS=? WHERE EMAIL=? ";
-        try (Connection connection =DBConnection.getInstall().getConnectionInstance();
-             PreparedStatement pre =connection.prepareStatement(query)   ){
+    public static void updatePasswWord(String email, String pass) {
+        String query = "UPDATE taikhoan SET PASS=? WHERE EMAIL=? ";
+        try (Connection connection = DBConnection.getInstall().getConnectionInstance();
+             PreparedStatement pre = connection.prepareStatement(query)) {
 
-            pre.setString(1,pass);
+            pre.setString(1, pass);
 
-            pre.setString(2,email);
+            pre.setString(2, email);
 
-          int  intcount= pre.executeUpdate();
+            int intcount = pre.executeUpdate();
             if (intcount > 0) {
                 System.out.println("Update Password Success!");
             } else {
@@ -366,6 +363,46 @@ public class UserService {
         }
 
     }
+
+    // Delete User
+    public static boolean deleteUser(String iDUser) {
+        String sqlCheck = "SELECT COUNT(*) FROM taikhoan WHERE ID = ?";
+        String sqlDelete = "DELETE FROM taikhoan WHERE ID = ?";
+        boolean isDeleted = false;
+
+        try (Connection connection = DBConnection.getInstall().getConnectionInstance();
+             PreparedStatement checkStmt = connection.prepareStatement(sqlCheck);
+             PreparedStatement deleteStmt = connection.prepareStatement(sqlDelete)) {
+
+            // Kiểm tra xem tài khoản có tồn tại không
+            checkStmt.setString(1, iDUser);
+            ResultSet rs = checkStmt.executeQuery();
+            if (rs.next() && rs.getInt(1) == 0) {
+                System.out.println("Không tìm thấy tài khoản với ID: " + iDUser);
+                return false;
+            }
+
+            // Nếu tài khoản tồn tại, thực hiện xóa
+            deleteStmt.setString(1, iDUser);
+            int rowsAffected = deleteStmt.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("Xóa tài khoản thành công: " + iDUser);
+                isDeleted = true;
+            } else {
+                System.out.println("Có lỗi xảy ra khi xóa tài khoản: " + iDUser);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Có lỗi xảy ra khi xóa tài khoản: " + iDUser);
+        }
+
+        return isDeleted;
+    }
+
+
+
 
     public static void main(String[] args) {
         try {

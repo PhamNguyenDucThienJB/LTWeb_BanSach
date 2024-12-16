@@ -78,21 +78,22 @@ public class DBConnection {
         }
     }
 
-    // Phương thức cũ: `getConnectionInstance()`
     public Connection getConnectionInstance() {
         try {
+            // Check if the connection is closed or null
             if (conn == null || conn.isClosed()) {
-                System.out.println("Kết nối vẫn đang mở.");
-
-                conn = dataSource.getConnection(); // Lấy từ connection pool
+                System.out.println("Connection is either closed or not open, creating a new connection.");
+                conn = dataSource.getConnection(); // Get a new connection from the pool
+            } else {
+                System.out.println("Connection is still open.");
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("Error occurred while obtaining connection.");
         }
-        System.out.println("Kết nối đã bị đóng.");
-
         return conn;
     }
+
 
     // Phương thức mới sử dụng connection pool đúng cách
     public static Connection getConnection() {

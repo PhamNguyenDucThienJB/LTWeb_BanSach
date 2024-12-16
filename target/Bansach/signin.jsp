@@ -22,7 +22,8 @@
             rel="stylesheet">
     <!-- ==================== -->
 
-    <link rel="icon" href="//bizweb.dktcdn.net/100/197/269/themes/890698/assets/favicon.png?1730705463447" type="image/x-icon">
+    <link rel="icon" href="//bizweb.dktcdn.net/100/197/269/themes/890698/assets/favicon.png?1730705463447"
+          type="image/x-icon">
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -105,18 +106,18 @@
     color: orange;" method="post" class="bg-pink rounded p-4 p-sm-5 my-4 mx-3">
 
                     <div>
-                        <h2 class="title-sg"><fmt:message bundle="${bundle}"  key="login.title"/></h2>
+                        <h2 class="title-sg"><fmt:message bundle="${bundle}" key="login.title"/></h2>
                     </div>
                     <jsp:include page="validation.jsp"></jsp:include>
                     <div class="form-floating mb-3">
                         <input type="email" class="form-control" name="email" id="floatingInput" value=""
                                placeholder="name@example.com">
-                        <label for="floatingInput"><fmt:message  bundle="${bundle}" key="login.email"/></label>
+                        <label for="floatingInput"><fmt:message bundle="${bundle}" key="login.email"/></label>
                     </div>
                     <div class="form-floating mb-4">
                         <input type="password" class="form-control pass" name="pass" id="floatingPassword"
                                placeholder="Password">
-                        <label for="floatingPassword"><fmt:message bundle="${bundle}"  key="login.password"/></label>
+                        <label for="floatingPassword"><fmt:message bundle="${bundle}" key="login.password"/></label>
                     </div>
                     <span id="insertTextHere"></span>
                     <div class="d-flex align-items-center justify-content-between mb-4 mt-4"
@@ -124,7 +125,7 @@
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input toggle" id="exampleCheck1">
                             <label class="form-check-label" for="exampleCheck1"> <fmt:message bundle="${bundle}"
-                                                                                              key="login.show-password"/>   </label>
+                                                                                              key="login.show-password"/> </label>
                         </div>
 
 
@@ -144,17 +145,18 @@
                         <a style="cursor: pointer;" href="/page_ForgetPasswd.jsp"> <fmt:message bundle="${bundle}"
                                                                                                 key="login.forgot-password"/> </a>
                     </div>
-                    <button type="button" id="login-button" class="btn btn-primary py-3 w-100 mb-4"><fmt:message bundle="${bundle}"
-                                                                                                                 key="login.button"/></button>
+                    <button type="button" id="login-button" class="btn btn-primary py-3 w-100 mb-4"><fmt:message
+                            bundle="${bundle}"
+                            key="login.button"/></button>
 
 
-                    <p class="text-center mb-0"><fmt:message bundle="${bundle}"  key="login.no-account"/> <a
-                            href="signup.jsp"><fmt:message bundle="${bundle}"  key="login.now"/></a></p>
+                    <p class="text-center mb-0"><fmt:message bundle="${bundle}" key="login.no-account"/> <a
+                            href="signup.jsp"><fmt:message bundle="${bundle}" key="login.now"/></a></p>
                     <div class="block social-login--facebooks">
                         <p class="title-sg" style="    margin-left: 80px;
                             margin-right: 80px;
                         ">
-                            <span style="font-size: medium;"><fmt:message  bundle="${bundle}" key="login.or"/></span>
+                            <span style="font-size: medium;"><fmt:message bundle="${bundle}" key="login.or"/></span>
                         </p>
                         <div style="display:flex;justify-content: center">
                             <a href="javascript:void(0)" class="social-login--facebook" onclick="loginFacebook()"><img
@@ -188,17 +190,18 @@
 
                 <div class="right-col">
                     <h4>
-                        <fmt:message bundle="${bundle}"  key="right-col.benefits"/>
+                        <fmt:message bundle="${bundle}" key="right-col.benefits"/>
                     </h4>
                     <div>
-                        <p><fmt:message bundle="${bundle}"  key="right-col.shipping"/></p>
-                        <p><fmt:message bundle="${bundle}"  key="right-col.variety"/></p>
-                        <p><fmt:message bundle="${bundle}"  key="right-col.easy-return"/></p>
-                        <p><fmt:message bundle="${bundle}"  key="right-col.reward"/></p>
-                        <p><fmt:message bundle="${bundle}"  key="right-col.register"/></p>
+                        <p><fmt:message bundle="${bundle}" key="right-col.shipping"/></p>
+                        <p><fmt:message bundle="${bundle}" key="right-col.variety"/></p>
+                        <p><fmt:message bundle="${bundle}" key="right-col.easy-return"/></p>
+                        <p><fmt:message bundle="${bundle}" key="right-col.reward"/></p>
+                        <p><fmt:message bundle="${bundle}" key="right-col.register"/></p>
 
                     </div>
-                    <a href="./signup.jsp" class="btn-register-default"><fmt:message bundle="${bundle}"  key="right-col.register"/></a>
+                    <a href="./signup.jsp" class="btn-register-default"><fmt:message bundle="${bundle}"
+                                                                                     key="right-col.register"/></a>
                 </div>
             </div>
         </div>
@@ -300,6 +303,12 @@ function encodeURIParams(a, b) {
 
         // Nếu tất cả đều hợp lệ, gửi form
         document.getElementById('login-form').submit();
+    });
+    document.getElementById('login-form').addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            document.getElementById('login-button').click();
+        }
     });
 
 </script>
