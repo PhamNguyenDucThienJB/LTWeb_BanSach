@@ -12,7 +12,7 @@
             <li>
                 <a href="/admin/AdminIndexSL">
                     <i class="bi bi-house-door"></i>
-                    <span class="nav-text">DashBroad Admin</span>
+                    <span class="nav-text">DashBroad</span>
                 </a>
             </li>
             <li>
