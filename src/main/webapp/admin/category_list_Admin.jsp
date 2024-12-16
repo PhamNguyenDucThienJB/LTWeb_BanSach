@@ -11,7 +11,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Product | Admin</title>
+    <title>Manager Category | Admin</title>
     <!-- Favicon icon -->
     <link rel="icon" href="//bizweb.dktcdn.net/100/197/269/themes/890698/assets/favicon.png?1730705463447"
           type="image/x-icon">
@@ -37,8 +37,8 @@
 <div id="preloader">
     <div class="sk-three-bounce">
         <div class="sk-child sk-bounce1"></div>
-        <%--        <div class="sk-child sk-bounce2"></div>--%>
-        <%--        <div class="sk-child sk-bounce3"></div>--%>
+                <div class="sk-child sk-bounce2"></div>
+                <div class="sk-child sk-bounce3"></div>
     </div>
 </div>
 <!--*******************

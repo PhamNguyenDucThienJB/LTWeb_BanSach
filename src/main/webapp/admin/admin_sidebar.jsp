@@ -22,7 +22,7 @@
                 </a>
             </li>
             <li>
-                <a href="staff.html">
+                <a href="/admin/ListUserManager">
                     <i class="bi bi-people"></i>
                     <span class="nav-text">List User and Admin</span>
                 </a>

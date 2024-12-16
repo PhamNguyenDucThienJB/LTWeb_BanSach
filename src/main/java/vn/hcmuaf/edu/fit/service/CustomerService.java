@@ -35,6 +35,34 @@ public class CustomerService {
 
     }
 
+    public static List<Customer> getListCostumerAdmin() {
+        List<Customer> list = new ArrayList<>();
+        String slq = "SELECT kh.MAKH, kh.TENKH, t.EMAIL,kh.MATAIKHOAN, kh.DIACHI, kh.SDT, t.ROLE FROM taikhoan t JOIN khachhang kh ON t.ID = kh.MATAIKHOAN;";
+        try (Connection connection = DBConnection.getInstall().getConnectionInstance();
+             PreparedStatement pre = connection.prepareStatement(slq);
+             ResultSet rs = pre.executeQuery()) {
+
+            while (rs.next()) {
+                Customer new_costumer = new Customer(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7)
+
+
+                );
+                list.add(new_costumer);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("Size Of List Use: " + list.size());
+        return list;
+    }
+
     public static String getIdAccByMakh(String makh) {
         for (Customer c : getListCustomer()) {
             if (c.getMAKH().equals(makh)) {
@@ -79,7 +107,6 @@ public class CustomerService {
             System.out.println("User hoặc ID tài khoản không hợp lệ");
             return;
         }
-
 
 
         if (connection == null) {
