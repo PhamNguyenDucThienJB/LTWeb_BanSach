@@ -12,7 +12,7 @@
             <li>
                 <a href="/admin/AdminIndexSL">
                     <i class="bi bi-house-door"></i>
-                    <span class="nav-text">DashBroad Admin</span>
+                    <span class="nav-text">DashBroad</span>
                 </a>
             </li>
             <li>
@@ -35,9 +35,9 @@
                 </a>
             </li>
             <li>
-                <a href="categories.html">
+                <a href="/admin/CategoryList">
                     <i class="bi bi-tags"></i>
-                    <span class="nav-text">List Categary</span>
+                    <span class="nav-text">List Category</span>
                 </a>
             </li>
             <li>
