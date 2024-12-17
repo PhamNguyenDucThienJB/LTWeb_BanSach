@@ -31,7 +31,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
+    <link href="./vendor/css/style.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
@@ -128,7 +128,7 @@
                                         <td><a href="javascript:void(0);"><strong>${user.role}</strong></a></td>
                                         <td>
                                             <div class="d-flex">
-                                                <a href="/EditUserManager?idEdit=${user.MATAIKHOAN}" class="btn btn-primary shadow btn-xs sharp mr-1"><i
+                                                <a href="/admin/EditUserManager?idEdit=${user.MAKH}" class="btn btn-primary shadow btn-xs sharp mr-1"><i
                                                         class="fa fa-pencil"></i></a>
                                                 <a href="javascript:void(0);"
                                                    class="btn btn-danger shadow btn-xs sharp btn-delete"

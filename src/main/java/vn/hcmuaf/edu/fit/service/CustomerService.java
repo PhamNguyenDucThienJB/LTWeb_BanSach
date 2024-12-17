@@ -7,6 +7,7 @@ import vn.hcmuaf.edu.fit.model.Customer;
 import java.nio.charset.StandardCharsets;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class CustomerService {
@@ -139,42 +140,69 @@ public class CustomerService {
             System.out.println("Lỗi khi đăng ký khách hàng");
         }
     }
-//Delete Customer
+
+    //Delete Customer
 // Delete User
-public static boolean deleteCustumer(String iDUser) {
-    String sqlCheck = "SELECT COUNT(*) FROM khachhang WHERE MAKH = ?";
-    String sqlDelete = "DELETE FROM khachhang WHERE MAKH = ?";
-    boolean isDeleted = false;
+    public static boolean deleteCustumer(String iDUser) {
+        String sqlCheck = "SELECT COUNT(*) FROM khachhang WHERE MAKH = ?";
+        String sqlDelete = "DELETE FROM khachhang WHERE MAKH = ?";
+        boolean isDeleted = false;
 
-    try (Connection connection = DBConnection.getInstall().getConnectionInstance();
-         PreparedStatement checkStmt = connection.prepareStatement(sqlCheck);
-         PreparedStatement deleteStmt = connection.prepareStatement(sqlDelete)) {
+        try (Connection connection = DBConnection.getInstall().getConnectionInstance();
+             PreparedStatement checkStmt = connection.prepareStatement(sqlCheck);
+             PreparedStatement deleteStmt = connection.prepareStatement(sqlDelete)) {
 
-        // Kiểm tra xem tài khoản có tồn tại không
-        checkStmt.setString(1, iDUser);
-        ResultSet rs = checkStmt.executeQuery();
-        if (rs.next() && rs.getInt(1) == 0) {
-            System.out.println("Không tìm thấy tài khoản với ID: " + iDUser);
-            return false;
-        }
+            // Kiểm tra xem tài khoản có tồn tại không
+            checkStmt.setString(1, iDUser);
+            ResultSet rs = checkStmt.executeQuery();
+            if (rs.next() && rs.getInt(1) == 0) {
+                System.out.println("Không tìm thấy tài khoản với ID: " + iDUser);
+                return false;
+            }
 
-        // Nếu tài khoản tồn tại, thực hiện xóa
-        deleteStmt.setString(1, iDUser);
-        int rowsAffected = deleteStmt.executeUpdate();
+            // Nếu tài khoản tồn tại, thực hiện xóa
+            deleteStmt.setString(1, iDUser);
+            int rowsAffected = deleteStmt.executeUpdate();
 
-        if (rowsAffected > 0) {
-            System.out.println("Xóa tài khoản thành công: " + iDUser);
-            isDeleted = true;
-        } else {
+            if (rowsAffected > 0) {
+                System.out.println("Xóa tài khoản thành công: " + iDUser);
+                isDeleted = true;
+            } else {
+                System.out.println("Có lỗi xảy ra khi xóa tài khoản: " + iDUser);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
             System.out.println("Có lỗi xảy ra khi xóa tài khoản: " + iDUser);
         }
 
-    } catch (SQLException e) {
-        e.printStackTrace();
-        System.out.println("Có lỗi xảy ra khi xóa tài khoản: " + iDUser);
+        return isDeleted;
     }
 
-    return isDeleted;
+    public static Customer findByMATAIKHOAN(String id) {
+
+        String query = "SELECT kh.MAKH, kh.TENKH, t.EMAIL,kh.MATAIKHOAN, kh.DIACHI, kh.SDT, t.ROLE FROM taikhoan t JOIN khachhang kh ON t.ID = kh.MATAIKHOAN where MAKH = ?";
+        try (Connection connection = DBConnection.getInstall().getConnectionInstance();
+             PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setString(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return new Customer(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7)
+                );
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
 
-}
+
