@@ -76,72 +76,75 @@
     ***********************************-->
     <div class="content-body">
         <!-- row -->
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">List Product</h4>
-                    <button type="button" class="btn btn-rounded btn-info"><span
-                            class="btn-icon-left text-info"><i class="fa fa-plus color-info"></i>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">List Product</h4>
+                        <button type="button" class="btn btn-rounded btn-info"><span
+                                class="btn-icon-left text-info"><i class="fa fa-plus color-info"></i>
 								</span>Add Product
-                    </button>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table id="example3" class="table table-bordered table-striped" style="min-width: 845px;">
-                            <thead class="thead-dark">
-                            <tr>
-                                <th>Picture</th>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Kind</th>
-                                <th>Size</th>
-                                <th>Description</th>
-                                <th>Content</th>
-                                <th>Weight</th>
-                                <th>Price</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach var="lists" items="${listProduct}">
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="example3" class="table table-bordered table-striped" style="min-width: 845px;">
+                                <thead class="thead-dark">
                                 <tr>
-                                    <td><img class="rounded-circle" width="35" src=""
-                                             alt=""></td>
-                                    <td>${lists.id}</td>
-                                    <td>${lists.name}</td>
-                                    <td>${lists.kind}</td>
-                                    <td>${lists.sizeBook}</td>
-                                    <td><a href="#" data-toggle="tooltip"
-                                           title="${lists.descrip}">${fn:substring(lists.descrip, 0, 60)}...</a></td>
-                                    <td><a href="#" data-toggle="tooltip"
-                                           title="${lists.content}">${fn:substring(lists.content, 0, 60)}...</a></td>
-                                    <td>${lists.weight}</td>
-                                    <td>${lists.price}</td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="Actions">
-                                            <a href="#" class="btn btn-sm btn-primary" title="Edit">
-                                                <i class="fa fa-edit"></i>
-                                            </a>
-                                            <a href="#" class="btn btn-sm btn-danger" title="Delete">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
-                                        </div>
-                                    </td>
+                                    <th>Picture</th>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Kind</th>
+                                    <th>Size</th>
+                                    <th>Description</th>
+                                    <th>Content</th>
+                                    <th>Weight</th>
+                                    <th>Price</th>
+                                    <th>Action</th>
                                 </tr>
-                            </c:forEach>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                <c:forEach var="lists" items="${listProduct}">
+                                    <tr>
+                                        <td><img class="rounded-circle" width="35" src=""
+                                                 alt=""></td>
+                                        <td>${lists.id}</td>
+                                        <td>${lists.name}</td>
+                                        <td>${lists.kind}</td>
+                                        <td>${lists.sizeBook}</td>
+                                        <td><a href="#" data-toggle="tooltip"
+                                               title="${lists.descrip}">${fn:substring(lists.descrip, 0, 60)}...</a>
+                                        </td>
+                                        <td><a href="#" data-toggle="tooltip"
+                                               title="${lists.content}">${fn:substring(lists.content, 0, 60)}...</a>
+                                        </td>
+                                        <td>${lists.weight}</td>
+                                        <td>${lists.price}</td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="Actions">
+                                                <a href="#" class="btn btn-sm btn-primary" title="Edit">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                                <a href="#" class="btn btn-sm btn-danger" title="Delete">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
     </div>
-    <!--**********************************
-        Content body end
-    ***********************************-->
-
-
 </div>
 <!--**********************************
     Main wrapper end

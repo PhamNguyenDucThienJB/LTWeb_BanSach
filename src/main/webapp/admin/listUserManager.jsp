@@ -83,13 +83,13 @@
         <%-- Hiển thị thông báo từ request --%>
 
 
-            <%-- Hiển thị thông báo từ request --%>
-            <c:if test="${not empty message}">
-                <div class="${status}">${message}</div>
-            </c:if>
+        <%-- Hiển thị thông báo từ request --%>
+        <c:if test="${not empty message}">
+            <div class="${status}">${message}</div>
+        </c:if>
 
 
-            <!-- row -->
+        <!-- row -->
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -128,7 +128,7 @@
                                         <td><a href="javascript:void(0);"><strong>${user.role}</strong></a></td>
                                         <td>
                                             <div class="d-flex">
-                                                <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
+                                                <a href="/EditUserManager?idEdit=${user.MATAIKHOAN}" class="btn btn-primary shadow btn-xs sharp mr-1"><i
                                                         class="fa fa-pencil"></i></a>
                                                 <a href="javascript:void(0);"
                                                    class="btn btn-danger shadow btn-xs sharp btn-delete"
@@ -173,8 +173,8 @@
                     Bạn có chắc chắn muốn xóa tài khoản này không?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
                     <a href="#" id="confirmDeleteBtn" class="btn btn-danger">Xóa</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
                 </div>
             </div>
         </div>
@@ -218,7 +218,8 @@
     <script src="./vendor/sweetalert2/dist/sweetalert2.min.js"></script>
     <script src="./js/plugins-init/sweetalert.init.js"></script>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     <script>
         function showConfirmModal(userId) {
             const deleteBtn = document.getElementById('confirmDeleteBtn');
@@ -234,6 +235,10 @@
             myModal.show();
         }
 
+        document.querySelector('.btn-secondary').addEventListener('click', function () {
+            // Xử lý khi nhấn "Hủy" nếu cần
+            console.log('Modal đã bị đóng');
+        });
     </script>
 
 </body>
