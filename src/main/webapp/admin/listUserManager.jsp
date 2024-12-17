@@ -80,9 +80,17 @@
         Content body start
     ***********************************-->
     <div class="content-body">
-        <!-- row -->
-        <div class="row">
+        <%-- Hiển thị thông báo từ request --%>
 
+
+            <%-- Hiển thị thông báo từ request --%>
+            <c:if test="${not empty message}">
+                <div class="${status}">${message}</div>
+            </c:if>
+
+
+            <!-- row -->
+        <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
@@ -120,10 +128,15 @@
                                         <td><a href="javascript:void(0);"><strong>${user.role}</strong></a></td>
                                         <td>
                                             <div class="d-flex">
-                                                <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
-                                                <a href="javascript:void(0);" class="btn btn-danger shadow btn-xs sharp btn-delete" data-id="${user.MATAIKHOAN}">
+                                                <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
+                                                        class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0);"
+                                                   class="btn btn-danger shadow btn-xs sharp btn-delete"
+                                                   onclick="showConfirmModal('${user.MATAIKHOAN}')">
                                                     <i class="fa fa-trash"></i>
                                                 </a>
+
+
                                             </div>
                                         </td>
                                     </tr>
@@ -142,96 +155,32 @@
         <!--**********************************
             Content body end
         ***********************************-->
-<%--        <div class="row">--%>
-<%--            <div class="col-lg-3">--%>
-<%--                <div class="card">--%>
-<%--                    <div class="card-body">--%>
-<%--                        <h4 class="card-title">Sweet Confirm</h4>--%>
-<%--                        <div class="card-content">--%>
-<%--                            <div class="sweetalert mt-5">--%>
-<%--                                <button class="btn btn-warning btn sweet-confirm">Sweet Confirm</button>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--                <!-- /# card -->--%>
-<%--            </div>--%>
-<%--        </div>--%>
+
 
     </div>
     <!-- Modal Popup -->
-    <div id="deleteModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2>Are you sure?</h2>
-            <p>Do you want to delete this user?</p>
-            <div class="modal-actions">
-                <button id="confirmDelete" class="btn btn-danger">Delete</button>
-                <button id="cancelDelete" class="btn btn-secondary">Cancel</button>
+    <!-- Modal Xác Nhận Xóa -->
+    <!-- Modal Xác nhận Xóa -->
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmDeleteModalLabel">Xác nhận xóa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Bạn có chắc chắn muốn xóa tài khoản này không?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <a href="#" id="confirmDeleteBtn" class="btn btn-danger">Xóa</a>
+                </div>
             </div>
         </div>
     </div>
-<style>
-    .modal {
-        display: none; /* Ẩn modal mặc định */
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.4);
-    }
 
-    .modal-content {
-        background-color: #fefefe;
-        margin: 15% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 30%;
-        text-align: center;
-        border-radius: 8px;
-    }
 
-    .close-btn {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-
-    .close-btn:hover,
-    .close-btn:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    .modal-actions {
-        margin-top: 20px;
-    }
-
-    .modal-actions .btn {
-        margin: 5px;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    .btn-danger {
-        background-color: #d33;
-        color: white;
-    }
-
-    .btn-secondary {
-        background-color: #aaa;
-        color: white;
-    }
-
-</style>
     <!--**********************************
         Main wrapper end
     ***********************************-->
@@ -268,112 +217,24 @@
 
     <script src="./vendor/sweetalert2/dist/sweetalert2.min.js"></script>
     <script src="./js/plugins-init/sweetalert.init.js"></script>
-<%--    <script>--%>
-<%--        document.addEventListener('DOMContentLoaded', function () {--%>
-<%--            const deleteButtons = document.querySelectorAll('.btn-delete');--%>
 
-<%--            deleteButtons.forEach(button => {--%>
-<%--                button.addEventListener('click', function (e) {--%>
-<%--                    e.preventDefault();--%>
 
-<%--                    const userId = this.getAttribute('data-id'); // Lấy ID người dùng từ thuộc tính data-id--%>
-
-<%--                    Swal.fire({--%>
-<%--                        title: 'Are you sure?',--%>
-<%--                        text: "Do you want to delete this user?",--%>
-<%--                        icon: 'warning',--%>
-<%--                        showCancelButton: true,--%>
-<%--                        confirmButtonColor: '#3085d6',--%>
-<%--                        cancelButtonColor: '#d33',--%>
-<%--                        confirmButtonText: 'Yes, delete it!'--%>
-<%--                    }).then((result) => {--%>
-<%--                        if (result.isConfirmed) {--%>
-<%--                            // Gửi yêu cầu xóa đến server--%>
-<%--                            fetch(`/DeleteUserManager?idUser=${userId}`, {--%>
-<%--                                method: 'GET',--%>
-<%--                            })--%>
-<%--                                .then(response => response.json()) // Xử lý phản hồi JSON--%>
-<%--                                .then(data => {--%>
-<%--                                    if (data.success) {--%>
-<%--                                        Swal.fire(--%>
-<%--                                            'Deleted!',--%>
-<%--                                            data.message,--%>
-<%--                                            'success'--%>
-<%--                                        );--%>
-<%--                                        // Xóa dòng tương ứng trong bảng HTML--%>
-<%--                                        button.closest('tr').remove();--%>
-<%--                                    } else {--%>
-<%--                                        Swal.fire(--%>
-<%--                                            'Error!',--%>
-<%--                                            data.message,--%>
-<%--                                            'error'--%>
-<%--                                        );--%>
-<%--                                    }--%>
-<%--                                })--%>
-<%--                                .catch(err => {--%>
-<%--                                    Swal.fire(--%>
-<%--                                        'Error!',--%>
-<%--                                        'An error occurred while deleting the user.',--%>
-<%--                                        'error'--%>
-<%--                                    );--%>
-<%--                                    console.error(err);--%>
-<%--                                });--%>
-<%--                        }--%>
-<%--                    });--%>
-<%--                });--%>
-<%--            });--%>
-<%--        });--%>
-
-<%--    </script>--%>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const deleteButtons = document.querySelectorAll('.btn-delete');
-            const modal = document.getElementById('deleteModal');
-            const closeModal = document.querySelector('.close-btn');
-            const confirmDelete = document.getElementById('confirmDelete');
-            const cancelDelete = document.getElementById('cancelDelete');
-            let userIdToDelete = null; // Biến lưu trữ ID người dùng
+        function showConfirmModal(userId) {
+            const deleteBtn = document.getElementById('confirmDeleteBtn');
 
-            // Hiển thị modal khi nhấn nút xóa
-            deleteButtons.forEach(button => {
-                button.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    userIdToDelete = this.getAttribute('data-id'); // Lưu ID người dùng
-                    modal.style.display = 'block'; // Hiển thị modal
-                });
-            });
+            // Lấy đường dẫn gốc của project từ JSP
+            const contextPath = '<%= request.getContextPath() %>';
 
-            // Đóng modal khi nhấn nút "x"
-            closeModal.addEventListener('click', function () {
-                modal.style.display = 'none';
-            });
+            // Cập nhật href để xóa tài khoản với id tương ứng
+            deleteBtn.href = contextPath + '/DeleteUserManager?idUser=' + userId;
 
-            // Đóng modal khi nhấn "Cancel"
-            cancelDelete.addEventListener('click', function () {
-                modal.style.display = 'none';
-            });
-
-            // Xử lý xác nhận xóa
-            confirmDelete.addEventListener('click', function () {
-                if (userIdToDelete) {
-                    console.log("User ID to delete:", userIdToDelete); // In ra ID người dùng trước khi điều hướng
-
-                    // Điều hướng tới URL xóa người dùng
-                    window.location.href = `/DeleteUserManager?idUser=${userIdToDelete}`;
-                }
-            });
-
-
-
-
-            // Đóng modal khi nhấn ngoài vùng modal
-            window.addEventListener('click', function (event) {
-                if (event.target == modal) {
-                    modal.style.display = 'none';
-                }
-            });
-        });
+            // Hiển thị modal
+            var myModal = new bootstrap.Modal(document.getElementById('confirmDeleteModal'));
+            myModal.show();
+        }
 
     </script>
+
 </body>
 </html>

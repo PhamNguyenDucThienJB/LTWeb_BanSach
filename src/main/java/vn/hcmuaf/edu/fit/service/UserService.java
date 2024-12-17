@@ -379,7 +379,7 @@ public class UserService {
             ResultSet rs = checkStmt.executeQuery();
             if (rs.next() && rs.getInt(1) == 0) {
                 System.out.println("Không tìm thấy tài khoản với ID: " + iDUser);
-                return false;
+                return false;  // Nếu không có tài khoản, trả về false
             }
 
             // Nếu tài khoản tồn tại, thực hiện xóa
@@ -400,6 +400,7 @@ public class UserService {
 
         return isDeleted;
     }
+
 
 
 

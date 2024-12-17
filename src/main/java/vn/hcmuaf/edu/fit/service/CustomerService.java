@@ -139,6 +139,42 @@ public class CustomerService {
             System.out.println("Lỗi khi đăng ký khách hàng");
         }
     }
+//Delete Customer
+// Delete User
+public static boolean deleteCustumer(String iDUser) {
+    String sqlCheck = "SELECT COUNT(*) FROM khachhang WHERE MAKH = ?";
+    String sqlDelete = "DELETE FROM khachhang WHERE MAKH = ?";
+    boolean isDeleted = false;
 
+    try (Connection connection = DBConnection.getInstall().getConnectionInstance();
+         PreparedStatement checkStmt = connection.prepareStatement(sqlCheck);
+         PreparedStatement deleteStmt = connection.prepareStatement(sqlDelete)) {
+
+        // Kiểm tra xem tài khoản có tồn tại không
+        checkStmt.setString(1, iDUser);
+        ResultSet rs = checkStmt.executeQuery();
+        if (rs.next() && rs.getInt(1) == 0) {
+            System.out.println("Không tìm thấy tài khoản với ID: " + iDUser);
+            return false;
+        }
+
+        // Nếu tài khoản tồn tại, thực hiện xóa
+        deleteStmt.setString(1, iDUser);
+        int rowsAffected = deleteStmt.executeUpdate();
+
+        if (rowsAffected > 0) {
+            System.out.println("Xóa tài khoản thành công: " + iDUser);
+            isDeleted = true;
+        } else {
+            System.out.println("Có lỗi xảy ra khi xóa tài khoản: " + iDUser);
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+        System.out.println("Có lỗi xảy ra khi xóa tài khoản: " + iDUser);
+    }
+
+    return isDeleted;
+}
 
 }
