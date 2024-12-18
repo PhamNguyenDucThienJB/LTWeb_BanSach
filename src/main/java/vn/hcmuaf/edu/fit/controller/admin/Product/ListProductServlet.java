@@ -18,7 +18,7 @@ public class ListProductServlet extends HttpServlet {
         Collection<Product> listProduct = ProductService.getDataProduct();
         System.out.println("Size: "+listProduct.size());
         request.setAttribute("listProduct", listProduct);
-        request.getRequestDispatcher("/admin/listProduct_Admin.jsp").forward(request, response);
+        request.getRequestDispatcher("/admin/listProductManager.jsp").forward(request, response);
     }
 
     @Override

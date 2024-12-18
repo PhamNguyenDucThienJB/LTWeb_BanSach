@@ -16,13 +16,13 @@
                 </a>
             </li>
             <li>
-                <a href="orders.html">
+                <a href="/admin/listOrderManager.jsp">
                     <i class="bi bi-cart-check"></i>
                     <span class="nav-text">List Order</span>
                 </a>
             </li>
             <li>
-                <a href="staff.html">
+                <a href="/admin/ListUserManager">
                     <i class="bi bi-people"></i>
                     <span class="nav-text">List User and Admin</span>
                 </a>

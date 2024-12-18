@@ -7,6 +7,7 @@ import vn.hcmuaf.edu.fit.model.Customer;
 import java.nio.charset.StandardCharsets;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class CustomerService {
@@ -33,6 +34,34 @@ public class CustomerService {
         }
         return listC;
 
+    }
+
+    public static List<Customer> getListCostumerAdmin() {
+        List<Customer> list = new ArrayList<>();
+        String slq = "SELECT kh.MAKH, kh.TENKH, t.EMAIL,kh.MATAIKHOAN, kh.DIACHI, kh.SDT, t.ROLE FROM taikhoan t JOIN khachhang kh ON t.ID = kh.MATAIKHOAN;";
+        try (Connection connection = DBConnection.getInstall().getConnectionInstance();
+             PreparedStatement pre = connection.prepareStatement(slq);
+             ResultSet rs = pre.executeQuery()) {
+
+            while (rs.next()) {
+                Customer new_costumer = new Customer(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7)
+
+
+                );
+                list.add(new_costumer);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("Size Of List Use: " + list.size());
+        return list;
     }
 
     public static String getIdAccByMakh(String makh) {
@@ -81,7 +110,6 @@ public class CustomerService {
         }
 
 
-
         if (connection == null) {
             System.out.println("Không thể kết nối cơ sở dữ liệu");
             return;
@@ -113,5 +141,90 @@ public class CustomerService {
         }
     }
 
+    //Delete Customer
+// Delete User
+    public static boolean deleteCustumer(String iDUser) {
+        String sqlCheck = "SELECT COUNT(*) FROM khachhang WHERE MAKH = ?";
+        String sqlDelete = "DELETE FROM khachhang WHERE MAKH = ?";
+        boolean isDeleted = false;
+
+        try (Connection connection = DBConnection.getInstall().getConnectionInstance();
+             PreparedStatement checkStmt = connection.prepareStatement(sqlCheck);
+             PreparedStatement deleteStmt = connection.prepareStatement(sqlDelete)) {
+
+            // Kiểm tra xem tài khoản có tồn tại không
+            checkStmt.setString(1, iDUser);
+            ResultSet rs = checkStmt.executeQuery();
+            if (rs.next() && rs.getInt(1) == 0) {
+                System.out.println("Không tìm thấy tài khoản với ID: " + iDUser);
+                return false;
+            }
+
+            // Nếu tài khoản tồn tại, thực hiện xóa
+            deleteStmt.setString(1, iDUser);
+            int rowsAffected = deleteStmt.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("Xóa tài khoản thành công: " + iDUser);
+                isDeleted = true;
+            } else {
+                System.out.println("Có lỗi xảy ra khi xóa tài khoản: " + iDUser);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Có lỗi xảy ra khi xóa tài khoản: " + iDUser);
+        }
+
+        return isDeleted;
+    }
+
+    public static Customer findByMATAIKHOAN(String id) {
+
+        String query = "SELECT kh.MAKH, kh.TENKH, t.EMAIL,kh.MATAIKHOAN, kh.DIACHI, kh.SDT, t.ROLE FROM taikhoan t JOIN khachhang kh ON t.ID = kh.MATAIKHOAN where MAKH = ?";
+        try (Connection connection = DBConnection.getInstall().getConnectionInstance();
+             PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setString(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return new Customer(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7)
+                );
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static boolean updateUser(Customer customer, String id) {
+        String query = "UPDATE khachhang kh JOIN taikhoan tk ON kh.MATAIKHOAN = tk.ID SET kh.TENKH = ?, kh.DIACHI = ?, kh.SDT = ?, tk.ROLE = ? WHERE kh.MAKH = ? ";
+        try (Connection connection = DBConnection.getInstall().getConnectionInstance();
+             PreparedStatement ps = connection.prepareStatement(query)) {
+
+            // Gán giá trị cho các tham số trong câu lệnh SQL
+            ps.setString(1, customer.getTENKH());
+            ps.setString(2, customer.getDIACHI());
+            ps.setString(3, customer.getSDT());
+            ps.setInt(4, customer.getRoleNo());
+            ps.setString(5, id);
+
+            // Thực thi câu lệnh và kiểm tra kết quả
+            int rowsUpdated = ps.executeUpdate();
+            return rowsUpdated > 0; // Trả về true nếu có ít nhất 1 dòng được cập nhật
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false; // Trả về false nếu có lỗi xảy ra
+    }
 
 }
+
+
