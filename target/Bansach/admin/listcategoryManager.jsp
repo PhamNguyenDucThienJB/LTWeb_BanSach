@@ -114,7 +114,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">List Category </h4>
-                            <a style="text-decoration: none; color: white" href="addKindCategory.jsp">
+                            <a style="text-decoration: none; color: white" href="addCategoryManager.jsp">
                                 <button type="button" class="btn btn-rounded btn-info"><span
                                         class="btn-icon-left text-info"><i class="fa fa-plus color-info"></i>
 								</span>Add Category

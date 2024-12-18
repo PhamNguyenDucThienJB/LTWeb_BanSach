@@ -81,7 +81,24 @@
     ***********************************-->
     <div class="content-body">
         <%-- Hiển thị thông báo từ request --%>
-
+        <div class="container-fluid">
+            <div class="row page-titles mx-0">
+                <div class="col-sm-6 p-md-0">
+                    <div class="welcome-text">
+                        <h4>Hi, welcome back!</h4>
+                        <span>Datatable</span>
+                    </div>
+                </div>
+                <%-- Hiển thị thông báo từ request --%>
+                <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">List Category</a></li>
+                        <li class=""><a href="javascript:void(0)"> > Datatable Category</a></li>
+                        <li class=" active"><a href="javascript:void(0)"> > Edit User</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
@@ -90,7 +107,8 @@
                     </div>
                     <div class="card-body">
                         <div class="form-validation">
-                            <form class="form-valide" action="/admin/EditUserManager?updateID=${infor.MAKH}" method="post">
+                            <form class="form-valide" action="/admin/EditUserManager?updateID=${infor.MAKH}"
+                                  method="post">
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
@@ -107,7 +125,8 @@
                                                     class="text-danger">* Không thể sửa</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="val-email" name="val-email"
+                                                <input type="text" class="form-control" id="val-email"
+                                                       name="val-email"
                                                        value="${infor.EMAIL}" readonly>
                                             </div>
                                         </div>
@@ -148,11 +167,14 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <select class="form-control" id="val-skill" name="role">
-                                                    <option value="1" ${infor.role == 'Admin' ? 'selected' : ''}>Admin
+                                                    <option value="1" ${infor.role == 'Admin' ? 'selected' : ''}>
+                                                        Admin
                                                     </option>
-                                                    <option value="0" ${infor.role == 'Thường' ? 'selected' : ''}>Thường
+                                                    <option value="0" ${infor.role == 'Thường' ? 'selected' : ''}>
+                                                        Thường
                                                     </option>
-                                                    <option value="-1" ${infor.role == 'Khóa' ? 'selected' : ''}>Khóa
+                                                    <option value="-1" ${infor.role == 'Khóa' ? 'selected' : ''}>
+                                                        Khóa
                                                     </option>
                                                 </select>
 
@@ -170,8 +192,17 @@
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-lg-8 ml-auto">
-                                                <button type="submit" class="btn btn-primary">Submit</button>
-                                                <button type="reset" class="btn btn-primary">Reset</button>
+                                                <!-- Nút Add (Thêm) thường có màu xanh lá thể hiện hành động thành công -->
+                                                <button type="submit" class="btn btn-success">Add</button>
+
+                                                <!-- Nút Reset thường có màu vàng/cam để nhấn mạnh sự cẩn trọng -->
+                                                <button type="reset" class="btn btn-warning">Reset</button>
+
+                                                <!-- Nút Back (Quay lại) thường có màu xám hoặc màu trung tính -->
+                                                <button type="button" class="btn btn-secondary">
+                                                    <a href="/admin/ListUserManager"
+                                                       style="text-decoration: none; color: white;">Back</a>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -183,62 +214,62 @@
             </div>
 
         </div>
-
     </div>
+</div>
 
 
-    <!--**********************************
-        Main wrapper end
-    ***********************************-->
+<!--**********************************
+    Main wrapper end
+***********************************-->
 
-    <!--**********************************
-        Scripts
-    ***********************************-->
-    <!-- Required vendors -->
-    <script src="./vendor/global/global.min.js"></script>
-    <script src="./vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-    <script src="./vendor/chart.js/Chart.bundle.min.js"></script>
-    <script src="./js/custom.min.js"></script>
-    <script src="./js/deznav-init.js"></script>
+<!--**********************************
+    Scripts
+***********************************-->
+<!-- Required vendors -->
+<script src="./vendor/global/global.min.js"></script>
+<script src="./vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+<script src="./vendor/chart.js/Chart.bundle.min.js"></script>
+<script src="./js/custom.min.js"></script>
+<script src="./js/deznav-init.js"></script>
 
-    <!-- Counter Up -->
-    <script src="./vendor/waypoints/jquery.waypoints.min.js"></script>
-    <script src="./vendor/jquery.counterup/jquery.counterup.min.js"></script>
+<!-- Counter Up -->
+<script src="./vendor/waypoints/jquery.waypoints.min.js"></script>
+<script src="./vendor/jquery.counterup/jquery.counterup.min.js"></script>
 
-    <!-- Apex Chart -->
-    <script src="./vendor/apexchart/apexchart.js"></script>
+<!-- Apex Chart -->
+<script src="./vendor/apexchart/apexchart.js"></script>
 
-    <!-- Chart piety plugin files -->
-    <script src="./vendor/peity/jquery.peity.min.js"></script>
+<!-- Chart piety plugin files -->
+<script src="./vendor/peity/jquery.peity.min.js"></script>
 
-    <!-- Dashboard 1 -->
-    <script src="./js/dashboard/dashboard-1.js"></script>
+<!-- Dashboard 1 -->
+<script src="./js/dashboard/dashboard-1.js"></script>
 
-    <!-- Datatable -->
-    <script src="./vendor/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="./js/plugins-init/datatables.init.js"></script>
+<!-- Datatable -->
+<script src="./vendor/datatables/js/jquery.dataTables.min.js"></script>
+<script src="./js/plugins-init/datatables.init.js"></script>
 
-    <script src="./vendor/apexchart/apexchart.js"></script>
+<script src="./vendor/apexchart/apexchart.js"></script>
 
 
-    <script src="./vendor/sweetalert2/dist/sweetalert2.min.js"></script>
-    <script src="./js/plugins-init/sweetalert.init.js"></script>
+<script src="./vendor/sweetalert2/dist/sweetalert2.min.js"></script>
+<script src="./js/plugins-init/sweetalert.init.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
-    <script>
-        // Giá trị role hiện tại
-        const currentRole = "${infor.role}";
+<script>
+    // Giá trị role hiện tại
+    const currentRole = "${infor.role}";
 
-        // Lấy tất cả các tùy chọn
-        const options = document.querySelectorAll('#val-skill .role-option');
+    // Lấy tất cả các tùy chọn
+    const options = document.querySelectorAll('#val-skill .role-option');
 
-        options.forEach(option => {
-            if (option.value === currentRole) {
-                option.remove(); // Xóa tùy chọn trùng với role hiện tại
-            }
-        });
-    </script>
+    options.forEach(option => {
+        if (option.value === currentRole) {
+            option.remove(); // Xóa tùy chọn trùng với role hiện tại
+        }
+    });
+</script>
 </body>
 </html>

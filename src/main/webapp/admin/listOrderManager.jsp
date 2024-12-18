@@ -103,6 +103,10 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">List Order</h4>
+                            <button type="button" class="btn btn-rounded btn-info"><span
+                                    class="btn-icon-left text-info"><i class="fa fa-plus color-info"></i>
+								</span>Add Order
+                            </button>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">

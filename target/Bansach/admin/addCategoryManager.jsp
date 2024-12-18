@@ -135,7 +135,7 @@
 
                                                     <!-- Nút Back (Quay lại) thường có màu xám hoặc màu trung tính -->
                                                     <button type="button" class="btn btn-secondary">
-                                                        <a href="/admin/ListUserManager"
+                                                        <a href="/admin/CategoryList"
                                                            style="text-decoration: none; color: white;">Back</a>
                                                     </button>
                                                 </div>
