@@ -203,6 +203,28 @@ public class CustomerService {
         }
         return null;
     }
+
+    public static boolean updateUser(Customer customer, String id) {
+        String query = "UPDATE khachhang kh JOIN taikhoan tk ON kh.MATAIKHOAN = tk.ID SET kh.TENKH = ?, kh.DIACHI = ?, kh.SDT = ?, tk.ROLE = ? WHERE kh.MAKH = ? ";
+        try (Connection connection = DBConnection.getInstall().getConnectionInstance();
+             PreparedStatement ps = connection.prepareStatement(query)) {
+
+            // Gán giá trị cho các tham số trong câu lệnh SQL
+            ps.setString(1, customer.getTENKH());
+            ps.setString(2, customer.getDIACHI());
+            ps.setString(3, customer.getSDT());
+            ps.setInt(4, customer.getRoleNo());
+            ps.setString(5, id);
+
+            // Thực thi câu lệnh và kiểm tra kết quả
+            int rowsUpdated = ps.executeUpdate();
+            return rowsUpdated > 0; // Trả về true nếu có ít nhất 1 dòng được cập nhật
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false; // Trả về false nếu có lỗi xảy ra
+    }
+
 }
 
 

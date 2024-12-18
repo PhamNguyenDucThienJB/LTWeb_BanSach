@@ -82,155 +82,107 @@
     <div class="content-body">
         <%-- Hiển thị thông báo từ request --%>
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Form Edit User</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="form-validation">
-                                <form class="form-valide" action="/admin/EditUserManager" method="get">
-                                    <div class="row">
-                                        <div class="col-xl-6">
-                                            <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="val-username">ID Costumer
-                                                    <span class="text-danger">*</span>
-                                                </label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" id="val-username" name="val-username" value="${infor.MAKH}"  readonly>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="val-email">Email <span
-                                                        class="text-danger">*</span>
-                                                </label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" id="val-email" name="val-email" value="${infor.EMAIL}" readonly>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="val-password">Address
-                                                    <span class="text-danger">*</span>
-                                                </label>
-                                                <div class="col-lg-6">
-                                                    <input type="password" class="form-control" id="val-password" name="val-password" value="${infor.DIACHI}">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="val-confirm-password">Telephone <span
-                                                        class="text-danger">*</span>
-                                                </label>
-                                                <div class="col-lg-6">
-                                                    <input type="password" class="form-control" id="val-confirm-password" name="val-confirm-password" value="${infor.SDT}">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="val-suggestions">Suggestions <span
-                                                        class="text-danger">*</span>
-                                                </label>
-                                                <div class="col-lg-6">
-                                                    <textarea class="form-control" id="val-suggestions" name="val-suggestions" rows="5" placeholder="What would you like to see?"></textarea>
-                                                </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Form Edit User</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-validation">
+                            <form class="form-valide" action="/admin/EditUserManager?updateID=${infor.MAKH}" method="post">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-username">ID Costumer
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="val-username"
+                                                       name="val-username" value="${infor.MAKH}" readonly>
                                             </div>
                                         </div>
-                                        <div class="col-xl-6">
-                                            <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="val-skill">Best Skill
-                                                    <span class="text-danger">*</span>
-                                                </label>
-                                                <div class="col-lg-6">
-                                                    <select class="form-control" id="val-skill" name="val-skill">
-                                                        <option value="">Please select</option>
-                                                        <option value="html">HTML</option>
-                                                        <option value="css">CSS</option>
-                                                        <option value="javascript">JavaScript</option>
-                                                        <option value="angular">Angular</option>
-                                                        <option value="angular">React</option>
-                                                        <option value="vuejs">Vue.js</option>
-                                                        <option value="ruby">Ruby</option>
-                                                        <option value="php">PHP</option>
-                                                        <option value="asp">ASP.NET</option>
-                                                        <option value="python">Python</option>
-                                                        <option value="mysql">MySQL</option>
-                                                    </select>
-                                                </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-email">Email <span
+                                                    class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="val-email" name="val-email"
+                                                       value="${infor.EMAIL}" readonly>
                                             </div>
-                                            <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="val-currency">Telephone
-                                                    <span class="text-danger">*</span>
-                                                </label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" id="val-currency" name="val-currency" value="${infor.role}">
-                                                </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-passwords">Name
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="val-passwords"
+                                                       name="name" value="${infor.TENKH}">
                                             </div>
-                                            <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="val-website">IDUser
-                                                    <span class="text-danger">*</span>
-                                                </label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" id="val-website" name="val-website" value="${infor.MATAIKHOAN}" >
-                                                </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-password">Address
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="val-password"
+                                                       name="address" value="${infor.DIACHI}">
                                             </div>
-                                            <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="val-phoneus">Phone (US)
-                                                    <span class="text-danger">*</span>
-                                                </label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" id="val-phoneus" name="val-phoneus" placeholder="212-999-0000">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="val-digits">Digits <span
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-confirm-password">Telephone
+                                                <span
                                                         class="text-danger">*</span>
-                                                </label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" id="val-digits" name="val-digits" placeholder="5">
-                                                </div>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="val-confirm-password"
+                                                       name="phone" value="${infor.SDT}">
                                             </div>
-                                            <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="val-number">Number <span
-                                                        class="text-danger">*</span>
-                                                </label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" id="val-number" name="val-number" placeholder="5.0">
-                                                </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-skill">Chọn Quyền
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <select class="form-control" id="val-skill" name="role">
+                                                    <option value="1" ${infor.role == 'Admin' ? 'selected' : ''}>Admin
+                                                    </option>
+                                                    <option value="0" ${infor.role == 'Thường' ? 'selected' : ''}>Thường
+                                                    </option>
+                                                    <option value="-1" ${infor.role == 'Khóa' ? 'selected' : ''}>Khóa
+                                                    </option>
+                                                </select>
+
                                             </div>
-                                            <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="val-range">Range [1, 5]
-                                                    <span class="text-danger">*</span>
-                                                </label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" id="val-range" name="val-range" placeholder="4">
-                                                </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-website">IDUser
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="val-website"
+                                                       name="val-website" value="${infor.MATAIKHOAN}" readonly>
                                             </div>
-                                            <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label"><a
-                                                        href="javascript:void(0)">Terms &amp; Conditions</a> <span
-                                                        class="text-danger">*</span>
-                                                </label>
-                                                <div class="col-lg-8">
-                                                    <label class="css-control css-control-primary css-checkbox" for="val-terms">
-                                                        <input type="checkbox" class="css-control-input mr-2"
-                                                               id="val-terms" name="val-terms" value="1">
-                                                        <span class="css-control-indicator"></span> I agree to the
-                                                        terms</label>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col-lg-8 ml-auto">
-                                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                                </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-lg-8 ml-auto">
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                <button type="reset" class="btn btn-primary">Reset</button>
                                             </div>
                                         </div>
                                     </div>
-                                </form>
-                            </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-
             </div>
+
+        </div>
 
     </div>
 
@@ -275,6 +227,18 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
+    <script>
+        // Giá trị role hiện tại
+        const currentRole = "${infor.role}";
 
+        // Lấy tất cả các tùy chọn
+        const options = document.querySelectorAll('#val-skill .role-option');
+
+        options.forEach(option => {
+            if (option.value === currentRole) {
+                option.remove(); // Xóa tùy chọn trùng với role hiện tại
+            }
+        });
+    </script>
 </body>
 </html>

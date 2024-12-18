@@ -95,7 +95,7 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="val-username"
-                                                       name="val-id">
+                                                       name="val-id" value="LS">
                                             </div>
                                         </div>
                                         <div class="form-group row">
