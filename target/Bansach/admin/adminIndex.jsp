@@ -49,13 +49,13 @@
     ***********************************-->
 <%--            Header--%>
     <!--**********************************-->
-  <jsp:include page="admin_header.jsp"></jsp:include>
+  <jsp:include page="main_header_Admin.jsp"></jsp:include>
     <!--**********************************-->
 <%--      End Header--%>
     <!--**********************************
         Sidebar start
     ***********************************-->
-   <jsp:include page="admin_sidebar.jsp"></jsp:include>
+   <jsp:include page="main_sidebar_Admin.jsp"></jsp:include>
 
     <!--**********************************
         Sidebar end

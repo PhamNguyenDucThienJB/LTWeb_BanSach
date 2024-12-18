@@ -64,13 +64,13 @@
     ***********************************-->
     <%--            Header--%>
     <!--**********************************-->
-    <jsp:include page="admin_header.jsp"></jsp:include>
+    <jsp:include page="main_header_Admin.jsp"></jsp:include>
     <!--**********************************-->
     <%--      End Header--%>
     <!--**********************************
         Sidebar start
     ***********************************-->
-    <jsp:include page="admin_sidebar.jsp"></jsp:include>
+    <jsp:include page="main_sidebar_Admin.jsp"></jsp:include>
 
     <!--**********************************
         Sidebar end
@@ -95,7 +95,7 @@
                                     <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="val-username">ID Costumer
-                                                <span class="text-danger">*</span>
+                                                <span class="text-danger">* Không thể sửa</span>
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="val-username"
@@ -104,7 +104,7 @@
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="val-email">Email <span
-                                                    class="text-danger">*</span>
+                                                    class="text-danger">* Không thể sửa</span>
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="val-email" name="val-email"
@@ -161,7 +161,7 @@
 
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="val-website">IDUser
-                                                <span class="text-danger">*</span>
+                                                <span class="text-danger">* Không thể sửa</span>
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="val-website"

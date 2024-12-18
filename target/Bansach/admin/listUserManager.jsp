@@ -64,13 +64,13 @@
     ***********************************-->
     <%--            Header--%>
     <!--**********************************-->
-    <jsp:include page="admin_header.jsp"></jsp:include>
+    <jsp:include page="main_header_Admin.jsp"></jsp:include>
     <!--**********************************-->
     <%--      End Header--%>
     <!--**********************************
         Sidebar start
     ***********************************-->
-    <jsp:include page="admin_sidebar.jsp"></jsp:include>
+    <jsp:include page="main_sidebar_Admin.jsp"></jsp:include>
 
     <!--**********************************
         Sidebar end
@@ -87,69 +87,86 @@
         <c:if test="${not empty message}">
             <div class="${status}">${message}</div>
         </c:if>
-
-
-        <!-- row -->
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Profile Datatable</h4>
-                        <button type="button" class="btn btn-rounded btn-info"><span
-                                class="btn-icon-left text-info"><i class="fa fa-plus color-info"></i>
-								</span>Add User
-                        </button>
+        <div class="container-fluid">
+            <div class="row page-titles mx-0">
+                <div class="col-sm-6 p-md-0">
+                    <div class="welcome-text">
+                        <h4>Hi, welcome back!</h4>
+                        <span>Datatable</span>
                     </div>
+                </div>
+                <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">List User and Admin</a></li>
+                        <li class=" active"><a href="javascript:void(0)"> > Datatable User and Admin</a></li>
+                    </ol>
+                </div>
+            </div>
 
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table id="example3" class="display" style="min-width: 845px">
-                                <thead>
-                                <tr>
-                                    <th>Num</th>
-                                    <th>Num ID</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Address</th>
-                                    <th>Phone</th>
-                                    <th>Role</th>
-                                    <th>Action</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <c:forEach var="user" items="${listUser}" varStatus="num">
+            <!-- row -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Profile Datatable</h4>
+                            <a href="/admin/AddUserManager" methods="get" style="text-decoration: none;color: white">
+                                <button type="button" class="btn btn-rounded btn-info"><span
+                                        class="btn-icon-left text-info"><i class="fa fa-plus color-info"></i>
+								</span>Add User
+                                </button>
+                            </a>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="example3" class="display" style="min-width: 845px">
+                                    <thead>
                                     <tr>
-                                        <td>${num.index + 1}</td>
-                                        <td>${user.MAKH}</td>
-                                        <td>${user.TENKH}</td>
-                                        <td>${user.EMAIL}</td>
-                                        <td>${user.DIACHI}</td>
-                                        <td><a href="javascript:void(0);"><strong>${user.SDT}</strong></a></td>
-                                        <td><a href="javascript:void(0);"><strong>${user.role}</strong></a></td>
-                                        <td>
-                                            <div class="d-flex">
-                                                <a href="/admin/EditUserManager?idEdit=${user.MAKH}" class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                                        class="fa fa-pencil"></i></a>
-                                                <a href="javascript:void(0);"
-                                                   class="btn btn-danger shadow btn-xs sharp btn-delete"
-                                                   onclick="showConfirmModal('${user.MATAIKHOAN}')">
-                                                    <i class="fa fa-trash"></i>
-                                                </a>
-
-
-                                            </div>
-                                        </td>
+                                        <th>Num</th>
+                                        <th>Num ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Address</th>
+                                        <th>Phone</th>
+                                        <th>Role</th>
+                                        <th>Action</th>
                                     </tr>
-                                </c:forEach>
+                                    </thead>
+                                    <tbody>
+                                    <c:forEach var="user" items="${listUser}" varStatus="num">
+                                        <tr>
+                                            <td>${num.index + 1}</td>
+                                            <td>${user.MAKH}</td>
+                                            <td>${user.TENKH}</td>
+                                            <td>${user.EMAIL}</td>
+                                            <td>${user.DIACHI}</td>
+                                            <td><a href="javascript:void(0);"><strong>${user.SDT}</strong></a></td>
+                                            <td><a href="javascript:void(0);"><strong>${user.role}</strong></a></td>
+                                            <td>
+                                                <div class="d-flex">
+                                                    <a href="/admin/EditUserManager?idEdit=${user.MAKH}"
+                                                       class="btn btn-primary shadow btn-xs sharp mr-1"><i
+                                                            class="fa fa-pencil"></i></a>
+                                                    <a href="javascript:void(0);"
+                                                       class="btn btn-danger shadow btn-xs sharp btn-delete"
+                                                       onclick="showConfirmModal('${user.MATAIKHOAN}')">
+                                                        <i class="fa fa-trash"></i>
+                                                    </a>
 
 
-                                </tbody>
-                            </table>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
 
         </div>
         <!--**********************************

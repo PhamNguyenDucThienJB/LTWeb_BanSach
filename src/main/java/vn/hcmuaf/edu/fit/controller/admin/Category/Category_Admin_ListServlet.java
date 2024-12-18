@@ -15,7 +15,7 @@ public class Category_Admin_ListServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Collection<Category> list = CategoryService.getData();
         request.setAttribute("listCategory", list);
-        request.getRequestDispatcher("/admin/category_list_Admin.jsp").forward(request, response);
+        request.getRequestDispatcher("/admin/listcategoryManager.jsp").forward(request, response);
     }
 
     @Override
