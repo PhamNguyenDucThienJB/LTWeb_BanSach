@@ -25,7 +25,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Datatable -->
-<%--    <link rel="stylesheet" href="/admin/css/admin/css/style.css">--%>
+    <link rel="stylesheet" href="/admin/css/admin/css/style.css">
     <link href="./vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="./vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
 
@@ -274,26 +274,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-    <script>
-        function showConfirmModal(userId) {
-            const deleteBtn = document.getElementById('confirmDeleteBtn');
 
-            // Lấy đường dẫn gốc của project từ JSP
-            const contextPath = '<%= request.getContextPath() %>';
-
-            // Cập nhật href để xóa tài khoản với id tương ứng
-            deleteBtn.href = contextPath + '/DeleteUserManager?idUser=' + userId;
-
-            // Hiển thị modal
-            var myModal = new bootstrap.Modal(document.getElementById('confirmDeleteModal'));
-            myModal.show();
-        }
-
-        document.querySelector('.btn-secondary').addEventListener('click', function () {
-            // Xử lý khi nhấn "Hủy" nếu cần
-            console.log('Modal đã bị đóng');
-        });
-    </script>
 
 </body>
 </html>

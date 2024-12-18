@@ -27,6 +27,11 @@
     <!-- Datatable -->
     <link rel="stylesheet" href="/admin/css/admin/css/style.css">
     <link href="./vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="./vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link href="./vendor/css/style.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
@@ -37,8 +42,8 @@
 <div id="preloader">
     <div class="sk-three-bounce">
         <div class="sk-child sk-bounce1"></div>
-                <div class="sk-child sk-bounce2"></div>
-                <div class="sk-child sk-bounce3"></div>
+        <div class="sk-child sk-bounce2"></div>
+        <div class="sk-child sk-bounce3"></div>
     </div>
 </div>
 <!--*******************
@@ -79,13 +84,27 @@
         <div class="row">
 
             <div class="col-12">
+                <c:if test="${not empty sessionScope.message}">
+                    <div class="alert ${sessionScope.messageType == 'success' ? 'alert-success' : 'alert-danger'} alert-dismissible fade show"
+                         role="alert">
+                        <c:out value="${sessionScope.message}"/>
+                        <!-- Nút đóng thông báo -->
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <!-- Xóa thông báo sau khi hiển thị -->
+                    <c:remove var="message" scope="session"/>
+                    <c:remove var="messageType" scope="session"/>
+                </c:if>
+
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">List Category </h4>
-                        <button type="button" class="btn btn-rounded btn-info"><span
-                                class="btn-icon-left text-info"><i class="fa fa-plus color-info"></i>
+                        <a style="text-decoration: none; color: white" href="addKindCategory.jsp">
+                            <button type="button" class="btn btn-rounded btn-info"><span
+                                    class="btn-icon-left text-info"><i class="fa fa-plus color-info"></i>
 								</span>Add Category
-                        </button>
+                            </button>
+                        </a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -100,20 +119,23 @@
                                 </thead>
                                 <tbody>
                                 <c:forEach var="listC" items="${listCategory}" varStatus="status">
-                                <tr>
+                                    <tr>
 
-                                    <td>${status.index + 1}</td> <!-- Hiển thị số thứ tự, bắt đầu từ 1 -->
-                                    <td><a href="javascript:void(0);"><strong>${listC.id}</strong></a></td>
-                                    <td><a href="javascript:void(0);"><strong>${listC.bookName}</strong></a></td>
-                                    <td>
-                                        <div class="d-flex">
-                                            <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i
-                                                    class="fa fa-pencil"></i></a>
-                                            <a href="#" class="btn btn-danger shadow btn-xs sharp"><i
-                                                    class="fa fa-trash"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                        <td>${status.index + 1}</td> <!-- Hiển thị số thứ tự, bắt đầu từ 1 -->
+                                        <td><a href="javascript:void(0);"><strong>${listC.id}</strong></a></td>
+                                        <td><a href="javascript:void(0);"><strong>${listC.bookName}</strong></a></td>
+                                        <td>
+                                            <div class="d-flex">
+                                                <a href="/admin/EditCategory?idCategoryEdit=${listC.id}"
+                                                   class="btn btn-primary shadow btn-xs sharp mr-1"><i
+                                                        class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0)"
+                                                   class=" btn btn-danger shadow btn-xs sharp"
+                                                   onclick="showConfirmModal('${listC.id}')"><i
+                                                        class="fa fa-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
                                 </c:forEach>
                                 </tbody>
                             </table>
@@ -127,7 +149,25 @@
         <!--**********************************
             Content body end
         ***********************************-->
-
+        <!-- Modal Xác nhận Xóa -->
+        <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirmDeleteModalLabel">Xác nhận xóa</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Bạn có chắc chắn muốn xóa Category này không?
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" id="confirmDeleteBtn" class="btn btn-danger">Xóa</a>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
     <!--**********************************
@@ -160,8 +200,27 @@
     <!-- Datatable -->
     <script src="./vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="./js/plugins-init/datatables.init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     <script>
+        function showConfirmModal(categoryId) {
+            const deleteBtn = document.getElementById('confirmDeleteBtn');
 
+            // Lấy đường dẫn gốc của project từ JSP
+            const contextPath = '<%= request.getContextPath() %>';
+
+            // Cập nhật href để xóa tài khoản với id tương ứng
+            deleteBtn.href = contextPath + '/admin/DeleteCategory?idCategory=' + categoryId;
+
+            // Hiển thị modal
+            var myModal = new bootstrap.Modal(document.getElementById('confirmDeleteModal'));
+            myModal.show();
+        }
+
+        document.querySelector('.btn-secondary').addEventListener('click', function () {
+            // Xử lý khi nhấn "Hủy" nếu cần
+            console.log('Modal đã bị đóng');
+        });
     </script>
 </body>
 </html>

@@ -97,7 +97,7 @@
                         <h4 class="card-title">Profile Datatable</h4>
                         <button type="button" class="btn btn-rounded btn-info"><span
                                 class="btn-icon-left text-info"><i class="fa fa-plus color-info"></i>
-								</span>Add Category
+								</span>Add User
                         </button>
                     </div>
 
