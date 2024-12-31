@@ -138,7 +138,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="shoping__cart__btns">
-                        <a href="./shop-product.html" class="primary-btn cart-btn">Xem thêm sản phẩm </a>
+                        <a href="shop-product.jsp" class="primary-btn cart-btn">Xem thêm sản phẩm </a>
                         
                     </div>
                 </div>

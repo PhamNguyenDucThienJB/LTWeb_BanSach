@@ -100,7 +100,7 @@
                             <div class="p-3" style="max-width: 900px;">
                                 <!-- <h4 class="text-white text-uppercase mb-md-3 slogun_slide">Truyền thống & hiện đại</h4>
                                 <h1 class="display-3 text-white font-weight-bold mb-md-4 slogun_slide">Tận hưởng thế giới ngọt ngào của bạn.</h1>
-                                <a href="./shop-product.html" class="btn btn_pink py-md-3 px-md-5 mt-2">Đặt bánh ngay <i class="fa fa-hand-o-down"></i></a> -->
+                                <a href="./shop-product.jsp" class="btn btn_pink py-md-3 px-md-5 mt-2">Đặt bánh ngay <i class="fa fa-hand-o-down"></i></a> -->
                             </div>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
                             <div class="p-3" style="max-width: 900px;">
                                 <!-- <h4 class="text-white text-uppercase mb-md-3 slogun_slide">Truyền thống & hiện đại</h4>
                                 <h1 class="display-3 text-white font-weight-bold mb-md-4 slogun_slide">Không chỉ là bánh ngọt, đây là sự yêu thương.</h1>
-                                <a href="./shop-product.html" class="btn btn_pink py-md-3 px-md-5 mt-2">Đặt bánh ngay <i class="fa fa-hand-o-down"></i> </a>                        -->
+                                <a href="./shop-product.jsp" class="btn btn_pink py-md-3 px-md-5 mt-2">Đặt bánh ngay <i class="fa fa-hand-o-down"></i> </a>                        -->
                             </div>
                         </div>
 
@@ -356,7 +356,7 @@
                     </div>
                 </div>
             </div>
-            <a href="./shop-product.html" type="button" class="btn btn_pink py-md-3 px-md-5 mt-2 btn-rm">Xem tất cả</a>
+            <a href="shop-product.jsp" type="button" class="btn btn_pink py-md-3 px-md-5 mt-2 btn-rm">Xem tất cả</a>
         </div>
     </div>
 </section>

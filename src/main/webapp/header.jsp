@@ -67,7 +67,7 @@
         <ul>
             <li class="active"><a href="./index.jsp">Trang chủ</a></li>
             <li><a href="about.jsp">Giới thiệu</a></li>
-            <li><a href="./shop-product.html">Sản phẩm</a>
+            <li><a href="shop-product.jsp">Sản phẩm</a>
 
             </li>
             <li><a href="blog.jsp">Tin tức</a></li>
@@ -217,7 +217,7 @@
                             <a href="about.jsp"><fmt:message bundle="${bundle}" key="menu.about"/></a>
                         </li>
                         <li class="menu-item">
-                            <a href="./shop-product.html"><fmt:message bundle="${bundle}" key="menu.products"/></a>
+                            <a href="shop-product.jsp"><fmt:message bundle="${bundle}" key="menu.products"/></a>
                         </li>
                         <li class="menu-item">
                             <a href="./ListBlog"><fmt:message bundle="${bundle}" key="menu.news"/></a>
