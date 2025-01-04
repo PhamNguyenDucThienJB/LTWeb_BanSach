@@ -36,10 +36,8 @@ public class ProductService {
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
-                        rs.getInt(5),
-                        rs.getString(6),
-                        rs.getString(7),
-                        rs.getInt(8)
+                        rs.getDouble(5)
+
 
                 );
                 listProduct.add(product);

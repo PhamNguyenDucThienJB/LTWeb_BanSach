@@ -1,134 +1,65 @@
 package vn.hcmuaf.edu.fit.model;
 
-import java.io.Serializable;
-import java.util.List;
+public class Product {
+    private String title;
+    private String author;
+    private String description;
+    private String imageUrl;
+    private double price;
 
-public class Product implements Serializable {
-    String id;
-    String name;
-    String kind;
-    String sizeBook;
-    int weight;
-    String descrip;
-    String content;
-    List<String> listImg;
-    int price;
-    List<Comment> comments;
-    ProductDetails details;
-
-    public Product(String id, String name, String kind, String sizeBook, int weight, String descrip, String content, int price) {
-        this.id = id;
-        this.name = name;
-        this.kind = kind;
-        this.sizeBook = sizeBook;
-        this.weight = weight;
-        this.descrip = descrip;
-        this.content = content;
+    // Constructor
+    public Product(String title, String author, String description, String imageUrl, double price) {
+        this.title = title;
+        this.author = author;
+        this.description = description;
+        this.imageUrl = imageUrl;
         this.price = price;
     }
 
-    public String getId() {
-        return id;
+    // Getters and Setters
+    public String getTitle() {
+        return title;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getName() {
-        return name;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
-    public String getKind() {
-        return kind;
+    public String getDescription() {
+        return description;
     }
 
-    public void setKind(String kind) {
-        this.kind = kind;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getSizeBook() {
-        return sizeBook;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setSizeBook(String sizeBook) {
-        this.sizeBook = sizeBook;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
-    public int getWeight() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
-    public String getDescrip() {
-        return descrip;
-    }
-
-    public void setDescrip(String descrip) {
-        this.descrip = descrip;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public List<String> getListImg() {
-        return listImg;
-    }
-
-    public void setListImg(List<String> listImg) {
-        this.listImg = listImg;
-    }
-
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public List<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
-    }
-
-    public ProductDetails getDetails() {
-        return details;
-    }
-
-    public void setDetails(ProductDetails details) {
-        this.details = details;
-    }
-
+    // Optional: Override toString() method for easy debugging or printing
     @Override
     public String toString() {
-        return "Product{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", kind='" + kind + '\'' +
-                ", sizeBook='" + sizeBook + '\'' +
-                ", weight=" + weight +
-                ", descrip='" + descrip + '\'' +
-                ", content='" + content + '\'' +
-
-                ", price=" + price +
-
-
-                '}';
+        return "Product [title=" + title + ", author=" + author + ", description=" + description + ", imageUrl=" + imageUrl + ", price=" + price + "]";
     }
 }

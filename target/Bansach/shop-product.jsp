@@ -277,7 +277,7 @@
                             <h4>Sách Bán Chạy</h4>
                             <div class="latest-product__slider owl-carousel">
                                 <div class="latest-prdouct__slider__item">
-                                    <a href="#" class="latest-product__item">
+                                    <a href="bookDetails.jsp?id=15" class="latest-product__item">
                                         <div class="latest-product__item__pic">
                                             <img src="./img/product/B019/tamly.jpg" alt="">
                                         </div>
@@ -286,7 +286,7 @@
                                             <span>159,000 VND</span>
                                         </div>
                                     </a>
-                                    <a href="#" class="latest-product__item">
+                                    <a href="bookDetails.jsp?id=14" class="latest-product__item">
                                         <div class="latest-product__item__pic">
                                             <img src="./img/product/B022/tuduy.jpg" alt="">
                                         </div>
@@ -295,7 +295,7 @@
                                             <span>215,000 VND</span>
                                         </div>
                                     </a>
-                                    <a href="#" class="latest-product__item">
+                                    <a href="bookDetails.jsp?id=16" class="latest-product__item">
                                         <div class="latest-product__item__pic">
                                             <img src="./img/product/B023/damphan.jpg" alt="">
                                         </div>
@@ -306,7 +306,7 @@
                                     </a>
                                 </div>
                                 <div class="latest-prdouct__slider__item">
-                                    <a href="#" class="latest-product__item">
+                                    <a href="bookDetails.jsp?id=12" class="latest-product__item">
                                         <div class="latest-product__item__pic">
                                             <img src="./img/product/B024/nhanto.jpg" alt="">
                                         </div>
@@ -315,7 +315,7 @@
                                             <span>199,000 VND</span>
                                         </div>
                                     </a>
-                                    <a href="#" class="latest-product__item">
+                                    <a href="bookDetails.jsp?id=11" class="latest-product__item">
                                         <div class="latest-product__item__pic">
                                             <img src="./img/product/B025/thaydoituduy.jpg" alt="">
                                         </div>
@@ -324,7 +324,7 @@
                                             <span>79,000 VND</span>
                                         </div>
                                     </a>
-                                    <a href="#" class="latest-product__item">
+                                    <a href="bookDetails.jsp?id=13" class="latest-product__item">
                                         <div class="latest-product__item__pic">
                                             <img src="./img/product/B026/chungkhoan.jpg" alt="">
                                         </div>
@@ -359,7 +359,7 @@
                                     </div>
                                     <div class="product__discount__item__text">
                                         <span>Quản trị doanh nghiệp</span>
-                                        <h5><a href="./shop-details.html">Sự thật trần trụi về tiền</a></h5>
+                                        <h5><a href="bookDetails.jsp?id=1">Sự thật trần trụi về tiền</a></h5>
                                         <div class="product__item__price">216,000 VND <span>269,000 VND</span></div>
                                     </div>
                                 </div>
@@ -377,7 +377,7 @@
                                     </div>
                                     <div class="product__discount__item__text">
                                         <span>Quản trị doanh nghiệp</span>
-                                        <h5><a href="./shop-details.html">Sự thật trần trụi về thống kê</a></h5>
+                                        <h5><a href="bookDetails.jsp?id=2">Sự thật trần trụi về thống kê</a></h5>
                                         <div class="product__item__price">184,000 VND <span>229,000 VND</span></div>
                                     </div>
                                 </div>
@@ -395,7 +395,7 @@
                                     </div>
                                     <div class="product__discount__item__text">
                                         <span>Marketing & Bán hàng</span>
-                                        <h5><a href="./shop-details.html">Quantum Marketing - Bộ công cụ tiếp thị trong thế giới siêu kết nối</a></h5>
+                                        <h5><a href="bookDetails.jsp?id=3">Quantum Marketing - Bộ công cụ tiếp thị trong thế giới siêu kết nối</a></h5>
                                         <div class="product__item__price">288,000 VND <span>360,000 VND</span></div>
                                     </div>
                                 </div>
@@ -413,7 +413,7 @@
                                     </div>
                                     <div class="product__discount__item__text">
                                         <span>Công nghệ & Chuyển đổi số</span>
-                                        <h5><a href="./shop-details.html">Big Data - Dữ Liệu Lớn</a></h5>
+                                        <h5><a href="bookDetails.jsp?id=4">Big Data - Dữ Liệu Lớn</a></h5>
                                         <div class="product__item__price">288,000 VND <span>360,000 VND</span></div>
                                     </div>
                                 </div>
@@ -421,7 +421,7 @@
                             <div class="col-lg-4">
                                 <div class="product__discount__item">
                                     <div class="product__discount__item__pic set-bg"
-                                         data-setbg="././img/product/B021/nguyenly.jpg">
+                                         data-setbg="./img/product/B021/nguyenly.jpg">
                                         <div class="product__discount__percent">-20%</div>
                                         <ul class="product__item__pic__hover">
                                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
@@ -431,7 +431,7 @@
                                     </div>
                                     <div class="product__discount__item__text">
                                         <span>Marketing & Bán hàng</span>
-                                        <h5><a href="./shop-details.html">Nguyên Lý Marketing - Principle Of Marketing</a></h5>
+                                        <h5><a href="bookDetails.jsp?id=5">Nguyên Lý Marketing - Principle Of Marketing</a></h5>
                                         <div class="product__item__price">799,000 VND <span>999,000 VND</span></div>
                                     </div>
                                 </div>
@@ -439,7 +439,7 @@
                             <div class="col-lg-4">
                                 <div class="product__discount__item">
                                     <div class="product__discount__item__pic set-bg"
-                                         data-setbg="././img/product/B022/khoanhkhac.jpg">
+                                         data-setbg="./img/product/B022/khoanhkhac.jpg">
                                         <div class="product__discount__percent">-20%</div>
                                         <ul class="product__item__pic__hover">
                                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
@@ -449,7 +449,7 @@
                                     </div>
                                     <div class="product__discount__item__text">
                                         <span>Kỹ năng</span>
-                                        <h5><a href="./shop-details.html">Bộ sách Maxwell Moments - Khoảnh Khắc Thay Đổi Cuộc Đời (4 cuốn)</a></h5>
+                                        <h5><a href="bookDetails.jsp?id=6">Bộ sách Maxwell Moments - Khoảnh Khắc Thay Đổi Cuộc Đời (4 cuốn)</a></h5>
                                         <div class="product__item__price">317,000 VND <span>396,000 VND</span></div>
                                     </div>
                                 </div>
@@ -493,7 +493,7 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="./shop-details.html">Build - Những điều đáng làm tạo ra sản phẩm đáng giá</a></h6>
+                                <h6><a href="bookDetails.jsp?id=7">Build - Những điều đáng làm tạo ra sản phẩm đáng giá</a></h6>
                                 <h5>199,000 VND</h5>
                             </div>
                         </div>
@@ -508,7 +508,7 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="./shop-details.html">Văn Hoá Số - Gỡ bỏ rào cản trong chuyển đổi số - TG Lê Quang Vũ</a></h6>
+                                <h6><a href="bookDetails.jsp?id=8">Văn Hoá Số - Gỡ bỏ rào cản trong chuyển đổi số</a></h6>
                                 <h5>152,000 VND</h5>
                             </div>
                         </div>
@@ -523,7 +523,7 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="./shop-details.html">Cẩm nang đề cử thành viên Hội đồng Quản trị</a></h6>
+                                <h6><a href="bookDetails.jsp?id=9">Cẩm nang đề cử thành viên Hội đồng Quản trị</a></h6>
                                 <h5>329,000 VND</h5>
                             </div>
                         </div>
@@ -538,8 +538,8 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="./shop-details.html">Sự Thật Trần Trụi Về Thống Kê</a></h6>
-                                <h5>300,000 VND</h5>
+                                <h6><a href="bookDetails.jsp?id=2">Sự Thật Trần Trụi Về Thống Kê</a></h6>
+                                <h5>184,000 VND</h5>
                             </div>
                         </div>
                     </div>
@@ -553,8 +553,8 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="./shop-details.html">Sự Thật Trần Trụi Về Tiền</a></h6>
-                                <h5>300,000 VND</h5>
+                                <h6><a href="bookDetails.jsp?id=1">Sự Thật Trần Trụi Về Tiền</a></h6>
+                                <h5>216,000 VND</h5>
                             </div>
                         </div>
                     </div>
@@ -568,7 +568,7 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="./shop-details.html">Nghệ Thuật "Chọn Bạn Mà Chơi"</a></h6>
+                                <h6><a href="bookDetails.jsp?id=10">Nghệ Thuật "Chọn Bạn Mà Chơi"</a></h6>
                                 <h5>135,000 VND</h5>
                             </div>
                         </div>
@@ -583,8 +583,8 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="./shop-details.html">Bộ sách Maxwell Moments - Khoảnh Khắc Thay Đổi Cuộc Đời (4 cuốn)</a></h6>
-                                <h5>316,000 VND</h5>
+                                <h6><a href="bookDetails.jsp?id=6">Bộ sách Maxwell Moments - Khoảnh Khắc Thay Đổi Cuộc Đời (4 cuốn)</a></h6>
+                                <h5>317,000 VND</h5>
                             </div>
                         </div>
                     </div>
@@ -598,7 +598,7 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="./shop-details.html">Thay Đổi Tư Duy (Bộ sách Maxwell Moments)</a></h6>
+                                <h6><a href="bookDetails.jsp?id=11">Thay Đổi Tư Duy (Bộ sách Maxwell Moments)</a></h6>
                                 <h5>79,000 VND</h5>
                             </div>
                         </div>
@@ -613,7 +613,7 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="./shop-details.html">Nguyên Lý Marketing - Principle Of Marketing</a></h6>
+                                <h6><a href="bookDetails.jsp?id=5">Nguyên Lý Marketing - Principle Of Marketing</a></h6>
                                 <h5>799,000 VND</h5>
                             </div>
                         </div>
@@ -628,7 +628,7 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="./shop-details.html">Nhân Tố Quyết Định Nên Người Thành Đạt</a></h6>
+                                <h6><a href="bookDetails.jsp?id=12">Nhân Tố Quyết Định Nên Người Thành Đạt</a></h6>
                                 <h5>199,000 VND</h5>
                             </div>
                         </div>
@@ -643,7 +643,7 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="./shop-details.html">Vui Cười Lên Cùng Chứng Khoán</a></h6>
+                                <h6><a href="bookDetails.jsp?id=13">Vui Cười Lên Cùng Chứng Khoán</a></h6>
                                 <h5>119,000 VND</h5>
                             </div>
                         </div>
@@ -658,7 +658,7 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="./shop-details.html">Tư Duy Nhanh Và Chậm - Top Best Seller</a></h6>
+                                <h6><a href="bookDetails.jsp?id=14">Tư Duy Nhanh Và Chậm - Top Best Seller</a></h6>
                                 <h5>215,000 VND</h5>
                             </div>
                         </div>
