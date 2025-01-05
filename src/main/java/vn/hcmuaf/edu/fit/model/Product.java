@@ -1,28 +1,62 @@
 package vn.hcmuaf.edu.fit.model;
 
-public class Product {
-    private String title;
-    private String author;
-    private String description;
-    private String imageUrl;
-    private double price;
+import java.io.Serializable;
+import java.util.List;
 
-    // Constructor
-    public Product(String title, String author, String description, String imageUrl, double price) {
-        this.title = title;
+public class Product implements Serializable {
+    String id;
+    String name;
+    String kind;
+    String author;
+    String imageUrl;
+    String descrip;
+    String content;
+    List<String> listImg;
+    double price;
+    List<Comment> comments;
+    ProductDetails details;
+
+    public Product(String id, String name, String kind, String author, String imageUrl, String descrip, String content, double price) {
+        this.id = id;
+        this.name = name;
+        this.kind = kind;
         this.author = author;
-        this.description = description;
+        this.imageUrl = imageUrl;
+        this.descrip = descrip;
+        this.content = content;
+        this.price = price;
+    }
+
+    public Product(String name, String author, String description, String imageUrl, double price) {
+        this.name = name;
+        this.author = author;
+        this.descrip = description;
         this.imageUrl = imageUrl;
         this.price = price;
     }
 
-    // Getters and Setters
-    public String getTitle() {
-        return title;
+    public String getId() {
+        return id;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getKind() {
+        return kind;
+    }
+
+    public void setKind(String kind) {
+        this.kind = kind;
     }
 
     public String getAuthor() {
@@ -33,14 +67,6 @@ public class Product {
         this.author = author;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getImageUrl() {
         return imageUrl;
     }
@@ -49,17 +75,68 @@ public class Product {
         this.imageUrl = imageUrl;
     }
 
+    public String getDescrip() {
+        return descrip;
+    }
+
+    public void setDescrip(String descrip) {
+        this.descrip = descrip;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public List<String> getListImg() {
+        return listImg;
+    }
+
+    public void setListImg(List<String> listImg) {
+        this.listImg = listImg;
+    }
+
     public double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
-    // Optional: Override toString() method for easy debugging or printing
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public ProductDetails getDetails() {
+        return details;
+    }
+
+    public void setDetails(ProductDetails details) {
+        this.details = details;
+    }
+
     @Override
     public String toString() {
-        return "Product [title=" + title + ", author=" + author + ", description=" + description + ", imageUrl=" + imageUrl + ", price=" + price + "]";
+        return "Product{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", kind='" + kind + '\'' +
+                ", sizeBook='" + author + '\'' +
+                ", weight=" + imageUrl +
+                ", descrip='" + descrip + '\'' +
+                ", content='" + content + '\'' +
+
+                ", price=" + price +
+
+
+                '}';
     }
 }

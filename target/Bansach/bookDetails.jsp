@@ -25,51 +25,59 @@
     <div class="container">
         <div class="row">
             <%
-                int productId = Integer.parseInt(request.getParameter("id"));
-                Connection conn = null;
-                PreparedStatement stmt = null;
-                ResultSet rs = null;
+                String maSP = request.getParameter("MaSP");
 
-                try {
-                    conn = DBConnection.getConnection();
-                    String sql = "SELECT * FROM Books WHERE id = ?";
-                    stmt = conn.prepareStatement(sql);
-                    stmt.setInt(1, productId);
-                    rs = stmt.executeQuery();
+                if (maSP != null && !maSP.isEmpty()) {
+                    Connection conn = null;
+                    PreparedStatement stmt = null;
+                    ResultSet rs = null;
 
-                    if (rs.next()) {
-                        String title = rs.getString("title");
-                        String author = rs.getString("author");
-                        String description = rs.getString("description");
-                        String imageUrl = rs.getString("imageUrl");
-                        double price = rs.getDouble("price");
+                    try {
+                        conn = DBConnection.getConnection();
+                        String sql = "SELECT * FROM sanpham WHERE MaSP = ?";
+                        stmt = conn.prepareStatement(sql);
+                        stmt.setString(1, maSP);
+                        rs = stmt.executeQuery();
 
-                        Product product = new Product(title, author, description, imageUrl, price);
-                        request.setAttribute("product", product);
-                    } else {
-                        request.setAttribute("error", "Không tìm thấy sản phẩm.");
+                        if (rs.next()) {
+                            // Lấy thông tin sản phẩm
+                            String id = rs.getString("MaSP");
+                            String name = rs.getString("TenSP");
+                            String author = rs.getString("author");
+                            String imageUrl = rs.getString("imageUrl");
+                            String descrip = rs.getString("MoTa");
+                            double price = rs.getDouble("Gia");
+
+                            Product product = new Product(id, name, null, author, imageUrl, descrip, null, price);
+                            request.setAttribute("product", product);
+                        } else {
+                            request.setAttribute("error", "Không tìm thấy sản phẩm với mã: " + maSP);
+                        }
+                    } catch (Exception e) {
+                        request.setAttribute("error", "Lỗi khi xử lý: " + e.getMessage());
+                    } finally {
+                        if (rs != null) rs.close();
+                        if (stmt != null) stmt.close();
+                        if (conn != null) conn.close();
                     }
-                } catch (Exception e) {
-                    request.setAttribute("error", e.getMessage());
-                    e.printStackTrace();  // Log exception
-                } finally {
-                    if (rs != null) rs.close();
-                    if (stmt != null) stmt.close();
-                    if (conn != null) conn.close();
+                } else {
+                    request.setAttribute("error", "Mã sản phẩm không hợp lệ.");
                 }
             %>
+
 
             <c:choose>
                 <c:when test="${not empty product}">
                     <div class="col-lg-6">
                         <div class="product__details__pic">
-                            <img src="${product.imageUrl}" alt="${product.title}" class="img-fluid">
+                            <img src="${product.imageUrl}" alt="${product.name}" class="img-fluid">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="product__details__text">
-                            <h3>${product.title}</h3>
+                            <h3>${product.name}</h3>
                             <div class="product__details__price mb-3">
+                                <span>Giá: </span>
                                 <fmt:formatNumber value="${product.price}" type="number" minFractionDigits="0" maxFractionDigits="2" />
                                 <span> VND</span>
                             </div>
@@ -80,62 +88,45 @@
                             <div class="product__details__desc">
                                 <h5 class="text-secondary">Thông tin:</h5>
                                 <p id="description" class="text-justify" style="line-height: 1.8; color: #555;">
-                                        ${product.description}
+                                        ${product.descrip}
                                 </p>
                                 <button id="toggleDescription" class="btn btn-link p-0">Xem thêm</button>
                             </div>
 
-                        <%--thu gon thong tin--%>
                             <script>
                                 document.addEventListener("DOMContentLoaded", function () {
-                                    const description = document.getElementById("description");
-                                    const toggleButton = document.getElementById("toggleDescription");
+                                    const description = document.querySelector("#description");
+                                    const toggleButton = document.querySelector("#toggleDescription");
 
-                                    // Kiểm tra phần tử
                                     if (description && toggleButton) {
-                                        const originalText = description.textContent.trim(); // Nội dung đầy đủ
-                                        const shortText = originalText.substring(0, 200) + "..."; // Nội dung rút gọn, 200 ký tự đầu
+                                        const originalText = description.textContent.trim();
+                                        const shortText = originalText.length > 200 ? originalText.substring(0, 200) + "..." : originalText;
 
-                                        // Hiển thị nội dung rút gọn ban đầu
                                         description.textContent = shortText;
 
-                                        // Gắn sự kiện cho nút
                                         toggleButton.addEventListener("click", function () {
-                                            if (description.textContent === shortText) {
-                                                // Hiển thị nội dung đầy đủ
-                                                description.textContent = originalText;
-                                                toggleButton.textContent = "Xem bớt";
-                                            } else {
-                                                // Hiển thị nội dung rút gọn
-                                                description.textContent = shortText;
-                                                toggleButton.textContent = "Xem thêm";
-                                            }
+                                            const isShortened = description.textContent === shortText;
+                                            description.textContent = isShortened ? originalText : shortText;
+                                            toggleButton.textContent = isShortened ? "Xem bớt" : "Xem thêm";
                                         });
-                                    } else {
-                                        console.error("Không tìm thấy phần tử #description hoặc #toggleDescription.");
                                     }
                                 });
                             </script>
 
                         </div>
 
-
-                        <!-- Các nút xếp đều cạnh nhau -->
-                            <div class="d-flex justify-content-around mt-3">
-                                <!-- Nút Quay lại -->
-                                <a href="shop-product.jsp" class="btn btn-primary">Quay lại</a>
-                                <a href="shop-product.jsp" class="btn btn-primary">Quay lại</a>
-                                <a href="shop-product.jsp" class="btn btn-primary">Quay lại</a>
-                            </div>
-
-                        </div>
+                        <div class="d-flex justify-content-around mt-3">
+                            <a href="shop-product.jsp" class="btn btn-primary">Quay lại</a>
+                            <a href="shop-product.jsp" class="btn btn-primary">Thích</a>
+                            <a href="shop-product.jsp" class="btn btn-primary">Thêm giỏ hàng</a>
                         </div>
                     </div>
                 </c:when>
                 <c:otherwise>
-                    <p>${error}</p> <!-- In ra lỗi nếu không có sản phẩm -->
+                    <p>${error}</p>
                 </c:otherwise>
             </c:choose>
+
         </div>
     </div>
 </div>

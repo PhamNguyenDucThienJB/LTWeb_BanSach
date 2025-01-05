@@ -84,9 +84,6 @@
 <!-- Header Section Begin -->
 <header class="header">
     <!-- rang cua -->
-
-
-
     <!-- rang cua -->
     <div class="header__top">
         <div class="container">
@@ -95,7 +92,6 @@
                     <div class="header__top__left">
                         <ul>
                             <li style="color: white;"><i style="color: white;"  class="fa fa-envelope"></i >hotline: 0795035755</li>
-                            <!-- <li>Miễn phí giao hàng nội thành TP.HCM</li> -->
                         </ul>
                     </div>
                 </div>
@@ -104,7 +100,6 @@
                         <div class="header__top__right__social">
                             <a href="./favorites.html"><i class="fa fa-heart"></i> <span style="color: white;">1</span></a>
                             <a href="./shoping-cart.html"><i class="fa fa-shopping-bag"></i> <span style="color: white;">3</span></a>
-                            <!-- <a href="https://www.instagram.com/maizecorn1542/" target="blank"><i class="fa fa-instagram"></i></a> -->
                         </div>
                         <div class="header__top__right__auth">
                             <a href="./admin/signin.html"><i class="fa fa-user"></i>Đăng nhập</a>
@@ -244,13 +239,12 @@
                     <div class="sidebar__item">
                         <h4>Các Loại Sách</h4>
                         <ul class="slidebar__loaibanh">
-                            <li class="text__loaisach"><a class="text__loaisach__active" href="./shop-product.jsp">Tất cả</a></li>
-                            <li class="text__loaisach"><a href="./shop-product-banh-hoa.html">Quản trị doanh nghiệp</a></li>
-                            <li class="text__loaisach"><a href="./shop-product-trang-tri-don-gian.html">Tài chính - Đầu tư - Chứng khoán</a></li>
-                            <li class="text__loaisach"><a href="#">Công nghệ & Chuyển đổi số</a></li>
-                            <li class="text__loaisach"><a href="#">Marketing & Bán hàng</a></li>
-                            <li class="text__loaisach"><a href="#">Kỹ năng</a></li>
-
+                            <li class="text__loaibanh"><a class="text__loaibanh__active" href="./shop-product.jsp">Tất cả</a></li>
+                            <li class="text__loaibanh"><a href="books-quan-tri-doanh-nghiep.jsp">Quản trị doanh nghiệp</a></li>
+                            <li class="text__loaibanh"><a href="books-taichinh-dautu-chungkhoan.jsp">Tài chính - Đầu tư - Chứng khoán</a></li>
+                            <li class="text__loaibanh"><a href="books-congnghe-chuyendoiso.jsp">Công nghệ & Chuyển đổi số</a></li>
+                            <li class="text__loaibanh"><a href="books-marketing-banhang.jsp">Marketing & Bán hàng</a></li>
+                            <li class="text__loaibanh"><a href="books-kynang.jsp">Kỹ năng</a></li>
                         </ul>
                     </div>
                     <div class="sidebar__item">
@@ -277,7 +271,7 @@
                             <h4>Sách Bán Chạy</h4>
                             <div class="latest-product__slider owl-carousel">
                                 <div class="latest-prdouct__slider__item">
-                                    <a href="bookDetails.jsp?id=15" class="latest-product__item">
+                                    <a href="bookDetails.jsp?MaSP=B015" class="latest-product__item">
                                         <div class="latest-product__item__pic">
                                             <img src="./img/product/B019/tamly.jpg" alt="">
                                         </div>
@@ -286,7 +280,7 @@
                                             <span>159,000 VND</span>
                                         </div>
                                     </a>
-                                    <a href="bookDetails.jsp?id=14" class="latest-product__item">
+                                    <a href="bookDetails.jsp?MaSP=B014" class="latest-product__item">
                                         <div class="latest-product__item__pic">
                                             <img src="./img/product/B022/tuduy.jpg" alt="">
                                         </div>
@@ -295,7 +289,7 @@
                                             <span>215,000 VND</span>
                                         </div>
                                     </a>
-                                    <a href="bookDetails.jsp?id=16" class="latest-product__item">
+                                    <a href="bookDetails.jsp?MaSP=B016" class="latest-product__item">
                                         <div class="latest-product__item__pic">
                                             <img src="./img/product/B023/damphan.jpg" alt="">
                                         </div>
@@ -306,7 +300,7 @@
                                     </a>
                                 </div>
                                 <div class="latest-prdouct__slider__item">
-                                    <a href="bookDetails.jsp?id=12" class="latest-product__item">
+                                    <a href="bookDetails.jsp?MaSP=B012" class="latest-product__item">
                                         <div class="latest-product__item__pic">
                                             <img src="./img/product/B024/nhanto.jpg" alt="">
                                         </div>
@@ -315,7 +309,7 @@
                                             <span>199,000 VND</span>
                                         </div>
                                     </a>
-                                    <a href="bookDetails.jsp?id=11" class="latest-product__item">
+                                    <a href="bookDetails.jsp?MaSP=B011" class="latest-product__item">
                                         <div class="latest-product__item__pic">
                                             <img src="./img/product/B025/thaydoituduy.jpg" alt="">
                                         </div>
@@ -324,7 +318,7 @@
                                             <span>79,000 VND</span>
                                         </div>
                                     </a>
-                                    <a href="bookDetails.jsp?id=13" class="latest-product__item">
+                                    <a href="bookDetails.jsp?MaSP=B013" class="latest-product__item">
                                         <div class="latest-product__item__pic">
                                             <img src="./img/product/B026/chungkhoan.jpg" alt="">
                                         </div>
@@ -359,7 +353,7 @@
                                     </div>
                                     <div class="product__discount__item__text">
                                         <span>Quản trị doanh nghiệp</span>
-                                        <h5><a href="bookDetails.jsp?id=1">Sự thật trần trụi về tiền</a></h5>
+                                        <h5><a href="bookDetails.jsp?MaSP=B001">Sự thật trần trụi về tiền</a></h5>
                                         <div class="product__item__price">216,000 VND <span>269,000 VND</span></div>
                                     </div>
                                 </div>
@@ -377,7 +371,7 @@
                                     </div>
                                     <div class="product__discount__item__text">
                                         <span>Quản trị doanh nghiệp</span>
-                                        <h5><a href="bookDetails.jsp?id=2">Sự thật trần trụi về thống kê</a></h5>
+                                        <h5><a href="bookDetails.jsp?MaSP=B002">Sự thật trần trụi về thống kê</a></h5>
                                         <div class="product__item__price">184,000 VND <span>229,000 VND</span></div>
                                     </div>
                                 </div>
@@ -395,7 +389,7 @@
                                     </div>
                                     <div class="product__discount__item__text">
                                         <span>Marketing & Bán hàng</span>
-                                        <h5><a href="bookDetails.jsp?id=3">Quantum Marketing - Bộ công cụ tiếp thị trong thế giới siêu kết nối</a></h5>
+                                        <h5><a href="bookDetails.jsp?MaSP=B003">Quantum Marketing - Bộ công cụ tiếp thị trong thế giới siêu kết nối</a></h5>
                                         <div class="product__item__price">288,000 VND <span>360,000 VND</span></div>
                                     </div>
                                 </div>
@@ -413,7 +407,7 @@
                                     </div>
                                     <div class="product__discount__item__text">
                                         <span>Công nghệ & Chuyển đổi số</span>
-                                        <h5><a href="bookDetails.jsp?id=4">Big Data - Dữ Liệu Lớn</a></h5>
+                                        <h5><a href="bookDetails.jsp?MaSP=B004">Big Data - Dữ Liệu Lớn</a></h5>
                                         <div class="product__item__price">288,000 VND <span>360,000 VND</span></div>
                                     </div>
                                 </div>
@@ -431,7 +425,7 @@
                                     </div>
                                     <div class="product__discount__item__text">
                                         <span>Marketing & Bán hàng</span>
-                                        <h5><a href="bookDetails.jsp?id=5">Nguyên Lý Marketing - Principle Of Marketing</a></h5>
+                                        <h5><a href="bookDetails.jsp?MaSP=B005">Nguyên Lý Marketing - Principle Of Marketing</a></h5>
                                         <div class="product__item__price">799,000 VND <span>999,000 VND</span></div>
                                     </div>
                                 </div>
@@ -449,7 +443,7 @@
                                     </div>
                                     <div class="product__discount__item__text">
                                         <span>Kỹ năng</span>
-                                        <h5><a href="bookDetails.jsp?id=6">Bộ sách Maxwell Moments - Khoảnh Khắc Thay Đổi Cuộc Đời (4 cuốn)</a></h5>
+                                        <h5><a href="bookDetails.jsp?MaSP=B006">Bộ sách Maxwell Moments - Khoảnh Khắc Thay Đổi Cuộc Đời (4 cuốn)</a></h5>
                                         <div class="product__item__price">317,000 VND <span>396,000 VND</span></div>
                                     </div>
                                 </div>
@@ -493,7 +487,7 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="bookDetails.jsp?id=7">Build - Những điều đáng làm tạo ra sản phẩm đáng giá</a></h6>
+                                <h6><a href="bookDetails.jsp?MaSP=B007">Build - Những điều đáng làm tạo ra sản phẩm đáng giá</a></h6>
                                 <h5>199,000 VND</h5>
                             </div>
                         </div>
@@ -508,7 +502,7 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="bookDetails.jsp?id=8">Văn Hoá Số - Gỡ bỏ rào cản trong chuyển đổi số</a></h6>
+                                <h6><a href="bookDetails.jsp?MaSP=B008">Văn Hoá Số - Gỡ bỏ rào cản trong chuyển đổi số</a></h6>
                                 <h5>152,000 VND</h5>
                             </div>
                         </div>
@@ -523,7 +517,7 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="bookDetails.jsp?id=9">Cẩm nang đề cử thành viên Hội đồng Quản trị</a></h6>
+                                <h6><a href="bookDetails.jsp?MaSP=B009">Cẩm nang đề cử thành viên Hội đồng Quản trị</a></h6>
                                 <h5>329,000 VND</h5>
                             </div>
                         </div>
@@ -538,7 +532,7 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="bookDetails.jsp?id=2">Sự Thật Trần Trụi Về Thống Kê</a></h6>
+                                <h6><a href="bookDetails.jsp?MaSP=B002">Sự Thật Trần Trụi Về Thống Kê</a></h6>
                                 <h5>184,000 VND</h5>
                             </div>
                         </div>
@@ -553,7 +547,7 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="bookDetails.jsp?id=1">Sự Thật Trần Trụi Về Tiền</a></h6>
+                                <h6><a href="bookDetails.jsp?MaSP=B001">Sự Thật Trần Trụi Về Tiền</a></h6>
                                 <h5>216,000 VND</h5>
                             </div>
                         </div>
@@ -568,7 +562,7 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="bookDetails.jsp?id=10">Nghệ Thuật "Chọn Bạn Mà Chơi"</a></h6>
+                                <h6><a href="bookDetails.jsp?MaSP=B010">Nghệ Thuật "Chọn Bạn Mà Chơi"</a></h6>
                                 <h5>135,000 VND</h5>
                             </div>
                         </div>
@@ -583,7 +577,7 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="bookDetails.jsp?id=6">Bộ sách Maxwell Moments - Khoảnh Khắc Thay Đổi Cuộc Đời (4 cuốn)</a></h6>
+                                <h6><a href="bookDetails.jsp?MaSP=B006">Bộ sách Maxwell Moments - Khoảnh Khắc Thay Đổi Cuộc Đời (4 cuốn)</a></h6>
                                 <h5>317,000 VND</h5>
                             </div>
                         </div>
@@ -598,7 +592,7 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="bookDetails.jsp?id=11">Thay Đổi Tư Duy (Bộ sách Maxwell Moments)</a></h6>
+                                <h6><a href="bookDetails.jsp?MaSP=B011">Thay Đổi Tư Duy (Bộ sách Maxwell Moments)</a></h6>
                                 <h5>79,000 VND</h5>
                             </div>
                         </div>
@@ -613,7 +607,7 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="bookDetails.jsp?id=5">Nguyên Lý Marketing - Principle Of Marketing</a></h6>
+                                <h6><a href="bookDetails.jsp?MaSP=B005">Nguyên Lý Marketing - Principle Of Marketing</a></h6>
                                 <h5>799,000 VND</h5>
                             </div>
                         </div>
@@ -628,7 +622,7 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="bookDetails.jsp?id=12">Nhân Tố Quyết Định Nên Người Thành Đạt</a></h6>
+                                <h6><a href="bookDetails.jsp?MaSP=B012">Nhân Tố Quyết Định Nên Người Thành Đạt</a></h6>
                                 <h5>199,000 VND</h5>
                             </div>
                         </div>
@@ -643,7 +637,7 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="bookDetails.jsp?id=13">Vui Cười Lên Cùng Chứng Khoán</a></h6>
+                                <h6><a href="bookDetails.jsp?MaSP=B013">Vui Cười Lên Cùng Chứng Khoán</a></h6>
                                 <h5>119,000 VND</h5>
                             </div>
                         </div>
@@ -658,7 +652,7 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="bookDetails.jsp?id=14">Tư Duy Nhanh Và Chậm - Top Best Seller</a></h6>
+                                <h6><a href="bookDetails.jsp?MaSP=B014">Tư Duy Nhanh Và Chậm - Top Best Seller</a></h6>
                                 <h5>215,000 VND</h5>
                             </div>
                         </div>
