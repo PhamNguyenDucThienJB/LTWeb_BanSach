@@ -4,7 +4,7 @@
 
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<html >
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -12,14 +12,22 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Books | Sản phẩm</title>
+    <title>Books | Contact</title>
 
     <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link
+            href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Roboto:wght@100;300;400;500;700&display=swap"
+            rel="stylesheet">
     <!-- ==================== -->
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="icon" href="//bizweb.dktcdn.net/100/197/269/themes/890698/assets/favicon.png?1730705463447"
+          type="image/x-icon">
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -38,147 +46,9 @@
 </div>
 
 <!-- Humberger Begin -->
-<div class="humberger__menu__overlay"></div>
-<!-- <div class="humberger__menu__wrapper"> -->
-<!-- <div class="humberger__menu__logo">
-    <a href="#"><img src="img/logo_web.jpg" alt=""></a>
-</div> -->
-<!-- <div class="humberger__menu__cart">
-    <ul>
-        <li><a href="./favorites.html"><i class="fa fa-heart"></i> <span>1</span></a></li>
-        <li><a href="./shoping-cart.html"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-    </ul>
-</div> -->
-<!-- <div class="humberger__menu__widget">
-    <div class="header__top__right__auth">
-        <a href="./admin/signin.html"><i class="fa fa-user"></i> Đăng nhập</a>
-    </div>
-</div> -->
-<!-- <nav class="humberger__menu__nav mobile-menu">
-    <ul>
-        <li class="active"><a href="./index.html">Trang chủ</a></li>
-        <li><a href="./about.html">Giới thiệu</a></li>
-        <li><a href="./shop-product.jsp">Sản phẩm</a>
-
-        </li>
-        <li><a href="./blog.html">Tin tức</a></li>
-        <li><a href="./contact.html">Liên hệ</a></li>
-    </ul>
-</nav> -->
-<!--<div id="mobile-menu-wrap"></div>-->
-<!-- <div class="header__top__right__social">
-    <a href="https://www.facebook.com/mai.thuan.52438/" target="blank"><i class="fa fa-facebook"></i></a>
-    <a href="https://www.messenger.com/t/100017755062615" target="blank"><i class="fa fa-comment"></i></a>
-    <a href="https://www.instagram.com/maizecorn1542/" target="blank"><i class="fa fa-instagram"></i></a>
-</div> -->
-<!-- <div class="humberger__menu__contact">
-    <ul>
-        <li><i class="fa fa-envelope"></i> tiembanhhanhphuc@gmail.com</li>
-        <li>Miễn phí giao hàng nội thành TP HCM</li>
-    </ul>
-</div> -->
-<!-- </div> -->
-<!-- Humberger End -->
-
-
-<!-- Header Section Begin -->
-<header class="header">
-    <!-- rang cua -->
-    <!-- rang cua -->
-    <div class="header__top">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <div class="header__top__left">
-                        <ul>
-                            <li style="color: white;"><i style="color: white;"  class="fa fa-envelope"></i >hotline: 0795035755</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="header__top__right">
-                        <div class="header__top__right__social">
-                            <a href="./favorites.html"><i class="fa fa-heart"></i> <span style="color: white;">1</span></a>
-                            <a href="./shoping-cart.html"><i class="fa fa-shopping-bag"></i> <span style="color: white;">3</span></a>
-                        </div>
-                        <div class="header__top__right__auth">
-                            <a href="./admin/signin.html"><i class="fa fa-user"></i>Đăng nhập</a>
-                            <div class="header__top__right__auth__dropdown">
-                                <a href="#" class="dropdown-item">Vào trang quản lí</a>
-                                <a href="./admin/signin.html" class="dropdown-item">Đăng xuất</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="header__logo">
-                    <a href="./index.jsp"><img src="./img/logo.png" alt="" class="header__logo_img"></a>
-                </div>
-            </div>
-            <div class="col-lg-7 ">
-                <nav class="header__menu">
-                    <ul>
-                        <li class="active"><a href="./index.jsp">Trang chủ</a></li>
-                        <li><a href="./about.jsp">Giới thiệu</a></li>
-                        <li class="active"><a href="./shop-product.jsp">Sản phẩm</a>
-
-                        </li>
-                        <li><a href="./blog.jsp">Tin tức</a></li>
-                        <li><a href="./contact.jsp">Liên hệ</a></li>
-                    </ul>
-                </nav>
-            </div>
-
-            <!-- <div class="col-lg-2">
-                <div class="header__cart">
-                    <ul>
-                        <li><a href="./favorites.html"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                        <li><a href="./shoping-cart.html"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                    </ul>
-                </div>
-            </div> -->
-
-
-        </div>
-        <!-- <div style="color:#f47920 ;" class="rang_cua"></div> -->
-        <div class="humberger__open">
-            <i class="fa fa-bars"></i>
-        </div>
-        <div class="row">
-            <div class="col-lg-3"></div>
-            <div class="col-lg-9">
-                <div class="hero__search">
-                    <div class="hero__search__form ">
-                        <form action="#" >
-
-                            <input type="text" placeholder="Tìm kiếm sản phẩm?">
-                            <button type="submit" class="site-btn"><i class="fa fa-search"></i> <span class="text_search">TÌM KIẾM</span></button>
-                        </form>
-                    </div>
-
-                    <!-- <div class="hero__search__phone">
-                        <div class="hero__search__phone__icon">
-                            <a href="tel:0987654321" class="fa fa-phone cursor"></a>
-                        </div>
-                        <div class="hero__search__phone__text">
-                            <h5>+84 987654321</h5>
-                            <span>Mở cửa từ 8h - 22h</span>
-                        </div>
-                    </div> -->
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-</header>
+<jsp:include page="header.jsp"></jsp:include>
 <!-- Header Section End -->
+
 
 <!-- Hero Section Begin -->
 <!-- <section class="hero hero-normal">

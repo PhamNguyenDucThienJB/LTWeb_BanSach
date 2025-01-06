@@ -8,32 +8,34 @@ public class Product implements Serializable {
     String name;
     String kind;
     String author;
-    String imageUrl;
+    int weight;
     String descrip;
     String content;
-    List<String> listImg;
+    List<String> listImg;  // List to store image paths
     double price;
     List<Comment> comments;
     ProductDetails details;
 
-    public Product(String id, String name, String kind, String author, String imageUrl, String descrip, String content, double price) {
+    public Product(String id, String name, String kind, String author, int weight, String descrip, String content, double price, List<String> listImg) {
         this.id = id;
         this.name = name;
         this.kind = kind;
         this.author = author;
-        this.imageUrl = imageUrl;
+        this.weight = weight;
         this.descrip = descrip;
         this.content = content;
         this.price = price;
+        this.listImg = listImg;
     }
 
-    public Product(String name, String author, String description, String imageUrl, double price) {
+    public Product(String name, String author, String description, int weight, double price) {
         this.name = name;
         this.author = author;
         this.descrip = description;
-        this.imageUrl = imageUrl;
+        this.weight = weight;
         this.price = price;
     }
+
 
     public String getId() {
         return id;
@@ -67,12 +69,12 @@ public class Product implements Serializable {
         this.author = author;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public int getImageUrl() {
+        return weight;
     }
 
     public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+        this.weight = weight;
     }
 
     public String getDescrip() {
@@ -130,7 +132,7 @@ public class Product implements Serializable {
                 ", name='" + name + '\'' +
                 ", kind='" + kind + '\'' +
                 ", sizeBook='" + author + '\'' +
-                ", weight=" + imageUrl +
+                ", weight=" + weight +
                 ", descrip='" + descrip + '\'' +
                 ", content='" + content + '\'' +
 

@@ -36,11 +36,11 @@ public class ProductService {
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
-                        rs.getString(5),
+                        rs.getInt(5),
                         rs.getString(6),
                         rs.getString(7),
-                        rs.getDouble(8)
-
+                        rs.getDouble(8),
+                        (List<String>) rs.getArray(9)
                 );
                 listProduct.add(product);
             }
