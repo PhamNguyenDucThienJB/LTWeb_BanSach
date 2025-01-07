@@ -1,8 +1,3 @@
-<%@ page import="java.sql.*" %>
-<%@ page import="vn.hcmuaf.edu.fit.dto.DBConnection" %>
-<%@ page import="vn.hcmuaf.edu.fit.model.Product" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
@@ -23,64 +18,10 @@
 <body>
 <jsp:include page="header.jsp"></jsp:include>
 
+
 <div class="product-details spad">
     <div class="container">
         <div class="row">
-            <%
-                String maSP = request.getParameter("MaSP");
-
-                if (maSP != null && !maSP.isEmpty()) {
-                    Connection conn = null;
-                    PreparedStatement stmt = null;
-                    ResultSet rs = null;
-
-                    try {
-                        conn = DBConnection.getConnection();
-                        String sql = "SELECT s.MaSP, s.TenSP, s.author, s.MoTa, s.Gia, a.Anh " +
-                                "FROM sanpham s " +
-                                "LEFT JOIN anhsp a ON s.MaSP = a.MaSP " +
-                                "WHERE s.MaSP = ?";
-                        stmt = conn.prepareStatement(sql);
-                        stmt.setString(1, maSP);
-                        rs = stmt.executeQuery();
-
-                        if (rs.next()) {
-                            // Lấy thông tin sản phẩm
-                            String id = rs.getString("MaSP");
-                            String name = rs.getString("TenSP");
-                            String author = rs.getString("author");
-                            String descrip = rs.getString("MoTa");
-                            double price = rs.getDouble("Gia");
-
-                            // Danh sách chứa các hình ảnh của sản phẩm
-                            List<String> listImg = new ArrayList<>();
-                            do {
-                                String image = rs.getString("Anh");
-                                if (image != null) {
-                                    listImg.add(image);  // Thêm hình ảnh vào danh sách
-                                }
-                            } while (rs.next());  // Tiếp tục lấy nếu có nhiều hình ảnh cho sản phẩm
-
-                            // Tạo đối tượng Product với danh sách hình ảnh
-                            Product product = new Product(id, name, null, author, 0, descrip, null, price, listImg);
-                            request.setAttribute("product", product);
-                        } else {
-                            request.setAttribute("error", "Không tìm thấy sản phẩm với mã: " + maSP);
-
-                    }
-                    } catch (Exception e) {
-                        request.setAttribute("error", "Lỗi khi xử lý: " + e.getMessage());
-                    } finally {
-                        if (rs != null) rs.close();
-                        if (stmt != null) stmt.close();
-                        if (conn != null) conn.close();
-                    }
-                } else {
-                    request.setAttribute("error", "Mã sản phẩm không hợp lệ.");
-                }
-            %>
-
-
             <c:choose>
                 <c:when test="${not empty product}">
                     <div class="col-lg-6">
@@ -105,7 +46,7 @@
                             <div class="product__details__desc">
                                 <h5 class="text-secondary">Thông tin:</h5>
                                 <p id="description" class="text-justify" style="line-height: 1.8; color: #555;">
-                                        ${product.descrip}
+                                        ${product.description}
                                 </p>
                                 <button id="toggleDescription" class="btn btn-link p-0">Xem thêm</button>
                             </div>
@@ -129,13 +70,11 @@
                                     }
                                 });
                             </script>
-
                         </div>
-
                         <div class="d-flex justify-content-around mt-3">
                             <a href="shop-product.jsp" class="btn btn-primary">Quay lại</a>
                             <a href="shop-product.jsp" class="btn btn-primary">Thích</a>
-                            <form action="addToCart" method="post">
+                            <form action="addToCart" method="post" target="cartFrame">
                                 <input type="hidden" name="id" value="${product.id}" />
                                 <input type="hidden" name="name" value="${product.name}" />
                                 <input type="hidden" name="author" value="${product.author}" />
@@ -145,9 +84,6 @@
                                     <i class="fas fa-cart-plus"></i> Thêm vào giỏ hàng
                                 </button>
                             </form>
-
-
-
                         </div>
                     </div>
                 </c:when>
@@ -159,6 +95,7 @@
         </div>
     </div>
 </div>
+
 <jsp:include page="footer.jsp"></jsp:include>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
