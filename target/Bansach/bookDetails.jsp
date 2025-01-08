@@ -72,8 +72,8 @@
                             </script>
                         </div>
                         <div class="d-flex justify-content-around mt-3">
-                            <a href="shop-product.jsp" class="btn btn-primary">Quay lại</a>
-                            <a href="shop-product.jsp" class="btn btn-primary">Thích</a>
+                            <a href="./shop-product" class="btn btn-primary">Quay lại</a>
+                            <a href="./shop-product" class="btn btn-primary">Thích</a>
                             <form action="addToCart" method="post" target="cartFrame">
                                 <input type="hidden" name="id" value="${product.id}" />
                                 <input type="hidden" name="name" value="${product.name}" />

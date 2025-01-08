@@ -7,35 +7,25 @@ public class Product implements Serializable {
     String id;
     String name;
     String kind;
-    String author;
+    String sizeBook;
     int weight;
     String descrip;
     String content;
-    List<String> listImg;  // List to store image paths
-    double price;
+    List<String> listImg;
+    int price;
     List<Comment> comments;
     ProductDetails details;
 
-    public Product(String id, String name, String kind, String author, int weight, String descrip, String content, double price, List<String> listImg) {
+    public Product(String id, String name, String kind, String sizeBook, int weight, String descrip, String content, int price) {
         this.id = id;
         this.name = name;
         this.kind = kind;
-        this.author = author;
+        this.sizeBook = sizeBook;
         this.weight = weight;
         this.descrip = descrip;
         this.content = content;
         this.price = price;
-        this.listImg = listImg;
     }
-
-    public Product(String name, String author, String description, int weight, double price) {
-        this.name = name;
-        this.author = author;
-        this.descrip = description;
-        this.weight = weight;
-        this.price = price;
-    }
-
 
     public String getId() {
         return id;
@@ -61,19 +51,19 @@ public class Product implements Serializable {
         this.kind = kind;
     }
 
-    public String getAuthor() {
-        return author;
+    public String getSizeBook() {
+        return sizeBook;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setSizeBook(String sizeBook) {
+        this.sizeBook = sizeBook;
     }
 
-    public int getImageUrl() {
+    public int getWeight() {
         return weight;
     }
 
-    public void setImageUrl(String imageUrl) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 
@@ -101,7 +91,7 @@ public class Product implements Serializable {
         this.listImg = listImg;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
@@ -131,7 +121,7 @@ public class Product implements Serializable {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", kind='" + kind + '\'' +
-                ", sizeBook='" + author + '\'' +
+                ", sizeBook='" + sizeBook + '\'' +
                 ", weight=" + weight +
                 ", descrip='" + descrip + '\'' +
                 ", content='" + content + '\'' +

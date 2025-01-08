@@ -29,4 +29,5 @@ public class ProductDetailsServlet extends HttpServlet {
         }
         request.getRequestDispatcher("bookDetails.jsp").forward(request, response);
     }
+
 }
