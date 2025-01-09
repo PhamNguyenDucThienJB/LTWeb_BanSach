@@ -217,7 +217,7 @@
                             <a href="about.jsp"><fmt:message bundle="${bundle}" key="menu.about"/></a>
                         </li>
                         <li class="menu-item">
-                            <a href="./shop-product"><fmt:message bundle="${bundle}" key="menu.products"/></a>
+                            <a href="./ListProduct"><fmt:message bundle="${bundle}" key="menu.products"/></a>
                         </li>
                         <li class="menu-item">
                             <a href="./ListBlog"><fmt:message bundle="${bundle}" key="menu.news"/></a>

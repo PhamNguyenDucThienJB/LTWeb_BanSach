@@ -43,7 +43,7 @@
     </div>
     <div class="humberger__menu__cart">
         <ul>
-            <li><a href="./favorites.html"><i class="fa fa-heart"></i> <span>1</span></a></li>
+            <li><a href="favorites.jsp"><i class="fa fa-heart"></i> <span>1</span></a></li>
             <li><a href="shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
         </ul>
     </div>
@@ -146,7 +146,7 @@
                                                                 justify-content: flex-end;">
 
                         <div class="header__top__right__social">
-                            <a href="./favorites.html"><i class="fa fa-heart"></i> <span style="color: white;">1</span></a>
+                            <a href="favorites.jsp"><i class="fa fa-heart"></i> <span style="color: white;">1</span></a>
 
                             <a href="./shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span
 
@@ -217,7 +217,7 @@
                             <a href="about.jsp"><fmt:message bundle="${bundle}" key="menu.about"/></a>
                         </li>
                         <li class="menu-item">
-                            <a href="./shop-product"><fmt:message bundle="${bundle}" key="menu.products"/></a>
+                            <a href="./ListProduct"><fmt:message bundle="${bundle}" key="menu.products"/></a>
                         </li>
                         <li class="menu-item">
                             <a href="./ListBlog"><fmt:message bundle="${bundle}" key="menu.news"/></a>

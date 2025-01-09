@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ProductService {
@@ -52,6 +53,42 @@ public class ProductService {
 
         return listProduct;
     }
+
+    public static List<Product> listAppearUser() {
+        List<Product> productList = new ArrayList<>();
+        String sql = "SELECT sanpham.MaSP, TenSP, GROUP_CONCAT(Anh) AS listImg, Gia " +
+                "FROM sanpham " +
+                "JOIN anhsp ON sanpham.MaSP = anhsp.MaSP " +
+                "GROUP BY sanpham.MaSP";
+
+
+        try (Connection connection = DBConnection.getInstall().getConnectionInstance();
+             PreparedStatement pre = connection.prepareStatement(sql);
+             ResultSet rs = pre.executeQuery()) {
+
+            while (rs.next()) {
+                // Tách listImg từ chuỗi GROUP_CONCAT
+                String[] imgArray = rs.getString("listImg").split(",");
+                List<String> listImg = Arrays.asList(imgArray);
+
+                // Khởi tạo đối tượng Product
+                Product newPro = new Product(
+                        rs.getString("MaSP"),  // id
+                        rs.getString("TenSP"), // name
+                        listImg,               // listImg
+                        rs.getInt("Gia")       // price
+                );
+
+                // Thêm vào danh sách
+                productList.add(newPro);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return productList;
+    }
+
+
     public static void main(String[] args) {
         // Gọi phương thức getData để lấy dữ liệu sản phẩm
         List<Product> products = ProductService.getDataProduct();
