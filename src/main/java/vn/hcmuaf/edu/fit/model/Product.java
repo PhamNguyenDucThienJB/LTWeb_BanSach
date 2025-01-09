@@ -8,7 +8,7 @@ public class Product implements Serializable {
     String name;
     String kind;
     String sizeBook;
-    int weight;
+    String author;
     String descrip;
     String content;
     List<String> listImg;
@@ -16,12 +16,12 @@ public class Product implements Serializable {
     List<Comment> comments;
     ProductDetails details;
 
-    public Product(String id, String name, String kind, String sizeBook, int weight, String descrip, String content, int price) {
+    public Product(String id, String name, String kind, String sizeBook, String author, String descrip, String content, int price) {
         this.id = id;
         this.name = name;
         this.kind = kind;
         this.sizeBook = sizeBook;
-        this.weight = weight;
+        this.author = author;
         this.descrip = descrip;
         this.content = content;
         this.price = price;
@@ -59,12 +59,12 @@ public class Product implements Serializable {
         this.sizeBook = sizeBook;
     }
 
-    public int getWeight() {
-        return weight;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setWeight(int weight) {
-        this.weight = weight;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getDescrip() {
@@ -122,7 +122,7 @@ public class Product implements Serializable {
                 ", name='" + name + '\'' +
                 ", kind='" + kind + '\'' +
                 ", sizeBook='" + sizeBook + '\'' +
-                ", weight=" + weight +
+                ", author=" + author +
                 ", descrip='" + descrip + '\'' +
                 ", content='" + content + '\'' +
 

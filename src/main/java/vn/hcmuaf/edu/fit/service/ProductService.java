@@ -24,7 +24,7 @@ public class ProductService {
 
     public static List<Product> getDataProduct() {
         List<Product> listProduct = new ArrayList<>();
-        String sql = "SELECT MaSP, MaLS, TenSP, KichThuoc, KhoiLuong, MoTa, NoiDung, Gia FROM sanpham";
+        String sql = "SELECT MaSP, MaLS, TenSP, KichThuoc, Tacgia, MoTa, NoiDung, Gia FROM sanpham";
         try (Connection connection = DBConnection.getInstall().getConnectionInstance();
              PreparedStatement pre = connection.prepareStatement(sql);
              ResultSet rs = pre.executeQuery();
@@ -36,7 +36,7 @@ public class ProductService {
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
-                        rs.getInt(5),
+                        rs.getString(5),
                         rs.getString(6),
                         rs.getString(7),
                         rs.getInt(8)
