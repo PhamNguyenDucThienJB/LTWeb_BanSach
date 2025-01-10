@@ -47,11 +47,12 @@
                 </a>
             </li>
             <li>
-                <a href="/admin/BlogListAdmin">
-                    <i class="bi bi-journal-text"></i>
+                <a href="/admin/FeedBackAdmin">
+                    <i class="bi bi-star"></i>
                     <span class="nav-text">Feed Back</span>
                 </a>
             </li>
+
             <li>
                 <a href="../IndexServlet">
                     <i class="bi bi-box-arrow-right"></i>

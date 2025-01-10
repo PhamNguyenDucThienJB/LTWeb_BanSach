@@ -402,22 +402,25 @@ public class UserService {
     }
 
 
-
-
-
     public static void main(String[] args) {
         try {
-            // Email người nhận
-            String toEmail = "20130410@st.hcmuaf.edu.vn"; // Thay bằng email thực của bạn để kiểm tra
+//            // Email người nhận
+//            String toEmail = "20130410@st.hcmuaf.edu.vn"; // Thay bằng email thực của bạn để kiểm tra
+//
+//            // Sinh mã xác nhận ngẫu nhiên
+//            int code = UserService.randomCode();
+//
+//            // Gửi email
+//            System.out.println("Đang gửi email...");
+//            UserService.sendMail(toEmail, code);
+//
+//            System.out.println("Email đã được gửi thành công với mã xác nhận: " + code);
+            UserService userService = new UserService();
+            userService.loadProperties();
 
-            // Sinh mã xác nhận ngẫu nhiên
-            int code = UserService.randomCode();
-
-            // Gửi email
-            System.out.println("Đang gửi email...");
-            UserService.sendMail(toEmail, code);
-
-            System.out.println("Email đã được gửi thành công với mã xác nhận: " + code);
+            // Kiểm tra kết quả
+            System.out.println("Email: " + userService.name_mail);
+            System.out.println("Password: " + userService.passwd_mail);
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -139,27 +139,33 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach var="listC" items="${listCategory}" varStatus="status">
+                                    <c:forEach var="listBlog" items="${listAdmin}" varStatus="status">
                                         <tr>
 
                                             <td>${status.index + 1}</td> <!-- Hiển thị số thứ tự, bắt đầu từ 1 -->
-                                            <td><a href="javascript:void(0);"><strong>${listAdmin.id}</strong></a></td>
-                                            <td><a href="javascript:void(0);"><strong>${listAdmin.title}</strong></a>
-                                            <td><a href="javascript:void(0);"><strong>${listAdmin.content}</strong></a></td>
-                                            <td><a href="javascript:void(0);"><strong>${listAdmin.img}</strong></a>
-                                            <td><a href="javascript:void(0);"><strong>${listAdmin.date}</strong></a></td>
-                                            <td><a href="javascript:void(0);"><strong>${listAdmin.danhmuc}</strong></a>
-                                            <td><a href="javascript:void(0);"><strong>${listAdmin.chude}</strong></a></td>
+                                            <td><a href="javascript:void(0);"><strong>${listBlog.id}</strong></a></td>
+
+                                            <td><a href="javascript:void(0);"><strong>${listBlog.title}</strong></a>
+                                            </td>
+                                            <td><a href="javascript:void(0);" data-toggle="tooltip"
+                                                   title="${listBlog.content}">${fn:substring(listBlog.content, 0, 60)}...</a>
+                                            </td>
+                                            <td><a href="javascript:void(0);"><strong>${listBlog.img}</strong></a>
+                                            <td><a href="javascript:void(0);"><strong>${listBlog.date}</strong></a>
+                                            </td>
+                                            <td><a href="javascript:void(0);"><strong>${listBlog.danhmuc}</strong></a>
+                                            <td><a href="javascript:void(0);"><strong>${listBlog.chude}</strong></a>
+                                            </td>
 
                                             </td>
                                             <td>
                                                 <div class="d-flex">
-                                                    <a href="/admin/EditCategory?idCategoryEdit=${listAdmin.id}"
+                                                    <a href="/admin/EditCategory?idCategoryEdit=${listBlog.id}"
                                                        class="btn btn-primary shadow btn-xs sharp mr-1"><i
                                                             class="fa fa-pencil"></i></a>
                                                     <a href="javascript:void(0)"
                                                        class=" btn btn-danger shadow btn-xs sharp"
-                                                       onclick="showConfirmModal('${listAdmin.id}')"><i
+                                                       onclick="showConfirmModal('${listBlog.id}')"><i
                                                             class="fa fa-trash"></i></a>
                                                 </div>
                                             </td>
