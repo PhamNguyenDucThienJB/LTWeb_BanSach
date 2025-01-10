@@ -18,22 +18,65 @@ public class ProductDetails {
         this.price = price;
         this.listImg = listImg;
     }
+
     // Getters và Setters
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public String getId() {
+        return id;
+    }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-    public String getAuthor() { return author; }
-    public void setAuthor(String author) { this.author = author; }
+    public String getName() {
+        return name;
+    }
 
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public double getPrice() { return price; }
-    public void setPrice(double price) { this.price = price; }
+    public String getAuthor() {
+        return author;
+    }
 
-    public List<String> getListImg() { return listImg; }
-    public void setListImg(List<String> listImg) { this.listImg = listImg; }
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public List<String> getListImg() {
+        return listImg;
+    }
+
+    public void setListImg(List<String> listImg) {
+        this.listImg = listImg;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductDetails{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", author='" + author + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", listImg=" + listImg +
+                '}';
+    }
 }

@@ -49,15 +49,16 @@
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="./img/banner/breadcrumb.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="./img/banner/title.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
                         <h2>Thanh Toán</h2>
                         <div class="breadcrumb__option">
-                            <a href="index.jsp">Trang Chủ</a>
-                            <span>Thanh Toán</span>
+                            <a href="./index.html"> Trang Chủ</a>
+                            <span>Giỏ Hàng -</span>
+                            <span> Thanh Toán</span>
                         </div>
                     </div>
                 </div>

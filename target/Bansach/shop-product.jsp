@@ -16,9 +16,11 @@
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Roboto:wght@100;300;400;500;700&display=swap"
+          rel="stylesheet">
     <!-- ==================== -->
-    <link rel="icon" href="//bizweb.dktcdn.net/100/197/269/themes/890698/assets/favicon.png?1730705463447" type="image/x-icon">
+    <link rel="icon" href="//bizweb.dktcdn.net/100/197/269/themes/890698/assets/favicon.png?1730705463447"
+          type="image/x-icon">
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -45,35 +47,7 @@
 <!-- Header Section End -->
 
 <!-- Hero Section Begin -->
-<!-- <section class="hero hero-normal">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3"></div>
-            <div class="col-lg-9">
-                <div class="hero__search">
-                    <div class="hero__search__form ">
-                        <form action="#" >
 
-                            <input type="text" placeholder="Bạn cần bánh gì nè?">
-                            <button type="submit" class="site-btn"><i class="fa fa-search"></i> <span class="text_search">TÌM KIẾM</span></button>
-                        </form>
-                    </div>
-
-                    <div class="hero__search__phone">
-                        <div class="hero__search__phone__icon">
-                            <a href="tel:0987654321" class="fa fa-phone cursor"></a>
-                        </div>
-                        <div class="hero__search__phone__text">
-                            <h5>+84 987654321</h5>
-                            <span>Mở cửa từ 8h - 22h</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </div>
-</section> -->
 <!-- Hero Section End -->
 
 <!-- Breadcrumb Section Begin -->
@@ -103,12 +77,11 @@
                     <div class="sidebar__item">
                         <h4>Các Loại Sách</h4>
                         <ul class="slidebar__loaibanh">
-                            <li class="text__loaibanh"><a class="text__loaibanh__active" href="./shop-product.html">Tất cả</a></li>
-                            <li class="text__loaibanh"><a href="./shop-product-banh-hoa.html">Bánh hoa</a></li>
-                            <li class="text__loaibanh"><a href="./shop-product-trang-tri-don-gian.html">Bánh trang trí đơn giản</a></li>
-                            <li class="text__loaibanh"><a href="#">Bánh trang trí hình thú</a></li>
-                            <li class="text__loaibanh"><a href="#">Bánh trái cây</a></li>
-                            <li class="text__loaibanh"><a href="#">Bánh hoa mousse</a></li>
+                            <li class="text__loaibanh"><a class="text__loaibanh__active" href="./shop-product.html">Tất
+                                cả</a></li>
+                            <c:forEach var="categories" items="${categoriesList}">
+                                <li class="text__loaibanh"><a href="">${categories.bookName}</a></li>
+                            </c:forEach>
 
                         </ul>
                     </div>
@@ -157,71 +130,71 @@
                             </label>
                         </div>
                     </div>
-                    <div class="sidebar__item">
-                        <div class="latest-product__text">
-                            <h4>Top Bán Chạy</h4>
-                            <div class="latest-product__slider owl-carousel">
-                                <div class="latest-prdouct__slider__item">
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="./img/product/B019/banh1.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Bánh Sinh Nhật</h6>
-                                            <span>200,000 VND</span>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="./img/product/B022/banh1.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Bánh Sinh Nhật</h6>
-                                            <span>250,000 VND</span>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="./img/product/B023/banh1.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Bánh Sinh Nhật</h6>
-                                            <span>300,000 VND</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="latest-prdouct__slider__item">
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="./img/product/B024/banh1.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Bánh Sinh Nhật</h6>
-                                            <span>300,000 VND</span>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="./img/product/B025/banh1.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Bánh Sinh Nhật</h6>
-                                            <span>300,000 VND</span>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="./img/product/B026/banh1.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Bánh Sinh Nhật</h6>
-                                            <span>300,000 VND</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <%--                    <div class="sidebar__item">--%>
+                    <%--                        <div class="latest-product__text">--%>
+                    <%--                            <h4>Top Bán Chạy</h4>--%>
+                    <%--                            <div class="latest-product__slider owl-carousel">--%>
+                    <%--                                <div class="latest-prdouct__slider__item">--%>
+                    <%--                                    <a href="#" class="latest-product__item">--%>
+                    <%--                                        <div class="latest-product__item__pic">--%>
+                    <%--                                            <img src="./img/product/B019/banh1.jpg" alt="">--%>
+                    <%--                                        </div>--%>
+                    <%--                                        <div class="latest-product__item__text">--%>
+                    <%--                                            <h6>Bánh Sinh Nhật</h6>--%>
+                    <%--                                            <span>200,000 VND</span>--%>
+                    <%--                                        </div>--%>
+                    <%--                                    </a>--%>
+                    <%--                                    <a href="#" class="latest-product__item">--%>
+                    <%--                                        <div class="latest-product__item__pic">--%>
+                    <%--                                            <img src="./img/product/B022/banh1.jpg" alt="">--%>
+                    <%--                                        </div>--%>
+                    <%--                                        <div class="latest-product__item__text">--%>
+                    <%--                                            <h6>Bánh Sinh Nhật</h6>--%>
+                    <%--                                            <span>250,000 VND</span>--%>
+                    <%--                                        </div>--%>
+                    <%--                                    </a>--%>
+                    <%--                                    <a href="#" class="latest-product__item">--%>
+                    <%--                                        <div class="latest-product__item__pic">--%>
+                    <%--                                            <img src="./img/product/B023/banh1.jpg" alt="">--%>
+                    <%--                                        </div>--%>
+                    <%--                                        <div class="latest-product__item__text">--%>
+                    <%--                                            <h6>Bánh Sinh Nhật</h6>--%>
+                    <%--                                            <span>300,000 VND</span>--%>
+                    <%--                                        </div>--%>
+                    <%--                                    </a>--%>
+                    <%--                                </div>--%>
+                    <%--                                <div class="latest-prdouct__slider__item">--%>
+                    <%--                                    <a href="#" class="latest-product__item">--%>
+                    <%--                                        <div class="latest-product__item__pic">--%>
+                    <%--                                            <img src="./img/product/B024/banh1.jpg" alt="">--%>
+                    <%--                                        </div>--%>
+                    <%--                                        <div class="latest-product__item__text">--%>
+                    <%--                                            <h6>Bánh Sinh Nhật</h6>--%>
+                    <%--                                            <span>300,000 VND</span>--%>
+                    <%--                                        </div>--%>
+                    <%--                                    </a>--%>
+                    <%--                                    <a href="#" class="latest-product__item">--%>
+                    <%--                                        <div class="latest-product__item__pic">--%>
+                    <%--                                            <img src="./img/product/B025/banh1.jpg" alt="">--%>
+                    <%--                                        </div>--%>
+                    <%--                                        <div class="latest-product__item__text">--%>
+                    <%--                                            <h6>Bánh Sinh Nhật</h6>--%>
+                    <%--                                            <span>300,000 VND</span>--%>
+                    <%--                                        </div>--%>
+                    <%--                                    </a>--%>
+                    <%--                                    <a href="#" class="latest-product__item">--%>
+                    <%--                                        <div class="latest-product__item__pic">--%>
+                    <%--                                            <img src="./img/product/B026/banh1.jpg" alt="">--%>
+                    <%--                                        </div>--%>
+                    <%--                                        <div class="latest-product__item__text">--%>
+                    <%--                                            <h6>Bánh Sinh Nhật</h6>--%>
+                    <%--                                            <span>300,000 VND</span>--%>
+                    <%--                                        </div>--%>
+                    <%--                                    </a>--%>
+                    <%--                                </div>--%>
+                    <%--                            </div>--%>
+                    <%--                        </div>--%>
+                    <%--                    </div>--%>
                 </div>
             </div>
             <div class="col-lg-9 col-md-7">
@@ -240,7 +213,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4">
                             <div class="filter__found">
-                                <h6><span>12</span> Sản phẩm</h6>
+                                <h6><span>${sizeProduct}</span> Sản phẩm</h6>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-3">
@@ -253,29 +226,49 @@
                 </div>
                 <div class="row">
                     <c:forEach var="list" items="${listProduct}">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="${list.listImg[0]}">
-                                <ul class="product__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product__item__text">
-                                <h6><a href="./DetailProduct?productID=${list.id}">${list.name}</a></h6>
-                                <h5>${list.price} VND</h5>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="${list.listImg[0]}">
+                                    <ul class="product__item__pic__hover">
+                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                        <li>
+                                            <form action="/AddCart" class="test" method="post" style="display:inline;">
+                                                <input type="hidden" name="productId" value="${list.id}">
+                                                <input type="hidden" name="quantity" value="1">
+                                                <button type="submit" style="background:none;border:none;">
+                                                    <i class="fa fa-shopping-cart"></i>
+                                                </button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="product__item__text">
+                                    <h6><a href="./DetailProduct?productID=${list.id}">${list.name}</a></h6>
+                                    <h5>${list.price} VND</h5>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </c:forEach>
                 </div>
                 <div class="product__pagination">
-                    <a class="product__pagination__page2" href="#">1</a>
-                    <a href="./shop-product-1.html">2</a>
-                    <a href="#">3</a>
-                    <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                    <!-- Nút trang trước -->
+                    <c:if test="${currentPage > 1}">
+                        <a href="?page=${currentPage - 1}"><i class="fa fa-long-arrow-left"></i></a>
+                    </c:if>
+
+                    <!-- Hiển thị danh sách các trang -->
+                    <c:forEach var="i" begin="1" end="${endPage}">
+                        <a href="?page=${i}" class="${i == currentPage ? 'active' : ''}">${i}</a>
+                    </c:forEach>
+
+                    <!-- Nút trang tiếp theo -->
+                    <c:if test="${currentPage < endPage}">
+                        <a href="?page=${currentPage + 1}"><i class="fa fa-long-arrow-right"></i></a>
+                    </c:if>
                 </div>
+
+
             </div>
         </div>
     </div>
@@ -300,7 +293,19 @@
 <script src="js/main.js"></script>
 
 
-
 </body>
 
 </html>
+<style>
+    .product__pagination a.active {
+        color: #fff;
+        background-color: #fd7e14; /* Màu nền cho trang hiện tại */
+        border-radius: 50%; /* Làm cho nút tròn */
+    }
+
+    .product__pagination a:hover {
+        background-color: #fd7e14; /* Màu khi hover */
+        color: #fff; /* Màu chữ khi hover */
+    }
+
+</style>

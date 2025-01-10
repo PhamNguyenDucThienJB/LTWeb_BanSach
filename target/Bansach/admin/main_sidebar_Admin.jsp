@@ -41,9 +41,15 @@
                 </a>
             </li>
             <li>
-                <a href="blogs.html">
+                <a href="/admin/BlogListAdmin">
                     <i class="bi bi-journal-text"></i>
                     <span class="nav-text">List Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="/admin/BlogListAdmin">
+                    <i class="bi bi-journal-text"></i>
+                    <span class="nav-text">Feed Back</span>
                 </a>
             </li>
             <li>

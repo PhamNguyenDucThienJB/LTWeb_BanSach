@@ -233,7 +233,7 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="shop-details.jsp">Bánh Sinh Nhật</a></h6>
+                                    <h6><a href="book-details.jsp">Bánh Sinh Nhật</a></h6>
                                     <h5>300,000 VND</h5>
                                 </div>
                             </div>

@@ -148,10 +148,9 @@
                         <div class="header__top__right__social">
                             <a href="favorites.jsp"><i class="fa fa-heart"></i> <span style="color: white;">1</span></a>
 
-                            <a href="./shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span
+                            <a href="/ListProductCart"><i class="fa fa-shopping-bag"></i> <span
 
-                                    style="color: white;">3</span></a>
-                            <!-- <a href="https://www.instagram.com/maizecorn1542/" target="blank"><i class="fa fa-instagram"></i></a> -->
+                                    style="color: white;">${sessionScope.sizeCart != null ? sessionScope.sizeCart : 0}</span></a>
                         </div>
                         <div class="header__top__right__auth">
 
@@ -336,6 +335,32 @@
 
 </script>
 
+<style>
+    .menu-item a {
+        color: #000; /* Màu mặc định */
+        text-decoration: none;
+    }
 
+    .menu-item.active a {
+        color: #f47920; /* Màu khi active (chọn) */
+        font-weight: bold; /* Có thể làm đậm chữ khi active */
+    }
+
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuItems = document.querySelectorAll(".menu-item a");
+        const currentUrl = window.location.pathname;
+
+        menuItems.forEach(function (item) {
+            if (item.getAttribute("href") === currentUrl) {
+                item.parentElement.classList.add("active");
+            }
+        });
+    });
+</script>
+
+
+</script>
 </header>
 

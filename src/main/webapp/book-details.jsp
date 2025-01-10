@@ -43,49 +43,18 @@
 <!-- Header Section Begin -->
 <jsp:include page="header.jsp"></jsp:include>
 <!-- Header Section End -->
-<!-- Hero Section Begin -->
-<section class="hero hero-normal">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3"></div>
-            <div class="col-lg-9">
-                <div class="hero__search">
-                    <div class="hero__search__form ">
-                        <form action="#">
-
-                            <input type="text" placeholder="Bạn cần bánh gì nè?">
-                            <button type="submit" class="site-btn"><i class="fa fa-search"></i> <span
-                                    class="text_search">TÌM KIẾM</span></button>
-                        </form>
-                    </div>
-
-                    <div class="hero__search__phone">
-                        <div class="hero__search__phone__icon">
-                            <a href="tel:0987654321" class="fa fa-phone cursor"></a>
-                        </div>
-                        <div class="hero__search__phone__text">
-                            <h5>+84 987654321</h5>
-                            <span>Mở cửa từ 8h - 22h</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Hero Section End -->
 
 <!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-section set-bg" data-setbg="./img/banner/breadcrumb.jpg">
+<section class="breadcrumb-section set-bg" data-setbg="./img/banner/title.jpg">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="breadcrumb__text">
-                    <h2>Bánh cánh đồng hoa</h2>
+                    <h2>${detailProduct.name}</h2>
                     <div class="breadcrumb__option">
-                        <a href="index.jsp">Trang chủ</a>
-                        <a href="shop-product.jsp">Sản phẩm</a>
-                        <span>Bánh cánh đồng hoa</span>
+                        <a href="/IndexServlet">Trang chủ</a>
+                        <a href="/ListProduct">Sản phẩm</a>
+                        <span>${detailProduct.name}</span>
                     </div>
                 </div>
             </div>
@@ -102,28 +71,22 @@
                 <div class="product__details__pic">
                     <div class="product__details__pic__item">
                         <img class="product__details__pic__item--large"
-                             src="img/product/B001/banh1.jpg" alt="">
+                             src="${detailProduct.listImg[0]}" alt="">
                     </div>
+                    <!-- Slider hiển thị các ảnh còn lại -->
                     <div class="product__details__pic__slider owl-carousel">
-                        <img data-imgbigurl="img/product/B001/banh2.jpg"
-                             src="img/product/B001/banh2.jpg" alt="">
-                        <img data-imgbigurl="img/product/B001/banh3.jpg"
-                             src="img/product/B001/banh3.jpg" alt="">
-                        <img data-imgbigurl="img/product/B001/banh4.jpg"
-                             src="img/product/B001/banh4.jpg" alt="">
-
+                        <c:forEach var="img" items="${detailProduct.listImg}">
+                            <img data-imgbigurl="${img}" src="${img}" alt="Product Thumbnail">
+                        </c:forEach>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__text">
-                    <h3>Bánh cánh đồng hoa</h3>
+                    <h3>${detailProduct.name}</h3>
 
-                    <div class="product__details__price">450,000 VND</div>
-                    <p>Trong những dịp lễ, ngày kỷ niệm hay sinh nhật, không cần một món quà quá khoa trương,
-                        đơn giản chỉ là một chiếc bánh kem được trang trí bằng những bông hoa sắc màu,
-                        bắt mắt cũng khiến bữa tiệc trở nên lung linh mà người nhận thì vui vẻ rồi.
-                        Bánh thích hợp tặng chị gái, mẹ, cô giáo.</p>
+                    <div class="product__details__price">${detailProduct.price} VND</div>
+                    <p>${detailProduct.description}</p>
                     <div class="product__details__quantity">
                         <div class="quantity">
                             <div class="pro-qty">
@@ -134,6 +97,7 @@
                     <a href="#" class="primary-btn">Thêm vào giỏ hàng</a>
                     <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                     <ul>
+                        <li><b>Tác Giả: </b> <span>${detailProduct.author}</span></li>
                         <li><b>Tình trạng</b> <span>Còn hàng</span></li>
                         <li><b>Giao hàng</b> <span>Giao ngay trong ngày</span></li>
 
@@ -162,57 +126,48 @@
                         <div class="tab-pane active" id="tabs-1" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>Mô tả sản phẩm</h6>
-                                <p>Bánh kem phong cách hoa Hàn Quốc, ngon và đẹp,
-                                    chất lượng luôn tươi mới, nguyên liệu hoàn toàn cao cấp được chọn lọc kỹ càng,
-                                    đảm bảo an toàn vệ sinh thực phẩm, bảo vệ sức khỏe cho người dùng đó chính là
-                                    điều mà chúng tôi muốn mang lại cho quý khách hàng.
-                                    Phần hoa của bánh sẽ được làm từ kem bơ, kem tươi tạo nên vị bánh cũng rất ấn tượng,
-                                    ngọt dịu, không gây ngán.
-                                    Các thợ làm bánh phải bắt từng bông hoa, để cho thật lạnh để hoa đông cứng rồi mới
-                                    sắp xếp lên bánh cho hài hoà. Vì vậy cần rất nhiều thời gian,
-                                    sự kiên nhẫn và cả sự khéo léo. Mỗi chiếc bánh thật sự là một tác phẩm nghệ
-                                    thuật.</p>
+                                <p>${detailProduct.description}</p>
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-2" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>Đặc điểm:</h6>
-                                <p>- Loại bánh: Bánh hoa</p>
+                                <p>- Loại Sách: Bánh hoa</p>
                                 <p>- Kích thước: Vừa</p>
                                 <p>- Khối lượng: 500g</p>
                             </div>
                         </div>
-                        <div class="tab-pane" id="tabs-3" role="tabpanel">
-                            <div class="product__details__tab__desc">
-                                <h6 style="margin-bottom: 10px;">Trần Nhật Linh</h6>
-                                <i class="fa fa-calendar-o"></i> <span
-                                    style="font-size: 13px; color: rgb(179, 178, 178);">22-10-2022</span>
+                        <%--                        <div class="tab-pane" id="tabs-3" role="tabpanel">--%>
+                        <%--                            <div class="product__details__tab__desc">--%>
+                        <%--                                <h6 style="margin-bottom: 10px;">Trần Nhật Linh</h6>--%>
+                        <%--                                <i class="fa fa-calendar-o"></i> <span--%>
+                        <%--                                    style="font-size: 13px; color: rgb(179, 178, 178);">22-10-2022</span>--%>
 
-                                <p>Lần đầu đặt bánh ở tiệm này thấy rất hài lòng, cầm chiếc bánh trên tay đi tặng được
-                                    mọi người khen
-                                    . Rất hài lòng, trang trí sang trọng, đẹp mắt.</p>
-                                <div class="input-comment">
-                                    <div class="input-item">
-                                        <span>Tên của bạn:</span>
-                                        <input type="text" placeholder="Nhập họ tên...">
-                                    </div>
-                                    <div class="input-item">
-                                        <span>Số điện thoại:</span>
-                                        <input type="text" placeholder="Nhập số điện thoại...">
+                        <%--                                <p>Lần đầu đặt bánh ở tiệm này thấy rất hài lòng, cầm chiếc bánh trên tay đi tặng được--%>
+                        <%--                                    mọi người khen--%>
+                        <%--                                    . Rất hài lòng, trang trí sang trọng, đẹp mắt.</p>--%>
+                        <%--                                <div class="input-comment">--%>
+                        <%--                                    <div class="input-item">--%>
+                        <%--                                        <span>Tên của bạn:</span>--%>
+                        <%--                                        <input type="text" placeholder="Nhập họ tên...">--%>
+                        <%--                                    </div>--%>
+                        <%--                                    <div class="input-item">--%>
+                        <%--                                        <span>Số điện thoại:</span>--%>
+                        <%--                                        <input type="text" placeholder="Nhập số điện thoại...">--%>
 
-                                    </div>
+                        <%--                                    </div>--%>
 
-                                    <div class="input-item">
-                                        <span>Nhập bình luận:</span>
-                                        <input type="text" placeholder="Viết bình luận..." style="width:70%;">
-                                        <span class="add-comment">
-                                                    <button type="submit" class="btn-add-comment">Gửi</button>
-                                                </span>
-                                    </div>
+                        <%--                                    <div class="input-item">--%>
+                        <%--                                        <span>Nhập bình luận:</span>--%>
+                        <%--                                        <input type="text" placeholder="Viết bình luận..." style="width:70%;">--%>
+                        <%--                                        <span class="add-comment">--%>
+                        <%--                                                    <button type="submit" class="btn-add-comment">Gửi</button>--%>
+                        <%--                                                </span>--%>
+                        <%--                                    </div>--%>
 
-                                </div>
-                            </div>
-                        </div>
+                        <%--                                </div>--%>
+                        <%--                            </div>--%>
+                        <%--                        </div>--%>
                     </div>
                 </div>
             </div>

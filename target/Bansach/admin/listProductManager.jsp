@@ -114,7 +114,7 @@
                                         <th>Size</th>
                                         <th>Description</th>
                                         <th>Content</th>
-                                        <th>Weight</th>
+                                        <th>Author</th>
                                         <th>Price</th>
                                         <th>Action</th>
                                     </tr>
@@ -134,7 +134,7 @@
                                             <td><a href="#" data-toggle="tooltip"
                                                    title="${lists.content}">${fn:substring(lists.content, 0, 60)}...</a>
                                             </td>
-                                            <td>${lists.weight}</td>
+                                            <td>${lists.author}</td>
                                             <td>${lists.price}</td>
                                             <td>
                                                 <div class="btn-group" role="group" aria-label="Actions">

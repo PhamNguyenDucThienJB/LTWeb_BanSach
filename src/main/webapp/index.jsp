@@ -169,7 +169,7 @@
             <div class="categories__slider owl-carousel">
                 <div class="col-lg-3">
                     <div class="categories__item set-bg" data-setbg="img/product/S001/sach11.jpg">
-                        <h5><a href="shop-details.jsp">Luân Lý</a></h5>
+                        <h5><a href="book-details.jsp">Luân Lý</a></h5>
                     </div>
                 </div>
                 <div class="col-lg-3">
@@ -184,12 +184,12 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="categories__item set-bg" data-setbg="img/product/S001/sach10.jpg">
-                        <h5><a href="shop-details.jsp">Ngược Dòng</a></h5>
+                        <h5><a href="book-details.jsp">Ngược Dòng</a></h5>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="categories__item set-bg" data-setbg="img/product/S001/sach9.jpg">
-                        <h5><a href="shop-details.jsp">Đức Mẹ Maria</a></h5>
+                        <h5><a href="book-details.jsp">Đức Mẹ Maria</a></h5>
                     </div>
                 </div>
             </div>
@@ -246,7 +246,7 @@
                         </ul>
                     </div>
                     <div class="featured__item__text">
-                        <h6><a href="shop-details.jsp">Bánh sinh nhật</a></h6>
+                        <h6><a href="book-details.jsp">Bánh sinh nhật</a></h6>
                         <h5>300,000 VND</h5>
                     </div>
                 </div>
@@ -261,7 +261,7 @@
                         </ul>
                     </div>
                     <div class="featured__item__text">
-                        <h6><a href="shop-details.jsp">Bánh sinh nhật</a></h6>
+                        <h6><a href="book-details.jsp">Bánh sinh nhật</a></h6>
                         <h5>300,000 VND</h5>
                     </div>
                 </div>
@@ -276,7 +276,7 @@
                         </ul>
                     </div>
                     <div class="featured__item__text">
-                        <h6><a href="shop-details.jsp">Bánh sinh nhật</a></h6>
+                        <h6><a href="book-details.jsp">Bánh sinh nhật</a></h6>
                         <h5>300,000 VND</h5>
                     </div>
                 </div>
@@ -291,7 +291,7 @@
                         </ul>
                     </div>
                     <div class="featured__item__text">
-                        <h6><a href="shop-details.jsp">Bánh sinh nhật</a></h6>
+                        <h6><a href="book-details.jsp">Bánh sinh nhật</a></h6>
                         <h5>300,000 VND</h5>
                     </div>
                 </div>
@@ -306,7 +306,7 @@
                         </ul>
                     </div>
                     <div class="featured__item__text">
-                        <h6><a href="shop-details.jsp">Bánh sinh nhật</a></h6>
+                        <h6><a href="book-details.jsp">Bánh sinh nhật</a></h6>
                         <h5>300,000 VND</h5>
                     </div>
                 </div>
@@ -321,7 +321,7 @@
                         </ul>
                     </div>
                     <div class="featured__item__text">
-                        <h6><a href="shop-details.jsp">Bánh sinh nhật</a></h6>
+                        <h6><a href="book-details.jsp">Bánh sinh nhật</a></h6>
                         <h5>300,000 VND</h5>
                     </div>
                 </div>
@@ -336,7 +336,7 @@
                         </ul>
                     </div>
                     <div class="featured__item__text">
-                        <h6><a href="shop-details.jsp">Bánh sinh nhật</a></h6>
+                        <h6><a href="book-details.jsp">Bánh sinh nhật</a></h6>
                         <h5>300,000 VND</h5>
                     </div>
                 </div>
@@ -351,7 +351,7 @@
                         </ul>
                     </div>
                     <div class="featured__item__text">
-                        <h6><a href="shop-details.jsp">Bánh sinh nhật</a></h6>
+                        <h6><a href="book-details.jsp">Bánh sinh nhật</a></h6>
                         <h5>300,000 VND</h5>
                     </div>
                 </div>
