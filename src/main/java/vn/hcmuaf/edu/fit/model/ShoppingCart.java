@@ -14,7 +14,11 @@ public class ShoppingCart implements Serializable {
     }
 
     public int getCount() {
-        return items.size();
+        int totalQuantity = 0;
+        for (ShoppingCartItem item : items.values()) {
+            totalQuantity += item.getSoLgMua(); // Lấy số lượng mua từ mỗi sản phẩm
+        }
+        return totalQuantity;
     }
 
     public void addToCart(ProductDetails product, int quantity) {
@@ -32,9 +36,30 @@ public class ShoppingCart implements Serializable {
         }
     }
 
-    public void removeFromCart(String productId) {
-        items.remove(productId);
+    public void removeOne(String productCode) {
+        if (items.containsKey(productCode)) {
+            ShoppingCartItem item = items.get(productCode);
+            int currentQuantity = item.getSoLgMua();
+
+            if (currentQuantity > 1) {
+                item.setSoLgMua(currentQuantity - 1);
+            } else {
+                items.remove(productCode);
+            }
+        } else {
+            System.out.println("Product code " + productCode + " not found in cart.");
+        }
     }
+
+    public void remove(String productCode) {
+        if (items.containsKey(productCode)) {
+            items.remove(productCode); // Xóa sản phẩm khỏi giỏ hàng
+            System.out.println("Removed product " + productCode + " from cart.");
+        } else {
+            System.out.println("Product code " + productCode + " not found in cart.");
+        }
+    }
+
 
     public List<ShoppingCartItem> getCartItems() {
         return new ArrayList<>(items.values());
@@ -46,6 +71,10 @@ public class ShoppingCart implements Serializable {
             total += item.giaSanPhamTrongGioHang();
         }
         return total;
+    }
+
+    public ShoppingCartItem getCartItemById(String productId) {
+        return items.get(productId); // Trả về sản phẩm hoặc null nếu không tồn tại
     }
 
 

@@ -6,6 +6,7 @@
     Version: 1.0
     Created: Colorlib
 ---------------------------------------------------------  */
+
 /*Read more*/
 function myFunction() {
     var x = document.getElementById('bld1');
@@ -18,6 +19,7 @@ function myFunction() {
         btnrm.innerText = "Thu gọn lại"
     }
 }
+
 'use strict';
 
 (function ($) {
@@ -107,7 +109,7 @@ function myFunction() {
     });
 
 
-    $('.hero__categories__all').on('click', function(){
+    $('.hero__categories__all').on('click', function () {
         $('.hero__categories ul').slideToggle(400);
     });
 
@@ -214,7 +216,7 @@ function myFunction() {
 		Quantity change
 	--------------------- */
     var proQty = $('.pro-qty');
-    proQty.prepend('<span class="dec qtybtn">-</span>');
+    proQty.prepend('<span class="dec qtybtn"><a>-</a></span>');
     proQty.append('<span class="inc qtybtn">+</span>');
     proQty.on('click', '.qtybtn', function () {
         var $button = $(this);
@@ -234,8 +236,8 @@ function myFunction() {
 
 })(jQuery);
 
-  // Back to top button
-  $(window).scroll(function () {
+// Back to top button
+$(window).scroll(function () {
     if ($(this).scrollTop() > 100) {
         $('.back-to-top').fadeIn('slow');
     } else {
@@ -278,6 +280,7 @@ function checkCode(c1, c2) {
         return false;
     }
 }
+
 function check(email) {
     var url = "SignUpServlet?email=" + email;
 

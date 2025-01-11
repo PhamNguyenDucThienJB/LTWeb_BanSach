@@ -58,7 +58,7 @@
                 <div class="breadcrumb__text">
                     <h2>Sản phẩm</h2>
                     <div class="breadcrumb__option">
-                        <a href="./index.html">Trang Chủ</a>
+                        <a href="./IndexServlet">Trang Chủ</a>
                         <span>Sản Phẩm</span>
                     </div>
                 </div>
@@ -245,7 +245,7 @@
 
                                 <div class="product__item__text">
                                     <h6><a href="./DetailProduct?productID=${list.id}">${list.name}</a></h6>
-                                    <h5>${list.price} VND</h5>
+                                    <h5><fmt:formatNumber value="${list.price}" type="number" groupingUsed="true"/> VND</h5>
                                 </div>
                             </div>
                         </div>

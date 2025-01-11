@@ -56,7 +56,7 @@
                 <div class="breadcrumb__text">
                     <h2>Giỏ Hàng</h2>
                     <div class="breadcrumb__option">
-                        <a href="./index.html"> Trang Chủ</a>
+                        <a href="./IndexServlet"> Trang Chủ</a>
                         <span>Giỏ Hàng </span>
                     </div>
                 </div>
@@ -88,20 +88,41 @@
                                     <h5>${item.sp.name}</h5>
                                 </td>
                                 <td class="shoping__cart__price">
-                                        ${item.price} VND
+                                    <fmt:formatNumber value="${item.price}" type="number" groupingUsed="true"/> VND
                                 </td>
                                 <td class="shoping__cart__quantity">
                                     <div class="quantity">
-                                        <div class="pro-qty">
-                                            <input type="text" value="${item.soLgMua}">
-                                        </div>
+                                        <form action="/UpdateCart" method="POST" class="quantity-form">
+                                            <!-- ID sản phẩm -->
+                                            <input type="hidden" name="productId" value="${item.masp}">
+
+                                            <!-- Nút giảm số lượng -->
+                                            <button type="button" class="btn-dec qtybtn"
+                                                    onclick="updateQuantity(this, -1)">-
+                                            </button>
+
+                                            <!-- Ô nhập số lượng -->
+                                            <input type="number" name="quantity" value="${item.soLgMua}" min="1"
+                                                   readonly
+                                                   style="width: 50px; text-align: center;">
+
+                                            <!-- Nút tăng số lượng -->
+                                            <button type="button" class="btn-inc qtybtn"
+                                                    onclick="updateQuantity(this, 1)">+
+                                            </button>
+
+                                            <!-- Nút gửi form để cập nhật -->
+                                            <button type="submit" class="btn btn-update">Cập nhật</button>
+                                        </form>
                                     </div>
+
                                 </td>
+
                                 <td class="shoping__cart__total">
-                                        ${item.price * item.soLgMua} VND
+                                    <fmt:formatNumber value="${item.price * item.soLgMua}" type="number" groupingUsed="true"/> VND
                                 </td>
                                 <td class="shoping__cart__item__close">
-                                    <a href="/RemoveFromCart?productId=${item.masp}">
+                                    <a href="/Remove?productId=${item.masp}">
                                         <span class="icon_close"></span>
                                     </a>
                                 </td>
@@ -137,10 +158,10 @@
                 <div class="shoping__checkout">
                     <h5>Tổng cộng</h5>
                     <ul>
-                        <li>Tổng tiền <span>${totalPrice} VND</span></li>
-                        <li>Tổng thanh toán <span>${totalPrice} VND</span></li>
+                        <li>Tổng tiền <span><fmt:formatNumber value="${item.price}" type="number" groupingUsed="true"/> VND</span></li>
+                        <li>Tổng thanh toán <span><fmt:formatNumber value="${item.price}" type="number" groupingUsed="true"/> VND</span></li>
                     </ul>
-                    <a href="checkout.jsp" class="primary-btn">THANH TOÁN NGAY</a>
+                    <a href="./DoCheckout" class="primary-btn">THANH TOÁN NGAY</a>
                 </div>
             </div>
         </div>
@@ -166,3 +187,80 @@
 </body>
 
 </html>
+<script>
+    function updateQuantity(button, change) {
+        const form = button.closest('.quantity-form'); // Lấy form gần nhất
+        const quantityInput = form.querySelector('input[name="quantity"]');
+        let currentValue = parseInt(quantityInput.value) || 1;
+
+        // Tăng hoặc giảm giá trị
+        const newValue = currentValue + change;
+        if (newValue > 0) {
+            quantityInput.value = newValue; // Gán giá trị mới
+        }
+    }
+
+</script>
+<style>
+    .quantity {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .quantity .qtybtn {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+        color: white;
+        background-color: #007bff;
+        border: none;
+        border-radius: 3px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .quantity .qtybtn:hover {
+        background-color: #0056b3;
+    }
+
+    .quantity input[name="quantity"] {
+        width: 50px;
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 5px;
+    }
+
+    .quantity .btn-update {
+        padding: 5px 10px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .quantity .btn-update:hover {
+        background-color: #218838;
+    }
+
+    /* Nút giảm - màu đỏ */
+    .quantity .btn-dec {
+        background-color: #dc3545; /* Màu đỏ */
+    }
+
+    .quantity .btn-dec:hover {
+        background-color: #c82333; /* Màu đỏ đậm khi hover */
+    }
+
+    /* Nút tăng - màu xanh */
+    .quantity .btn-inc {
+        background-color: #007bff; /* Màu xanh */
+    }
+
+    .quantity .btn-inc:hover {
+        background-color: #0056b3; /* Màu xanh đậm khi hover */
+    }
+
+</style>
