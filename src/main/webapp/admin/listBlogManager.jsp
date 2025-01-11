@@ -150,7 +150,10 @@
                                             <td><a href="javascript:void(0);" data-toggle="tooltip"
                                                    title="${listBlog.content}">${fn:substring(listBlog.content, 0, 60)}...</a>
                                             </td>
-                                            <td><a href="javascript:void(0);"><strong>${listBlog.img}</strong></a>
+                                            <td><a href="javascript:void(0);">
+                                                <img src="${listBlog.img}" alt="Blog Image"
+                                                     style="max-width: 100px; height: auto;">
+                                            </a></td>
                                             <td><a href="javascript:void(0);"><strong>${listBlog.date}</strong></a>
                                             </td>
                                             <td><a href="javascript:void(0);"><strong>${listBlog.danhmuc}</strong></a>

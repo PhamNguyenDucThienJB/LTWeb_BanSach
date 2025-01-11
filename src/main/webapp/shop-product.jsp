@@ -232,20 +232,22 @@
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                         <li>
-                                            <form action="/AddCart" class="test" method="post" style="display:inline;">
+                                            <a href="javascript:void(0);" class="add-to-cart">
+                                                <i class="fa fa-shopping-cart"></i>
+                                            </a>
+                                            <form action="/AddCart" class="test" method="post" style="display:none;">
                                                 <input type="hidden" name="productId" value="${list.id}">
                                                 <input type="hidden" name="quantity" value="1">
-                                                <button type="submit" style="background:none;border:none;">
-                                                    <i class="fa fa-shopping-cart"></i>
-                                                </button>
                                             </form>
                                         </li>
+
                                     </ul>
                                 </div>
 
                                 <div class="product__item__text">
                                     <h6><a href="./DetailProduct?productID=${list.id}">${list.name}</a></h6>
-                                    <h5><fmt:formatNumber value="${list.price}" type="number" groupingUsed="true"/> VND</h5>
+                                    <h5><fmt:formatNumber value="${list.price}" type="number" groupingUsed="true"/>
+                                        VND</h5>
                                 </div>
                             </div>
                         </div>
@@ -309,3 +311,14 @@
     }
 
 </style>
+<script>
+    document.querySelectorAll('.add-to-cart').forEach(anchor => {
+        anchor.addEventListener('click', (event) => {
+            const form = event.currentTarget.nextElementSibling; // Lấy form ngay sau thẻ <a>
+            if (form && form.tagName === 'FORM') {
+                form.submit(); // Gửi biểu mẫu
+            }
+        });
+    });
+</script>
+

@@ -199,7 +199,8 @@
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
-                            <button type="submit" class="site-btn">ĐẶT HÀNG</button>
+                            <button type="submit" class="site-btn"><a style="color: white" href="#">ĐẶT HÀNG</a>
+                            </button>
                         </div>
                     </div>
                 </div>

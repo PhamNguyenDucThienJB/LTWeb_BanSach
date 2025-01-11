@@ -158,8 +158,8 @@
                 <div class="shoping__checkout">
                     <h5>Tổng cộng</h5>
                     <ul>
-                        <li>Tổng tiền <span><fmt:formatNumber value="${item.price}" type="number" groupingUsed="true"/> VND</span></li>
-                        <li>Tổng thanh toán <span><fmt:formatNumber value="${item.price}" type="number" groupingUsed="true"/> VND</span></li>
+                        <li>Tổng tiền <span><fmt:formatNumber value="${totalPrice}" type="number" groupingUsed="true"/> VND</span></li>
+                        <li>Tổng thanh toán <span><fmt:formatNumber value="${totalPrice }" type="number" groupingUsed="true"/> VND</span></li>
                     </ul>
                     <a href="./DoCheckout" class="primary-btn">THANH TOÁN NGAY</a>
                 </div>

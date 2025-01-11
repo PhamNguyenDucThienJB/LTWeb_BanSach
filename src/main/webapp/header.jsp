@@ -166,7 +166,7 @@
                                                 key="menu.myOrders"/></a>
                                         <a href="/page_profile.jsp" class="dropdown-item"><fmt:message
                                                 bundle="${bundle}" key="menu.myProfile"/></a>
-                                        <a class="dropdown-item"><fmt:message bundle="${bundle}"
+                                        <a href="/resertPassWord.jsp" class="dropdown-item"><fmt:message bundle="${bundle}"
                                                                               key="menu.resetPassword"/></a>
 
                                         <c:if test="${auth.checkRole(1)}">
