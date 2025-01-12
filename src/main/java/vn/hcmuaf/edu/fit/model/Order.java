@@ -65,11 +65,13 @@ public class Order {
 
     public double totalMoney() {
         this.priceTotal = 0;
-        for (ShoppingCartItem p : list()) {
-            this.priceTotal += p.giaSanPhamTrongGioHang();
+        for (ShoppingCartItem item : this.getData().values()) {
+            // Gọi phương thức giaSanPhamTrongGioHang() để tính giá trị của từng sản phẩm
+            this.priceTotal += item.giaSanPhamTrongGioHang();
         }
         return this.priceTotal;
     }
+
 
     public Collection<ShoppingCartItem> list() {
         return data.values();
@@ -140,4 +142,14 @@ public class Order {
         }
         return total;
     }
+
+    public double getPriceTotal() {
+        return priceTotal;
+    }
+
+    public void setPriceTotal(double priceTotal) {
+        this.priceTotal = priceTotal;
+    }
+
 }
+

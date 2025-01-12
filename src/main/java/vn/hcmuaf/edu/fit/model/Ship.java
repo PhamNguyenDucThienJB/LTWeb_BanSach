@@ -4,14 +4,17 @@ public class Ship {
     private String mahd;
     private String ngayGiao;
     private String diachigiao;
+    private String sdt;
 
-    public Ship(){
+    public Ship() {
 
     }
-    public Ship(String mahd, String ngayGiao, String diachigiao) {
+
+    public Ship(String mahd, String ngayGiao, String diachigiao, String sdt) {
         this.mahd = mahd;
         this.ngayGiao = ngayGiao;
         this.diachigiao = diachigiao;
+        this.sdt = sdt;
     }
 
     public String getMahd() {
@@ -36,5 +39,13 @@ public class Ship {
 
     public void setDiachigiao(String diachigiao) {
         this.diachigiao = diachigiao;
+    }
+
+    public String getSdt() {
+        return sdt;
+    }
+
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
     }
 }

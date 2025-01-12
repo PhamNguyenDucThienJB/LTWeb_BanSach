@@ -146,7 +146,7 @@
                                                                 justify-content: flex-end;">
 
                         <div class="header__top__right__social">
-                            <a href="favorites.jsp"><i class="fa fa-heart"></i> <span style="color: white;">1</span></a>
+                            <a href="favorites.jsp"><i class="fa fa-heart"></i> <span style="color: white;">0</span></a>
 
                             <a href="/ListProductCart"><i class="fa fa-shopping-bag"></i> <span
 
@@ -161,13 +161,14 @@
                                                        key="menu.welcomeMessage"/> ${auth.tentk} <fmt:message
                                             bundle="${bundle}" key="menu.welcomeMessage_san"/></span>
                                     <div class="header__top__right__auth__dropdown">
-                                        <a href="/shoping-cart.jsp" class="dropdown-item"><fmt:message
+                                        <a href="/ListOrder" class="dropdown-item"><fmt:message
                                                 bundle="${bundle}"
                                                 key="menu.myOrders"/></a>
                                         <a href="/page_profile.jsp" class="dropdown-item"><fmt:message
                                                 bundle="${bundle}" key="menu.myProfile"/></a>
-                                        <a href="/resertPassWord.jsp" class="dropdown-item"><fmt:message bundle="${bundle}"
-                                                                              key="menu.resetPassword"/></a>
+                                        <a href="/resertPassWord.jsp" class="dropdown-item"><fmt:message
+                                                bundle="${bundle}"
+                                                key="menu.resetPassword"/></a>
 
                                         <c:if test="${auth.checkRole(1)}">
                                             <a href="/admin/AdminIndexSL" class="dropdown-item"><fmt:message

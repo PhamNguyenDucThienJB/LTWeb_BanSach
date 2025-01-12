@@ -1,6 +1,6 @@
 package vn.hcmuaf.edu.fit.controller.Cart;
 
-import vn.hcmuaf.edu.fit.model.ShoppingCart;
+import vn.hcmuaf.edu.fit.service.ShoppingCartService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -25,7 +25,7 @@ public class Remove extends HttpServlet {
             return;
         }
 
-        ShoppingCart cart = (ShoppingCart) request.getSession().getAttribute("cart");
+        ShoppingCartService cart = (ShoppingCartService) request.getSession().getAttribute("cart");
 
         if (cart != null) {
             cart.remove(productCode);

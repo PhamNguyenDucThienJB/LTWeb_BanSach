@@ -80,20 +80,15 @@
         </div>
         <div class="checkout__form">
             <h4>Thông Tin Thanh Toán</h4>
-            <form action="#">
+            <form action="/AddNewOrder" method="GET">
                 <div class="row">
                     <div class="col-lg-8 col-md-6">
                         <div class="row">
+
                             <div class="col-lg-6">
                                 <div class="checkout__input">
-                                    <p>Họ<span>*</span></p>
-                                    <input type="text">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="checkout__input">
-                                    <p>Tên<span>*</span></p>
-                                    <input type="text">
+                                    <p>Họ và Tên<span> *</span></p>
+                                    <input type="text" name="name" value="${auth.tentk}">
                                 </div>
                             </div>
                         </div>
@@ -104,59 +99,27 @@
                         <div class="checkout__input">
                             <p>Địa chỉ<span>*</span></p>
                             <!-- <input type="text" placeholder="Tên Đường" class="checkout__input__add"> -->
-                            <input type="text" placeholder="Số nhà, xã/phường, quận/huyện">
+                            <input type="text" name="address" placeholder="Số nhà, xã/phường, quận/huyện"
+                                   value="${inforUser.DIACHI}">
                         </div>
-                        <div class="checkout__input">
-                            <p>Tỉnh/Thành Phố<span>*</span></p>
-                            <input type="text">
-                        </div>
-                        <!-- <div class="checkout__input">
-                            <p>Country/State<span>*</span></p>
-                            <input type="text">
-                        </div> -->
-                        <!-- <div class="checkout__input">
-                            <p>Postcode / ZIP<span>*</span></p>
-                            <input type="text">
-                        </div> -->
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="checkout__input">
-                                    <p>Điện Thoại<span>*</span></p>
-                                    <input type="text">
+                                    <p>Điện Thoại<span> * </span></p>
+                                    <input type="text" name="tele" value="${inforUser.SDT}">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout__input">
-                                    <p>Email<span>*</span></p>
-                                    <input type="text">
+                                    <p>Email<span> * </span></p>
+                                    <input type="text" name="email" value="${auth.email}">
                                 </div>
                             </div>
                         </div>
-                        <div class="checkout__input__checkbox">
-                            <label for="acc">
-                                Tạo Tài Khoản?
-                                <input type="checkbox" id="acc">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <p>
-                            Tạo tài khoản bằng cách nhập thông tin bên dưới. Nếu bạn là khách hàng cũ, vui lòng đăng
-                            nhập ở đầu trang.</p>
                         <div class="checkout__input">
-                            <p>Mật Khẩu<span>*</span></p>
-                            <input type="text">
-                        </div>
-                        <div class="checkout__input__checkbox">
-                            <label for="diff-acc">
-                                Giao đến địa chỉ khác?
-                                <input type="checkbox" id="diff-acc">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <div class="checkout__input">
-                            <p>Ghi chú cho cửa hàng<span>*</span></p>
-                            <input type="text"
-                                   placeholder="VD: dụng cụ ăn uống,nến theo số tuổi,...">
+                            <p>Ghi chú cho cửa hàng</p>
+                            <input name="note" type="text"
+                                   placeholder="VD: Giao giờ hành chính,...">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
@@ -199,7 +162,7 @@
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
-                            <button type="submit" class="site-btn"><a style="color: white" href="#">ĐẶT HÀNG</a>
+                            <button type="submit" class="site-btn">ĐẶT HÀNG
                             </button>
                         </div>
                     </div>
@@ -228,3 +191,124 @@
 </body>
 
 </html>
+
+
+<style>
+    /* CSS */
+
+    .custom-buttons {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #1C1D22;
+    }
+
+    .custom-buttons button {
+        padding: 10px;
+    }
+
+    .custom-notifications {
+        position: fixed;
+        top: 30px;
+        right: 20px;
+        z-index: 1000000000;
+    }
+
+    .custom-toast {
+        position: relative;
+        padding: 10px;
+        color: #fff;
+        margin-bottom: 10px;
+        width: 400px;
+        display: grid;
+        grid-template-columns: 70px 1fr 70px;
+        border-radius: 5px;
+        --color: #0abf30;
+        background-image: linear-gradient(
+                to right, #0abf3055, #22242f 30%
+        );
+        animation: show 0.3s ease 1 forwards;
+        z-index: 1000000000;
+    }
+
+    .custom-toast i {
+        color: var(--color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: x-large;
+    }
+
+    .custom-toast .custom-title {
+        font-size: x-large;
+        font-weight: bold;
+    }
+
+    .custom-toast .fa-xmark {
+        cursor: pointer;
+        font-size: 18px;
+        /*background-color: lightblue;*/
+    }
+
+    .custom-toast span, .custom-toast i:nth-child(3) {
+        color: #fff;
+        opacity: 0.6;
+    }
+
+    @keyframes show {
+        0% {
+            transform: translateX(100%);
+        }
+        40% {
+            transform: translateX(-5%);
+        }
+        80% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(-10%);
+        }
+    }
+
+    .custom-toast::before {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: var(--color);
+        width: 100%;
+        height: 3px;
+        content: '';
+        box-shadow: 0 0 10px var(--color);
+        animation: timeOut 5s linear 1 forwards;
+    }
+
+    @keyframes timeOut {
+        to {
+            width: 0;
+        }
+    }
+
+    .custom-toast.custom-error {
+        --color: #f24d4c;
+        background-image: linear-gradient(
+                to right, #f24d4c55, #22242F 30%
+        );
+    }
+
+    .custom-toast.custom-warning {
+        --color: #e9bd0c;
+        background-image: linear-gradient(
+                to right, #e9bd0c55, #22242F 30%
+        );
+    }
+
+    .custom-toast.custom-info {
+        --color: #3498db;
+        background-image: linear-gradient(
+                to right, #3498db55, #22242F 30%
+        );
+    }
+</style>

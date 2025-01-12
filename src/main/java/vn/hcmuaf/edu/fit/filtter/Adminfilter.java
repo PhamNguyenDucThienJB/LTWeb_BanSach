@@ -32,7 +32,7 @@ public class Adminfilter implements Filter {
 
         // Kiểm tra nếu người dùng chưa đăng nhập hoặc không phải admin
         if (user == null || !user.checkRole(1)) {
-            httpResponse.sendRedirect(httpRequest.getContextPath() + "/error/page-error-500.html");
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "/error/page-error-403.html");
             return; // Dừng xử lý nếu không có quyền
         }
 

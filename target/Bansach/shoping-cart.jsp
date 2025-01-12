@@ -49,6 +49,18 @@
 
 <jsp:include page="header.jsp"></jsp:include>
 <!-- Breadcrumb Section End -->
+<!-- Phần tử chứa thông báo -->
+<div id="notifications" class="custom-notifications"></div>
+
+<!-- CSS cho thông báo -->
+
+<c:if test="${empty cartItems}">
+    <div class="alert alert-warning" role="alert">
+        Giỏ hàng của bạn đang trống. Vui lòng thêm sản phẩm.
+    </div>
+</c:if>
+
+
 <section class="breadcrumb-section set-bg" data-setbg="./img/banner/title.jpg">
     <div class="container">
         <div class="row">
@@ -119,7 +131,8 @@
                                 </td>
 
                                 <td class="shoping__cart__total">
-                                    <fmt:formatNumber value="${item.price * item.soLgMua}" type="number" groupingUsed="true"/> VND
+                                    <fmt:formatNumber value="${item.price * item.soLgMua}" type="number"
+                                                      groupingUsed="true"/> VND
                                 </td>
                                 <td class="shoping__cart__item__close">
                                     <a href="/Remove?productId=${item.masp}">
@@ -158,8 +171,10 @@
                 <div class="shoping__checkout">
                     <h5>Tổng cộng</h5>
                     <ul>
-                        <li>Tổng tiền <span><fmt:formatNumber value="${totalPrice}" type="number" groupingUsed="true"/> VND</span></li>
-                        <li>Tổng thanh toán <span><fmt:formatNumber value="${totalPrice }" type="number" groupingUsed="true"/> VND</span></li>
+                        <li>Tổng tiền <span><fmt:formatNumber value="${totalPrice}" type="number" groupingUsed="true"/> VND</span>
+                        </li>
+                        <li>Tổng thanh toán <span><fmt:formatNumber value="${totalPrice }" type="number"
+                                                                    groupingUsed="true"/> VND</span></li>
                     </ul>
                     <a href="./DoCheckout" class="primary-btn">THANH TOÁN NGAY</a>
                 </div>
@@ -262,5 +277,25 @@
     .quantity .btn-inc:hover {
         background-color: #0056b3; /* Màu xanh đậm khi hover */
     }
+
+
+</style>
+
+
+<style>
+    .alert-warning {
+        background-color: #f8d7da;
+        color: #721c24;
+        padding: 10px;
+        border-radius: 5px;
+        font-weight: bold;
+        margin: 20px 0;
+        text-align: center; /* Căn giữa nội dung theo chiều ngang */
+        display: flex; /* Sử dụng flexbox để căn giữa theo chiều dọc */
+        justify-content: center; /* Căn giữa theo chiều ngang */
+        align-items: center; /* Căn giữa theo chiều dọc */
+        height: 100px; /* Cung cấp chiều cao cho thông báo */
+    }
+
 
 </style>

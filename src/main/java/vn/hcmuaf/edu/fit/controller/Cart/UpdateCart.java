@@ -1,6 +1,6 @@
 package vn.hcmuaf.edu.fit.controller.Cart;
 
-import vn.hcmuaf.edu.fit.model.ShoppingCart;
+import vn.hcmuaf.edu.fit.service.ShoppingCartService;
 import vn.hcmuaf.edu.fit.model.ShoppingCartItem;
 
 import javax.servlet.*;
@@ -34,10 +34,10 @@ public class UpdateCart extends HttpServlet {
         }
 
         HttpSession session = request.getSession();
-        ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
+        ShoppingCartService cart = (ShoppingCartService) session.getAttribute("cart");
 
         if (cart == null) {
-            cart = new ShoppingCart();
+            cart = new ShoppingCartService();
             session.setAttribute("cart", cart);
         }
 

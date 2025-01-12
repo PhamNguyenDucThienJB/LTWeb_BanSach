@@ -73,6 +73,26 @@ public class CustomerService {
         return null;
     }
 
+    public static String getIdAccByIdUser(String id) {
+        String query = "SELECT kh.MAKH " +
+                "FROM khachhang kh " +
+                "JOIN taikhoan t ON kh.MATAIKHOAN = t.ID " +
+                "WHERE t.ID = ?";
+        try (Connection connection = DBConnection.getInstall().getConnectionInstance();
+             PreparedStatement pre = connection.prepareStatement(query)) {
+            pre.setString(1, id);
+            ResultSet rs = pre.executeQuery();
+            if (rs.next()) {
+                return rs.getString("MAKH");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Không tìm thấy khách hàng cho ID: " + id);
+        return null;
+    }
+
+
     public static Customer getCusByIdAcc(String idAcc) {
         for (Customer c : getListCustomer()) {
             if (c.getMATAIKHOAN().equals(idAcc)) {
@@ -225,6 +245,30 @@ public class CustomerService {
         return false; // Trả về false nếu có lỗi xảy ra
     }
 
+    public static Customer findByMTK(String id) {
+
+        String query = "SELECT kh.MAKH, kh.TENKH, t.EMAIL,kh.MATAIKHOAN, kh.DIACHI, kh.SDT, t.ROLE FROM taikhoan t JOIN khachhang kh ON t.ID = kh.MATAIKHOAN where MATAIKHOAN = ?";
+        try (Connection connection = DBConnection.getInstall().getConnectionInstance();
+             PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setString(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return new Customer(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7)
+                );
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
 
 

@@ -9,8 +9,6 @@ public class ShoppingCartItem {
     private double price;
     private Order order;
 
-    public ShoppingCartItem() {
-    }
 
     public ShoppingCartItem(String masp, int soLgMua, ProductDetails sp, double price, Order order) {
         this.masp = masp;
@@ -37,6 +35,7 @@ public class ShoppingCartItem {
     }
 
     public int getSoLgMua() {
+
         return soLgMua;
     }
 
