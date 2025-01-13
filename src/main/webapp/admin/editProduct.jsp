@@ -137,8 +137,8 @@
                                                         class="text-danger">*</span></label>
                                                 <div class="col-lg-6">
                                                     <select class="form-control" id="kind" name="kind">
-                                                        <option value="${listProduct.kind}" disabled selected>-- Select
-                                                            Kind --
+                                                        <option value="${listProduct.kind}" disabled selected>
+                                                            -- ${listProduct.kind} --
                                                         </option>
                                                         <option value="type1">Type 1</option>
                                                         <option value="type2">Type 2</option>
