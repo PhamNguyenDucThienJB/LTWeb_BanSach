@@ -85,7 +85,7 @@
                 <div class="product__details__text">
                     <h3>${detailProduct.name}</h3>
 
-                    <div class="product__details__price">${detailProduct.price} VND</div>
+                    <div class="product__details__price">  <fmt:formatNumber value="${detailProduct.price}" type="number" groupingUsed="true"/> VND VND</div>
                     <p>${detailProduct.description}</p>
                     <form action="/AddCart" class="test" method="post" style="display:none;">
                         <input type="hidden" name="productId" value="${detailProduct.id}">

@@ -124,7 +124,7 @@
                                         <th>Order ID</th>
                                         <th>Costumer ID</th>
                                         <th>Date Check Order</th>
-<%--                                        <th>Quantity</th>--%>
+                                        <%--                                        <th>Quantity</th>--%>
                                         <th>tele</th>
                                         <th>Address</th>
                                         <th>Total Price</th>
@@ -147,7 +147,7 @@
                                             <td>${order.mahd}</td> <!-- Mã đơn hàng -->
                                             <td>${order.maKH}</td> <!-- Ngày đặt hàng -->
                                             <td>${order.date}</td>
-<%--                                            <td>${order.solg}</td>--%>
+                                                <%--                                            <td>${order.solg}</td>--%>
                                             <td>${order.tele}</td> <!-- Tên sản phẩm -->
                                             <td>${order.diachigiao}</td> <!-- Địa chỉ giao hàng -->
                                             <td><fmt:formatNumber value="${order.totalprice}" type="number"
@@ -199,15 +199,13 @@
                                                     </div>
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a class="dropdown-item"
+                                                           href="/admin/UnAcceptOrder?id=${order.mahd}">Wait</a>
+                                                        <a class="dropdown-item"
                                                            href="/admin/acceptOrder?id=${order.mahd}">Xác
                                                             nhận</a>
                                                         <a class="dropdown-item"
-                                                           href="/admin/shippingOrder?id=${order.mahd}">Đang Giao
+                                                           href="/admin/shippingOrder?id=${order.mahd}">Đã chuyển hàng
                                                         </a>
-                                                        <a class="dropdown-item"
-                                                           href="/admin/orderDetail?id=${order.mahd}">Xem
-                                                            chi
-                                                            tiết</a>
                                                         <a class="dropdown-item"
                                                            href="/admin/DeleteOrderAdmin?id=${order.mahd}">Xóa đơn
                                                             hàng</a>

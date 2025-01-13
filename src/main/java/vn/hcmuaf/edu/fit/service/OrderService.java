@@ -372,6 +372,25 @@ public class OrderService {
         }
     }
 
+    // Phương thức cập nhật trạng thái đơn hàng
+    public static boolean UnacceptOrder(String mahd) {
+        String sql = "UPDATE hoadon SET TRANGTHAI = 0 WHERE MAHD = ?";
+
+        try (Connection connection = DBConnection.getInstall().getConnectionInstance();
+             PreparedStatement pre = connection.prepareStatement(sql)) {
+
+            pre.setString(1, mahd);
+            int rowsAffected = pre.executeUpdate();
+
+            // Nếu có ít nhất 1 bản ghi bị thay đổi, trả về true
+            return rowsAffected > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     // Phương thức cập nhật trạng thái đơn hàng thành "Đang giao" (2)
     public static boolean shippingOrder(String mahd) {
         String sql = "UPDATE hoadon SET TRANGTHAI = 2 WHERE MAHD = ?";

@@ -56,7 +56,9 @@
 
 <c:if test="${empty cartItems}">
     <div class="alert alert-warning" role="alert">
-        Giỏ hàng của bạn đang trống. Vui lòng thêm <a style="" href="/ListProduct"> sản phẩm</a> .
+        Giỏ hàng của bạn đang trống. Vui lòng<span> <a href="signin.jsp"> đăng nhập</a>  </span> thêm <a
+            style="color: red"
+            href="/ListProduct"> sản phẩm</a> .
     </div>
 </c:if>
 

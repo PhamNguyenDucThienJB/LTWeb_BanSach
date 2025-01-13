@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -98,7 +98,7 @@
                             <h4 class="card-title">List Product</h4>
                             <button type="button" class="btn btn-rounded btn-info"><span
                                     class="btn-icon-left text-info"><i class="fa fa-plus color-info"></i>
-                            </span> <a href="./addProduct.jsp">Add Product</a>
+                            </span> <a href="./addProduct.jsp" style="color: white">Add Product</a>
                             </button>
                         </div>
                         <div class="card-body">
@@ -137,13 +137,18 @@
                                                    title="${lists.content}">${fn:substring(lists.content, 0, 60)}...</a>
                                             </td>
                                             <td>${lists.author}</td>
-                                            <td>${lists.price}</td>
+                                            <td><fmt:formatNumber value="${lists.price}" type="number"
+                                                                  groupingUsed="true"/> VND VND
+                                            </td>
                                             <td>
                                                 <div class="btn-group" role="group" aria-label="Actions">
-                                                    <a href="#" class="btn btn-sm btn-primary" title="Edit">
+                                                    <a href="/admin/EditProduct?productID=${lists.id}"
+                                                       class="btn btn-sm btn-primary"
+                                                       title="Edit">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
-                                                    <a href="#" class="btn btn-sm btn-danger" title="Delete">
+                                                    <a href="/admin/EditProduct?productID=${lists.id}"
+                                                       class="btn btn-sm btn-danger" title="Delete">
                                                         <i class="fa fa-trash"></i>
                                                     </a>
                                                 </div>

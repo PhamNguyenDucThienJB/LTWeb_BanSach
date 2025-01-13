@@ -146,6 +146,52 @@ public class ProductService {
         }
         return listProduct;
     }
+    public static Product getProductAllById(String productId) {
+        String sql = "SELECT sanpham.MaSP, sanpham.MaLS, sanpham.TenSP, sanpham.KichThuoc, sanpham.Tacgia, sanpham.MoTa, sanpham.NoiDung, sanpham.Gia, " +
+                "GROUP_CONCAT(anhsp.Anh) AS listImg " +
+                "FROM sanpham " +
+                "LEFT JOIN anhsp ON sanpham.MaSP = anhsp.MaSP " +
+                "WHERE sanpham.MaSP = ? " +
+                "GROUP BY sanpham.MaSP";
+
+        try (Connection connection = DBConnection.getInstall().getConnectionInstance();
+             PreparedStatement pre = connection.prepareStatement(sql)) {
+
+            // Truyền tham số MaSP vào câu truy vấn
+            pre.setString(1, productId);
+
+            try (ResultSet rs = pre.executeQuery()) {
+                if (rs.next()) {
+                    // Lấy danh sách ảnh từ cột 'listImg'
+                    String listImgStr = rs.getString("listImg");
+                    List<String> listImg = new ArrayList<>();
+
+                    // Kiểm tra và xử lý danh sách ảnh
+                    if (listImgStr != null && !listImgStr.isEmpty()) {
+                        String[] imgArray = listImgStr.split(",");
+                        listImg = Arrays.asList(imgArray);
+                    }
+
+                    // Khởi tạo đối tượng Product
+                    return new Product(
+                            rs.getString("MaSP"),         // id
+                            rs.getString("TenSP"),        // name
+                            rs.getString("MaLS"),         // kind
+                            rs.getString("KichThuoc"),    // sizeBook
+                            rs.getString("Tacgia"),       // author
+                            rs.getString("MoTa"),         // descrip
+                            rs.getString("NoiDung"),      // content
+                            listImg,                       // listImg
+                            rs.getInt("Gia")              // price
+                    );
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null; // Trả về null nếu không tìm thấy sản phẩm
+    }
+
 
     public static ProductDetails getProductDetailsById(String productId) {
         ProductDetails productDetails = null;
