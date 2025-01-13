@@ -98,7 +98,7 @@
                             <h4 class="card-title">List Product</h4>
                             <button type="button" class="btn btn-rounded btn-info"><span
                                     class="btn-icon-left text-info"><i class="fa fa-plus color-info"></i>
-								</span>Add Product
+                            </span> <a href="./addProduct.jsp">Add Product</a>
                             </button>
                         </div>
                         <div class="card-body">
@@ -122,8 +122,10 @@
                                     <tbody>
                                     <c:forEach var="lists" items="${listProduct}">
                                         <tr>
-                                            <td><img class="rounded-circle" width="35" src=""
-                                                     alt=""></td>
+                                            <td><a href="javascript:void(0);">
+                                                <img src="/${lists.listImg[0]}" alt="Blog Image"
+                                                     style="max-width: 100px; height: auto;">
+                                            </a></td>
                                             <td>${lists.id}</td>
                                             <td>${lists.name}</td>
                                             <td>${lists.kind}</td>

@@ -47,7 +47,7 @@
 <body class="d-flex justify-content-center align-items-center bg-dark bg-gradient vh-100">
 <div class="card shadow-lg p-4 text-center" style="max-width: 400px; border-radius: 15px;">
     <div class="card-body">
-        <p class="card-text fs-5 text-muted mb-4"> Đã thêm <span class="text-red">thành công</span> sản phẩm vào đơn hàng
+        <p class="card-text fs-5 text-muted mb-4"> Đã mua hàng <span class="text-red">thành công</span>, nhấn để thực hiện thoa tác
         </p>
         <div class="d-grid gap-2">
             <button class="btn btn-primary btn-lg" onclick="window.location.href='/ListOrder';">Xem đơn hàng</button>

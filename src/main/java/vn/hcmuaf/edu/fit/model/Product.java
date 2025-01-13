@@ -27,6 +27,18 @@ public class Product implements Serializable {
         this.price = price;
     }
 
+    public Product(String id, String name, String kind, String sizeBook, String author, String descrip, String content, List<String> listImg, int price) {
+        this.id = id;
+        this.name = name;
+        this.kind = kind;
+        this.sizeBook = sizeBook;
+        this.author = author;
+        this.descrip = descrip;
+        this.content = content;
+        this.listImg = listImg;
+        this.price = price;
+    }
+
     public Product(String id, String name, List<String> listImg, int price) {
         this.id = id;
         this.name = name;

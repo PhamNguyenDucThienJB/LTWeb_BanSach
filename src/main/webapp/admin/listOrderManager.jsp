@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
@@ -123,7 +124,7 @@
                                         <th>Order ID</th>
                                         <th>Costumer ID</th>
                                         <th>Date Check Order</th>
-                                        <th>Quantity</th>
+<%--                                        <th>Quantity</th>--%>
                                         <th>tele</th>
                                         <th>Address</th>
                                         <th>Total Price</th>
@@ -146,10 +147,12 @@
                                             <td>${order.mahd}</td> <!-- Mã đơn hàng -->
                                             <td>${order.maKH}</td> <!-- Ngày đặt hàng -->
                                             <td>${order.date}</td>
-                                            <td>${order.solg}</td>
+<%--                                            <td>${order.solg}</td>--%>
                                             <td>${order.tele}</td> <!-- Tên sản phẩm -->
                                             <td>${order.diachigiao}</td> <!-- Địa chỉ giao hàng -->
-                                            <td>${order.totalprice}</td> <!-- Số điện thoại -->
+                                            <td><fmt:formatNumber value="${order.totalprice}" type="number"
+                                                                  groupingUsed="true"/> VND
+                                            </td> <!-- Số điện thoại -->
                                             <td>
                                                     <span class="badge light
                                                         <c:choose>
@@ -196,7 +199,7 @@
                                                     </div>
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a class="dropdown-item"
-                                                           href="/admin/acceptOrder?id=${order.mahd}">Chấp
+                                                           href="/admin/acceptOrder?id=${order.mahd}">Xác
                                                             nhận</a>
                                                         <a class="dropdown-item"
                                                            href="/admin/shippingOrder?id=${order.mahd}">Đang Giao
@@ -205,6 +208,9 @@
                                                            href="/admin/orderDetail?id=${order.mahd}">Xem
                                                             chi
                                                             tiết</a>
+                                                        <a class="dropdown-item"
+                                                           href="/admin/DeleteOrderAdmin?id=${order.mahd}">Xóa đơn
+                                                            hàng</a>
                                                     </div>
                                                 </div>
                                             </td>
