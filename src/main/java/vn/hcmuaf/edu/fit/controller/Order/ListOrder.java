@@ -8,7 +8,10 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "ListOrder", value = "/ListOrder")
 public class ListOrder extends HttpServlet {
@@ -29,23 +32,21 @@ public class ListOrder extends HttpServlet {
             if (listOrder != null && !listOrder.isEmpty()) {
                 System.out.println("Danh sách đơn hàng có " + listOrder.size() + " mục.");
 
-                // Nhóm các đơn hàng theo mã đơn hàng (mahd)
-                Map<String, List<DetailRecipe>> groupedOrders = OrderService.getInstance().groupOrdersById(listOrder);
-
-                // Xử lý loại bỏ ảnh trùng lặp trong mỗi nhóm đơn hàng
-                for (Map.Entry<String, List<DetailRecipe>> entry : groupedOrders.entrySet()) {
-                    List<DetailRecipe> orders = entry.getValue();
-
-                    // Giữ lại chỉ ảnh đầu tiên trong mỗi nhóm
-                    for (DetailRecipe order : orders) {
-                        // Chỉ giữ ảnh đầu tiên của đơn hàng
-                        if (order.getAnhsp() != null && !order.getAnhsp().isEmpty()) {
-                            order.setAnhsp(Collections.singletonList(order.getAnhsp().get(0)));  // Giữ chỉ ảnh đầu tiên
-                        }
-                    }
+                // In thông tin chi tiết đơn hàng để kiểm tra
+                for (DetailRecipe order : listOrder) {
+                    System.out.println("Đơn hàng: " + order);
+                    System.out.println("Mã đơn hàng: " + order.getMahd());
+                    System.out.println("Mã sản phẩm: " + order.getMasp());
+                    System.out.println("Tên sản phẩm: " + order.getTensp());
+                    System.out.println("Số lượng: " + order.getSolg());
+                    System.out.println("Giá sản phẩm: " + order.getPrice());
+                    System.out.println("Tổng giá sản phẩm: " + order.getTotalprice());
+                    System.out.println("Địa chỉ giao: " + order.getDiachigiao());
+                    System.out.println("Trang Thai giao: " + order.getStatus());
                 }
 
-                // Lưu kết quả vào request để truyền tới JSP
+                // Nhóm các đơn hàng theo mã đơn hàng (mahd)
+                Map<String, List<DetailRecipe>> groupedOrders = OrderService.getInstance().groupOrdersById(listOrder);
                 request.setAttribute("groupedOrders", groupedOrders);
 
                 // Chuyển dữ liệu đến JSP

@@ -11,16 +11,19 @@ public class DetailRecipe {
     private List<String> anhsp;
     private int price;
     private String diachigiao;
+    private float totalprice;
+    private int status;
 
-
-    public DetailRecipe(String mahd, String masp, String tensp, int solg, List<String> anhsp, int price) {
+    public DetailRecipe(String mahd, String masp, String tensp, int solg, List<String> anhsp, int price, String diachigiao, float totalprice, int status) {
         this.mahd = mahd;
         this.masp = masp;
         this.tensp = tensp;
         this.solg = solg;
         this.anhsp = anhsp;
         this.price = price;
-
+        this.diachigiao = diachigiao;
+        this.totalprice = totalprice;
+        this.status = status;
     }
 
     public int getToTalPrice() {
@@ -90,6 +93,22 @@ public class DetailRecipe {
         NumberFormat vn = NumberFormat.getInstance();
         String result = vn.format(price);
         return result;
+    }
+
+    public float getTotalprice() {
+        return totalprice;
+    }
+
+    public void setTotalprice(float totalprice) {
+        this.totalprice = totalprice;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     @Override

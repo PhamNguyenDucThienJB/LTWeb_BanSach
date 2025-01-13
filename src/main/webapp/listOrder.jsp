@@ -73,60 +73,80 @@
                         <a href="./ListProduct" class="primary-btn cart-btn">Xem thêm sản phẩm </a>
                     </div>
                 </div>
-                    <c:forEach var="group" items="${groupedOrders}">
-                        <div class="order-group">
-                            <h3>Mã đơn hàng: ${group.key}</h3>
-                            <div class="order-details">
-                                <c:forEach var="order" items="${group.value}">
-                                    <div class="order-item">
-                                        <div class="row">
-                                            <div class="col-6">
-<%--                                                <small class="text-secondary d-inline-block pt-3 pl-3">Mã đơn hàng: ${order.mahd}</small>--%>
-                                            </div>
-                                            <div class="col-6 text-right my-2 pt-2">
-<%--                                                <small class="d-inline text-secondary">Trạng thái | </small>--%>
-                                                <div class="d-inline pr-3 text-uppercase" style="color:#ee4d2d; font-size:14px">
-                                                    <span>${order.diachigiao}</span> <!-- Hiển thị địa chỉ giao hàng -->
-                                                </div>
-                                            </div>
+                <%--Thêm dòng kẻ ở chỗ này để tách rõ các đơn hàng--%>
+                <c:forEach var="group" items="${groupedOrders}">
+                    <div class="order-group">
+                        <h3>Mã đơn hàng: ${group.key}</h3>
+                        <div class="order-details">
+                            <c:forEach var="order" items="${group.value}">
+                                <div class="order-item">
+                                    <div class="row">
+                                        <div class="col-6">
+                                                <%--                                                <small class="text-secondary d-inline-block pt-3 pl-3">Mã đơn hàng: ${order.mahd}</small>--%>
                                         </div>
-
-                                        <div class="card mb-3 border-left-0 border-right-0 border-bottom-0 mx-3">
-                                            <div class="row my-3 pb-3 mx-2" style="border-bottom:1px solid #eee">
-                                                <div class="col-2">
-                                                    <div class="vertical-center">
-                                                        <!-- Chỉ hiển thị ảnh đầu tiên trong danh sách anhsp -->
-                                                        <img class="d-block mx-auto" src="${not empty order.anhsp ? order.anhsp[0] : '/path/to/default/image.jpg'}" width="100">
-                                                    </div>
-                                                </div>
-                                                <div class="col-7">
-                                                    <div class="card-body my-0">
-                                                        <div class="card-text text-dark">
-                                                            <a href="#" class="text-decoration-none text-dark text-uppercase">
-                                                                    ${order.tensp} <!-- Hiển thị tên sản phẩm -->
-                                                            </a>
-                                                        </div>
-                                                        <div class="text-dark" style="font-size:14px">x ${order.solg}</div> <!-- Hiển thị số lượng -->
-                                                    </div>
-                                                </div>
-                                                <div class="col-3 mt-3">
-                                                    <small class="text-dark">${DetailRecipe.formatNum(order.price)} VND</small> <!-- Hiển thị giá -->
-                                                </div>
+                                        <div class="col-6 text-right my-2 pt-2">
+                                                <%--                                                <small class="d-inline text-secondary">Trạng thái | </small>--%>
+                                            <div class="d-inline pr-3 text-uppercase"
+                                            ><span>ĐỊA CHỈ GIAO HÀNG: </span>
+                                                <span style="color:#ee4d2d; font-size:14px">${order.diachigiao}</span>
+                                                <!-- Hiển thị địa chỉ giao hàng -->
                                             </div>
                                         </div>
                                     </div>
-                                </c:forEach>
-                            </div>
-                            <div class="total-amount">
-                                <h6>Tổng số tiền: </h6>
-                                <h3 style="color:#ee4d2d">
-                                    <!-- Tính tổng số tiền cho đơn hàng -->
-                                    VND
-                                </h3>
-                            </div>
-                        </div>
-                    </c:forEach>
 
+                                    <div class="card mb-3 border-left-0 border-right-0 border-bottom-0 mx-3">
+                                        <div class="row my-3 pb-3 mx-2" style="border-bottom:1px solid #eee">
+                                            <div class="col-2">
+                                                <div class="vertical-center">
+                                                    <!-- Chỉ hiển thị ảnh đầu tiên trong danh sách anhsp -->
+                                                    <img class="d-block mx-auto" src="${order.anhsp[0]}" width="100">
+                                                </div>
+                                            </div>
+                                            <div class="col-7">
+                                                <div class="card-body my-0">
+                                                    <div class="card-text text-dark">
+                                                        <a href="#"
+                                                           class="text-decoration-none text-dark text-uppercase">
+                                                                ${order.tensp} <!-- Hiển thị tên sản phẩm -->
+                                                        </a>
+                                                    </div>
+                                                    <div class="text-dark" style="font-size:14px">x ${order.solg}</div>
+                                                    <!-- Hiển thị số lượng -->
+                                                </div>
+                                            </div>
+                                            <div class="col-3 mt-3">
+                                                <small class="text-dark">
+                                                    <fmt:formatNumber value="${order.price}" type="number"
+                                                                      groupingUsed="true"/> VND</small>
+                                                <!-- Hiển thị giá -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:forEach>
+                        </div>
+
+                        <div class="total-amount">
+                            <h6>Tổng số tiền: </h6>
+                            <h3 style="color:#ee4d2d">
+                                <fmt:formatNumber value="${group.value[0].totalprice}" type="number"
+                                                  groupingUsed="true"/> VND
+                            </h3>
+                            <!-- Hiển thị địa chỉ giao hàng -->
+                            <p><strong>Địa chỉ giao
+                                hàng:</strong> ${group.value[0].diachigiao}
+                            </p>
+
+                            <!-- Hiển thị trạng thái sản phẩm -->
+                            <p><strong>Trạng thái sản phẩm:</strong>
+                                <span style="color:${group.value[0].status == 'Đã giao' ? 'green' : 'red'};">
+                                        ${group.value[0].status}
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <hr style="border: 5px solid #ccc; margin: 20px 0;">
+                </c:forEach>
 
 
             </div>

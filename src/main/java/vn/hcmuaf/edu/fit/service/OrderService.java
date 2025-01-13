@@ -186,15 +186,35 @@ public class OrderService {
 
     // Phương thức lấy danh sách đơn hàng và chi tiết sản phẩm trong đơn hàng dựa trên MAHD
     public static List<DetailRecipe> getOrderDetailsByIdUser(String idUser) {
-        // Câu truy vấn SQL
-        String sql = "SELECT hd.MAHD, hd.THANHTIEN, cthd.SL, hd.TRANGTHAI, kh.DIACHI, asp.Anh, cthd.MaSP, sp.TENSP, sp.GIA " +
-                "FROM taikhoan tk " +
-                "JOIN khachhang kh ON tk.ID = kh.MATAIKHOAN " +
-                "JOIN hoadon hd ON kh.MAKH = hd.MAKH " +
-                "JOIN cthd ON hd.MAHD = cthd.MAHD " +
-                "JOIN anhsp asp ON cthd.MaSP = asp.MaSP " +
-                "JOIN sanpham sp ON cthd.MaSP = sp.MaSP " +
-                "WHERE tk.ID = ?";
+        String sql = "SELECT \n" +
+                "    hd.MAHD,\n" +
+                "    hd.THANHTIEN,\n" +
+                "    cthd.SL,\n" +
+                "    hd.TRANGTHAI,\n" +
+                "    kh.DIACHI,\n" +
+                "    GROUP_CONCAT(DISTINCT asp.Anh SEPARATOR ', ') AS Anh,\n" +
+                "    sp.MaSP,\n" +
+                "    sp.TENSP,\n" +
+                "    sp.GIA\n" +
+                "FROM \n" +
+                "    taikhoan tk\n" +
+                "JOIN \n" +
+                "    khachhang kh ON tk.ID = kh.MATAIKHOAN\n" +
+                "JOIN \n" +
+                "    hoadon hd ON kh.MAKH = hd.MAKH\n" +
+                "JOIN \n" +
+                "    cthd ON hd.MAHD = cthd.MAHD\n" +
+                "JOIN \n" +
+                "    anhsp asp ON cthd.MaSP = asp.MaSP\n" +
+                "JOIN \n" +
+                "    sanpham sp ON cthd.MaSP = sp.MaSP\n" +
+                "WHERE \n" +
+                "    tk.ID = ?\n" +
+                "GROUP BY \n" +
+                "    hd.MAHD, hd.THANHTIEN, hd.TRANGTHAI, kh.DIACHI, sp.MaSP, sp.TENSP, sp.GIA, cthd.SL\n" +
+                "ORDER BY \n" +
+                "    hd.MAHD DESC;\n";
+
 
         List<DetailRecipe> orderDetails = new ArrayList<>();
 
@@ -217,15 +237,25 @@ public class OrderService {
                     int solg = resultSet.getInt("SL");
                     int price = resultSet.getInt("GIA");
                     String anhsp = resultSet.getString("Anh");
+                    int status = resultSet.getInt("TRANGTHAI");
 
+                    float total = resultSet.getFloat("THANHTIEN");
+                    String address = resultSet.getString("DIACHI");
                     // Tạo danh sách ảnh sản phẩm
                     List<String> images = new ArrayList<>();
-                    if (anhsp != null) {
-                        images.add(anhsp); // Thêm ảnh sản phẩm vào danh sách ảnh
+
+                    if (anhsp != null && !anhsp.isEmpty()) {
+                        // Tách chuỗi ảnh và lấy ảnh thứ 2 nếu có
+                        String[] imageArray = anhsp.split(",");
+                        if (imageArray.length >= 2) {
+                            images.add(imageArray[2]);  // Lấy ảnh thứ 2 (chỉ mục 1)
+                        } else {
+                            images.add(imageArray[0]);  // Nếu không có ảnh thứ 2, lấy ảnh đầu tiên
+                        }
                     }
 
                     // Tạo đối tượng DetailRecipe cho sản phẩm trong đơn hàng
-                    DetailRecipe detail = new DetailRecipe(maHD, masp, tensp, solg, images, price);
+                    DetailRecipe detail = new DetailRecipe(maHD, masp, tensp, solg, images, price, address, total, status);
                     orderDetails.add(detail);
                 }
             } else {
