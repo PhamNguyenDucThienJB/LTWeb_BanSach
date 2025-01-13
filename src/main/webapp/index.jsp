@@ -169,7 +169,7 @@
             <div class="categories__slider owl-carousel">
                 <div class="col-lg-3">
                     <div class="categories__item set-bg" data-setbg="img/product/S001/sach11.jpg">
-                        <h5><a href="./shop-details.html">Luân Lý</a></h5>
+                        <h5><a href="book-details.jsp">Luân Lý</a></h5>
                     </div>
                 </div>
                 <div class="col-lg-3">
@@ -184,12 +184,12 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="categories__item set-bg" data-setbg="img/product/S001/sach10.jpg">
-                        <h5><a href="./shop-details.html">Ngược Dòng</a></h5>
+                        <h5><a href="book-details.jsp">Ngược Dòng</a></h5>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="categories__item set-bg" data-setbg="img/product/S001/sach9.jpg">
-                        <h5><a href="./shop-details.html">Đức Mẹ Maria</a></h5>
+                        <h5><a href="book-details.jsp">Đức Mẹ Maria</a></h5>
                     </div>
                 </div>
             </div>
@@ -218,148 +218,148 @@
     </div>
 </section>
 <!-- Featured Section Begin -->
-<section class="featured spad">
-    <div class="container" style="background-color: #FFF8F2;">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="featured__controls">
-                    <div class="section-title">
-                        <h2>Danh Sách Sản Phẩm</h2>
-                    </div>
-                    <ul>
-                        <li class="active" data-filter="*">Tất cả</li>
-                        <li data-filter=".traditional">Kinh Thánh</li>
-                        <li data-filter=".modern">Khoa học</li>
-                        <li data-filter=".lover">Truyện Dài</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row featured__filter">
-            <div class="col-lg-3 col-md-4 col-sm-6 mix traditional lover">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="img/product/B012/banh1.jpg">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="./shop-details.html">Bánh sinh nhật</a></h6>
-                        <h5>300,000 VND</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix traditional">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="img/product/B013/banh1.jpg">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="./shop-details.html">Bánh sinh nhật</a></h6>
-                        <h5>300,000 VND</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix traditional">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="img/product/B014/banh2.jpg">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="./shop-details.html">Bánh sinh nhật</a></h6>
-                        <h5>300,000 VND</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix traditional lover">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="img/product/B015/banh1.jpg">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="./shop-details.html">Bánh sinh nhật</a></h6>
-                        <h5>300,000 VND</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix lover modern">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="img/product/B016/banh1.jpg">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="./shop-details.html">Bánh sinh nhật</a></h6>
-                        <h5>300,000 VND</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix lover modern">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="img/product/B017/banh1.jpg">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="./shop-details.html">Bánh sinh nhật</a></h6>
-                        <h5>300,000 VND</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix modern">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="img/product/B018/banh1.jpg">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="./shop-details.html">Bánh sinh nhật</a></h6>
-                        <h5>300,000 VND</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix modern">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="img/product/B019/banh1.jpg">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="./shop-details.html">Bánh sinh nhật</a></h6>
-                        <h5>300,000 VND</h5>
-                    </div>
-                </div>
-            </div>
-            <a href="shop-product.jsp" type="button" class="btn btn_pink py-md-3 px-md-5 mt-2 btn-rm">Xem tất cả</a>
-        </div>
-    </div>
-</section>
+<%--<section class="featured spad">--%>
+<%--    <div class="container" style="background-color: #FFF8F2;">--%>
+<%--        <div class="row">--%>
+<%--            <div class="col-lg-12">--%>
+<%--                <div class="featured__controls">--%>
+<%--                    <div class="section-title">--%>
+<%--                        <h2>Danh Sách Sản Phẩm</h2>--%>
+<%--                    </div>--%>
+<%--                    <ul>--%>
+<%--                        <li class="active" data-filter="*">Tất cả</li>--%>
+<%--                        <li data-filter=".traditional">Kinh Thánh</li>--%>
+<%--                        <li data-filter=".modern">Khoa học</li>--%>
+<%--                        <li data-filter=".lover">Truyện Dài</li>--%>
+<%--                    </ul>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        <div class="row featured__filter">--%>
+<%--            <div class="col-lg-3 col-md-4 col-sm-6 mix traditional lover">--%>
+<%--                <div class="featured__item">--%>
+<%--                    <div class="featured__item__pic set-bg" data-setbg="img/product/B012/banh1.jpg">--%>
+<%--                        <ul class="featured__item__pic__hover">--%>
+<%--                            <li><a href="#"><i class="fa fa-heart"></i></a></li>--%>
+<%--                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>--%>
+<%--                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>--%>
+<%--                        </ul>--%>
+<%--                    </div>--%>
+<%--                    <div class="featured__item__text">--%>
+<%--                        <h6><a href="book-details.jsp">Bánh sinh nhật</a></h6>--%>
+<%--                        <h5>300,000 VND</h5>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--            <div class="col-lg-3 col-md-4 col-sm-6 mix traditional">--%>
+<%--                <div class="featured__item">--%>
+<%--                    <div class="featured__item__pic set-bg" data-setbg="img/product/B013/banh1.jpg">--%>
+<%--                        <ul class="featured__item__pic__hover">--%>
+<%--                            <li><a href="#"><i class="fa fa-heart"></i></a></li>--%>
+<%--                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>--%>
+<%--                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>--%>
+<%--                        </ul>--%>
+<%--                    </div>--%>
+<%--                    <div class="featured__item__text">--%>
+<%--                        <h6><a href="book-details.jsp">Bánh sinh nhật</a></h6>--%>
+<%--                        <h5>300,000 VND</h5>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--            <div class="col-lg-3 col-md-4 col-sm-6 mix traditional">--%>
+<%--                <div class="featured__item">--%>
+<%--                    <div class="featured__item__pic set-bg" data-setbg="img/product/B014/banh2.jpg">--%>
+<%--                        <ul class="featured__item__pic__hover">--%>
+<%--                            <li><a href="#"><i class="fa fa-heart"></i></a></li>--%>
+<%--                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>--%>
+<%--                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>--%>
+<%--                        </ul>--%>
+<%--                    </div>--%>
+<%--                    <div class="featured__item__text">--%>
+<%--                        <h6><a href="book-details.jsp">Bánh sinh nhật</a></h6>--%>
+<%--                        <h5>300,000 VND</h5>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--            <div class="col-lg-3 col-md-4 col-sm-6 mix traditional lover">--%>
+<%--                <div class="featured__item">--%>
+<%--                    <div class="featured__item__pic set-bg" data-setbg="img/product/B015/banh1.jpg">--%>
+<%--                        <ul class="featured__item__pic__hover">--%>
+<%--                            <li><a href="#"><i class="fa fa-heart"></i></a></li>--%>
+<%--                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>--%>
+<%--                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>--%>
+<%--                        </ul>--%>
+<%--                    </div>--%>
+<%--                    <div class="featured__item__text">--%>
+<%--                        <h6><a href="book-details.jsp">Bánh sinh nhật</a></h6>--%>
+<%--                        <h5>300,000 VND</h5>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--            <div class="col-lg-3 col-md-4 col-sm-6 mix lover modern">--%>
+<%--                <div class="featured__item">--%>
+<%--                    <div class="featured__item__pic set-bg" data-setbg="img/product/B016/banh1.jpg">--%>
+<%--                        <ul class="featured__item__pic__hover">--%>
+<%--                            <li><a href="#"><i class="fa fa-heart"></i></a></li>--%>
+<%--                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>--%>
+<%--                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>--%>
+<%--                        </ul>--%>
+<%--                    </div>--%>
+<%--                    <div class="featured__item__text">--%>
+<%--                        <h6><a href="book-details.jsp">Bánh sinh nhật</a></h6>--%>
+<%--                        <h5>300,000 VND</h5>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--            <div class="col-lg-3 col-md-4 col-sm-6 mix lover modern">--%>
+<%--                <div class="featured__item">--%>
+<%--                    <div class="featured__item__pic set-bg" data-setbg="img/product/B017/banh1.jpg">--%>
+<%--                        <ul class="featured__item__pic__hover">--%>
+<%--                            <li><a href="#"><i class="fa fa-heart"></i></a></li>--%>
+<%--                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>--%>
+<%--                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>--%>
+<%--                        </ul>--%>
+<%--                    </div>--%>
+<%--                    <div class="featured__item__text">--%>
+<%--                        <h6><a href="book-details.jsp">Bánh sinh nhật</a></h6>--%>
+<%--                        <h5>300,000 VND</h5>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--            <div class="col-lg-3 col-md-4 col-sm-6 mix modern">--%>
+<%--                <div class="featured__item">--%>
+<%--                    <div class="featured__item__pic set-bg" data-setbg="img/product/B018/banh1.jpg">--%>
+<%--                        <ul class="featured__item__pic__hover">--%>
+<%--                            <li><a href="#"><i class="fa fa-heart"></i></a></li>--%>
+<%--                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>--%>
+<%--                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>--%>
+<%--                        </ul>--%>
+<%--                    </div>--%>
+<%--                    <div class="featured__item__text">--%>
+<%--                        <h6><a href="book-details.jsp">Bánh sinh nhật</a></h6>--%>
+<%--                        <h5>300,000 VND</h5>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--            <div class="col-lg-3 col-md-4 col-sm-6 mix modern">--%>
+<%--                <div class="featured__item">--%>
+<%--                    <div class="featured__item__pic set-bg" data-setbg="img/product/B019/banh1.jpg">--%>
+<%--                        <ul class="featured__item__pic__hover">--%>
+<%--                            <li><a href="#"><i class="fa fa-heart"></i></a></li>--%>
+<%--                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>--%>
+<%--                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>--%>
+<%--                        </ul>--%>
+<%--                    </div>--%>
+<%--                    <div class="featured__item__text">--%>
+<%--                        <h6><a href="book-details.jsp">Bánh sinh nhật</a></h6>--%>
+<%--                        <h5>300,000 VND</h5>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--            <a href="shop-product.jsp" type="button" class="btn btn_pink py-md-3 px-md-5 mt-2 btn-rm">Xem tất cả</a>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</section>--%>
 <!-- Featured Section End -->
 
 <!-- Blog Section Begin -->
@@ -383,7 +383,7 @@
                             <li><i class="fa fa-calendar-o"></i> 22-10-2022</li>
 
                         </ul>
-                        <h5><a href="blog-details.jsp">Giải mã sức hút của bánh kem hiện đại</a></h5>
+                        <h5><a href="blog-details.jsp">Khó khắn trước mắt những báo tôi quật ngã...</a></h5>
                         <p class="text-justify">Trong những bữa tiệc quan trọng bánh kem góp phần mang đến cho không
                             khí thêm phần hoàn hảo. Sự xuất hiện của bánh kem hiện đại như một bước ngoặt mới...
                         </p>
@@ -402,7 +402,7 @@
                             <li><i class="fa fa-calendar-o"></i> 22-10-2022</li>
 
                         </ul>
-                        <h5><a href="blog-details-2.html">Tổng hợp cách bảo quản bánh kem cực đơn giản</a></h5>
+                        <h5><a href="blog-details-2.html">Những điều nhỏ nhặt bị lãng quên...</a></h5>
                         <p class="text-justify">Các loại bánh kem khi không dùng hết hoặc chưa dùng đến bạn đều phải
                             bảo quản đúng cách, để giúp bánh giữ nguyên hương vị. Cùng tìm hiểu cách bảo quản bánh
                             kem cực đơn giản... </p>
@@ -421,10 +421,8 @@
                             <li><i class="fa fa-calendar-o"></i>22-10-2022</li>
 
                         </ul>
-                        <h5><a href="blog-details-3.html">Chọn bánh kem cho những ngày kỷ niệm ý nghĩa</a></h5>
-                        <p class="text-justify">Ngày nay, bánh kem không chỉ xuất hiện vào duy nhất sinh nhật mà bất
-                            cứ dịp kỷ niệm nào cũng có thể sử dụng. Cùng tìm hiểu các dịp kỷ niệm ý nghĩa nên sử
-                            dụng bánh kem và cách chọn sao cho phù hợp nhất...</p>
+                        <h5><a href="blog-details-3.html">Khi công nghệ đóng chiếm...</a></h5>
+                        <p class="text-justify">Khi mà công nghệ càng phát triển...</p>
                         <a href="blog-details-3.html" class="blog__btn">Xem thêm <span class="arrow_right"></span>
                         </a>
                     </div>

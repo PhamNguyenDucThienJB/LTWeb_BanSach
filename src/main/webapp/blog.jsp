@@ -71,67 +71,67 @@
 <section class="blog spad">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-5">
-                <div class="blog__sidebar">
-                    <div class="blog__sidebar__search">
-                        <form action="#">
-                            <input type="text" placeholder="Tìm kiếm...">
-                            <button type="submit"><span class="icon_search"></span></button>
-                        </form>
-                    </div>
-                    <div class="blog__sidebar__item">
-                        <h4>Danh mục</h4>
-                        <ul>
-                            <li><a href="./blog.jsp">Tất cả</a></li>
-                            <li><a href="#">Đời sống (3)</a></li>
-                            <li><a href="./blog-details-3.html">Kỷ niệm (1)</a></li>
+<%--            <div class="col-lg-4 col-md-5">--%>
+<%--                <div class="blog__sidebar">--%>
+<%--                    <div class="blog__sidebar__search">--%>
+<%--                        <form action="#">--%>
+<%--                            <input type="text" placeholder="Tìm kiếm...">--%>
+<%--                            <button type="submit"><span class="icon_search"></span></button>--%>
+<%--                        </form>--%>
+<%--                    </div>--%>
+<%--                    <div class="blog__sidebar__item">--%>
+<%--                        <h4>Danh mục</h4>--%>
+<%--                        <ul>--%>
+<%--                            <li><a href="./blog.jsp">Tất cả</a></li>--%>
+<%--                            <li><a href="#">Đời sống (3)</a></li>--%>
+<%--                            <li><a href="./blog-details-3.html">Kỷ niệm (1)</a></li>--%>
 
-                        </ul>
-                    </div>
-                    <div class="blog__sidebar__item">
-                        <h4>Tin mới nhất</h4>
-                        <div class="blog__sidebar__recent">
-                            <a href="blog-details.jsp" class="blog__sidebar__recent__item">
-                                <div class="blog__sidebar__recent__item__pic">
-                                    <img src="img/blog/sidebar/blog1.png" alt="">
-                                </div>
-                                <div class="blog__sidebar__recent__item__text">
-                                    <h6>Giải mã sức hút của<br/> bánh kem hiện đại</h6>
-                                    <span>22-10-2022</span>
-                                </div>
-                            </a>
-                            <a href="blog-details-2.html" class="blog__sidebar__recent__item">
-                                <div class="blog__sidebar__recent__item__pic">
-                                    <img src="img/blog/sidebar/blog2.jpg" alt="">
-                                </div>
-                                <div class="blog__sidebar__recent__item__text">
-                                    <h6>Tổng hợp cách bảo quản <br/>bánh kem cực đơn giản</h6>
-                                    <span>22-10-2022</span>
-                                </div>
-                            </a>
-                            <a href="blog-details-3.html" class="blog__sidebar__recent__item">
-                                <div class="blog__sidebar__recent__item__pic">
-                                    <img src="img/blog/sidebar/blog3.jpg" alt="">
-                                </div>
-                                <div class="blog__sidebar__recent__item__text">
-                                    <h6>Chọn bánh kem cho những <br/>ngày kỷ niệm ý nghĩa</h6>
-                                    <span>22-10-2022</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="blog__sidebar__item">
-                        <h4>Chủ đề</h4>
-                        <div class="blog__sidebar__item__tags">
-                            <a href="./blog.jsp">Bánh kem</a>
-                            <a href="blog-details.jsp">Hiện đại</a>
-                            <a href="./blog-details-2.html">Bảo quản bánh</a>
-                            <a href="./blog-details-3.html">Chọn bánh</a>
-                            <a href="./blog-details-4.html">Ý nghĩa bánh</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<%--                        </ul>--%>
+<%--                    </div>--%>
+<%--                    <div class="blog__sidebar__item">--%>
+<%--                        <h4>Tin mới nhất</h4>--%>
+<%--                        <div class="blog__sidebar__recent">--%>
+<%--                            <a href="blog-details.jsp" class="blog__sidebar__recent__item">--%>
+<%--                                <div class="blog__sidebar__recent__item__pic">--%>
+<%--                                    <img src="img/blog/sidebar/blog1.png" alt="">--%>
+<%--                                </div>--%>
+<%--                                <div class="blog__sidebar__recent__item__text">--%>
+<%--                                    <h6>Giải mã sức hút của<br/> bánh kem hiện đại</h6>--%>
+<%--                                    <span>22-10-2022</span>--%>
+<%--                                </div>--%>
+<%--                            </a>--%>
+<%--                            <a href="blog-details-2.html" class="blog__sidebar__recent__item">--%>
+<%--                                <div class="blog__sidebar__recent__item__pic">--%>
+<%--                                    <img src="img/blog/sidebar/blog2.jpg" alt="">--%>
+<%--                                </div>--%>
+<%--                                <div class="blog__sidebar__recent__item__text">--%>
+<%--                                    <h6>Tổng hợp cách bảo quản <br/>bánh kem cực đơn giản</h6>--%>
+<%--                                    <span>22-10-2022</span>--%>
+<%--                                </div>--%>
+<%--                            </a>--%>
+<%--                            <a href="blog-details-3.html" class="blog__sidebar__recent__item">--%>
+<%--                                <div class="blog__sidebar__recent__item__pic">--%>
+<%--                                    <img src="img/blog/sidebar/blog3.jpg" alt="">--%>
+<%--                                </div>--%>
+<%--                                <div class="blog__sidebar__recent__item__text">--%>
+<%--                                    <h6>Chọn bánh kem cho những <br/>ngày kỷ niệm ý nghĩa</h6>--%>
+<%--                                    <span>22-10-2022</span>--%>
+<%--                                </div>--%>
+<%--                            </a>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                    <div class="blog__sidebar__item">--%>
+<%--                        <h4>Chủ đề</h4>--%>
+<%--                        <div class="blog__sidebar__item__tags">--%>
+<%--                            <a href="./blog.jsp">Bánh kem</a>--%>
+<%--                            <a href="blog-details.jsp">Hiện đại</a>--%>
+<%--                            <a href="./blog-details-2.html">Bảo quản bánh</a>--%>
+<%--                            <a href="./blog-details-3.html">Chọn bánh</a>--%>
+<%--                            <a href="./blog-details-4.html">Ý nghĩa bánh</a>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
             <div class="col-lg-8 col-md-7">
                 <div class="row">
                     <c:forEach var="list" items="${listBlogs}">

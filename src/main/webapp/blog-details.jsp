@@ -72,93 +72,93 @@
 <section class="blog-details spad">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-5 order-md-1 order-2">
-                <div class="blog__sidebar">
-                    <div class="blog__sidebar__search">
-                        <form action="#">
-                            <input type="text" placeholder="<fmt:message bundle="${bundle}"  key='menu.search.placeholder'/>">
-                            <button type="submit"><span class="icon_search"></span></button>
-                        </form>
-                    </div>
-                    <div class="blog__sidebar__item">
-                        <h4>Danh mục</h4>
-                        <ul>
-                            <li><a href="blog.jsp">Tất cả</a></li>
-                            <li><a href="blog.jsp">Đời sống(3)</a></li>
-                            <li><a href="./blog-details-3.html">Kỉ niệm(1)</a></li>
-                        </ul>
-                    </div>
-                    <div class="blog__sidebar__item">
-                        <h4>Tin mới nhất</h4>
-                        <div class="blog__sidebar__recent">
-                            <a href="#" class="blog__sidebar__recent__item">
-                                <div class="blog__sidebar__recent__item__pic">
-                                    <img src="img/blog/sidebar/blog1.png" alt="">
-                                </div>
-                                <div class="blog__sidebar__recent__item__text">
-                                    <h6>Giải mã sức hút<br/>của bánh kem hiện đại</h6>
-                                    <span>22-10-2022</span>
-                                </div>
-                            </a>
-                            <a href="blog-details-2.html" class="blog__sidebar__recent__item">
-                                <div class="blog__sidebar__recent__item__pic">
-                                    <img src="img/blog/sidebar/blog2.jpg" alt="">
-                                </div>
-                                <div class="blog__sidebar__recent__item__text">
-                                    <h6>Tổng hợp cách bảo quản <br/>bánh kem cực đơn giản</h6>
-                                    <span>22-10-2022</span>
-                                </div>
-                            </a>
-                            <a href="blog-details-3.html" class="blog__sidebar__recent__item">
-                                <div class="blog__sidebar__recent__item__pic">
-                                    <img src="img/blog/sidebar/blog3.jpg" alt="">
-                                </div>
-                                <div class="blog__sidebar__recent__item__text">
-                                    <h6>Chọn bánh kem cho những <br/>ngày kỷ niệm ý nghĩa</h6>
-                                    <span>22-10-2022</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="blog__sidebar__item">
-                        <h4>Chủ đề</h4>
-                        <div class="blog__sidebar__item__tags">
-                            <a href="blog.jsp">Bánh kem</a>
-                            <a href="./blog-details.jsp">Hiện đại</a>
-                            <a href="./blog-details-2.html">Bảo quản bánh</a>
-                            <a href="./blog-details-3.html">Chọn bánh</a>
-                            <a href="./blog-details-4.html">Ý nghĩa bánh</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<%--            <div class="col-lg-4 col-md-5 order-md-1 order-2">--%>
+<%--                <div class="blog__sidebar">--%>
+<%--                    <div class="blog__sidebar__search">--%>
+<%--                        <form action="#">--%>
+<%--                            <input type="text" placeholder="<fmt:message bundle="${bundle}"  key='menu.search.placeholder'/>">--%>
+<%--                            <button type="submit"><span class="icon_search"></span></button>--%>
+<%--                        </form>--%>
+<%--                    </div>--%>
+<%--                    <div class="blog__sidebar__item">--%>
+<%--                        <h4>Danh mục</h4>--%>
+<%--                        <ul>--%>
+<%--                            <li><a href="blog.jsp">Tất cả</a></li>--%>
+<%--                            <li><a href="blog.jsp">Đời sống(3)</a></li>--%>
+<%--                            <li><a href="./blog-details-3.html">Kỉ niệm(1)</a></li>--%>
+<%--                        </ul>--%>
+<%--                    </div>--%>
+<%--                    <div class="blog__sidebar__item">--%>
+<%--                        <h4>Tin mới nhất</h4>--%>
+<%--                        <div class="blog__sidebar__recent">--%>
+<%--                            <a href="#" class="blog__sidebar__recent__item">--%>
+<%--                                <div class="blog__sidebar__recent__item__pic">--%>
+<%--                                    <img src="img/blog/sidebar/blog1.png" alt="">--%>
+<%--                                </div>--%>
+<%--                                <div class="blog__sidebar__recent__item__text">--%>
+<%--                                    <h6>Giải mã sức hút<br/>của bánh kem hiện đại</h6>--%>
+<%--                                    <span>22-10-2022</span>--%>
+<%--                                </div>--%>
+<%--                            </a>--%>
+<%--                            <a href="blog-details-2.html" class="blog__sidebar__recent__item">--%>
+<%--                                <div class="blog__sidebar__recent__item__pic">--%>
+<%--                                    <img src="img/blog/sidebar/blog2.jpg" alt="">--%>
+<%--                                </div>--%>
+<%--                                <div class="blog__sidebar__recent__item__text">--%>
+<%--                                    <h6>Tổng hợp cách bảo quản <br/>bánh kem cực đơn giản</h6>--%>
+<%--                                    <span>22-10-2022</span>--%>
+<%--                                </div>--%>
+<%--                            </a>--%>
+<%--                            <a href="blog-details-3.html" class="blog__sidebar__recent__item">--%>
+<%--                                <div class="blog__sidebar__recent__item__pic">--%>
+<%--                                    <img src="img/blog/sidebar/blog3.jpg" alt="">--%>
+<%--                                </div>--%>
+<%--                                <div class="blog__sidebar__recent__item__text">--%>
+<%--                                    <h6>Chọn bánh kem cho những <br/>ngày kỷ niệm ý nghĩa</h6>--%>
+<%--                                    <span>22-10-2022</span>--%>
+<%--                                </div>--%>
+<%--                            </a>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                    <div class="blog__sidebar__item">--%>
+<%--                        <h4>Chủ đề</h4>--%>
+<%--                        <div class="blog__sidebar__item__tags">--%>
+<%--                            <a href="blog.jsp">Bánh kem</a>--%>
+<%--                            <a href="./blog-details.jsp">Hiện đại</a>--%>
+<%--                            <a href="./blog-details-2.html">Bảo quản bánh</a>--%>
+<%--                            <a href="./blog-details-3.html">Chọn bánh</a>--%>
+<%--                            <a href="./blog-details-4.html">Ý nghĩa bánh</a>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
             <div class="col-lg-8 col-md-7 order-md-1 order-1">
                 <div class="blog__details__text">
                     <h3 class="text-center cochu-blog" style="text-transform: uppercase;">${blog.title}</h3>
                     <img src="${blog.img}" alt="" class="image-blog">
                     <h4>${auth.tentk}</h4>
-                    <p class="text-justify">Sở dĩ bánh kem được làm theo phong cách hiện đại được mọi người ưa chuộng vì
-                        nhiều lý do. Nhưng phải nhắc đến đó là hương vị bánh thơm ngon, kiểu dáng độc đáo, kích thước và
-                        màu sắc đa dạng. Bên cạnh đó phải kể đến những điểm đặc biệt sau đây.</p>
-                    <h4>1. Tất cả nguyên liệu đều là tự nhiên.</h4>
-                    <p class="text-justify">Kế thừa tinh hoa ẩm thực cũ được sáng tạo, thay đổi phù hợp với xu thế mới
-                        của thời đại, chiếc bánh kem còn là món ăn tốt cho sức khỏe. Dưới bàn tay khéo léo của những
-                        người thợ làm bánh cho ra đời sản phẩm đẹp và độc đáo. Bánh kem hiện đại sử dụng nguyên liệu tự
-                        nhiên không chứa chất độc hại. Màu sắc nhẹ nhàng không sử dụng hóa chất.<br>
-                        Sử dụng một số loại quả có màu đậm sẽ tạo nên những màu sắc đẹp mắt. Chẳng hạn để tạo nên màu đỏ
-                        có thể dùng quả thanh long hoặc dâu tây. Tùy thuộc vào yêu cầu của bánh kem hãy chọn loại quả
-                        phù hợp. Và bạn yên tâm rằng chúng an toàn vì không chứa hóa chất. Đặc biệt hoa quả còn là thực
-                        phẩm cần thiết để tăng cường sức khỏe.</p>
-                    <span id="bld1"> <h4>2. Tạo hình và trang trí bánh kem sáng tạo, độc đáo.</h4>
-                        <p class="text-justify">Khi nhìn ngắm bánh kem hiện đại chắc chắn bạn sẽ phải ngạc nhiên và ngưỡng mộ tài năng của những người thợ làm bánh. Mỗi mẫu bánh khác nhau về hình dáng, màu sắc và được tạo hình mới mẻ. Bạn có thể thấy sự sáng tạo không có giới hạn khi được chiêm ngưỡng những chiếc bánh kem đó.<br>
-                            Đã bao giờ bạn thấy những chiếc bánh được trang trí với rất nhiều bông hoa, bánh in hình ảnh. Hay những chiếc bánh được tạo hình các con vật ngộ nghĩnh, nhân vật hoạt hình vui nhộn. Nếu lần đầu nhìn thấy những mẫu bánh kem như vậy bạn sẽ không nỡ ăn chúng. Bởi vì tạo hình của chúng không thể tự nhiên hơn.</p>
-                      <h4>3. Hương vị đặc biệt thơm ngon</h4>
-                          <p class="text-justify">Một lý do khiến bánh hiện đại được các tín đồ hảo ngọt yêu thích đó chính là hương vị. Nhiều người nghĩ rằng bánh kem ăn rất nhanh chán vị quá ngọt, quá béo. Thế nhưng bánh kem hiện đại đã hạn chế được những nhược điểm đó. Hương vị thơm ngon được tạo nên từ nguyên liệu tươi ngon, an toàn. Chỉ một lần thưởng thức chúng bạn sẽ nhớ mãi vị bánh.<br>
+<%--                    <p class="text-justify">Sở dĩ bánh kem được làm theo phong cách hiện đại được mọi người ưa chuộng vì--%>
+<%--                        nhiều lý do. Nhưng phải nhắc đến đó là hương vị bánh thơm ngon, kiểu dáng độc đáo, kích thước và--%>
+<%--                        màu sắc đa dạng. Bên cạnh đó phải kể đến những điểm đặc biệt sau đây.</p>--%>
+<%--                    <h4>1. Tất cả nguyên liệu đều là tự nhiên.</h4>--%>
+<%--                    <p class="text-justify">Kế thừa tinh hoa ẩm thực cũ được sáng tạo, thay đổi phù hợp với xu thế mới--%>
+<%--                        của thời đại, chiếc bánh kem còn là món ăn tốt cho sức khỏe. Dưới bàn tay khéo léo của những--%>
+<%--                        người thợ làm bánh cho ra đời sản phẩm đẹp và độc đáo. Bánh kem hiện đại sử dụng nguyên liệu tự--%>
+<%--                        nhiên không chứa chất độc hại. Màu sắc nhẹ nhàng không sử dụng hóa chất.<br>--%>
+<%--                        Sử dụng một số loại quả có màu đậm sẽ tạo nên những màu sắc đẹp mắt. Chẳng hạn để tạo nên màu đỏ--%>
+<%--                        có thể dùng quả thanh long hoặc dâu tây. Tùy thuộc vào yêu cầu của bánh kem hãy chọn loại quả--%>
+<%--                        phù hợp. Và bạn yên tâm rằng chúng an toàn vì không chứa hóa chất. Đặc biệt hoa quả còn là thực--%>
+<%--                        phẩm cần thiết để tăng cường sức khỏe.</p>--%>
+<%--                    <span id="bld1"> <h4>2. Tạo hình và trang trí bánh kem sáng tạo, độc đáo.</h4>--%>
+<%--                        <p class="text-justify">Khi nhìn ngắm bánh kem hiện đại chắc chắn bạn sẽ phải ngạc nhiên và ngưỡng mộ tài năng của những người thợ làm bánh. Mỗi mẫu bánh khác nhau về hình dáng, màu sắc và được tạo hình mới mẻ. Bạn có thể thấy sự sáng tạo không có giới hạn khi được chiêm ngưỡng những chiếc bánh kem đó.<br>--%>
+<%--                            Đã bao giờ bạn thấy những chiếc bánh được trang trí với rất nhiều bông hoa, bánh in hình ảnh. Hay những chiếc bánh được tạo hình các con vật ngộ nghĩnh, nhân vật hoạt hình vui nhộn. Nếu lần đầu nhìn thấy những mẫu bánh kem như vậy bạn sẽ không nỡ ăn chúng. Bởi vì tạo hình của chúng không thể tự nhiên hơn.</p>--%>
+<%--                      <h4>3. Hương vị đặc biệt thơm ngon</h4>--%>
+<%--                          <p class="text-justify">Một lý do khiến bánh hiện đại được các tín đồ hảo ngọt yêu thích đó chính là hương vị. Nhiều người nghĩ rằng bánh kem ăn rất nhanh chán vị quá ngọt, quá béo. Thế nhưng bánh kem hiện đại đã hạn chế được những nhược điểm đó. Hương vị thơm ngon được tạo nên từ nguyên liệu tươi ngon, an toàn. Chỉ một lần thưởng thức chúng bạn sẽ nhớ mãi vị bánh.<br>--%>
 
-Với những người thích socola bạn có thể chọn bánh kem hương vị socola, hay vị bắp tốt cho sức khỏe. Các loại trái cây thanh mát kết hợp mang đến những chiếc bánh vẻ ngoài bắt mắt, hương vị độc lạ bên trong.<br>
+<%--Với những người thích socola bạn có thể chọn bánh kem hương vị socola, hay vị bắp tốt cho sức khỏe. Các loại trái cây thanh mát kết hợp mang đến những chiếc bánh vẻ ngoài bắt mắt, hương vị độc lạ bên trong.<br>--%>
 
-Hãy đặt mua bánh kem hiện đại để những bữa tiệc trở nên ý nghĩa hơn. Đến với Tiệm bánh Hạnh Phúc quý khách sẽ được chọn lựa một trong số rất nhiều kiểu bánh đẹp. Được sản xuất từ nguyên liệu tươi ngon, không chứa chất bảo quản sẽ khiến bạn hài lòng. Nhấc máy gọi ngay cho chúng tôi theo số Hotline 0987654321 để được phục vụ.</p>
-                      </span>
+<%--Hãy đặt mua bánh kem hiện đại để những bữa tiệc trở nên ý nghĩa hơn. Đến với Tiệm bánh Hạnh Phúc quý khách sẽ được chọn lựa một trong số rất nhiều kiểu bánh đẹp. Được sản xuất từ nguyên liệu tươi ngon, không chứa chất bảo quản sẽ khiến bạn hài lòng. Nhấc máy gọi ngay cho chúng tôi theo số Hotline 0987654321 để được phục vụ.</p>--%>
+<%--                      </span>--%>
                     <span id="readmore" type="button" class="blog__btn" onclick="myFunction()">Xem thêm</span>
                     <div class="blog__details__content">
                         <div class="row">

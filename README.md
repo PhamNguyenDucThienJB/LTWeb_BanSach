@@ -1,26 +1,31 @@
-
 # Member:
-  + 20130410 Phạm Nguyễn Đức Thiện
-  + 21130481 Phạm Vĩnh Phúc
 
-## ProJect Website Book Store: 
-    Model USE: MCV, Singleton
++ 20130410 Phạm Nguyễn Đức Thiện
++ 21130481 Phạm Vĩnh Phúc
 
-    Front-End: HTML5, CSS, Bootstrap, SWal.
+## ProJect Website Book Store:
+
+    Model USE: MVC, Singleton
+
+    Front-End:JSP, HTML5, CSS, Bootstrap, DataTables.
 
     Back-End: Servlet 3.0
 
-    Database: MySql, JDBC, JDBI, Connection Pooling DBCP
-    
+    Database: MySql, Apache DBCP2 (Database Connection Pooling) 
+
 # Tool Use:
-  + IntelliJ 
-  + Tomcat 9.0
+
++ IntelliJ
++ Tomcat 9.0
 
 # Technical was used in Project:
-  + SendMail
-  + i18N
-  + Pagination 
-  + Cookie
-  + Permissions 
-  + Authentication
- 
+
++ SendMail
++ i18N
++ Pagination
++ Permissions
++ Authentication
++ Validation
+
+     
+

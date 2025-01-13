@@ -101,7 +101,7 @@
             <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                 <div class="bg-pink rounded p-4 p-sm-5 my-4 mx-3">
                     <form id="login-form" action="/SignUpServlet" method="post">
-                        <h2 class="title-sg"><fmt:message  bundle="${bundle}"  key="signup.title"/></h2>
+                        <h2 class="title-sg"><fmt:message bundle="${bundle}" key="signup.title"/></h2>
 
                         <c:if test="${not empty error}">
                             <div class="alert alert-danger text-center" role="alert">
@@ -110,32 +110,35 @@
                         </c:if>
                         <div class="form-floating mb-3">
                             <input name="name" type="text" class="form-control" id="name_user" placeholder="jhondoe">
-                            <label for="name_user"><fmt:message  bundle="${bundle}"  key="signup.create-username"/></label>
+                            <label for="name_user"><fmt:message bundle="${bundle}"
+                                                                key="signup.create-username"/></label>
                         </div>
-                        <div onchange="check(this.value)" class="form-floating mb-3">
+                        <div class="form-floating mb-3">
                             <input name="email" type="email" class="form-control" id="email_user"
                                    placeholder="name@example.com">
-                            <label for="email_user"><fmt:message bundle="${bundle}"  key="signup.email-address"/></label>
+                            <label for="email_user"><fmt:message bundle="${bundle}" key="signup.email-address"/></label>
                         </div>
                         <div class="form-floating mb-4">
                             <input name="pass" type="password" class="form-control" id="floatingPassword"
                                    placeholder="Password">
-                            <label for="floatingPassword"><fmt:message bundle="${bundle}"  key="signup.create-password"/></label>
+                            <label for="floatingPassword"><fmt:message bundle="${bundle}"
+                                                                       key="signup.create-password"/></label>
                         </div>
                         <div class="form-floating mb-4">
                             <input name="repass" type="password" class="form-control" id="floatingPassword1"
                                    placeholder="Password">
-                            <label for="floatingPassword"><fmt:message  bundle="${bundle}" key="signup.confirm-password"/></label>
+                            <label for="floatingPassword"><fmt:message bundle="${bundle}"
+                                                                       key="signup.confirm-password"/></label>
                         </div>
                         <input type="hidden" name="save-login" value="true">
                         <button name="save-login" id="login-button" type="submit"
                                 class="btn btn-primary py-3 w-100 mb-4">
-                            <fmt:message bundle="${bundle}"  key="signup.button"/>
+                            <fmt:message bundle="${bundle}" key="signup.button"/>
                         </button>
                     </form>
                     <p class="text-center mb-0">
                         <fmt:message bundle="${bundle}" key="signup.login-link"/>
-                        <a href="signin.jsp"><fmt:message bundle="${bundle}"  key="signup.login"/></a>
+                        <a href="signin.jsp"><fmt:message bundle="${bundle}" key="signup.login"/></a>
                     </p>
                 </div>
             </div>

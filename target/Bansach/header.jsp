@@ -43,7 +43,7 @@
     </div>
     <div class="humberger__menu__cart">
         <ul>
-            <li><a href="./favorites.html"><i class="fa fa-heart"></i> <span>1</span></a></li>
+            <li><a href="favorites.jsp"><i class="fa fa-heart"></i> <span>1</span></a></li>
             <li><a href="shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
         </ul>
     </div>
@@ -146,12 +146,11 @@
                                                                 justify-content: flex-end;">
 
                         <div class="header__top__right__social">
-                            <a href="./favorites.html"><i class="fa fa-heart"></i> <span style="color: white;">1</span></a>
+                            <a href="favorites.jsp"><i class="fa fa-heart"></i> <span style="color: white;">0</span></a>
 
-                            <a href="./shoping-cart.jsp"><i class="fa fa-shopping-bag"></i> <span
+                            <a href="/ListProductCart"><i class="fa fa-shopping-bag"></i> <span
 
-                                    style="color: white;">3</span></a>
-                            <!-- <a href="https://www.instagram.com/maizecorn1542/" target="blank"><i class="fa fa-instagram"></i></a> -->
+                                    style="color: white;">${sessionScope.sizeCart != null ? sessionScope.sizeCart : 0}</span></a>
                         </div>
                         <div class="header__top__right__auth">
 
@@ -162,13 +161,14 @@
                                                        key="menu.welcomeMessage"/> ${auth.tentk} <fmt:message
                                             bundle="${bundle}" key="menu.welcomeMessage_san"/></span>
                                     <div class="header__top__right__auth__dropdown">
-                                        <a href="/shoping-cart.jsp" class="dropdown-item"><fmt:message
+                                        <a href="/ListOrder" class="dropdown-item"><fmt:message
                                                 bundle="${bundle}"
                                                 key="menu.myOrders"/></a>
                                         <a href="/page_profile.jsp" class="dropdown-item"><fmt:message
                                                 bundle="${bundle}" key="menu.myProfile"/></a>
-                                        <a class="dropdown-item"><fmt:message bundle="${bundle}"
-                                                                              key="menu.resetPassword"/></a>
+<%--                                        <a href="/resertPassWord.jsp" class="dropdown-item"><fmt:message--%>
+<%--                                                bundle="${bundle}"--%>
+<%--                                                key="menu.resetPassword"/></a>--%>
 
                                         <c:if test="${auth.checkRole(1)}">
                                             <a href="/admin/AdminIndexSL" class="dropdown-item"><fmt:message
@@ -217,7 +217,7 @@
                             <a href="about.jsp"><fmt:message bundle="${bundle}" key="menu.about"/></a>
                         </li>
                         <li class="menu-item">
-                            <a href="./shop-product"><fmt:message bundle="${bundle}" key="menu.products"/></a>
+                            <a href="./ListProduct"><fmt:message bundle="${bundle}" key="menu.products"/></a>
                         </li>
                         <li class="menu-item">
                             <a href="./ListBlog"><fmt:message bundle="${bundle}" key="menu.news"/></a>
@@ -336,6 +336,32 @@
 
 </script>
 
+<style>
+    .menu-item a {
+        color: #000; /* Màu mặc định */
+        text-decoration: none;
+    }
 
+    .menu-item.active a {
+        color: #f47920; /* Màu khi active (chọn) */
+        font-weight: bold; /* Có thể làm đậm chữ khi active */
+    }
+
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuItems = document.querySelectorAll(".menu-item a");
+        const currentUrl = window.location.pathname;
+
+        menuItems.forEach(function (item) {
+            if (item.getAttribute("href") === currentUrl) {
+                item.parentElement.classList.add("active");
+            }
+        });
+    });
+</script>
+
+
+</script>
 </header>
 

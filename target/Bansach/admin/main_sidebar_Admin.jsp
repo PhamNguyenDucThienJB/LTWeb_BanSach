@@ -16,7 +16,7 @@
                 </a>
             </li>
             <li>
-                <a href="/admin/listOrderManager.jsp">
+                <a href="/admin/ListOrderAdmin">
                     <i class="bi bi-cart-check"></i>
                     <span class="nav-text">List Order</span>
                 </a>
@@ -41,11 +41,18 @@
                 </a>
             </li>
             <li>
-                <a href="blogs.html">
+                <a href="/admin/BlogListAdmin">
                     <i class="bi bi-journal-text"></i>
                     <span class="nav-text">List Blog</span>
                 </a>
             </li>
+            <li>
+                <a href="/admin/FeedBackAdmin">
+                    <i class="bi bi-star"></i>
+                    <span class="nav-text">Feed Back</span>
+                </a>
+            </li>
+
             <li>
                 <a href="../IndexServlet">
                     <i class="bi bi-box-arrow-right"></i>
