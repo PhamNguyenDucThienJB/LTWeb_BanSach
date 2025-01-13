@@ -48,31 +48,43 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="breadcrumb__text">
-                    <h2><fmt:message key="breadcrumb.title" bundle="${bundle}"/></h2>
+                    <h2>Order List</h2>
                     <div class="breadcrumb__option">
-                        <a href="index.jsp"><fmt:message key="breadcrumb.home" bundle="${bundle}"/></a>
-                        <span><fmt:message key="breadcrumb.introduction" bundle="${bundle}"/></span>
+                        <a href="index.jsp">Home </a>
+                        <span>Order List</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<%-- Kiểm tra xem có thông báo không --%>
+<c:if test="${not empty message}">
+    <div class="alert alert-success"
+         style="text-align: center; width: 100%; display: flex; justify-content: center; align-items: center;">
+        <strong>${message}</strong>
+    </div>
+</c:if><%-- Kiểm tra xem có thông báo không --%>
 
 <section class="about spad" style="display: flex;">
+
     <div class="container-91 mx-auto">
         <div class="row">
             <div class="tab-content flex-sm-row mt-2">
 
-                <%--                <div class="cartEmpty" name="cartEmpty">--%>
-                <%--                    <img src="./img/null.png" alt="Giỏ hàng của bạn đang trống" class="d-block m-auto" width="250"/>--%>
-                <%--                    <p class="text-center font-weight-bold" style="opacity: .6;">Không có đơn hàng nào</p>--%>
-                <%--                </div>--%>
-                <div class="col-lg-12">
-                    <div class="shoping__cart__btns" style="text-align: center">
-                        <a href="./ListProduct" class="primary-btn cart-btn">Xem thêm sản phẩm </a>
-                    </div>
-                </div>
+                <%--                <c:if test="${sessionScope.cart.isEmpty()}">--%>
+                <%--                    <!-- Hiển thị thông báo khi giỏ hàng trống -->--%>
+                <%--                    <div class="cartEmpty" name="cartEmpty">--%>
+                <%--                        <img src="./img/null.png" alt="Giỏ hàng của bạn đang trống" class="d-block m-auto" width="250"/>--%>
+                <%--                        <p class="text-center font-weight-bold" style="opacity: .6;">Không có đơn hàng nào</p>--%>
+                <%--                    </div>--%>
+                <%--                    <div class="col-lg-12">--%>
+                <%--                        <div class="shoping__cart__btns" style="text-align: center">--%>
+                <%--                            <a href="./ListProduct" class="primary-btn cart-btn">Xem thêm sản phẩm</a>--%>
+                <%--                        </div>--%>
+                <%--                    </div>--%>
+                <%--                </c:if>--%>
+
                 <%--Thêm dòng kẻ ở chỗ này để tách rõ các đơn hàng--%>
                 <c:forEach var="group" items="${groupedOrders}">
                     <div class="order-group">
@@ -84,14 +96,14 @@
                                         <div class="col-6">
                                                 <%--                                                <small class="text-secondary d-inline-block pt-3 pl-3">Mã đơn hàng: ${order.mahd}</small>--%>
                                         </div>
-                                        <div class="col-6 text-right my-2 pt-2">
-                                                <%--                                                <small class="d-inline text-secondary">Trạng thái | </small>--%>
-                                            <div class="d-inline pr-3 text-uppercase"
-                                            ><span>ĐỊA CHỈ GIAO HÀNG: </span>
-                                                <span style="color:#ee4d2d; font-size:14px">${order.diachigiao}</span>
-                                                <!-- Hiển thị địa chỉ giao hàng -->
-                                            </div>
-                                        </div>
+                                            <%--                                        <div class="col-6 text-right my-2 pt-2">--%>
+                                            <%--                                                                                                <small class="d-inline text-secondary">Trạng thái | </small>--%>
+                                            <%--                                            <div class="d-inline pr-3 text-uppercase"--%>
+                                            <%--                                            ><span>ĐỊA CHỈ GIAO HÀNG: </span>--%>
+                                            <%--                                                <span style="color:#ee4d2d; font-size:14px">${order.diachigiao}</span>--%>
+                                            <%--                                                <!-- Hiển thị địa chỉ giao hàng -->--%>
+                                            <%--                                            </div>--%>
+                                            <%--                                        </div>--%>
                                     </div>
 
                                     <div class="card mb-3 border-left-0 border-right-0 border-bottom-0 mx-3">
@@ -133,15 +145,33 @@
                                                   groupingUsed="true"/> VND
                             </h3>
                             <!-- Hiển thị địa chỉ giao hàng -->
-                            <p><strong>Địa chỉ giao
-                                hàng:</strong> ${group.value[0].diachigiao}
+                            <p><strong style="color: black">Ngày đặt hàng: </strong> ${group.value[0].date}
+                            </p
+                            <p><strong style="color: black">Địa chỉ giao hàng: </strong> ${group.value[0].diachigiao}
+                            </p
+                            <p><strong style="color: black">Số Điện Thoại: </strong> ${group.value[0].tele}
                             </p>
 
                             <!-- Hiển thị trạng thái sản phẩm -->
-                            <p><strong>Trạng thái sản phẩm:</strong>
-                                <span style="color:${group.value[0].status == 'Đã giao' ? 'green' : 'red'};">
-                                        ${group.value[0].status}
-                                </span>
+                            <p><strong style="color: black">Trạng thái sản phẩm:</strong>
+                                <c:choose>
+                                <c:when test="${group.value[0].status == 0}">
+                                <span style="color:red;">Chờ xác nhận</span>
+                            <form action="/DeleteOrder" method="POST" style="display:inline;">
+                                <input type="hidden" name="idOrder" value="${group.value[0].mahd}"/>
+                                <button type="submit" class="btn btn-danger btn-sm">Hủy đơn hàng</button>
+                            </form>
+                            </c:when>
+                            <c:when test="${group.value[0].status == 1}">
+                                <span style="color:orange;">Đã xác nhận</span>
+                            </c:when>
+                            <c:when test="${group.value[0].status == 2}">
+                                <span style="color:green;">Đang giao hàng</span>
+                            </c:when>
+                            <c:otherwise>
+                                <span style="color:gray;">Không xác định</span>
+                            </c:otherwise>
+                            </c:choose>
                             </p>
                         </div>
                     </div>

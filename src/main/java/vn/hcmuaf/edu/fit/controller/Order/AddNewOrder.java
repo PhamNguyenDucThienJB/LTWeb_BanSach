@@ -60,7 +60,7 @@ public class AddNewOrder extends HttpServlet {
         order.setBuyDate(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
         order.setPriceTotal(cart.getTotalPrice());
         order.setNote(ghichu);
-        order.setTrangthai(1); // Trạng thái: 1 - Đang xử lý
+        order.setTrangthai(0); // Trạng thái: 1 - Đang xử lý
 
         // Lưu thông tin hóa đơn vào cơ sở dữ liệu
         OrderService.addOrder(order);
@@ -87,7 +87,7 @@ public class AddNewOrder extends HttpServlet {
         session.removeAttribute("cart");
 
         // Chuyển hướng người dùng đến trang xác nhận
-        response.sendRedirect("./ListProduct");
+        response.sendRedirect("./addorder-popup.jsp");
 
     }
 

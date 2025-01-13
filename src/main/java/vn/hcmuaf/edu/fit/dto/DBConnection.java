@@ -54,7 +54,7 @@ public class DBConnection {
             dataSource.setTimeBetweenEvictionRunsMillis(15000); // Tần suất kiểm tra kết nối nhàn rỗi (ms)
 
             dataSource.setInitialSize(5); // Số kết nối tạo sẵn
-            dataSource.setMaxTotal(70);   // Số kết nối tối đa
+            dataSource.setMaxTotal(20);   // Số kết nối tối đa
             dataSource.setMaxIdle(10);   // Số kết nối nhàn rỗi tối đa
             dataSource.setMinIdle(3);    // Số kết nối nhàn rỗi tối thiểu
         } catch (Exception e) {

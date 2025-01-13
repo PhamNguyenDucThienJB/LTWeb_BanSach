@@ -37,10 +37,11 @@ public class AddCart extends HttpServlet {
         if (product != null) {
             cart.addToCart(product, quantity);
             session.setAttribute("sizeCart", cart.getCount());
-            session.setAttribute("message", product.getId() + " Was added to Cart");
+            session.setAttribute("message", product.getName() + " Was added to Cart");
             System.out.println(product.getId() + " Was added to Cart");
             System.out.println(cart.getCartItems());
         } else {
+            session.setAttribute("message", "Error occurred, unable to add product to the cart.");
             System.out.println("Error Appear But I do not reason why");
         }
 

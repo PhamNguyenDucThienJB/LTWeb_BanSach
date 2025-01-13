@@ -56,7 +56,7 @@
 
 <c:if test="${empty cartItems}">
     <div class="alert alert-warning" role="alert">
-        Giỏ hàng của bạn đang trống. Vui lòng thêm sản phẩm.
+        Giỏ hàng của bạn đang trống. Vui lòng thêm <a style="" href="/ListProduct"> sản phẩm</a> .
     </div>
 </c:if>
 

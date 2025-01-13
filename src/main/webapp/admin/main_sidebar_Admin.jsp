@@ -16,7 +16,7 @@
                 </a>
             </li>
             <li>
-                <a href="/admin/listOrderManager.jsp">
+                <a href="/admin/ListOrderAdmin">
                     <i class="bi bi-cart-check"></i>
                     <span class="nav-text">List Order</span>
                 </a>

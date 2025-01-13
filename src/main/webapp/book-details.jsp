@@ -10,7 +10,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Shop Bánh Kem | Chi tiết Sản Phẩm</title>
+    <title>Books | Book Detail</title>
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -87,14 +87,14 @@
 
                     <div class="product__details__price">${detailProduct.price} VND</div>
                     <p>${detailProduct.description}</p>
-                    <div class="product__details__quantity">
-                        <div class="quantity">
-                            <div class="pro-qty">
-                                <input type="text" value="1">
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#" class="primary-btn">Thêm vào giỏ hàng</a>
+                    <form action="/AddCart" class="test" method="post" style="display:none;">
+                        <input type="hidden" name="productId" value="${detailProduct.id}">
+                        <input type="hidden" name="quantity" value="1" id="quantityInput">
+                    </form>
+
+                    <button type="button" class="primary-btn" id="addToCartBtn">Thêm vào giỏ hàng</button>
+
+
                     <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                     <ul>
                         <li><b>Tác Giả: </b> <span>${detailProduct.author}</span></li>
@@ -132,9 +132,9 @@
                         <div class="tab-pane" id="tabs-2" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>Đặc điểm:</h6>
-                                <p>- Loại Sách: Bánh hoa</p>
-                                <p>- Kích thước: Vừa</p>
-                                <p>- Khối lượng: 500g</p>
+                                <%--                                <p>- Loại Sách: Bánh hoa</p>--%>
+                                <%--                                <p>- Kích thước: Vừa</p>--%>
+                                <%--                                <p>- Khối lượng: 500g</p>--%>
                             </div>
                         </div>
                         <%--                        <div class="tab-pane" id="tabs-3" role="tabpanel">--%>
@@ -177,79 +177,79 @@
 <!-- Product Details Section End -->
 
 <!-- Related Product Section Begin -->
-<section class="related-product">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title related__product__title">
-                    <h2>Sản phẩm liên quan</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/product/B002/banh1.jpg">
-                        <ul class="product__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Bánh hoa hồng kem dâu tây</a></h6>
-                        <h5>450,000 VND</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/product/B003/banh1.jpg">
-                        <ul class="product__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Bánh hoa hồng nhật</a></h6>
-                        <h5>420,000 VND</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/product/B004/banh1.jpg">
-                        <ul class="product__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Bánh hoa linh lang</a></h6>
-                        <h5>250,000 VND</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/product/B005/banh1.jpg">
-                        <ul class="product__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Bánh hoa kiểu Anh sang trọng</a></h6>
-                        <h5>330,000 VND</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<%--<section class="related-product">--%>
+<%--    <div class="container">--%>
+<%--        <div class="row">--%>
+<%--            <div class="col-lg-12">--%>
+<%--                <div class="section-title related__product__title">--%>
+<%--                    <h2>Sản phẩm liên quan</h2>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        <div class="row">--%>
+<%--            <div class="col-lg-3 col-md-4 col-sm-6">--%>
+<%--                <div class="product__item">--%>
+<%--                    <div class="product__item__pic set-bg" data-setbg="img/product/B002/banh1.jpg">--%>
+<%--                        <ul class="product__item__pic__hover">--%>
+<%--                            <li><a href="#"><i class="fa fa-heart"></i></a></li>--%>
+<%--                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>--%>
+<%--                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>--%>
+<%--                        </ul>--%>
+<%--                    </div>--%>
+<%--                    <div class="product__item__text">--%>
+<%--                        <h6><a href="#">Bánh hoa hồng kem dâu tây</a></h6>--%>
+<%--                        <h5>450,000 VND</h5>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--            <div class="col-lg-3 col-md-4 col-sm-6">--%>
+<%--                <div class="product__item">--%>
+<%--                    <div class="product__item__pic set-bg" data-setbg="img/product/B003/banh1.jpg">--%>
+<%--                        <ul class="product__item__pic__hover">--%>
+<%--                            <li><a href="#"><i class="fa fa-heart"></i></a></li>--%>
+<%--                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>--%>
+<%--                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>--%>
+<%--                        </ul>--%>
+<%--                    </div>--%>
+<%--                    <div class="product__item__text">--%>
+<%--                        <h6><a href="#">Bánh hoa hồng nhật</a></h6>--%>
+<%--                        <h5>420,000 VND</h5>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--            <div class="col-lg-3 col-md-4 col-sm-6">--%>
+<%--                <div class="product__item">--%>
+<%--                    <div class="product__item__pic set-bg" data-setbg="img/product/B004/banh1.jpg">--%>
+<%--                        <ul class="product__item__pic__hover">--%>
+<%--                            <li><a href="#"><i class="fa fa-heart"></i></a></li>--%>
+<%--                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>--%>
+<%--                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>--%>
+<%--                        </ul>--%>
+<%--                    </div>--%>
+<%--                    <div class="product__item__text">--%>
+<%--                        <h6><a href="#">Bánh hoa linh lang</a></h6>--%>
+<%--                        <h5>250,000 VND</h5>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--            <div class="col-lg-3 col-md-4 col-sm-6">--%>
+<%--                <div class="product__item">--%>
+<%--                    <div class="product__item__pic set-bg" data-setbg="img/product/B005/banh1.jpg">--%>
+<%--                        <ul class="product__item__pic__hover">--%>
+<%--                            <li><a href="#"><i class="fa fa-heart"></i></a></li>--%>
+<%--                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>--%>
+<%--                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>--%>
+<%--                        </ul>--%>
+<%--                    </div>--%>
+<%--                    <div class="product__item__text">--%>
+<%--                        <h6><a href="#">Bánh hoa kiểu Anh sang trọng</a></h6>--%>
+<%--                        <h5>330,000 VND</h5>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</section>--%>
 <!-- Related Product Section End -->
 
 <!-- Footer Section End -->
@@ -271,3 +271,42 @@
 </body>
 
 </html>
+<script>
+    // Lắng nghe sự kiện khi người dùng thay đổi giá trị số lượng
+    document.getElementById("quantityInput").addEventListener("input", function () {
+        var quantity = document.getElementById("quantityInput").value;
+        // Kiểm tra giá trị số lượng hợp lệ, ví dụ chỉ chấp nhận giá trị dương
+        if (quantity <= 0) {
+            alert("Số lượng phải lớn hơn 0");
+            document.getElementById("quantityInput").value = 1; // Đặt lại số lượng mặc định nếu không hợp lệ
+        }
+    });
+
+    // Lắng nghe sự kiện khi người dùng nhấn nút "Thêm vào giỏ hàng"
+    document.getElementById("addToCartBtn").addEventListener("click", function (event) {
+        var quantity = document.getElementById("quantityInput").value;
+        var productID = "${detailProduct.id}"; // Giá trị ID sản phẩm từ server (JSP)
+
+        // Cập nhật URL với tham số quantity
+        var updatedUrl = "/AddCart?productID=" + productID + "&quantity=" + quantity;
+        window.location.href = updatedUrl; // Chuyển hướng đến URL mới
+        event.preventDefault(); // Ngừng hành động mặc định của liên kết
+    });
+    document.getElementById("addToCartBtn").addEventListener("click", function () {
+        // Lấy giá trị số lượng từ ô nhập
+        var quantity = document.getElementById("quantityInput").value;
+
+        // Kiểm tra số lượng hợp lệ (ví dụ chỉ chấp nhận số dương)
+        if (quantity <= 0) {
+            alert("Số lượng phải lớn hơn 0");
+            document.getElementById("quantityInput").value = 1; // Đặt lại số lượng mặc định nếu không hợp lệ
+        } else {
+            // Cập nhật giá trị số lượng trong form
+            document.querySelector("input[name='quantity']").value = quantity;
+
+            // Gửi form
+            document.querySelector(".test").submit();
+        }
+    });
+
+</script>

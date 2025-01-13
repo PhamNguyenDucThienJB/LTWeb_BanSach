@@ -1,6 +1,7 @@
 package vn.hcmuaf.edu.fit.model;
 
 import java.text.NumberFormat;
+import java.util.Date;
 import java.util.List;
 
 public class DetailRecipe {
@@ -13,8 +14,11 @@ public class DetailRecipe {
     private String diachigiao;
     private float totalprice;
     private int status;
+    private String tele;
+    private Date date;
 
-    public DetailRecipe(String mahd, String masp, String tensp, int solg, List<String> anhsp, int price, String diachigiao, float totalprice, int status) {
+
+    public DetailRecipe(String mahd, String masp, String tensp, int solg, List<String> anhsp, int price, String diachigiao, float totalprice, int status, String tele, Date date) {
         this.mahd = mahd;
         this.masp = masp;
         this.tensp = tensp;
@@ -24,6 +28,16 @@ public class DetailRecipe {
         this.diachigiao = diachigiao;
         this.totalprice = totalprice;
         this.status = status;
+        this.tele = tele;
+        this.date = date;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public int getToTalPrice() {
@@ -54,6 +68,14 @@ public class DetailRecipe {
 
     public void setTensp(String tensp) {
         this.tensp = tensp;
+    }
+
+    public String getTele() {
+        return tele;
+    }
+
+    public void setTele(String tele) {
+        this.tele = tele;
     }
 
     public List<String> getAnhsp() {

@@ -43,6 +43,8 @@ public class ListOrder extends HttpServlet {
                     System.out.println("Tổng giá sản phẩm: " + order.getTotalprice());
                     System.out.println("Địa chỉ giao: " + order.getDiachigiao());
                     System.out.println("Trang Thai giao: " + order.getStatus());
+                    System.out.println("Tele: " + order.getTele());
+                    System.out.println("Tele: " + order.getDate());
                 }
 
                 // Nhóm các đơn hàng theo mã đơn hàng (mahd)
@@ -55,6 +57,7 @@ public class ListOrder extends HttpServlet {
                 // Nếu không có đơn hàng nào
                 System.out.println("Không có đơn hàng nào.");
                 request.setAttribute("message", "Không có đơn hàng nào.");
+                request.getRequestDispatcher("./listOrder.jsp").forward(request, response);
             }
         } else {
             // Nếu không tìm thấy đối tượng người dùng trong session (chưa đăng nhập)

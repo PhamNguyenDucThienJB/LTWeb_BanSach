@@ -2,6 +2,7 @@ package vn.hcmuaf.edu.fit.service;
 
 import vn.hcmuaf.edu.fit.dto.DBConnection;
 import vn.hcmuaf.edu.fit.model.DetailRecipe;
+import vn.hcmuaf.edu.fit.model.DetailRecipeAdmin;
 import vn.hcmuaf.edu.fit.model.Order;
 import vn.hcmuaf.edu.fit.model.ShoppingCartItem;
 
@@ -164,6 +165,30 @@ public class OrderService {
         }
     }
 
+    public static void deleteOrder(String maHD) {
+        String sql = "DELETE FROM hoadon WHERE MAHD = ?";
+        try (Connection connection = DBConnection.getInstall().getConnectionInstance();
+             PreparedStatement pre = connection.prepareStatement(sql)) {
+
+            // Thiết lập giá trị MAHD cho câu lệnh SQL
+            pre.setString(1, maHD);
+
+            // Thực thi câu lệnh xóa
+            int rowsAffected = pre.executeUpdate();
+
+            // Kiểm tra số lượng bản ghi bị ảnh hưởng
+            if (rowsAffected > 0) {
+                System.out.println("Đơn hàng đã được xóa thành công.");
+            } else {
+                System.out.println("Không tìm thấy đơn hàng để xóa.");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Lỗi khi xóa đơn hàng.");
+        }
+    }
+
 
     public static void addAddressShip(Order order) {
         String sql = "INSERT INTO giaohang (MaHD, NGAYGIAO, DIACHIGIAO,SDT) VALUES (?, ?, ?,?)";
@@ -184,6 +209,43 @@ public class OrderService {
         order.setBuyDate(null);
     }
 
+    public static List<DetailRecipeAdmin> getListOrders() {
+        String sql = "SELECT h.MAHD, h.MAKH, COUNT(*) AS SOLG, g.DIACHIGIAO, h.THANHTIEN, " +
+                "h.TRANGTHAI, g.SDT, h.NGAYLAPHD " +
+                "FROM hoadon h " +
+                "LEFT JOIN giaohang g ON h.MAHD = g.MAHD " +
+                "GROUP BY h.MAHD, h.MAKH, g.DIACHIGIAO, h.THANHTIEN, h.TRANGTHAI, g.SDT, h.NGAYLAPHD";
+        List<DetailRecipeAdmin> orders = new ArrayList<>();
+
+        try (Connection connection = DBConnection.getInstall().getConnectionInstance();
+             PreparedStatement pre = connection.prepareStatement(sql);
+             ResultSet rs = pre.executeQuery()) {
+
+            while (rs.next()) {
+                // Tạo một đối tượng DetailRecipeAdmin mới từ dữ liệu lấy được
+                DetailRecipeAdmin order = new DetailRecipeAdmin(
+                        rs.getString("MAHD"),          // Mã hóa đơn
+                        rs.getString("MAKH"),          // Mã khách hàng
+                        rs.getInt("SOLG"),             // Số lượng
+                        rs.getString("DIACHIGIAO"),    // Địa chỉ giao
+                        rs.getFloat("THANHTIEN"),      // Tổng tiền
+                        rs.getInt("TRANGTHAI"),        // Trạng thái
+                        rs.getString("SDT"),           // Số điện thoại
+                        rs.getDate("NGAYLAPHD")        // Ngày lập hóa đơn
+                );
+
+                // Thêm vào danh sách
+                orders.add(order);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return orders;
+    }
+
+
     // Phương thức lấy danh sách đơn hàng và chi tiết sản phẩm trong đơn hàng dựa trên MAHD
     public static List<DetailRecipe> getOrderDetailsByIdUser(String idUser) {
         String sql = "SELECT \n" +
@@ -192,16 +254,20 @@ public class OrderService {
                 "    cthd.SL,\n" +
                 "    hd.TRANGTHAI,\n" +
                 "    kh.DIACHI,\n" +
+                "    gh.SDT, -- Lấy số điện thoại từ bảng giaohang\n" +
                 "    GROUP_CONCAT(DISTINCT asp.Anh SEPARATOR ', ') AS Anh,\n" +
                 "    sp.MaSP,\n" +
                 "    sp.TENSP,\n" +
-                "    sp.GIA\n" +
+                "    sp.GIA,\n" +
+                "    hd.NGAYLAPHD  -- Thêm trường ngày lập hóa đơn\n" +
                 "FROM \n" +
                 "    taikhoan tk\n" +
                 "JOIN \n" +
                 "    khachhang kh ON tk.ID = kh.MATAIKHOAN\n" +
                 "JOIN \n" +
                 "    hoadon hd ON kh.MAKH = hd.MAKH\n" +
+                "JOIN \n" +
+                "    giaohang gh ON hd.MAHD = gh.MAHD -- Thêm bảng giaohang để lấy thông tin SDT\n" +
                 "JOIN \n" +
                 "    cthd ON hd.MAHD = cthd.MAHD\n" +
                 "JOIN \n" +
@@ -211,10 +277,9 @@ public class OrderService {
                 "WHERE \n" +
                 "    tk.ID = ?\n" +
                 "GROUP BY \n" +
-                "    hd.MAHD, hd.THANHTIEN, hd.TRANGTHAI, kh.DIACHI, sp.MaSP, sp.TENSP, sp.GIA, cthd.SL\n" +
+                "    hd.MAHD, hd.THANHTIEN, hd.TRANGTHAI, kh.DIACHI, gh.SDT, sp.MaSP, sp.TENSP, sp.GIA, cthd.SL, hd.NGAYLAPHD\n" +
                 "ORDER BY \n" +
                 "    hd.MAHD DESC;\n";
-
 
         List<DetailRecipe> orderDetails = new ArrayList<>();
 
@@ -238,9 +303,10 @@ public class OrderService {
                     int price = resultSet.getInt("GIA");
                     String anhsp = resultSet.getString("Anh");
                     int status = resultSet.getInt("TRANGTHAI");
-
+                    String tele = resultSet.getString("SDT");
                     float total = resultSet.getFloat("THANHTIEN");
                     String address = resultSet.getString("DIACHI");
+                    Date date = resultSet.getDate("NGAYLAPHD");
                     // Tạo danh sách ảnh sản phẩm
                     List<String> images = new ArrayList<>();
 
@@ -255,7 +321,7 @@ public class OrderService {
                     }
 
                     // Tạo đối tượng DetailRecipe cho sản phẩm trong đơn hàng
-                    DetailRecipe detail = new DetailRecipe(maHD, masp, tensp, solg, images, price, address, total, status);
+                    DetailRecipe detail = new DetailRecipe(maHD, masp, tensp, solg, images, price, address, total, status, tele, date);
                     orderDetails.add(detail);
                 }
             } else {
@@ -287,5 +353,41 @@ public class OrderService {
         return groupedOrders;
     }
 
+    // Phương thức cập nhật trạng thái đơn hàng
+    public static boolean acceptOrder(String mahd) {
+        String sql = "UPDATE hoadon SET TRANGTHAI = 1 WHERE MAHD = ?";
 
+        try (Connection connection = DBConnection.getInstall().getConnectionInstance();
+             PreparedStatement pre = connection.prepareStatement(sql)) {
+
+            pre.setString(1, mahd);
+            int rowsAffected = pre.executeUpdate();
+
+            // Nếu có ít nhất 1 bản ghi bị thay đổi, trả về true
+            return rowsAffected > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    // Phương thức cập nhật trạng thái đơn hàng thành "Đang giao" (2)
+    public static boolean shippingOrder(String mahd) {
+        String sql = "UPDATE hoadon SET TRANGTHAI = 2 WHERE MAHD = ?";
+
+        try (Connection connection = DBConnection.getInstall().getConnectionInstance();
+             PreparedStatement pre = connection.prepareStatement(sql)) {
+
+            pre.setString(1, mahd);
+            int rowsAffected = pre.executeUpdate();
+
+            // Nếu có ít nhất 1 bản ghi bị thay đổi, trả về true
+            return rowsAffected > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

@@ -103,102 +103,44 @@
                         </div>
                     </div>
 
-                    <div class="sidebar__item">
-                        <h4>Kích thước</h4>
-                        <div class="sidebar__item__size">
-                            <label for="large">
-                                Lớn
-                                <input type="radio" id="large">
-                            </label>
-                        </div>
-                        <div class="sidebar__item__size">
-                            <label for="medium">
-                                Vừa
-                                <input type="radio" id="medium">
-                            </label>
-                        </div>
-                        <div class="sidebar__item__size">
-                            <label for="small">
-                                Nhỏ
-                                <input type="radio" id="small">
-                            </label>
-                        </div>
-                        <div class="sidebar__item__size">
-                            <label for="tiny">
-                                Bé
-                                <input type="radio" id="tiny">
-                            </label>
-                        </div>
-                    </div>
-                    <%--                    <div class="sidebar__item">--%>
-                    <%--                        <div class="latest-product__text">--%>
-                    <%--                            <h4>Top Bán Chạy</h4>--%>
-                    <%--                            <div class="latest-product__slider owl-carousel">--%>
-                    <%--                                <div class="latest-prdouct__slider__item">--%>
-                    <%--                                    <a href="#" class="latest-product__item">--%>
-                    <%--                                        <div class="latest-product__item__pic">--%>
-                    <%--                                            <img src="./img/product/B019/banh1.jpg" alt="">--%>
-                    <%--                                        </div>--%>
-                    <%--                                        <div class="latest-product__item__text">--%>
-                    <%--                                            <h6>Bánh Sinh Nhật</h6>--%>
-                    <%--                                            <span>200,000 VND</span>--%>
-                    <%--                                        </div>--%>
-                    <%--                                    </a>--%>
-                    <%--                                    <a href="#" class="latest-product__item">--%>
-                    <%--                                        <div class="latest-product__item__pic">--%>
-                    <%--                                            <img src="./img/product/B022/banh1.jpg" alt="">--%>
-                    <%--                                        </div>--%>
-                    <%--                                        <div class="latest-product__item__text">--%>
-                    <%--                                            <h6>Bánh Sinh Nhật</h6>--%>
-                    <%--                                            <span>250,000 VND</span>--%>
-                    <%--                                        </div>--%>
-                    <%--                                    </a>--%>
-                    <%--                                    <a href="#" class="latest-product__item">--%>
-                    <%--                                        <div class="latest-product__item__pic">--%>
-                    <%--                                            <img src="./img/product/B023/banh1.jpg" alt="">--%>
-                    <%--                                        </div>--%>
-                    <%--                                        <div class="latest-product__item__text">--%>
-                    <%--                                            <h6>Bánh Sinh Nhật</h6>--%>
-                    <%--                                            <span>300,000 VND</span>--%>
-                    <%--                                        </div>--%>
-                    <%--                                    </a>--%>
-                    <%--                                </div>--%>
-                    <%--                                <div class="latest-prdouct__slider__item">--%>
-                    <%--                                    <a href="#" class="latest-product__item">--%>
-                    <%--                                        <div class="latest-product__item__pic">--%>
-                    <%--                                            <img src="./img/product/B024/banh1.jpg" alt="">--%>
-                    <%--                                        </div>--%>
-                    <%--                                        <div class="latest-product__item__text">--%>
-                    <%--                                            <h6>Bánh Sinh Nhật</h6>--%>
-                    <%--                                            <span>300,000 VND</span>--%>
-                    <%--                                        </div>--%>
-                    <%--                                    </a>--%>
-                    <%--                                    <a href="#" class="latest-product__item">--%>
-                    <%--                                        <div class="latest-product__item__pic">--%>
-                    <%--                                            <img src="./img/product/B025/banh1.jpg" alt="">--%>
-                    <%--                                        </div>--%>
-                    <%--                                        <div class="latest-product__item__text">--%>
-                    <%--                                            <h6>Bánh Sinh Nhật</h6>--%>
-                    <%--                                            <span>300,000 VND</span>--%>
-                    <%--                                        </div>--%>
-                    <%--                                    </a>--%>
-                    <%--                                    <a href="#" class="latest-product__item">--%>
-                    <%--                                        <div class="latest-product__item__pic">--%>
-                    <%--                                            <img src="./img/product/B026/banh1.jpg" alt="">--%>
-                    <%--                                        </div>--%>
-                    <%--                                        <div class="latest-product__item__text">--%>
-                    <%--                                            <h6>Bánh Sinh Nhật</h6>--%>
-                    <%--                                            <span>300,000 VND</span>--%>
-                    <%--                                        </div>--%>
-                    <%--                                    </a>--%>
-                    <%--                                </div>--%>
-                    <%--                            </div>--%>
-                    <%--                        </div>--%>
-                    <%--                    </div>--%>
+
+                    <style>
+                        .notification {
+                            padding: 15px;
+                            border-radius: 5px;
+                            font-size: 16px;
+                            width: 50%; /* Or adjust the width to your preference */
+                            text-align: center; /* Center text inside the notification box */
+                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                        }
+
+                        .success {
+                            background-color: #d4edda;
+                            color: #155724;
+                        }
+
+                        .error {
+                            background-color: #f8d7da;
+                            color: #721c24;
+                        }
+                    </style>
                 </div>
             </div>
             <div class="col-lg-9 col-md-7">
+                <!-- Display message if it exists -->
+                <c:if test="${not empty sessionScope.message}">
+                    <div style="display:contents">
+                        <div class="notification
+                 ${sessionScope.message.contains('Error') ? 'error' : 'success'}">
+                                ${sessionScope.message}
+                        </div>
+                    </div>
+                    <!-- Sau khi hiển thị xong, xóa thông báo khỏi session -->
+                    <c:remove var="message" scope="session"/>
 
+                    <!-- Gọi hàm JavaScript để ẩn thông báo sau 10 giây -->
+                    <script>hideNotification();</script>
+                </c:if>
                 <div class="filter__item">
                     <div class="row">
                         <div class="col-lg-4 col-md-5">
@@ -322,3 +264,12 @@
     });
 </script>
 
+<script>
+    // Hàm để ẩn thông báo sau 10 giây
+    function hideNotification() {
+        setTimeout(function () {
+            var notification = document.getElementById("notification");
+            notification.classList.add("hidden");
+        }, 10000); // 10000ms = 10s
+    }
+</script>
