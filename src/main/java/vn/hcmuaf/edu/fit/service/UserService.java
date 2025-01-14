@@ -91,10 +91,14 @@ public class UserService {
 
     public static String hashPassword(String password) {
         try {
+//            Khởi tạo SHA-256
             MessageDigest sha256 = null;
             sha256 = MessageDigest.getInstance("SHA-256");
+//            Chuyển đổi mật khẩu thành mảng byte
             byte[] hash = sha256.digest(password.getBytes());
+//            Chuyển đổi mảng byte thành số nguyên lớn (BigInteger)
             BigInteger number = new BigInteger(1, hash);
+//            Chuyển đổi số thành chuỗi hexa
             return number.toString(16);
         } catch (NoSuchAlgorithmException e) {
             return null;
@@ -279,7 +283,19 @@ public class UserService {
         return result;
     }
 
-
+    //Phạm vi cần đạt được:
+//Chúng ta muốn tạo ra một số ngẫu nhiên trong khoảng [100000, 999999], tức là có độ rộng 899999 - 100000 = 899999.
+//
+//Nhân trước:
+//
+//Math.random() cho giá trị trong khoảng [0.0, 1.0).
+//Khi nhân với 899999, nó tạo ra một số trong khoảng [0, 899999).
+//Điều này đảm bảo rằng giá trị nằm trong khoảng độ rộng cần thiết (899999).
+//Cộng thêm 100000:
+//
+//Khi thêm 100000, toàn bộ phạm vi sẽ được dịch chuyển lên.
+//Giá trị nhỏ nhất (0) trở thành 100000.
+//Giá trị lớn nhất (899999) trở thành 999999.
     public static int randomCode() {
         return (int) Math.floor(((Math.random() * 899999) + 100000));
     }
