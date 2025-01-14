@@ -1,7 +1,7 @@
 # Member:
 
 + 20130410 Phạm Nguyễn Đức Thiện
-+ 21130481 Phạm Vĩnh Phúc
++ 21130481 Phạm Vĩnh Phúc (Bỏ, Không đi Thi )
 
 ## ProJect Website Book Store:
 
